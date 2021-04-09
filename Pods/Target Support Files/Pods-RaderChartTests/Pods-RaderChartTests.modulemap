@@ -1,0 +1,6 @@
+framework module Pods_RaderChartTests {
+  umbrella header "Pods-RaderChartTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
