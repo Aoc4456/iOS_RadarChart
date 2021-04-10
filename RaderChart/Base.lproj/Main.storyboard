@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--グループ-->
+        <!--Group List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GroupListViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,6 +20,20 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-aa-sg8">
                                 <rect key="frame" x="10" y="88" width="394" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="50e-0P-g8B">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="50e-0P-g8B" id="b0E-ge-EcK">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="jaj-nG-rXS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Y0c-Ry-pMP"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VE-xy-xbn">
                                 <rect key="frame" x="319" y="767.5" width="75" height="74"/>
@@ -45,13 +59,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sfN-aa-sg8" secondAttribute="bottom" id="iuL-wg-Quy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="グループ" id="Bp8-ti-VqG"/>
+                    <navigationItem key="navigationItem" id="Bp8-ti-VqG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
         </scene>
-        <!--グループ作成-->
+        <!--View Controller-->
         <scene sceneID="A1H-fZ-jCF">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="RJb-EA-dlH" sceneMemberID="viewController">
@@ -61,7 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="OMY-sT-XOD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="グループ作成" id="fya-JM-Gp0"/>
+                    <navigationItem key="navigationItem" id="fya-JM-Gp0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZg-Yd-wBb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
