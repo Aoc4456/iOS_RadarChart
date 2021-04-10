@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ViewController: UIViewController {
+class GroupListViewController: UIViewController {
 
     @IBOutlet weak var radarChart: RadarChartView!
     
