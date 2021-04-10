@@ -25,6 +25,9 @@
                                     <constraint firstAttribute="width" constant="75" id="reu-hT-D96"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="aAB-d1-Q7C" kind="presentation" id="5T7-s8-11Y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -39,6 +42,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
+        </scene>
+        <!--グループ作成-->
+        <scene sceneID="A1H-fZ-jCF">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="RJb-EA-dlH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pMg-4V-TU3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OMY-sT-XOD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="グループ作成" id="fya-JM-Gp0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZg-Yd-wBb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718.840579710145" y="717.85714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9X1-0f-ppQ">
@@ -57,6 +76,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jP9-Cg-aSX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Yi-8D-DAh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="aAB-d1-Q7C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xTT-bm-xJT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RJb-EA-dlH" kind="relationship" relationship="rootViewController" id="dZb-d7-G8h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3EJ-u4-7Lh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1808.6956521739132" y="717.85714285714278"/>
         </scene>
     </scenes>
     <resources>
