@@ -10,9 +10,12 @@ import UIKit
 
 class GroupListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "グループ"
+        tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
 
     // セルの数を返す
@@ -22,8 +25,8 @@ class GroupListViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     // セルを返す
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)m"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
+        cell.titleView.text = "タイトル\(indexPath)"
         return cell
     }
 }
