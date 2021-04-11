@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
         </scene>
-        <!--View Controller-->
+        <!--Group Create View Controller-->
         <scene sceneID="A1H-fZ-jCF">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="RJb-EA-dlH" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="RJb-EA-dlH" customClass="GroupCreateViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pMg-4V-TU3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
