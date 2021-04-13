@@ -9,6 +9,9 @@
 import UIKit
 
 class GroupCreateViewController: UIViewController {
+    
+    private var selectedColor = UIColor.systemTeal
+    private var colorPicker = UIColorPickerViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
