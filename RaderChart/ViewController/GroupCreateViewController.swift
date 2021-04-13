@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StepSlider
 
 class GroupCreateViewController: UIViewController {
     
