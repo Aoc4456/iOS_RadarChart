@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P1S-p4-eSA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -111,9 +110,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9a-n8-2tg" userLabel="ColorPickerView">
                                                 <rect key="frame" x="10" y="132" width="394" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="jFs-Sn-Fpk"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="nm3-UP-17X" appends="YES" id="1xI-zX-8ed"/>
+                                                </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1o-tc-bzJ" userLabel="NumberLabel">
                                                 <rect key="frame" x="10" y="192" width="394" height="21"/>
@@ -223,8 +226,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E6T-4d-5uC"/>
+                    <connections>
+                        <outlet property="colorPickerView" destination="p9a-n8-2tg" id="0Hg-bv-e7a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDa-A9-hgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nm3-UP-17X">
+                    <connections>
+                        <action selector="onTapColorPickerView:" destination="P4f-Ic-G46" id="JmY-li-b0O"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2831.8840579710145" y="736.60714285714278"/>
         </scene>
