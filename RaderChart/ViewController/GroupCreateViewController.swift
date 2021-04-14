@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import StepSlider
 
 class GroupCreateViewController: UIViewController {
     
     private var selectedColor = UIColor.systemTeal
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
+    @IBOutlet weak var stepSlider: StepSlider!
+    @IBOutlet weak var sliderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,8 @@ class GroupCreateViewController: UIViewController {
         self.navigationItem.title = "グループ作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        stepSlider.labels = ["3","4","5","6","7","8"];
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -31,6 +36,10 @@ class GroupCreateViewController: UIViewController {
         colorPicker.selectedColor = selectedColor
         colorPicker.delegate = self
         present(colorPicker, animated: true)
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: StepSlider) {
+        sliderLabel.text = (sender.index + 3).description
     }
 }
 
