@@ -4,3 +4,10 @@
 UserInterfaceState.xcuserstate
 Breakpoints_v2.xcbkptlist
 StepSlider.xcscheme
+Charts.xcscheme
+ChartsRealm.xcscheme
+Pods-RaderChart.xcscheme
+Pods-RaderChartTests.xcscheme
+Realm.xcscheme
+RealmSwift.xcscheme
+xcschememanagement.plist
