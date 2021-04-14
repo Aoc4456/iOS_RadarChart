@@ -119,12 +119,21 @@
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="項目数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1o-tc-bzJ" userLabel="NumberLabel">
-                                                <rect key="frame" x="10" y="192" width="394" height="21"/>
+                                                <rect key="frame" x="10" y="192" width="52" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="YGz-yM-Pit"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO0-bZ-P2S">
+                                                <rect key="frame" x="72" y="192" width="11" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="ZbO-ld-x9l"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview">
@@ -160,19 +169,18 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sp1-EX-TZ1" customClass="StepSlider">
                                                 <rect key="frame" x="10" y="223" width="394" height="30"/>
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="wvh-wd-Xlf"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="maxCount">
-                                                        <integer key="value" value="8"/>
+                                                        <integer key="value" value="6"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trackHeight">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="trackCircleRadius">
-                                                        <real key="value" value="2"/>
+                                                        <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="index">
                                                         <integer key="value" value="2"/>
@@ -187,6 +195,7 @@
                                         <constraints>
                                             <constraint firstItem="KHr-R8-2ul" firstAttribute="centerX" secondItem="0g5-VX-SeD" secondAttribute="centerX" constant="-13" id="051-Nz-91L"/>
                                             <constraint firstItem="qml-fH-4Nk" firstAttribute="top" secondItem="Sp1-EX-TZ1" secondAttribute="bottom" constant="10" id="0ZX-ZC-cBc"/>
+                                            <constraint firstItem="FO0-bZ-P2S" firstAttribute="leading" secondItem="C1o-tc-bzJ" secondAttribute="trailing" constant="10" id="1Le-dy-fHP"/>
                                             <constraint firstAttribute="trailing" secondItem="zR4-eV-zEJ" secondAttribute="trailing" constant="10" id="40H-6m-d2w"/>
                                             <constraint firstAttribute="trailing" secondItem="2ZT-Ri-E9k" secondAttribute="trailing" constant="10" id="5bP-Kd-lII"/>
                                             <constraint firstItem="zR4-eV-zEJ" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="7Lk-26-ZV1"/>
@@ -200,7 +209,6 @@
                                             <constraint firstItem="p9a-n8-2tg" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="LcW-Nm-fdj"/>
                                             <constraint firstItem="Sp1-EX-TZ1" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="N3c-Bo-DAf"/>
                                             <constraint firstAttribute="trailing" secondItem="Sp1-EX-TZ1" secondAttribute="trailing" constant="10" id="Nlt-II-UNS"/>
-                                            <constraint firstAttribute="trailing" secondItem="C1o-tc-bzJ" secondAttribute="trailing" constant="10" id="Nv1-SV-30G"/>
                                             <constraint firstAttribute="trailing" secondItem="p9a-n8-2tg" secondAttribute="trailing" constant="10" id="RP1-Py-tnD"/>
                                             <constraint firstAttribute="trailing" secondItem="zR4-eV-zEJ" secondAttribute="trailing" constant="10" id="SmU-HY-DiO"/>
                                             <constraint firstItem="C1o-tc-bzJ" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="WrC-Vn-jme"/>
@@ -221,6 +229,7 @@
                                             <constraint firstAttribute="trailing" secondItem="ig8-U9-PdY" secondAttribute="trailing" constant="10" id="vY7-91-gTF"/>
                                             <constraint firstItem="2ZT-Ri-E9k" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="yfI-4h-sDK"/>
                                             <constraint firstItem="Sp1-EX-TZ1" firstAttribute="top" secondItem="C1o-tc-bzJ" secondAttribute="bottom" constant="10" id="z3B-K8-bG1"/>
+                                            <constraint firstItem="FO0-bZ-P2S" firstAttribute="top" secondItem="p9a-n8-2tg" secondAttribute="bottom" constant="10" id="zKd-Bh-tQq"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -293,11 +302,13 @@
             <point key="canvasLocation" x="1921.7391304347827" y="736.60714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Sp1-EX-TZ1">
+            <size key="intrinsicContentSize" width="394" height="44"/>
+        </designable>
+    </designables>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
