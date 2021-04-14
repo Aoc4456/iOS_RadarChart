@@ -7,24 +7,49 @@
 //
 
 import UIKit
+import Charts
 
 class TestPageViewController: UIViewController {
 
+    @IBOutlet weak var raderChart: RadarChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "テスト用ページ"
-        // Do any additional setup after loading the view.
+        setupChart()
     }
     
+    private func setupChart(){
+        // 1
+        let greenDataSet = RadarChartDataSet(
+            entries: [
+                RadarChartDataEntry(value: 210),
+                RadarChartDataEntry(value: 60.0),
+                RadarChartDataEntry(value: 150.0),
+                RadarChartDataEntry(value: 150.0),
+                RadarChartDataEntry(value: 160.0),
+                RadarChartDataEntry(value: 150.0),
+                RadarChartDataEntry(value: 110.0),
+                RadarChartDataEntry(value: 190.0),
+                RadarChartDataEntry(value: 200.0)
+            ]
+        )
+        let redDataSet = RadarChartDataSet(
+            entries: [
+                RadarChartDataEntry(value: 120.0),
+                RadarChartDataEntry(value: 160.0),
+                RadarChartDataEntry(value: 110.0),
+                RadarChartDataEntry(value: 110.0),
+                RadarChartDataEntry(value: 210.0),
+                RadarChartDataEntry(value: 120.0),
+                RadarChartDataEntry(value: 210.0),
+                RadarChartDataEntry(value: 100.0),
+                RadarChartDataEntry(value: 210.0)
+            ]
+        )
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // 2
+        let data = RadarChartData(dataSets: [greenDataSet, redDataSet])
+        raderChart.data = data
     }
-    */
-
 }
