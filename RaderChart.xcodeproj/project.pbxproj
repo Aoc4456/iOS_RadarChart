@@ -18,6 +18,7 @@
 		922FCDED26201C5300569E94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDEC26201C5300569E94 /* Assets.xcassets */; };
 		922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDEE26201C5300569E94 /* LaunchScreen.storyboard */; };
 		922FCDFB26201C5300569E94 /* RaderChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDFA26201C5300569E94 /* RaderChartTests.swift */; };
+		92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE68482626DE5200D255ED /* TestPageViewController.swift */; };
 		EBA3EE471B05B9AC2235839A /* Pods_RaderChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		922FCDF626201C5300569E94 /* RaderChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaderChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDFA26201C5300569E94 /* RaderChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaderChartTests.swift; sourceTree = "<group>"; };
 		922FCDFC26201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92DE68482626DE5200D255ED /* TestPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
 		A151A2E10EF1C1FB6C48BC81 /* Pods-RaderChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChart.debug.xcconfig"; path = "Target Support Files/Pods-RaderChart/Pods-RaderChart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 			children = (
 				922FCDE726201C5200569E94 /* GroupListViewController.swift */,
 				5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */,
+				92DE68482626DE5200D255ED /* TestPageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
+				92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */,
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
 				5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */,
 			);
