@@ -320,19 +320,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWt-Fh-KRf" customClass="RadarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="298" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="2d7-RI-Dde"/>
+                                    <constraint firstAttribute="height" constant="500" id="2d7-RI-Dde" userLabel="height = 250"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9ku-Tc-gJQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="centerY" secondItem="cMW-CE-4Sh" secondAttribute="centerY" id="BX8-vv-Dt3"/>
-                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="width" secondItem="9ku-Tc-gJQ" secondAttribute="width" id="bFf-DV-00U"/>
-                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="centerX" secondItem="cMW-CE-4Sh" secondAttribute="centerX" id="jw3-7A-5kD"/>
+                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="width" secondItem="9ku-Tc-gJQ" secondAttribute="width" id="6zw-MR-tiy"/>
+                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="centerX" secondItem="cMW-CE-4Sh" secondAttribute="centerX" id="hFa-GM-4ZZ"/>
+                            <constraint firstItem="YWt-Fh-KRf" firstAttribute="centerY" secondItem="cMW-CE-4Sh" secondAttribute="centerY" id="xbC-kU-AZX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="REI-aq-5E0"/>
@@ -342,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpk-FB-NFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="834"/>
+            <point key="canvasLocation" x="437.68115942028987" y="833.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XBf-OE-pfL">
