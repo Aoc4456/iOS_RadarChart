@@ -10,9 +10,10 @@ import UIKit
 import StepSlider
 import Charts
 
-class GroupCreateViewController: UIViewController {
+class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
     
-    private var selectedColor = UIColor.systemTeal
+    private var presenter:GroupCreatePresenterInput!
+    
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
@@ -21,12 +22,18 @@ class GroupCreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup presenter
+        self.presenter = GroupCreatePresenter(view: self)
+        
         // setup navigation item
         self.navigationItem.title = "グループ作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
         
-        stepSlider.labels = ["3","4","5","6","7","8"];
+        // setupSlider
+        stepSlider.labels = presenter.sliderLabel;
+        
+        presenter.viewDidLoad()
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -35,21 +42,35 @@ class GroupCreateViewController: UIViewController {
     
     @IBAction func onTapColorPickerView(_ sender: Any) {
         colorPicker.supportsAlpha = true // あとでfalseにして何が違うか確認する
-        colorPicker.selectedColor = selectedColor
+        colorPicker.selectedColor = presenter.selectedColor
         colorPicker.delegate = self
         present(colorPicker, animated: true)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
-        sliderLabel.text = (sender.index + 3).description
+        presenter.didSliderValueChanged(index: Int(sender.index))
+    }
+    
+    // presenter delegate
+    func updateNumberOfItemsLabel(num: Int) {
+        sliderLabel.text = num.description
+    }
+    
+    // presenter delegate
+    func updateColor(color: UIColor) {
+        colorPickerView.backgroundColor = color
+    }
+    
+    // presenter delegate
+    func updateChart(){
+        
     }
 }
 
 // カラーピッカーdelegate
 extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-        selectedColor = viewController.selectedColor
-        colorPickerView.backgroundColor = selectedColor
+        presenter.didSelectColor(color: viewController.selectedColor)
     }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
