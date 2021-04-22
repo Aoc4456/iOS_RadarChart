@@ -150,7 +150,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="RadarChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="GroupCreateSampleChart" customModule="RaderChart" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="283" width="394" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>

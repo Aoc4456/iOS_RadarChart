@@ -18,7 +18,7 @@ class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
-    @IBOutlet weak var raderChart: RadarChartView!
+    @IBOutlet weak var raderChart: GroupCreateSampleChart!
     
     override func viewDidLoad() {
         super.viewDidLoad()
