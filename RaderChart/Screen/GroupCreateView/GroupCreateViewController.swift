@@ -62,8 +62,8 @@ class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
     }
     
     // presenter delegate
-    func updateChart(){
-        
+    func updateSampleChart() {
+        raderChart.data = RadarChartData(dataSet: presenter.chartData)
     }
 }
 
