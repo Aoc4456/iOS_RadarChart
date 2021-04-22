@@ -8,6 +8,7 @@
 
 import UIKit
 import StepSlider
+import Charts
 
 class GroupCreateViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class GroupCreateViewController: UIViewController {
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet weak var raderChart: RadarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
