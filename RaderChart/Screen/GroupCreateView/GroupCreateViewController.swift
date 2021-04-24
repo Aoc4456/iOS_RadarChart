@@ -10,7 +10,7 @@ import UIKit
 import StepSlider
 import Charts
 
-class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
+class GroupCreateViewController: UIViewController{
     
     private var presenter:GroupCreatePresenterInput!
     
@@ -50,18 +50,20 @@ class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
+}
+
+// Presenterから呼び出されるインターフェース
+// 描画指示を受けてUIを更新する
+extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
-    // presenter delegate
     func updateNumberOfItemsLabel(num: Int) {
         sliderLabel.text = num.description
     }
     
-    // presenter delegate
     func updateColor(color: UIColor) {
         colorPickerView.backgroundColor = color
     }
     
-    // presenter delegate
     func updateSampleChart() {
         raderChart.data = RadarChartData(dataSet: presenter.chartData)
     }
