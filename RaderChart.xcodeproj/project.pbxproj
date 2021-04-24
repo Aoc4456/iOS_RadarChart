@@ -13,6 +13,7 @@
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */; };
+		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
 		922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE326201C5200569E94 /* AppDelegate.swift */; };
 		922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE526201C5200569E94 /* SceneDelegate.swift */; };
 		922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE726201C5200569E94 /* GroupListViewController.swift */; };
@@ -45,6 +46,7 @@
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
+		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
 		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE326201C5200569E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922FCDE526201C5200569E94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 			path = GroupCreateView;
 			sourceTree = "<group>";
 		};
+		5EEB5C042634053F002DA73C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5EEB5C052634056D002DA73C /* ChartUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		922FCDD726201C5200569E94 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 		922FCDE226201C5200569E94 /* RaderChart */ = {
 			isa = PBXGroup;
 			children = (
+				5EEB5C042634053F002DA73C /* Util */,
 				5E4A0B152622C8710058A46B /* Screen */,
 				5EB3B8C22621C222000D9415 /* Component */,
 				922FCDE326201C5200569E94 /* AppDelegate.swift */,
@@ -359,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
+				5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,

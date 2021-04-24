@@ -10,7 +10,7 @@ import UIKit
 import StepSlider
 import Charts
 
-class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
+class GroupCreateViewController: UIViewController{
     
     private var presenter:GroupCreatePresenterInput!
     
@@ -32,6 +32,7 @@ class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
         
         // setupSlider
         stepSlider.labels = presenter.sliderLabel;
+        stepSlider.index = UInt(presenter.numberOfItems - 3)
         
         presenter.viewDidLoad()
     }
@@ -50,29 +51,39 @@ class GroupCreateViewController: UIViewController,GroupCreaterPresenterOutput {
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
+}
+
+// Presenterから呼び出されるインターフェース
+// 描画指示を受けてUIを更新する
+extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
-    // presenter delegate
     func updateNumberOfItemsLabel(num: Int) {
         sliderLabel.text = num.description
     }
     
-    // presenter delegate
     func updateColor(color: UIColor) {
         colorPickerView.backgroundColor = color
+        stepSlider.tintColor = color
+        stepSlider.sliderCircleColor = color
     }
     
-    // presenter delegate
-    func updateSampleChart() {
-        raderChart.data = RadarChartData(dataSet: presenter.chartData)
+    func setChartDataSource() {
+        raderChart.data = presenter.chartData
+        notifyChartDataChanged()
+    }
+    
+    func notifyChartDataChanged() {
+        raderChart.data?.notifyDataChanged()
+        raderChart.notifyDataSetChanged()
     }
 }
 
 // カラーピッカーdelegate
 extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-        presenter.didSelectColor(color: viewController.selectedColor)
     }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        presenter.didSelectColor(color: viewController.selectedColor)
     }
 }
