@@ -26,12 +26,11 @@ class GroupCreateSampleChart:RadarChartView{
         highlightPerTapEnabled = false
         
         let xAxis = self.xAxis
-        xAxis.xOffset = 20
-        xAxis.yOffset = 20
+//        xAxis.xOffset = 20
+//        xAxis.yOffset = 20
+        xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
         
         let yAxis = self.yAxis
-        yAxis.xOffset = 20
-        yAxis.yOffset = 20
         //分割数
         yAxis.labelCount = 5
         yAxis.drawLabelsEnabled = false

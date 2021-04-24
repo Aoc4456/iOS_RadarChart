@@ -102,8 +102,8 @@
 		5EB3B8C22621C222000D9415 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 				5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */,
+				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
