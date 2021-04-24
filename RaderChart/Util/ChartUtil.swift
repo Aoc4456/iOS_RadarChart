@@ -20,7 +20,7 @@ class MyChartUtil{
         var radarChartDataEntrySet:[RadarChartDataEntry] = []
         
         for _ in 0..<numberOfItems {
-            radarChartDataEntrySet.append(RadarChartDataEntry(value: 200))
+            radarChartDataEntrySet.append(RadarChartDataEntry(value: 60))
         }
         
         let raderChartDataSet = RadarChartDataSet(entries: radarChartDataEntrySet)

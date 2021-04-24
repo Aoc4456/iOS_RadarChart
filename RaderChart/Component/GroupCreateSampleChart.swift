@@ -33,7 +33,12 @@ class GroupCreateSampleChart:RadarChartView{
         
         let yAxis = self.yAxis
         //分割数
-        yAxis.labelCount = 5
+        yAxis.setLabelCount(6, force: true)
         yAxis.drawLabelsEnabled = false
+        yAxis.axisMinimum = 0
+        yAxis.axisMaximum = 100
+        yAxis.axisRange = 100
+        yAxis.spaceMax = 0
+        yAxis.spaceMin = 0
     }
 }
