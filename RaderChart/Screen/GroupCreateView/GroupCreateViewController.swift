@@ -32,6 +32,7 @@ class GroupCreateViewController: UIViewController{
         
         // setupSlider
         stepSlider.labels = presenter.sliderLabel;
+        stepSlider.index = UInt(presenter.numberOfItems - 3)
         
         presenter.viewDidLoad()
     }
@@ -62,19 +63,27 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
     func updateColor(color: UIColor) {
         colorPickerView.backgroundColor = color
+        stepSlider.tintColor = color
+        stepSlider.sliderCircleColor = color
     }
     
-    func updateSampleChart() {
-        raderChart.data = RadarChartData(dataSet: presenter.chartData)
+    func setChartDataSource() {
+        raderChart.data = presenter.chartData
+        notifyChartDataChanged()
+    }
+    
+    func notifyChartDataChanged() {
+        raderChart.data?.notifyDataChanged()
+        raderChart.notifyDataSetChanged()
     }
 }
 
 // カラーピッカーdelegate
 extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
-        presenter.didSelectColor(color: viewController.selectedColor)
     }
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        presenter.didSelectColor(color: viewController.selectedColor)
     }
 }

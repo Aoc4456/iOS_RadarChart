@@ -29,6 +29,7 @@ class GroupCreateSampleChart:RadarChartView{
 //        xAxis.xOffset = 20
 //        xAxis.yOffset = 20
         xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
+        xAxis.valueFormatter = XAxisFormatter()
         
         let yAxis = self.yAxis
         //分割数
