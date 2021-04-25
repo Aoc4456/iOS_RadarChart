@@ -20,6 +20,7 @@ class GroupCreateViewController: UIViewController{
     @IBOutlet weak var sliderLabel: UILabel!
     @IBOutlet weak var raderChart: GroupCreateSampleChart!
     @IBOutlet weak var multiEditTextField: MultiEditText!
+    @IBOutlet weak var axisMaximumField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,12 @@ class GroupCreateViewController: UIViewController{
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
         
-        // setupSlider
+        // setup Slider
         stepSlider.labels = presenter.sliderLabel;
         stepSlider.index = UInt(presenter.numberOfItems - 3)
+        
+        // setup axisMaximum
+        axisMaximumField.text = presenter.axisMaximum.description
         
         presenter.viewDidLoad()
     }
@@ -69,11 +73,13 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         stepSlider.sliderCircleColor = color
     }
     
+    // 最初に一度だけ呼び出す
     func setChartDataSource() {
         raderChart.data = presenter.chartData
         notifyChartDataChanged()
     }
     
+    // チャートに関連するデータが変更されたときに呼ばれる
     func notifyChartDataChanged() {
         raderChart.data?.notifyDataChanged()
         raderChart.notifyDataSetChanged()

@@ -17,6 +17,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
+    var axisMaximum: Int = 100
     
     init(view:GroupCreaterPresenterOutput) {
         self.view = view
@@ -57,6 +58,7 @@ protocol GroupCreatePresenterInput {
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
+    var axisMaximum:Int{get set}
     func viewDidLoad()
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)

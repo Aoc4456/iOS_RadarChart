@@ -300,6 +300,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="E6T-4d-5uC"/>
                     <connections>
+                        <outlet property="axisMaximumField" destination="2ZT-Ri-E9k" id="PUG-ny-jyS"/>
                         <outlet property="colorPickerView" destination="p9a-n8-2tg" id="0Hg-bv-e7a"/>
                         <outlet property="multiEditTextField" destination="M0s-dp-apB" id="b2f-EC-SzU"/>
                         <outlet property="raderChart" destination="qml-fH-4Nk" id="e8I-zW-r3y"/>
