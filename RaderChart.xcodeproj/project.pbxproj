@@ -14,6 +14,7 @@
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */; };
 		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
+		5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C162634479D002DA73C /* MultiEditText.swift */; };
 		922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE326201C5200569E94 /* AppDelegate.swift */; };
 		922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE526201C5200569E94 /* SceneDelegate.swift */; };
 		922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE726201C5200569E94 /* GroupListViewController.swift */; };
@@ -47,6 +48,7 @@
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
+		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
 		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE326201C5200569E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922FCDE526201C5200569E94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */,
+				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
 				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 			);
 			path = Component;
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
 				5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
