@@ -10,6 +10,9 @@ import UIKit
 
 class MultiEditText: UIStackView {
     
+    private var numberOfItems = 3
+    private var textFieldArray:[UITextField] = []
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -18,24 +21,44 @@ class MultiEditText: UIStackView {
         self.distribution = .fillEqually
         self.spacing = 10
         
-        let textview1 = UITextField()
-        textview1.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textview1.borderStyle = .roundedRect
-        self.addArrangedSubview(textview1)
-        
-        let textView2 = UITextField()
-        textView2.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textView2.borderStyle = .roundedRect
-        self.addArrangedSubview(textView2)
-        
-        let textView3 = UITextField()
-        textView3.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textView3.borderStyle = .roundedRect
-        self.addArrangedSubview(textView3)
-        
-        let textView4 = UITextField()
-        textView4.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textView4.borderStyle = .roundedRect
-        self.addArrangedSubview(textView4)
+        for i in 0..<numberOfItems {
+            let textField = UITextField()
+            textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            textField.borderStyle = .roundedRect
+            textField.placeholder = "項目名\(i)"
+            textFieldArray.append(textField)
+            self.addArrangedSubview(textField)
+        }
+    }
+    
+    func changeNumberOfItems(newNum:Int){
+        let difference = abs(numberOfItems - newNum)
+        if(numberOfItems < newNum ){ // 項目が増加
+            appendItems(num: difference)
+        }else if(numberOfItems > newNum){ // 項目が減少
+            removeItems(num: difference)
+        }
+        numberOfItems = newNum
+    }
+    
+    private func appendItems(num:Int){
+        let currentNumber = numberOfItems
+        for i in currentNumber..<(currentNumber + num){
+            let textField = UITextField()
+            textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            textField.borderStyle = .roundedRect
+            textField.placeholder = "項目名\(i)"
+            textFieldArray.append(textField)
+            self.addArrangedSubview(textField)
+        }
+    }
+    
+    private func removeItems(num:Int){
+        for _ in 0..<num{
+            let textField = textFieldArray.last!
+            removeArrangedSubview(textField)
+            textField.removeFromSuperview()
+            textFieldArray.removeLast()
+        }
     }
 }
