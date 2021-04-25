@@ -39,6 +39,9 @@ class GroupCreateViewController: UIViewController{
         // setup axisMaximum
         axisMaximumField.text = presenter.axisMaximum.description
         
+        // setup MultiEditText
+        multiEditTextField.setViewController(viewController: self)
+        
         presenter.viewDidLoad()
     }
     
