@@ -10,7 +10,7 @@ import UIKit
 
 class MultiEditText: UIStackView {
     
-    private var numberOfItems = 3
+    private var numberOfItems = 5
     private var textFieldArray:[UITextField] = []
     
     required init(coder: NSCoder) {
@@ -25,7 +25,7 @@ class MultiEditText: UIStackView {
             let textField = UITextField()
             textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
             textField.borderStyle = .roundedRect
-            textField.placeholder = "項目名\(i)"
+            textField.placeholder = "項目名\(i+1)"
             textFieldArray.append(textField)
             self.addArrangedSubview(textField)
         }
@@ -47,7 +47,7 @@ class MultiEditText: UIStackView {
             let textField = UITextField()
             textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
             textField.borderStyle = .roundedRect
-            textField.placeholder = "項目名\(i)"
+            textField.placeholder = "項目名\(i+1)"
             textFieldArray.append(textField)
             self.addArrangedSubview(textField)
         }

@@ -19,6 +19,7 @@ class GroupCreateViewController: UIViewController{
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
     @IBOutlet weak var raderChart: GroupCreateSampleChart!
+    @IBOutlet weak var multiEditTextField: MultiEditText!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +58,9 @@ class GroupCreateViewController: UIViewController{
 // 描画指示を受けてUIを更新する
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
-    func updateNumberOfItemsLabel(num: Int) {
+    func updateNumberOfItems(num: Int) {
         sliderLabel.text = num.description
+        multiEditTextField.changeNumberOfItems(newNum: num)
     }
     
     func updateColor(color: UIColor) {
