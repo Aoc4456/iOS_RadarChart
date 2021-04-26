@@ -304,6 +304,7 @@
                         <outlet property="colorPickerView" destination="p9a-n8-2tg" id="0Hg-bv-e7a"/>
                         <outlet property="multiEditTextField" destination="M0s-dp-apB" id="b2f-EC-SzU"/>
                         <outlet property="raderChart" destination="qml-fH-4Nk" id="e8I-zW-r3y"/>
+                        <outlet property="scrollView" destination="5jp-Na-0Ev" id="7K3-uC-jD7"/>
                         <outlet property="sliderLabel" destination="FO0-bZ-P2S" id="c5v-Tu-AKz"/>
                         <outlet property="stepSlider" destination="Sp1-EX-TZ1" id="KGk-3G-Kx0"/>
                     </connections>
@@ -387,6 +388,11 @@
             <point key="canvasLocation" x="1921.7391304347827" y="736.60714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Sp1-EX-TZ1">
+            <size key="intrinsicContentSize" width="394" height="44"/>
+        </designable>
+    </designables>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
