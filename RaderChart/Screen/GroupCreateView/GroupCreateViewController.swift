@@ -10,9 +10,9 @@ import UIKit
 import StepSlider
 import Charts
 
-class GroupCreateViewController: UIViewController{
-    
+class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     private var presenter:GroupCreatePresenterInput!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
@@ -21,6 +21,7 @@ class GroupCreateViewController: UIViewController{
     @IBOutlet weak var raderChart: GroupCreateSampleChart!
     @IBOutlet weak var multiEditTextField: MultiEditText!
     @IBOutlet weak var axisMaximumField: UITextField!
+    var activeField: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class GroupCreateViewController: UIViewController{
         // setup MultiEditText
         multiEditTextField.setViewController(viewController: self)
         
-        // observe keyboard
+        // setup TextField keyboard observer
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(GroupCreateViewController.keyboardWillShow),
@@ -72,22 +73,30 @@ class GroupCreateViewController: UIViewController{
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
     
-    // TextFieldにフォーカスされたとき、キーボードでTextFieldが隠れないようにする
+    // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
         guard let userInfo = notification.userInfo else {return}
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardFrame = keyboardSize.cgRectValue
         
-        // 取得したサイズをもとにビューを調節
-        if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= keyboardFrame.height
+        // 枠のサイズを取得
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect = self.view.frame
+        aRect.size.height -= keyboardFrame.height
+        if(activeField != nil){
+            if(!aRect.contains(activeField!.frame.origin)){
+                scrollView.scrollRectToVisible(activeField!.frame, animated: true)
+            }
         }
     }
     @objc func keyboardWillHide(notification:NSNotification){
-        if self.view.frame.origin.y != 0{
-            self.view.frame.origin.y = 0
-        }
+        let contentInstes = UIEdgeInsets.zero
+        scrollView.contentInset = contentInstes
+        scrollView.scrollIndicatorInsets = contentInstes
     }
 }
 

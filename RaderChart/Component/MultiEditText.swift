@@ -10,7 +10,7 @@ import UIKit
 
 class MultiEditText: UIStackView,UITextFieldDelegate {
     
-    private var viewController:UIViewController?
+    private var viewController:MultiEditTextOutput?
     private var numberOfItems = 5
     private var textFieldArray:[UITextField] = []
     private var textValueArray:[String] = []
@@ -31,7 +31,7 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         }
     }
     
-    func setViewController(viewController:UIViewController){
+    func setViewController(viewController:MultiEditTextOutput){
         self.viewController = viewController
     }
     
@@ -89,4 +89,18 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    // delegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        viewController?.activeField = textField
+    }
+    
+    // delegate
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewController?.activeField = nil
+    }
+}
+
+protocol MultiEditTextOutput{
+    var activeField:UIView?{set get}
 }
