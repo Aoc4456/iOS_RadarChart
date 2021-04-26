@@ -50,6 +50,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         chartData.addDataSet(MyChartUtil.getSampleChartDataSet(color: selectedColor, numberOfItems: numberOfItems))
         view.notifyChartDataChanged()
     }
+    
+    func onTapSaveButton() {
+        onChangeChartData()
+    }
 }
 
 // GroupCreatePresenterが実装するプロトコル
@@ -64,6 +68,7 @@ protocol GroupCreatePresenterInput {
     func viewDidLoad()
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
+    func onTapSaveButton()
 }
 
 // GroupCreateViewControllerが実装するプロトコル

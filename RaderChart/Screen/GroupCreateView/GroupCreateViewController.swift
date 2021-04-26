@@ -73,6 +73,12 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
     
+    @IBAction func onTapSaveButton(_ sender: Any) {
+        // TODO ChartのフォーマッターにsetLabel([String]) してから radarChrat.notifyDataSetChanged で　ラベルが更新できる
+        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+        presenter.onTapSaveButton()
+    }
+    
     // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
