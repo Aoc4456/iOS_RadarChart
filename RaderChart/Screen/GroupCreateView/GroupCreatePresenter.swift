@@ -18,6 +18,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
     var axisMaximum: Int = 100
+    var chartLabels: [String] = ["項目名1","項目名2","項目名3","項目名4","項目名5","項目名6","項目名7","項目名8"]
     
     init(view:GroupCreaterPresenterOutput) {
         self.view = view
@@ -55,6 +56,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupCreatePresenterInput {
     var chartData:RadarChartData{get}
+    var chartLabels:[String]{get}
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
