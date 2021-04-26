@@ -42,6 +42,18 @@ class GroupCreateViewController: UIViewController{
         // setup MultiEditText
         multiEditTextField.setViewController(viewController: self)
         
+        // observe keyboard
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(GroupCreateViewController.keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(GroupCreateViewController.keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+        
         presenter.viewDidLoad()
     }
     
@@ -58,6 +70,24 @@ class GroupCreateViewController: UIViewController{
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
         presenter.didSliderValueChanged(index: Int(sender.index))
+    }
+    
+    // TextFieldにフォーカスされたとき、キーボードでTextFieldが隠れないようにする
+    @objc func keyboardWillShow(notification:NSNotification){
+        // キーボードのサイズを取得
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // 取得したサイズをもとにビューを調節
+        if self.view.frame.origin.y == 0{
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    @objc func keyboardWillHide(notification:NSNotification){
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y = 0
+        }
     }
 }
 

@@ -387,6 +387,11 @@
             <point key="canvasLocation" x="1921.7391304347827" y="736.60714285714278"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Sp1-EX-TZ1">
+            <size key="intrinsicContentSize" width="394" height="44"/>
+        </designable>
+    </designables>
     <resources>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
