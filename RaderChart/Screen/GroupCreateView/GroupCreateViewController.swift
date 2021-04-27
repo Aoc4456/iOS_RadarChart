@@ -14,6 +14,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     private var presenter:GroupCreatePresenterInput!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var titleTextField: UITextField!
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
@@ -32,6 +33,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         self.navigationItem.title = "グループ作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        // setup Title Field
+        titleTextField.delegate = self
         
         // setup Slider
         stepSlider.labels = presenter.sliderLabel;
@@ -75,12 +79,10 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     
     // delegate multi text field
     func textFieldDidEndEditing(index:Int,text:String){
-        presenter.textFieldDidEndEditing(index: index, text: text)
+        presenter.labelTextFieldDidEndEditing(index: index, text: text)
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
-        // TODO ChartのフォーマッターにsetLabel([String]) してから radarChrat.notifyDataSetChanged で　ラベルが更新できる
-        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         presenter.onTapSaveButton()
     }
     
@@ -143,6 +145,20 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         print(presenter.chartLabels)
         (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         raderChart.notifyDataSetChanged()
+    }
+    
+    // バリデーションで不正があったとき
+    func showValidateDialog(text: String) {
+        let dialog = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(dialog, animated: true, completion: nil)
+    }
+}
+
+// タイトルTextFieldDelegate
+extension GroupCreateViewController: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        presenter.titleTextFieldDidEndEditing(text: textField.text ?? "")
     }
 }
 

@@ -14,6 +14,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
     var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
+    private var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
@@ -51,13 +52,43 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         view.notifyChartDataChanged()
     }
     
-    func textFieldDidEndEditing(index: Int, text: String) {
+    func titleTextFieldDidEndEditing(text: String) {
+        title = text
+    }
+    
+    func labelTextFieldDidEndEditing(index: Int, text: String) {
         chartLabels[index] = text
         view.onUpdateChartLabel()
     }
     
     func onTapSaveButton() {
-        onChangeChartData()
+        let message = validateData()
+        if(message != ""){
+            view.showValidateDialog(text: message)
+        }
+        
+        // データベースへの書き込み
+        
+        
+        // 画面を閉じる
+        
+        
+    }
+    
+    // 問題なければ空文字を、データに不正があればエラーメッセージを返す
+    private func validateData() -> String{
+        if(title == ""){
+            return "タイトルが未入力です"
+        }
+        if(axisMaximum == 0){
+            return "グラフの最大値が不正です"
+        }
+        for i in 0..<chartLabels.count{
+            if(chartLabels[i] == ""){
+                return "項目名が空です"
+            }
+        }
+        return ""
     }
 }
 
@@ -73,7 +104,8 @@ protocol GroupCreatePresenterInput {
     func viewDidLoad()
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
-    func textFieldDidEndEditing(index:Int,text:String)
+    func titleTextFieldDidEndEditing(text:String)
+    func labelTextFieldDidEndEditing(index:Int,text:String)
     func onTapSaveButton()
 }
 
@@ -85,4 +117,5 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func setChartDataSource()
     func notifyChartDataChanged()
     func onUpdateChartLabel()
+    func showValidateDialog(text:String)
 }
