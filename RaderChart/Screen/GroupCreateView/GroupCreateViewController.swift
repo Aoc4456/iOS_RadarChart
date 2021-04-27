@@ -57,6 +57,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         multiEditTextField.setViewController(viewController: self)
         
         // setup TextField keyboard observer
+        // キーボードでTextFieldが隠れないようにするため
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(GroupCreateViewController.keyboardWillShow),
