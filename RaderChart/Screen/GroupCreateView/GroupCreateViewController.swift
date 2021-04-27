@@ -29,6 +29,8 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
         // setup presenter
         self.presenter = GroupCreatePresenter(view: self)
         

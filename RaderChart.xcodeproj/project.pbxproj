@@ -12,6 +12,7 @@
 		5E586FB0263198B50012DDA9 /* GroupCreateSampleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
+		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
 		5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */; };
 		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
 		5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C162634479D002DA73C /* MultiEditText.swift */; };
@@ -46,6 +47,7 @@
 		5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateSampleChart.swift; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
+		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				5ED5FC4F263179130082D7B7 /* GroupListView */,
 				5ED5FC50263179210082D7B7 /* GroupCreateView */,
 				92DE68482626DE5200D255ED /* TestPageViewController.swift */,
+				5ED38B5926382CB500393205 /* CommonExtension.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
+				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,
 				5E586FB0263198B50012DDA9 /* GroupCreateSampleChart.swift in Sources */,
 				92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */,
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
