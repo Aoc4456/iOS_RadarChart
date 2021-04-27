@@ -73,6 +73,11 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
     
+    // delegate multi text field
+    func textFieldDidEndEditing(index:Int,text:String){
+        presenter.textFieldDidEndEditing(index: index, text: text)
+    }
+    
     @IBAction func onTapSaveButton(_ sender: Any) {
         // TODO ChartのフォーマッターにsetLabel([String]) してから radarChrat.notifyDataSetChanged で　ラベルが更新できる
         (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
@@ -130,6 +135,13 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     // チャートに関連するデータが変更されたときに呼ばれる
     func notifyChartDataChanged() {
         raderChart.data?.notifyDataChanged()
+        raderChart.notifyDataSetChanged()
+    }
+    
+    // チャートのラベルが変更されるとき
+    func onUpdateChartLabel() {
+        print(presenter.chartLabels)
+        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         raderChart.notifyDataSetChanged()
     }
 }

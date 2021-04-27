@@ -18,7 +18,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
     var axisMaximum: Int = 100
-    var chartLabels: [String] = ["項目名1","項目名2","項目名3","項目名4","項目名5","項目名6","項目名7","項目名8"]
+    var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
     
     init(view:GroupCreaterPresenterOutput) {
         self.view = view
@@ -51,6 +51,11 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         view.notifyChartDataChanged()
     }
     
+    func textFieldDidEndEditing(index: Int, text: String) {
+        chartLabels[index] = text
+        view.onUpdateChartLabel()
+    }
+    
     func onTapSaveButton() {
         onChangeChartData()
     }
@@ -68,6 +73,7 @@ protocol GroupCreatePresenterInput {
     func viewDidLoad()
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
+    func textFieldDidEndEditing(index:Int,text:String)
     func onTapSaveButton()
 }
 
@@ -78,4 +84,5 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func updateColor(color:UIColor)
     func setChartDataSource()
     func notifyChartDataChanged()
+    func onUpdateChartLabel()
 }

@@ -98,9 +98,13 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
     // delegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewController?.activeField = nil
+        
+        let index = textField.tag - tagConstant
+        viewController?.textFieldDidEndEditing(index: index, text: textField.text ?? "")
     }
 }
 
 protocol MultiEditTextOutput{
     var activeField:UIView?{set get}
+    func textFieldDidEndEditing(index:Int,text:String)
 }
