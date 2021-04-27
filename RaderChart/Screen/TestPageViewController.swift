@@ -44,7 +44,7 @@ class TestPageViewController: UIViewController {
         // 塗りつぶしの色
         greenDataSet.fillColor = UIColor.green
         greenDataSet.drawFilledEnabled = true
-        greenDataSet.valueFormatter = DataSetValueFormatter()
+        greenDataSet.valueFormatter = TestDataSetValueFormatter()
         
         /*
          * チャートグループの設定
@@ -75,7 +75,7 @@ class TestPageViewController: UIViewController {
         xAxis.labelTextColor = .black
         xAxis.xOffset = 20 // TODO ラベルとの距離が設定できるはずだが、できない
         xAxis.yOffset = 20
-        xAxis.valueFormatter = XAxisFormatter()
+        xAxis.valueFormatter = TestXAxisFormatter()
         
         /*
          * y軸 (ウェブ同士を繋ぐ線)の設定
@@ -95,19 +95,18 @@ class TestPageViewController: UIViewController {
     }
 }
 
-
-// RaderChartDataSetにセットするFormatter
-// 各項目の最終的な値を表示しないようにするため、""を返す
-class DataSetValueFormatter:IValueFormatter{
-    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-        return ""
-    }
-}
-
-class XAxisFormatter:IAxisValueFormatter{
+class TestXAxisFormatter:IAxisValueFormatter{
     let titles = "ABCDEFGHI".map { "Party \($0)" }
        
        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
            titles[Int(value) % titles.count]
        }
+}
+
+// RaderChartDataSetにセットするFormatter
+// 各項目の最終的な値を表示しないようにするため、""を返す
+class TestDataSetValueFormatter:IValueFormatter{
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        return ""
+    }
 }

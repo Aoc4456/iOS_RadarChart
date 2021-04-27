@@ -73,6 +73,17 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         presenter.didSliderValueChanged(index: Int(sender.index))
     }
     
+    // delegate multi text field
+    func textFieldDidEndEditing(index:Int,text:String){
+        presenter.textFieldDidEndEditing(index: index, text: text)
+    }
+    
+    @IBAction func onTapSaveButton(_ sender: Any) {
+        // TODO ChartのフォーマッターにsetLabel([String]) してから radarChrat.notifyDataSetChanged で　ラベルが更新できる
+        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+        presenter.onTapSaveButton()
+    }
+    
     // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
@@ -104,9 +115,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
 // 描画指示を受けてUIを更新する
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
-    func updateNumberOfItems(num: Int) {
+    func updateNumberOfItems(num: Int,chartLabels:[String]) {
         sliderLabel.text = num.description
-        multiEditTextField.changeNumberOfItems(newNum: num)
+        multiEditTextField.changeNumberOfItems(newNum: num,labels:chartLabels)
     }
     
     func updateColor(color: UIColor) {
@@ -124,6 +135,13 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     // チャートに関連するデータが変更されたときに呼ばれる
     func notifyChartDataChanged() {
         raderChart.data?.notifyDataChanged()
+        raderChart.notifyDataSetChanged()
+    }
+    
+    // チャートのラベルが変更されるとき
+    func onUpdateChartLabel() {
+        print(presenter.chartLabels)
+        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         raderChart.notifyDataSetChanged()
     }
 }

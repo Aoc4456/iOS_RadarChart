@@ -35,20 +35,21 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         self.viewController = viewController
     }
     
-    func changeNumberOfItems(newNum:Int){
+    func changeNumberOfItems(newNum:Int,labels:[String]){
         let difference = abs(numberOfItems - newNum)
         if(numberOfItems < newNum ){ // 項目が増加
-            appendItems(num: difference)
+            appendItems(num: difference,labels: labels)
         }else if(numberOfItems > newNum){ // 項目が減少
             removeItems(num: difference)
         }
         numberOfItems = newNum
     }
     
-    private func appendItems(num:Int){
+    private func appendItems(num:Int,labels:[String]){
         let currentNumber = numberOfItems
         for i in currentNumber..<(currentNumber + num){
             let textField = createTextField(index: i)
+            textField.text = labels[i]
             textFieldArray.append(textField)
             self.addArrangedSubview(textField)
         }
@@ -60,7 +61,7 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         textField.tag = createTag(index: index)
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textField.borderStyle = .roundedRect
-        textField.text = "項目名\(index+1)"
+        textField.text = "項目\(index+1)"
         return textField
     }
     
@@ -98,9 +99,13 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
     // delegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewController?.activeField = nil
+        
+        let index = textField.tag - tagConstant
+        viewController?.textFieldDidEndEditing(index: index, text: textField.text ?? "")
     }
 }
 
 protocol MultiEditTextOutput{
     var activeField:UIView?{set get}
+    func textFieldDidEndEditing(index:Int,text:String)
 }
