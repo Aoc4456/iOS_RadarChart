@@ -61,6 +61,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         view.onUpdateChartLabel()
     }
     
+    func axisMaximumTextFieldDidEndEditing(text: String) {
+        axisMaximum = Int(text) ?? 100
+    }
+    
     func onTapSaveButton() {
         let message = validateData()
         if(message != ""){
@@ -106,6 +110,7 @@ protocol GroupCreatePresenterInput {
     func didSliderValueChanged(index:Int)
     func titleTextFieldDidEndEditing(text:String)
     func labelTextFieldDidEndEditing(index:Int,text:String)
+    func axisMaximumTextFieldDidEndEditing(text:String)
     func onTapSaveButton()
 }
 

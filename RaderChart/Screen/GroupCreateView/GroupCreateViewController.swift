@@ -24,6 +24,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var axisMaximumField: UITextField!
     var activeField: UIView?
     
+    let titleTextFieldTag = 222
+    let axisMaximumTextFieldTag = 333
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setup presenter
@@ -36,6 +39,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         
         // setup Title Field
         titleTextField.delegate = self
+        titleTextField.tag = titleTextFieldTag
         
         // setup Slider
         stepSlider.labels = presenter.sliderLabel;
@@ -43,6 +47,8 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         
         // setup axisMaximum
         axisMaximumField.text = presenter.axisMaximum.description
+        axisMaximumField.tag = axisMaximumTextFieldTag
+        axisMaximumField.delegate = self
         
         // setup MultiEditText
         multiEditTextField.setViewController(viewController: self)
@@ -158,7 +164,15 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
 // タイトルTextFieldDelegate
 extension GroupCreateViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        presenter.titleTextFieldDidEndEditing(text: textField.text ?? "")
+        print(textField.tag)
+        switch textField.tag {
+        case titleTextFieldTag:
+            presenter.titleTextFieldDidEndEditing(text: textField.text ?? "")
+        case axisMaximumTextFieldTag:
+            presenter.axisMaximumTextFieldDidEndEditing(text: textField.text ?? "")
+        default:
+            break
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
