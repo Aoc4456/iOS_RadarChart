@@ -160,6 +160,10 @@ extension GroupCreateViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         presenter.titleTextFieldDidEndEditing(text: textField.text ?? "")
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 // カラーピッカーdelegate
