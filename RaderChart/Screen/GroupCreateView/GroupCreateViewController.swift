@@ -50,6 +50,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         // setup axisMaximum
         axisMaximumField.text = presenter.axisMaximum.description
         axisMaximumField.tag = axisMaximumTextFieldTag
+        addCloseButtonToTextFieldKeyboard(textField: axisMaximumField)
         axisMaximumField.delegate = self
         
         // setup MultiEditText

@@ -19,4 +19,21 @@ extension UIViewController{
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func addCloseButtonToTextFieldKeyboard(textField:UITextField){
+        let toolbar = UIToolbar()
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done,
+                                         target: self, action: #selector(doneButtonTapped))
+        
+        toolbar.setItems([flexSpace, doneButton], animated: true)
+        toolbar.sizeToFit()
+        
+        textField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneButtonTapped() {
+        view.endEditing(true)
+    }
 }
