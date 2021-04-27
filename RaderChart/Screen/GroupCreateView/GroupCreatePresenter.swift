@@ -41,7 +41,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     func didSliderValueChanged(index: Int) {
         numberOfItems = index + 3
-        view.updateNumberOfItems(num: numberOfItems)
+        view.updateNumberOfItems(num: numberOfItems,chartLabels: chartLabels)
         onChangeChartData()
     }
     
@@ -80,7 +80,7 @@ protocol GroupCreatePresenterInput {
 // GroupCreateViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupCreaterPresenterOutput:AnyObject {
-    func updateNumberOfItems(num:Int)
+    func updateNumberOfItems(num:Int,chartLabels:[String])
     func updateColor(color:UIColor)
     func setChartDataSource()
     func notifyChartDataChanged()

@@ -35,20 +35,21 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         self.viewController = viewController
     }
     
-    func changeNumberOfItems(newNum:Int){
+    func changeNumberOfItems(newNum:Int,labels:[String]){
         let difference = abs(numberOfItems - newNum)
         if(numberOfItems < newNum ){ // 項目が増加
-            appendItems(num: difference)
+            appendItems(num: difference,labels: labels)
         }else if(numberOfItems > newNum){ // 項目が減少
             removeItems(num: difference)
         }
         numberOfItems = newNum
     }
     
-    private func appendItems(num:Int){
+    private func appendItems(num:Int,labels:[String]){
         let currentNumber = numberOfItems
         for i in currentNumber..<(currentNumber + num){
             let textField = createTextField(index: i)
+            textField.text = labels[i]
             textFieldArray.append(textField)
             self.addArrangedSubview(textField)
         }

@@ -115,9 +115,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
 // 描画指示を受けてUIを更新する
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
-    func updateNumberOfItems(num: Int) {
+    func updateNumberOfItems(num: Int,chartLabels:[String]) {
         sliderLabel.text = num.description
-        multiEditTextField.changeNumberOfItems(newNum: num)
+        multiEditTextField.changeNumberOfItems(newNum: num,labels:chartLabels)
     }
     
     func updateColor(color: UIColor) {
