@@ -9,6 +9,7 @@ target 'RaderChart' do
   # Pods for RaderChart
   pod 'Charts'
   pod 'ChartsRealm'
+  pod 'RealmSwift'
   pod 'StepSlider', '~> 1.3.0'
 
   post_install do |installer|
