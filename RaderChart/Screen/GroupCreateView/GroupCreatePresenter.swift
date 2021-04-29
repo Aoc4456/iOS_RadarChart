@@ -66,13 +66,26 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func onTapSaveButton() {
-        let message = validateData()
-        if(message != ""){
-            view.showValidateDialog(text: message)
+        let errorMessage = validateData()
+        if(errorMessage != ""){
+            view.showValidateDialog(text: errorMessage)
+            return
         }
         
         // データベースへの書き込み
+        // chartLabelは、numberOfItemsを使って不要なものは削る
+        print("データ_title  :    \(title)")
         
+        // color -> Stringに変換する方法と、 String -> colorに復元する方法が必要
+        let colorString = ColorUtil.convertColorToString(color: selectedColor)
+        print("カラー文字列",colorString)
+        
+        // restoreColor from String
+        let restoreColor = ColorUtil.convertStringToColor(colorString: colorString)
+        print("カラー文字列から復元",restoreColor.description)
+        
+        print("データ_maximum  :  \(axisMaximum)")
+        print("データ_labels  :   \(chartLabels)")
         
         // 画面を閉じる
         
