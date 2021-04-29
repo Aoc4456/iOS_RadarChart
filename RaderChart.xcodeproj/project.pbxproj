@@ -15,6 +15,7 @@
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
 		5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */; };
 		5EE33941263AD02B005D732B /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33940263AD02B005D732B /* RealmModel.swift */; };
+		5EE33947263ADC43005D732B /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33946263ADC43005D732B /* DBProvider.swift */; };
 		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
 		5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C162634479D002DA73C /* MultiEditText.swift */; };
 		922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE326201C5200569E94 /* AppDelegate.swift */; };
@@ -51,6 +52,7 @@
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EE33940263AD02B005D732B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
 		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 		5EE33938263ACF42005D732B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5EE33946263ADC43005D732B /* DBProvider.swift */,
 				5EE33940263AD02B005D732B /* RealmModel.swift */,
 			);
 			path = Model;
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */,
+				5EE33947263ADC43005D732B /* DBProvider.swift in Sources */,
 				5EE33941263AD02B005D732B /* RealmModel.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
 				5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */,
