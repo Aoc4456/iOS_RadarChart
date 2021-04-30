@@ -25,9 +25,9 @@ class DBProvider{
     //
     
     // グループを全件取得 (作成日の昇順)
-    func getGroupList() -> Results<ChartGroup>{
+    func getGroupList() -> Array<ChartGroup>{
         let results = db.objects(ChartGroup.self).sorted(byKeyPath: "createdAt", ascending: true)
-        return results
+        return Array(results)
     }
     
     // グループにレコードを新規追加

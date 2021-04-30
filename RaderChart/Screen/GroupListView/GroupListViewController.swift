@@ -26,7 +26,8 @@ class GroupListViewController: UIViewController {
 
 extension GroupListViewController:GroupListPresenterOutput{
     func showGroupList() {
-        // リストに取得したデータを表示する
+        print("リストにデータを表示します")
+        print(presenter.dataList.description)
     }
 }
 

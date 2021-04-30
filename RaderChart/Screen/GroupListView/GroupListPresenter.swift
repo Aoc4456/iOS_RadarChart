@@ -12,12 +12,16 @@ class GroupListPresenter:GroupListPresenterInput{
     
     private weak var view:GroupListPresenterOutput!
     
+    var dataList: Array<ChartGroup> = []
+    
     init(view:GroupListPresenterOutput) {
         self.view = view
     }
     
     func viewDidLoad() {
-        print("リストpresentarです")
+        // データベースからデータを取得
+        dataList = DBProvider.sharedInstance.getGroupList()
+        view.showGroupList()
     }
 }
 
@@ -25,6 +29,7 @@ class GroupListPresenter:GroupListPresenterInput{
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupListPresenterInput {
+    var dataList:Array<ChartGroup>{get}
     func viewDidLoad()
 }
 
