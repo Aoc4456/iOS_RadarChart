@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		03C7111A745E853A544AECBC /* Pods_RaderChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0923232D2D503F2B255105DF /* Pods_RaderChartTests.framework */; };
+		5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */; };
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
-		5E586FB0263198B50012DDA9 /* GroupCreateSampleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */; };
+		5E586FB0263198B50012DDA9 /* SampleChartInGroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
@@ -47,8 +48,9 @@
 		0A2A2AE83942EA0610D97E3A /* Pods-RaderChartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.debug.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RaderChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D28D2DA07D3873C0026A210 /* Pods-RaderChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.release.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInTableCell.swift; sourceTree = "<group>"; };
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
-		5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateSampleChart.swift; sourceTree = "<group>"; };
+		5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInGroupCreate.swift; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
@@ -117,7 +119,8 @@
 		5EB3B8C22621C222000D9415 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				5E586FAF263198B50012DDA9 /* GroupCreateSampleChart.swift */,
+				5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */,
+				5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */,
 				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
 				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 			);
@@ -404,9 +407,10 @@
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
+				5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
 				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,
-				5E586FB0263198B50012DDA9 /* GroupCreateSampleChart.swift in Sources */,
+				5E586FB0263198B50012DDA9 /* SampleChartInGroupCreate.swift in Sources */,
 				92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */,
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
 				5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */,
