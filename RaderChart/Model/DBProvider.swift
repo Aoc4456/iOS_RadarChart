@@ -25,13 +25,13 @@ class DBProvider{
     //
     
     // グループを全件取得 (作成日の昇順)
-    func getGroupList() -> Results<Group>{
-        let results = db.objects(Group.self).sorted(byKeyPath: "createdAt", ascending: true)
+    func getGroupList() -> Results<ChartGroup>{
+        let results = db.objects(ChartGroup.self).sorted(byKeyPath: "createdAt", ascending: true)
         return results
     }
     
     // グループにレコードを新規追加
-    func addGroup(object:Group){
+    func addGroup(object:ChartGroup){
         try! db.write {
             db.add(object,update: .all)
         }

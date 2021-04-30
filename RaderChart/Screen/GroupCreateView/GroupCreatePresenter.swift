@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Charts
+import RealmSwift
 
 class GroupCreatePresenter:GroupCreatePresenterInput{
     
@@ -66,6 +67,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func onTapSaveButton() {
+        // 項目のバリデーション
         let errorMessage = validateData()
         if(errorMessage != ""){
             view.showValidateDialog(text: errorMessage)
@@ -73,23 +75,11 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         }
         
         // データベースへの書き込み
-        // chartLabelは、numberOfItemsを使って不要なものは削る
-        print("データ_title  :    \(title)")
-        
-        // color -> Stringに変換する方法と、 String -> colorに復元する方法が必要
-        let colorString = ColorUtil.convertColorToString(color: selectedColor)
-        print("カラー文字列",colorString)
-        
-        // restoreColor from String
-        let restoreColor = ColorUtil.convertStringToColor(colorString: colorString)
-        print("カラー文字列から復元",restoreColor.description)
-        
-        print("データ_maximum  :  \(axisMaximum)")
-        print("データ_labels  :   \(chartLabels)")
+        let group = ChartGroup(value: ["title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+        DBProvider.sharedInstance.addGroup(object: group)
         
         // 画面を閉じる
-        
-        
+        view.completeWritingToDatabase()
     }
     
     // 問題なければ空文字を、データに不正があればエラーメッセージを返す
@@ -136,4 +126,5 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func notifyChartDataChanged()
     func onUpdateChartLabel()
     func showValidateDialog(text:String)
+    func completeWritingToDatabase()
 }

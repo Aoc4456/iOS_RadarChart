@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Group:Object{
+class ChartGroup:Object{
     @objc dynamic var id : String = NSUUID().uuidString
     @objc dynamic var title : String = ""
     @objc dynamic var color : String = ""
