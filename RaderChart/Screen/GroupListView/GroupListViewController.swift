@@ -17,17 +17,20 @@ class GroupListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = GroupListPresenter(view: self)
-        presenter.viewDidLoad()
+        presenter.fetchDataFromDatabase()
         
         self.navigationItem.title = "グループ"
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.fetchDataFromDatabase()
+    }
 }
 
 extension GroupListViewController:GroupListPresenterOutput{
-    func showGroupList() {
-        print("リストにデータを表示します")
-        print(presenter.dataList.description)
+    func reloadTableView() {
+        tableView.reloadData()
     }
 }
 
@@ -36,15 +39,18 @@ extension GroupListViewController:UITableViewDelegate{
 }
 
 extension GroupListViewController:UITableViewDataSource{
-    // セルを返す
+    // セルを返す　ここでデータを参照してビューに反映する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
-        cell.titleView.text = "タイトル\(indexPath)"
+        let data = presenter.dataList[indexPath.row]
+        cell.titleView.text = "\(data.title) : \(data.labels.count)"
+        cell.subTitleView.text = "作成日：\(data.createdAt)"
+        cell.img.tintColor = ColorUtil.convertStringToColor(colorString: data.color)
         return cell
     }
     
     // セルの数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter.dataList.count
     }
 }

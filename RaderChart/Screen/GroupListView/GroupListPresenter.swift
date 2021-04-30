@@ -18,10 +18,10 @@ class GroupListPresenter:GroupListPresenterInput{
         self.view = view
     }
     
-    func viewDidLoad() {
+    func fetchDataFromDatabase() {
         // データベースからデータを取得
         dataList = DBProvider.sharedInstance.getGroupList()
-        view.showGroupList()
+        view.reloadTableView()
     }
 }
 
@@ -30,11 +30,11 @@ class GroupListPresenter:GroupListPresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupListPresenterInput {
     var dataList:Array<ChartGroup>{get}
-    func viewDidLoad()
+    func fetchDataFromDatabase()
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupListPresenterOutput:AnyObject {
-    func showGroupList()
+    func reloadTableView()
 }
