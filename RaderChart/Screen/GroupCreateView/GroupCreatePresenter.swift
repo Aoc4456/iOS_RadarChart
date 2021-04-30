@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Charts
+import RealmSwift
 
 class GroupCreatePresenter:GroupCreatePresenterInput{
     
@@ -66,17 +67,19 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func onTapSaveButton() {
-        let message = validateData()
-        if(message != ""){
-            view.showValidateDialog(text: message)
+        // 項目のバリデーション
+        let errorMessage = validateData()
+        if(errorMessage != ""){
+            view.showValidateDialog(text: errorMessage)
+            return
         }
         
         // データベースへの書き込み
-        
+        let group = ChartGroup(value: ["title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+        DBProvider.sharedInstance.addGroup(object: group)
         
         // 画面を閉じる
-        
-        
+        view.completeWritingToDatabase()
     }
     
     // 問題なければ空文字を、データに不正があればエラーメッセージを返す
@@ -123,4 +126,5 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func notifyChartDataChanged()
     func onUpdateChartLabel()
     func showValidateDialog(text:String)
+    func completeWritingToDatabase()
 }

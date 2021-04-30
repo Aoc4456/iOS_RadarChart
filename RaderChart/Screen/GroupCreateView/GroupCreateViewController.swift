@@ -163,6 +163,10 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(dialog, animated: true, completion: nil)
     }
+    
+    func completeWritingToDatabase() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // タイトルTextFieldDelegate
