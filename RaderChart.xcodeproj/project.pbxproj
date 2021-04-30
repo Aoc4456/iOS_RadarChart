@@ -17,6 +17,7 @@
 		5EE33941263AD02B005D732B /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33940263AD02B005D732B /* RealmModel.swift */; };
 		5EE33947263ADC43005D732B /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33946263ADC43005D732B /* DBProvider.swift */; };
 		5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3395E263AEE6E005D732B /* ColorUtil.swift */; };
+		5EE6929C263C26C600F714B9 /* GroupListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */; };
 		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
 		5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C162634479D002DA73C /* MultiEditText.swift */; };
 		922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE326201C5200569E94 /* AppDelegate.swift */; };
@@ -55,6 +56,7 @@
 		5EE33940263AD02B005D732B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		5EE3395E263AEE6E005D732B /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
+		5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPresenter.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
 		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				922FCDE726201C5200569E94 /* GroupListViewController.swift */,
+				5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */,
 			);
 			path = GroupListView;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */,
+				5EE6929C263C26C600F714B9 /* GroupListPresenter.swift in Sources */,
 				5EE33947263ADC43005D732B /* DBProvider.swift in Sources */,
 				5EE33941263AD02B005D732B /* RealmModel.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,

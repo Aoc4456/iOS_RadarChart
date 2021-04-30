@@ -8,26 +8,49 @@
 
 import UIKit
 
-class GroupListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class GroupListViewController: UIViewController {
+    
+    private var presenter:GroupListPresenterInput!
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter = GroupListPresenter(view: self)
+        presenter.fetchDataFromDatabase()
+        
         self.navigationItem.title = "グループ"
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
     }
-
-    // セルの数を返す
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
     
-    // セルを返す
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
-        cell.titleView.text = "タイトル\(indexPath)"
-        return cell
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.fetchDataFromDatabase()
     }
 }
 
+extension GroupListViewController:GroupListPresenterOutput{
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+}
+
+extension GroupListViewController:UITableViewDelegate{
+
+}
+
+extension GroupListViewController:UITableViewDataSource{
+    // セルを返す　ここでデータを参照してビューに反映する
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
+        let data = presenter.dataList[indexPath.row]
+        cell.titleView.text = "\(data.title) : \(data.labels.count)"
+        cell.subTitleView.text = "作成日：\(data.createdAt)"
+        cell.img.tintColor = ColorUtil.convertStringToColor(colorString: data.color)
+        return cell
+    }
+    
+    // セルの数を返す
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.dataList.count
+    }
+}
