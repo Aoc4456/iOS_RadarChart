@@ -15,6 +15,8 @@ class GroupListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var dataOfLongPressed : ChartGroup? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // setup Presenter
@@ -33,6 +35,18 @@ class GroupListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchDataFromDatabase()
+    }
+    
+    // セルを長押ししたとき、グループ編集画面にセルのデータを渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toGroupCreateViewController"){
+            if(dataOfLongPressed != nil){
+                let nextNaviVC = segue.destination as? UINavigationController
+                let nextVC = nextNaviVC?.topViewController as? GroupCreateViewController
+                nextVC?.passedData = dataOfLongPressed
+            }
+        }
+        dataOfLongPressed = nil
     }
 }
 
@@ -74,8 +88,9 @@ extension GroupListViewController:UIGestureRecognizerDelegate{
             let indexPath = tableView.indexPathForRow(at: point)
             if(indexPath != nil){
                 let index = indexPath!.row
+                dataOfLongPressed = presenter.dataList[index]
                 // 遷移先のCreateViewController に データを渡す
-                
+                performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
             }
         }
     }

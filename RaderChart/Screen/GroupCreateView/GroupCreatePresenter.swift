@@ -15,7 +15,8 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
     var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
-    private var title = ""
+    private var id : String? = nil
+    var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
@@ -26,10 +27,23 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         self.view = view
     }
     
-    func viewDidLoad() {
+    func viewDidLoad(passedData:ChartGroup?) {
+        // 最初に最大数のEntryで初期化しないと、Entryの数を大きくしたときクラッシュするため
         chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: 8)
         view.setChartDataSource()
-        // 最初に最大数のEntryで初期化しないと、Entryの数を大きくしたときクラッシュするため
+        
+        if(passedData != nil){
+            id = passedData!.id
+            title = passedData!.title
+            selectedColor = ColorUtil.convertStringToColor(colorString: passedData!.color)
+            numberOfItems = Int(passedData!.labels.count)
+            axisMaximum = passedData!.maximum
+            for i in 0..<passedData!.labels.count{
+                chartLabels[i] = Array(passedData!.labels)[i]
+            }
+            view.reflectThePassedData()
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.onChangeChartData()
         }
@@ -102,13 +116,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
 // GroupCreatePresenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupCreatePresenterInput {
+    var title:String{get}
     var chartData:RadarChartData{get}
     var chartLabels:[String]{get}
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
     var axisMaximum:Int{get set}
-    func viewDidLoad()
+    func viewDidLoad(passedData:ChartGroup?)
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
     func titleTextFieldDidEndEditing(text:String)
@@ -120,6 +135,7 @@ protocol GroupCreatePresenterInput {
 // GroupCreateViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupCreaterPresenterOutput:AnyObject {
+    func reflectThePassedData()
     func updateNumberOfItems(num:Int,chartLabels:[String])
     func updateColor(color:UIColor)
     func setChartDataSource()
