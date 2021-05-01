@@ -44,8 +44,8 @@ extension GroupListViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
         let data = presenter.dataList[indexPath.row]
-        cell.titleView.text = "\(data.title) : \(data.labels.count)"
-        cell.subTitleView.text = "作成日：\(data.createdAt)"
+        cell.titleView.text = data.title
+        cell.subTitleView.text = data.createdAt.toLocaleDateString()
         
         let chartColor = ColorUtil.convertStringToColor(colorString: data.color)
         let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: data.labels.count)
