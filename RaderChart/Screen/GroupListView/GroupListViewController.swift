@@ -17,11 +17,18 @@ class GroupListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup Presenter
         self.presenter = GroupListPresenter(view: self)
         presenter.fetchDataFromDatabase()
         
+        // setup Navigation Item
         self.navigationItem.title = "グループ"
+        
+        // setup tableView
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
+        longPressRecognizer.delegate = self
+        tableView.addGestureRecognizer(longPressRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,5 +64,13 @@ extension GroupListViewController:UITableViewDataSource{
     // セルの数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.dataList.count
+    }
+}
+
+extension GroupListViewController:UIGestureRecognizerDelegate{
+    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer){
+        if(recognizer.state == .began){
+            print("長押しされました")
+        }
     }
 }
