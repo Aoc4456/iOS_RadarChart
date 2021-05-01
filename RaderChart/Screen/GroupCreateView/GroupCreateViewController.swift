@@ -106,7 +106,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapTrashButton(_ sender: Any) {
-        print("ゴミ箱ボタンが押されました")
+        presenter.onTapTrashButton()
     }
     
     // キーボードでTextFieldが隠れないようにする

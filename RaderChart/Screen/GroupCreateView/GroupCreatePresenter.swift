@@ -94,6 +94,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         view.completeWritingToDatabase()
     }
     
+    func onTapTrashButton() {
+        // TODO 確認ダイアログを表示する
+        
+        
+        DBProvider.sharedInstance.deleteGroup(id: self.id!)
+        view.completeWritingToDatabase()
+    }
+    
     // 問題なければ空文字を、データに不正があればエラーメッセージを返す
     private func validateData() -> String{
         if(title == ""){
@@ -138,6 +146,7 @@ protocol GroupCreatePresenterInput {
     func labelTextFieldDidEndEditing(index:Int,text:String)
     func axisMaximumTextFieldDidEndEditing(text:String)
     func onTapSaveButton()
+    func onTapTrashButton()
 }
 
 // GroupCreateViewControllerが実装するプロトコル

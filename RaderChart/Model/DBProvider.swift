@@ -36,4 +36,12 @@ class DBProvider{
             db.add(object,update: .all)
         }
     }
+    
+    // グループを削除
+    func deleteGroup(id:String){
+        let object = db.objects(ChartGroup.self).filter("id = %@", id)
+        try! db.write {
+            db.delete(object)
+        }
+    }
 }
