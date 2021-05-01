@@ -70,7 +70,13 @@ extension GroupListViewController:UITableViewDataSource{
 extension GroupListViewController:UIGestureRecognizerDelegate{
     @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer){
         if(recognizer.state == .began){
-            print("長押しされました")
+            let point = recognizer.location(in: tableView)
+            let indexPath = tableView.indexPathForRow(at: point)
+            if(indexPath != nil){
+                let index = indexPath!.row
+                // 遷移先のCreateViewController に データを渡す
+                
+            }
         }
     }
 }
