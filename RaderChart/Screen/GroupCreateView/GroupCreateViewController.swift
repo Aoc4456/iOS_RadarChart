@@ -13,6 +13,7 @@ import Charts
 class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     private var presenter:GroupCreatePresenterInput!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
     private var colorPicker = UIColorPickerViewController()
@@ -41,6 +42,10 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         self.navigationItem.title = "グループ作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        if(passedData == nil){
+            trashButton.isEnabled = false
+            trashButton.tintColor = UIColor.clear
+        }
         
         // setup Title Field
         titleTextField.delegate = self
@@ -98,6 +103,10 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     
     @IBAction func onTapSaveButton(_ sender: Any) {
         presenter.onTapSaveButton()
+    }
+    
+    @IBAction func onTapTrashButton(_ sender: Any) {
+        print("ゴミ箱ボタンが押されました")
     }
     
     // キーボードでTextFieldが隠れないようにする
