@@ -29,25 +29,22 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func viewDidLoad(passedData:ChartGroup?) {
-        // 最初に最大数のEntryで初期化しないと、Entryの数を大きくしたときクラッシュするため
-        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: 8)
+        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: numberOfItems)
         view.setChartDataSource()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if(passedData != nil){
-                self.id = passedData!.id
-                self.createdAt = passedData!.createdAt
-                self.title = passedData!.title
-                self.selectedColor = ColorUtil.convertStringToColor(colorString: passedData!.color)
-                self.numberOfItems = Int(passedData!.labels.count)
-                self.axisMaximum = passedData!.maximum
-                for i in 0..<passedData!.labels.count{
-                    self.chartLabels[i] = Array(passedData!.labels)[i]
-                }
-                self.view.reflectThePassedData()
+        if(passedData != nil){
+            self.id = passedData!.id
+            self.createdAt = passedData!.createdAt
+            self.title = passedData!.title
+            self.selectedColor = ColorUtil.convertStringToColor(colorString: passedData!.color)
+            self.numberOfItems = Int(passedData!.labels.count)
+            self.axisMaximum = passedData!.maximum
+            for i in 0..<passedData!.labels.count{
+                self.chartLabels[i] = Array(passedData!.labels)[i]
             }
-            self.onChangeChartData()
+            self.view.reflectThePassedData()
         }
+        self.onChangeChartData()
     }
     
     func didSelectColor(color: UIColor) {
