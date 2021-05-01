@@ -45,6 +45,13 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         numberOfItems = newNum
     }
     
+    func setInitialLabels(labels:[String]){
+        for i in 0..<labels.count{
+            let textField = findViewWithTag(index: i)
+            textField?.text = labels[i]
+        }
+    }
+    
     private func appendItems(num:Int,labels:[String]){
         let currentNumber = numberOfItems
         for i in currentNumber..<(currentNumber + num){
@@ -78,9 +85,9 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         return tagConstant + index
     }
     
-    private func findViewWithTag(index:Int) -> UITextField{
+    private func findViewWithTag(index:Int) -> UITextField?{
         let tag = tagConstant + index
-        return superview?.viewWithTag(tag) as! UITextField
+        return superview?.viewWithTag(tag) as? UITextField
     }
     
     // delegate

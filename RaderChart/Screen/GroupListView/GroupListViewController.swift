@@ -15,17 +15,38 @@ class GroupListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private var dataOfLongPressed : ChartGroup? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup Presenter
         self.presenter = GroupListPresenter(view: self)
         presenter.fetchDataFromDatabase()
         
+        // setup Navigation Item
         self.navigationItem.title = "グループ"
+        
+        // setup tableView
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
+        longPressRecognizer.delegate = self
+        tableView.addGestureRecognizer(longPressRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchDataFromDatabase()
+    }
+    
+    // セルを長押ししたとき、グループ編集画面にセルのデータを渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toGroupCreateViewController"){
+            if(dataOfLongPressed != nil){
+                let nextNaviVC = segue.destination as? UINavigationController
+                let nextVC = nextNaviVC?.topViewController as? GroupCreateViewController
+                nextVC?.passedData = dataOfLongPressed
+            }
+        }
+        dataOfLongPressed = nil
     }
 }
 
@@ -57,5 +78,20 @@ extension GroupListViewController:UITableViewDataSource{
     // セルの数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.dataList.count
+    }
+}
+
+extension GroupListViewController:UIGestureRecognizerDelegate{
+    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer){
+        if(recognizer.state == .began){
+            let point = recognizer.location(in: tableView)
+            let indexPath = tableView.indexPathForRow(at: point)
+            if(indexPath != nil){
+                let index = indexPath!.row
+                dataOfLongPressed = presenter.dataList[index]
+                // 遷移先のCreateViewController に データを渡す
+                performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
+            }
+        }
     }
 }

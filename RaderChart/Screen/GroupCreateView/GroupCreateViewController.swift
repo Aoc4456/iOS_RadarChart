@@ -27,8 +27,11 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     let titleTextFieldTag = 222
     let axisMaximumTextFieldTag = 333
     
+    var passedData : ChartGroup? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
         
         // setup presenter
@@ -69,7 +72,8 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
         
-        presenter.viewDidLoad()
+        presenter.viewDidLoad(passedData: self.passedData)
+        self.passedData = nil
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -126,6 +130,17 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
 // Presenterから呼び出されるインターフェース
 // 描画指示を受けてUIを更新する
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
+    // 前の画面から渡されたデータがある場合 (編集モード) の場合、初期値をViewにセットする
+    func reflectThePassedData() {
+        self.navigationItem.title = "グループ編集"
+        titleTextField.text = presenter.title
+        stepSlider.index = UInt(presenter.numberOfItems - 3)
+        updateNumberOfItems(num: presenter.numberOfItems, chartLabels: presenter.chartLabels)
+        multiEditTextField.setInitialLabels(labels: presenter.chartLabels)
+        updateColor(color: presenter.selectedColor)
+        axisMaximumField.text = presenter.axisMaximum.description
+        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+    }
     
     func updateNumberOfItems(num: Int,chartLabels:[String]) {
         sliderLabel.text = num.description
@@ -152,7 +167,6 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
     // チャートのラベルが変更されるとき
     func onUpdateChartLabel() {
-        print(presenter.chartLabels)
         (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         raderChart.notifyDataSetChanged()
     }

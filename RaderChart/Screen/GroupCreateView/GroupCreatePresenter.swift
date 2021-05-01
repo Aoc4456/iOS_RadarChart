@@ -15,7 +15,9 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
     var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
-    private var title = ""
+    private var id : String? = nil
+    private var createdAt : Date? = nil
+    var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
@@ -26,13 +28,23 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         self.view = view
     }
     
-    func viewDidLoad() {
-        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: 8)
+    func viewDidLoad(passedData:ChartGroup?) {
+        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: numberOfItems)
         view.setChartDataSource()
-        // 最初に最大数のEntryで初期化しないと、Entryの数を大きくしたときクラッシュするため
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.onChangeChartData()
+        
+        if(passedData != nil){
+            self.id = passedData!.id
+            self.createdAt = passedData!.createdAt
+            self.title = passedData!.title
+            self.selectedColor = ColorUtil.convertStringToColor(colorString: passedData!.color)
+            self.numberOfItems = Int(passedData!.labels.count)
+            self.axisMaximum = passedData!.maximum
+            for i in 0..<passedData!.labels.count{
+                self.chartLabels[i] = Array(passedData!.labels)[i]
+            }
+            self.view.reflectThePassedData()
         }
+        self.onChangeChartData()
     }
     
     func didSelectColor(color: UIColor) {
@@ -75,7 +87,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         }
         
         // データベースへの書き込み
-        let group = ChartGroup(value: ["title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+        let group = getChartGroupObject()
         DBProvider.sharedInstance.addGroup(object: group)
         
         // 画面を閉じる
@@ -97,18 +109,29 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         }
         return ""
     }
+    
+    private func getChartGroupObject() -> ChartGroup{
+        var group:ChartGroup? = nil
+        if(id == nil){
+            group = ChartGroup(value: ["title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+        }else{
+            group = ChartGroup(value: ["id":id!,"title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!])
+        }
+        return group!
+    }
 }
 
 // GroupCreatePresenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupCreatePresenterInput {
+    var title:String{get}
     var chartData:RadarChartData{get}
     var chartLabels:[String]{get}
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
     var axisMaximum:Int{get set}
-    func viewDidLoad()
+    func viewDidLoad(passedData:ChartGroup?)
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
     func titleTextFieldDidEndEditing(text:String)
@@ -120,6 +143,7 @@ protocol GroupCreatePresenterInput {
 // GroupCreateViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupCreaterPresenterOutput:AnyObject {
+    func reflectThePassedData()
     func updateNumberOfItems(num:Int,chartLabels:[String])
     func updateColor(color:UIColor)
     func setChartDataSource()
