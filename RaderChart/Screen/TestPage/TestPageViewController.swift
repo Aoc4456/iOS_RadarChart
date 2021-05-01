@@ -39,7 +39,7 @@ class TestPageViewController: UIViewController {
          */
         // 線の太さ
         greenDataSet.lineWidth = 3
-        // 線の色
+        // 塗りつぶしの外枠の色
         greenDataSet.colors = [UIColor.green]
         // 塗りつぶしの色
         greenDataSet.fillColor = UIColor.green

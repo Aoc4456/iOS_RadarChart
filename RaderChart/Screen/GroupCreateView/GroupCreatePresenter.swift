@@ -14,7 +14,7 @@ import RealmSwift
 class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
-    var chartData: RadarChartData = MyChartUtil.getSampleChartDataInGroupCreate(color: UIColor.systemTeal, numberOfItems: 8)
+    var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
     private var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
@@ -27,7 +27,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func viewDidLoad() {
-        chartData = MyChartUtil.getSampleChartDataInGroupCreate(color: selectedColor, numberOfItems: 8)
+        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: 8)
         view.setChartDataSource()
         // 最初に最大数のEntryで初期化しないと、Entryの数を大きくしたときクラッシュするため
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
