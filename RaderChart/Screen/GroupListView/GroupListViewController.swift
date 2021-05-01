@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class GroupListViewController: UIViewController {
     
@@ -45,7 +46,11 @@ extension GroupListViewController:UITableViewDataSource{
         let data = presenter.dataList[indexPath.row]
         cell.titleView.text = "\(data.title) : \(data.labels.count)"
         cell.subTitleView.text = "作成日：\(data.createdAt)"
-        cell.img.tintColor = ColorUtil.convertStringToColor(colorString: data.color)
+        
+        let chartColor = ColorUtil.convertStringToColor(colorString: data.color)
+        let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: data.labels.count)
+        cell.radarChart.data = chartData
+        
         return cell
     }
     

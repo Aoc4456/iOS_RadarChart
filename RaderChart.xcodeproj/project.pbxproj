@@ -19,7 +19,7 @@
 		5EE33947263ADC43005D732B /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33946263ADC43005D732B /* DBProvider.swift */; };
 		5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3395E263AEE6E005D732B /* ColorUtil.swift */; };
 		5EE6929C263C26C600F714B9 /* GroupListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */; };
-		5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* ChartUtil.swift */; };
+		5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C052634056D002DA73C /* MyChartUtil.swift */; };
 		5EEB5C172634479D002DA73C /* MultiEditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB5C162634479D002DA73C /* MultiEditText.swift */; };
 		922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE326201C5200569E94 /* AppDelegate.swift */; };
 		922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDE526201C5200569E94 /* SceneDelegate.swift */; };
@@ -59,7 +59,7 @@
 		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
 		5EE3395E263AEE6E005D732B /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPresenter.swift; sourceTree = "<group>"; };
-		5EEB5C052634056D002DA73C /* ChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtil.swift; sourceTree = "<group>"; };
+		5EEB5C052634056D002DA73C /* MyChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
 		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE326201C5200569E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,10 +101,18 @@
 			children = (
 				5ED5FC4F263179130082D7B7 /* GroupListView */,
 				5ED5FC50263179210082D7B7 /* GroupCreateView */,
-				92DE68482626DE5200D255ED /* TestPageViewController.swift */,
+				5E58352E263D2AD600302FEC /* TestPage */,
 				5ED38B5926382CB500393205 /* CommonExtension.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		5E58352E263D2AD600302FEC /* TestPage */ = {
+			isa = PBXGroup;
+			children = (
+				92DE68482626DE5200D255ED /* TestPageViewController.swift */,
+			);
+			path = TestPage;
 			sourceTree = "<group>";
 		};
 		5E586F8C263194AF0012DDA9 /* GroupListCell */ = {
@@ -157,7 +165,7 @@
 		5EEB5C042634053F002DA73C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				5EEB5C052634056D002DA73C /* ChartUtil.swift */,
+				5EEB5C052634056D002DA73C /* MyChartUtil.swift */,
 				5EE3395E263AEE6E005D732B /* ColorUtil.swift */,
 			);
 			path = Util;
@@ -403,7 +411,7 @@
 				5EE33947263ADC43005D732B /* DBProvider.swift in Sources */,
 				5EE33941263AD02B005D732B /* RealmModel.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
-				5EEB5C062634056D002DA73C /* ChartUtil.swift in Sources */,
+				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,

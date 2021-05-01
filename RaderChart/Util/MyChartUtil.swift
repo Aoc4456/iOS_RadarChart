@@ -11,8 +11,7 @@ import UIKit
 import Charts
 
 class MyChartUtil{
-    // グループ作成画面用
-    static func getSampleChartDataInGroupCreate(color:UIColor,numberOfItems:Int) -> RadarChartData{
+    static func getSampleChartData(color:UIColor,numberOfItems:Int) -> RadarChartData{
         let raderChartDataSet = getSampleChartDataSet(color: color, numberOfItems: numberOfItems)
         return RadarChartData(dataSets: [raderChartDataSet])
     }
@@ -32,11 +31,6 @@ class MyChartUtil{
         raderChartDataSet.drawFilledEnabled = true
         raderChartDataSet.valueFormatter = SampleDataSetValueFormatter()
         return raderChartDataSet
-    }
-    
-    // リストのセルに表示する用
-    static func getChartDataForTableViewCell(color:UIColor,numberOfItems:Int) -> RadarChartData{
-        
     }
 }
 

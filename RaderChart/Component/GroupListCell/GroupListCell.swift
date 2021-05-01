@@ -9,8 +9,8 @@
 import UIKit
 
 class GroupListCell: UITableViewCell {
-
-    @IBOutlet weak var img: UIImageView!
+    
+    @IBOutlet weak var radarChart: SampleChartInTableCell!
     
     @IBOutlet weak var titleView: UILabel!
     

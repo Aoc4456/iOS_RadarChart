@@ -31,7 +31,7 @@ class SampleChartInTableCell:RadarChartView{
         
         let yAxis = self.yAxis
         //分割数
-        yAxis.setLabelCount(6, force: true)
+        yAxis.setLabelCount(4, force: true)
         yAxis.drawLabelsEnabled = false
         yAxis.axisMinimum = 0
         yAxis.axisMaximum = 100
