@@ -13,6 +13,7 @@ import Charts
 class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     private var presenter:GroupCreatePresenterInput!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     
     @IBOutlet weak var titleTextField: UITextField!
     private var colorPicker = UIColorPickerViewController()
@@ -38,9 +39,13 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         self.presenter = GroupCreatePresenter(view: self)
         
         // setup navigation item
-        self.navigationItem.title = "グループ作成"
+        self.navigationItem.title = "グループ新規作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        if(passedData == nil){
+            trashButton.isEnabled = false
+            trashButton.tintColor = UIColor.clear
+        }
         
         // setup Title Field
         titleTextField.delegate = self
@@ -100,6 +105,17 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         presenter.onTapSaveButton()
     }
     
+    @IBAction func onTapTrashButton(_ sender: Any) {
+        let dialog = UIAlertController(title: "このグループを削除しますか？", message: "このグループと、グループ内の全てのチャートが削除されます。この操作は取り消せません。", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "削除", style: .destructive) { (action:UIAlertAction) in
+            self.presenter.onTapTrashButton()
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        dialog.addAction(deleteAction)
+        dialog.addAction(cancelAction)
+        self.present(dialog, animated: true, completion: nil)
+    }
+    
     // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
@@ -130,6 +146,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
 // Presenterから呼び出されるインターフェース
 // 描画指示を受けてUIを更新する
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
+    
     // 前の画面から渡されたデータがある場合 (編集モード) の場合、初期値をViewにセットする
     func reflectThePassedData() {
         self.navigationItem.title = "グループ編集"
