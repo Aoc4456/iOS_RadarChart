@@ -27,6 +27,7 @@ class ChartCollectionViewController: UIViewController {
         // setup CollectionView
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ChartListCell", bundle: nil), forCellWithReuseIdentifier: "ListCell")
+        collectionView.register(UINib(nibName: "ChartGridCell", bundle: nil), forCellWithReuseIdentifier: "GridCell")
         
         // setup CollectionViewCell
         collectionView.collectionViewLayout = getChartListCellFlowLayout(view: collectionView)
@@ -38,10 +39,12 @@ class ChartCollectionViewController: UIViewController {
         switch sender.selectedSegmentIndex{
         case 0:
             // 現在のレイアウトを無効にし、レイアウトの更新をトリガーします
+            collectionView.reloadData()
             collectionView.collectionViewLayout.invalidateLayout()
             collectionView.setCollectionViewLayout(getChartListCellFlowLayout(view: collectionView), animated: true)
             break
         case 1:
+            collectionView.reloadData()
             collectionView.collectionViewLayout.invalidateLayout()
             collectionView.setCollectionViewLayout(getChartGridCellFlowLayout(view: collectionView), animated: true)
             break
@@ -62,7 +65,12 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath)
-        return cell
+        if(segmentView.selectedSegmentIndex == 0){
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
+            return cell
+        }
     }
 }
