@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03C7111A745E853A544AECBC /* Pods_RaderChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0923232D2D503F2B255105DF /* Pods_RaderChartTests.framework */; };
+		5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */; };
+		5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */; };
 		5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */; };
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
 		5E586FB0263198B50012DDA9 /* SampleChartInGroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */; };
@@ -53,6 +55,8 @@
 		0A2A2AE83942EA0610D97E3A /* Pods-RaderChartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.debug.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RaderChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D28D2DA07D3873C0026A210 /* Pods-RaderChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.release.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridCell.swift; sourceTree = "<group>"; };
+		5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartGridCell.xib; sourceTree = "<group>"; };
 		5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInTableCell.swift; sourceTree = "<group>"; };
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
 		5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInGroupCreate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E107307263F1C15007EA2C0 /* ChartGridCell */ = {
+			isa = PBXGroup;
+			children = (
+				5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */,
+				5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */,
+			);
+			path = ChartGridCell;
+			sourceTree = "<group>";
+		};
 		5E4A0B152622C8710058A46B /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
 				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 				5E8AE3A1263EA54C0049BA71 /* ChartListCell */,
+				5E107307263F1C15007EA2C0 /* ChartGridCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -352,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */,
 				5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */,
 				922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */,
 				922FCDED26201C5300569E94 /* Assets.xcassets in Resources */,
@@ -447,6 +462,7 @@
 				5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */,
 				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
 				5E8AE3AA263EA69F0049BA71 /* ChartCollectionViewController.swift in Sources */,
+				5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */,
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
