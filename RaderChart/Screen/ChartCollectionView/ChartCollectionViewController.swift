@@ -14,7 +14,8 @@ class ChartCollectionViewController: UIViewController {
     var passedData : ChartGroup!
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var segmentView: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = passedData.title
@@ -28,13 +29,26 @@ class ChartCollectionViewController: UIViewController {
         collectionView.register(UINib(nibName: "ChartListCell", bundle: nil), forCellWithReuseIdentifier: "ListCell")
         
         // setup CollectionViewCell
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.frame.width, height: 150)
-        collectionView.collectionViewLayout = layout
+        collectionView.collectionViewLayout = getChartListCellFlowLayout(view: collectionView)
         
         presenter.viewDidLoad()
     }
 
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex{
+        case 0:
+            // 現在のレイアウトを無効にし、レイアウトの更新をトリガーします
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(getChartListCellFlowLayout(view: collectionView), animated: true)
+            break
+        case 1:
+            collectionView.collectionViewLayout.invalidateLayout()
+            collectionView.setCollectionViewLayout(getChartGridCellFlowLayout(view: collectionView), animated: true)
+            break
+        default:
+            break
+        }
+    }
 }
 
 // Presenterからの描画指示
