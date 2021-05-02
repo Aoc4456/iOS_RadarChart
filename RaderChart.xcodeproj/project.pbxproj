@@ -12,10 +12,10 @@
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
 		5E586FB0263198B50012DDA9 /* SampleChartInGroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */; };
 		5E75791C263D35BB00D4ED66 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E75791B263D35BB00D4ED66 /* DateUtil.swift */; };
-		5E8AE3A4263EA5C60049BA71 /* ChartListCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3A2263EA5C60049BA71 /* ChartListCellCollectionViewCell.swift */; };
-		5E8AE3A5263EA5C60049BA71 /* ChartListCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE3A3263EA5C60049BA71 /* ChartListCellCollectionViewCell.xib */; };
 		5E8AE3AA263EA69F0049BA71 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3A9263EA69F0049BA71 /* ChartCollectionViewController.swift */; };
 		5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */; };
+		5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */; };
+		5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
@@ -57,10 +57,10 @@
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
 		5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInGroupCreate.swift; sourceTree = "<group>"; };
 		5E75791B263D35BB00D4ED66 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
-		5E8AE3A2263EA5C60049BA71 /* ChartListCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E8AE3A3263EA5C60049BA71 /* ChartListCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartListCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E8AE3A9263EA69F0049BA71 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionPresenter.swift; sourceTree = "<group>"; };
+		5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListCell.swift; sourceTree = "<group>"; };
+		5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartListCell.xib; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		5E8AE3A1263EA54C0049BA71 /* ChartListCell */ = {
 			isa = PBXGroup;
 			children = (
-				5E8AE3A2263EA5C60049BA71 /* ChartListCellCollectionViewCell.swift */,
-				5E8AE3A3263EA5C60049BA71 /* ChartListCellCollectionViewCell.xib */,
+				5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */,
+				5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */,
 			);
 			path = ChartListCell;
 			sourceTree = "<group>";
@@ -352,11 +352,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */,
 				922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */,
 				922FCDED26201C5300569E94 /* Assets.xcassets in Resources */,
 				922FCDEB26201C5200569E94 /* Main.storyboard in Resources */,
 				5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */,
-				5E8AE3A5263EA5C60049BA71 /* ChartListCellCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +443,6 @@
 				5EE33947263ADC43005D732B /* DBProvider.swift in Sources */,
 				5EE33941263AD02B005D732B /* RealmModel.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
-				5E8AE3A4263EA5C60049BA71 /* ChartListCellCollectionViewCell.swift in Sources */,
 				5E75791C263D35BB00D4ED66 /* DateUtil.swift in Sources */,
 				5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */,
 				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
@@ -451,6 +450,7 @@
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
+				5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */,
 				5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
 				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,

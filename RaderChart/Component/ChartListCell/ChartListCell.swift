@@ -1,5 +1,5 @@
 //
-//  ChartListCellCollectionViewCell.swift
+//  ChartListCell.swift
 //  RaderChart
 //
 //  Created by M Aoshima on 2021/05/02.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChartListCellCollectionViewCell: UICollectionViewCell {
+class ChartListCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
