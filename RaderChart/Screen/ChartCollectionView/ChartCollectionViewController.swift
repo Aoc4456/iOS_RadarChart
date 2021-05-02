@@ -29,8 +29,8 @@ class ChartCollectionViewController: UIViewController {
         
         // setup CollectionViewCell
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: collectionView.frame.width, height: 100)
-//        collectionView.collectionViewLayout = layout
+        layout.itemSize = CGSize(width: collectionView.frame.width, height: 150)
+        collectionView.collectionViewLayout = layout
         
         presenter.viewDidLoad()
     }
