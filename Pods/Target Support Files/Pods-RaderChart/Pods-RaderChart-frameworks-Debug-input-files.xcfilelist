@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-RaderChart/Pods-RaderChart-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
-${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/StepSlider/StepSlider.framework
