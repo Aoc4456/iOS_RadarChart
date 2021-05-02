@@ -12,6 +12,8 @@ class ChartCollectionViewController: UIViewController {
     
     private var presenter:ChartCollectionPresenterInput!
     var passedData : ChartGroup!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

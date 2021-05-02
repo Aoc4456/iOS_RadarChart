@@ -168,6 +168,9 @@
                     <navigationItem key="navigationItem" id="eO6-FY-MI5">
                         <barButtonItem key="rightBarButtonItem" image="arrow.up.arrow.down.square" catalog="system" id="D86-Q5-eZe" userLabel="Sort Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="hbd-2a-Vbe" id="2Ny-0D-i6e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0V-Ay-zdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
