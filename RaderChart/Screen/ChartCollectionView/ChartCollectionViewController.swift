@@ -25,6 +25,7 @@ class ChartCollectionViewController: UIViewController {
 
 }
 
+// Presenterからの描画指示
 extension ChartCollectionViewController:ChartCollectionPresenterOutput{
     
 }
