@@ -75,11 +75,28 @@
                     <navigationItem key="navigationItem" id="Bp8-ti-VqG"/>
                     <connections>
                         <outlet property="tableView" destination="sfN-aa-sg8" id="Z2e-na-p4U"/>
+                        <segue destination="bCk-4b-zk0" kind="show" identifier="toChartCollectionViewController" id="ZDj-kP-bbJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
+        </scene>
+        <!--Chart Collection View Controller-->
+        <scene sceneID="ago-vY-UC7">
+            <objects>
+                <viewController id="bCk-4b-zk0" customClass="ChartCollectionViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y9k-7R-KcF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8WB-a7-cEz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eO6-FY-MI5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0V-Ay-zdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="136"/>
         </scene>
         <!--Group Create View Controller-->
         <scene sceneID="GNx-VP-tYb">
@@ -328,7 +345,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2830.434782608696" y="736.60714285714278"/>
+            <point key="canvasLocation" x="2842" y="834"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9X1-0f-ppQ">
@@ -397,7 +414,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAf-RS-jT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="736.60714285714278"/>
+            <point key="canvasLocation" x="1922" y="834"/>
         </scene>
     </scenes>
     <resources>

@@ -57,7 +57,9 @@ extension GroupListViewController:GroupListPresenterOutput{
 }
 
 extension GroupListViewController:UITableViewDelegate{
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
+    }
 }
 
 extension GroupListViewController:UITableViewDataSource{
