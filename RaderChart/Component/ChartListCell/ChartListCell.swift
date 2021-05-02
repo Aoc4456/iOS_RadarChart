@@ -22,10 +22,3 @@ func getChartListCellFlowLayout(view:UICollectionView) -> UICollectionViewFlowLa
     layout.itemSize = CGSize(width: view.frame.width, height: 150)
     return layout
 }
-
-// TODO 別のファイルに移動させる
-func getChartGridCellFlowLayout(view:UICollectionView) -> UICollectionViewFlowLayout {
-    let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(width: view.frame.width / 2.1, height: 150)
-    return layout
-}
