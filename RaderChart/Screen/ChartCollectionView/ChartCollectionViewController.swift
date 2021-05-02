@@ -9,11 +9,20 @@
 import UIKit
 
 class ChartCollectionViewController: UIViewController {
+    
+    private var presenter:ChartCollectionPresenterInput!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("チャートの一覧を表示する画面です")
+        
+        // setup Presenter
+        self.presenter = ChartCollectionPresenter(view: self)
+        
+        presenter.viewDidLoad()
     }
 
+}
+
+extension ChartCollectionViewController:ChartCollectionPresenterOutput{
+    
 }

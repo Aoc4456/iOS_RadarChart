@@ -8,6 +8,28 @@
 
 import Foundation
 
-class ChartCollectionPresenter{
+class ChartCollectionPresenter:ChartCollectionPresenterInput{
+    
+    private weak var view:ChartCollectionPresenterOutput!
+    
+    init(view:ChartCollectionPresenterOutput) {
+        self.view = view
+    }
+    
+    func viewDidLoad() {
+        print("ChartCollectionPresenter_viewDidLoad()")
+    }
+    
+}
+
+// Presenterが実装するプロトコル
+// Viewから呼び出されるインターフェースを定義する
+protocol ChartCollectionPresenterInput {
+    func viewDidLoad()
+}
+
+// ViewControllerが実装するプロトコル
+// Presenterから呼び出されるインターフェースを定義する
+protocol ChartCollectionPresenterOutput:AnyObject {
     
 }
