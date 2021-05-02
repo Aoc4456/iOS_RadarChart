@@ -11,9 +11,11 @@ import UIKit
 class ChartCollectionViewController: UIViewController {
     
     private var presenter:ChartCollectionPresenterInput!
+    var passedData : ChartGroup!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = passedData.title
         
         // setup Presenter
         self.presenter = ChartCollectionPresenter(view: self)

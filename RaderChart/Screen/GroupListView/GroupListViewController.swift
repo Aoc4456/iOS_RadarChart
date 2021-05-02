@@ -15,7 +15,8 @@ class GroupListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var dataOfLongPressed : ChartGroup? = nil
+    private var dataPassedToGroupEdit : ChartGroup? = nil
+    private var dataPassedToChartList : ChartGroup? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +38,25 @@ class GroupListViewController: UIViewController {
         presenter.fetchDataFromDatabase()
     }
     
-    // セルを長押ししたとき、グループ編集画面にセルのデータを渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // グループ編集画面への遷移
         if(segue.identifier == "toGroupCreateViewController"){
-            if(dataOfLongPressed != nil){
+            if(dataPassedToGroupEdit != nil){
                 let nextNaviVC = segue.destination as? UINavigationController
                 let nextVC = nextNaviVC?.topViewController as? GroupCreateViewController
-                nextVC?.passedData = dataOfLongPressed
+                nextVC?.passedData = dataPassedToGroupEdit
             }
+            dataPassedToGroupEdit = nil
         }
-        dataOfLongPressed = nil
+
+        // チャート一覧画面への遷移
+        if(segue.identifier == "toChartCollectionViewController"){
+            if(dataPassedToChartList != nil){
+                let nextVC = segue.destination as! ChartCollectionViewController
+                nextVC.passedData = dataPassedToChartList
+            }
+            dataPassedToChartList = nil
+        }
     }
 }
 
@@ -58,6 +68,7 @@ extension GroupListViewController:GroupListPresenterOutput{
 
 extension GroupListViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataPassedToChartList = presenter.dataList[indexPath.row]
         performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
     }
 }
@@ -90,7 +101,7 @@ extension GroupListViewController:UIGestureRecognizerDelegate{
             let indexPath = tableView.indexPathForRow(at: point)
             if(indexPath != nil){
                 let index = indexPath!.row
-                dataOfLongPressed = presenter.dataList[index]
+                dataPassedToGroupEdit = presenter.dataList[index]
                 // 遷移先のCreateViewController に データを渡す
                 performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
             }
