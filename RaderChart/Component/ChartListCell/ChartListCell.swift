@@ -9,16 +9,31 @@
 import UIKit
 
 class ChartListCell: UICollectionViewCell {
-
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var chartView: TestChartInCell!
+    @IBOutlet weak var titleView: UILabel!
+    @IBOutlet weak var commentView: UILabel!
+    @IBOutlet weak var totalView: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        containerView.layer.borderColor = UIColor.gray.cgColor
+        containerView.layer.borderWidth = 0.5
+        containerView.layer.cornerRadius = 15
+        containerView.layer.masksToBounds = false
+        
+        chartView.layer.borderColor = UIColor.gray.cgColor
+        chartView.layer.borderWidth = 0.5
+        chartView.layer.cornerRadius = 15
+        chartView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
     }
 
 }
 
 func getChartListCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {
     let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(width: view.frame.width, height: 150)
+    layout.itemSize = CGSize(width: view.frame.width - 20, height: 150)
     return layout
 }
