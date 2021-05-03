@@ -14,11 +14,6 @@ class SampleChartInGroupCreate:RadarChartView{
         super.init(frame: frame)
     }
 
-    /**
-     * 2.’required’ initializer ‘init(coder:)’ must be provided by subclass of ~
-     * というエラーが出た場合
-     * swiftの場合requiredメソッドも実装する必要があります
-     **/
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         rotationEnabled = false
@@ -26,8 +21,6 @@ class SampleChartInGroupCreate:RadarChartView{
         highlightPerTapEnabled = false
         
         let xAxis = self.xAxis
-//        xAxis.xOffset = 20
-//        xAxis.yOffset = 20
         xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
         xAxis.valueFormatter = RowXAxisFormatter()
         
