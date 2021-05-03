@@ -122,7 +122,7 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hbd-2a-Vbe">
-                                <rect key="frame" x="5" y="138" width="404" height="719"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ox9-UN-k24">
                                     <size key="itemSize" width="128" height="128"/>
@@ -149,9 +149,9 @@
                         <constraints>
                             <constraint firstItem="BpH-cE-qXy" firstAttribute="leading" secondItem="8WB-a7-cEz" secondAttribute="leading" constant="10" id="6bb-aa-oeT"/>
                             <constraint firstItem="BpH-cE-qXy" firstAttribute="top" secondItem="8WB-a7-cEz" secondAttribute="top" constant="5" id="FLv-U7-G63"/>
-                            <constraint firstItem="8WB-a7-cEz" firstAttribute="trailing" secondItem="hbd-2a-Vbe" secondAttribute="trailing" constant="5" id="HzD-qR-Qpw"/>
+                            <constraint firstItem="hbd-2a-Vbe" firstAttribute="leading" secondItem="8WB-a7-cEz" secondAttribute="leading" id="G3m-dG-dAG"/>
+                            <constraint firstItem="8WB-a7-cEz" firstAttribute="trailing" secondItem="hbd-2a-Vbe" secondAttribute="trailing" id="Sfa-85-ELV"/>
                             <constraint firstItem="hbd-2a-Vbe" firstAttribute="top" secondItem="BpH-cE-qXy" secondAttribute="bottom" constant="5" id="Zy4-Mu-WOC"/>
-                            <constraint firstItem="hbd-2a-Vbe" firstAttribute="leading" secondItem="8WB-a7-cEz" secondAttribute="leading" constant="5" id="dI6-LI-WFh"/>
                             <constraint firstItem="8WB-a7-cEz" firstAttribute="bottom" secondItem="hbd-2a-Vbe" secondAttribute="bottom" constant="5" id="qd7-Vs-hnP"/>
                             <constraint firstItem="8WB-a7-cEz" firstAttribute="trailing" secondItem="BpH-cE-qXy" secondAttribute="trailing" constant="10" id="s7R-4Z-0cg"/>
                             <constraint firstItem="8WB-a7-cEz" firstAttribute="bottom" secondItem="ptn-si-GQx" secondAttribute="bottom" constant="20" id="wna-bb-JwO"/>
@@ -163,6 +163,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="hbd-2a-Vbe" id="2Ny-0D-i6e"/>
+                        <outlet property="containerView" destination="Y9k-7R-KcF" id="ysV-Jm-mSf"/>
                         <outlet property="segmentView" destination="RoY-7j-DQd" id="DSM-j5-nh6"/>
                     </connections>
                 </viewController>

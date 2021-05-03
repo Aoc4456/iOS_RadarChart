@@ -17,8 +17,8 @@ class ChartGridCell: UICollectionViewCell {
 
 }
 
-func getChartGridCellFlowLayout(view:UICollectionView) -> UICollectionViewFlowLayout {
+func getChartGridCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {
     let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(width: view.frame.width / 2.1, height: 150)
+    layout.itemSize = CGSize(width: view.frame.width / 3.1, height: view.frame.width / 3.1)
     return layout
 }

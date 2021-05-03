@@ -13,6 +13,7 @@ class ChartCollectionViewController: UIViewController {
     private var presenter:ChartCollectionPresenterInput!
     var passedData : ChartGroup!
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentView: UISegmentedControl!
     
@@ -30,27 +31,23 @@ class ChartCollectionViewController: UIViewController {
         collectionView.register(UINib(nibName: "ChartGridCell", bundle: nil), forCellWithReuseIdentifier: "GridCell")
         
         // setup CollectionViewCell
-        collectionView.collectionViewLayout = getChartListCellFlowLayout(view: collectionView)
+        collectionView.collectionViewLayout = getChartListCellFlowLayout(view: containerView)
         
         presenter.viewDidLoad()
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex{
-        case 0:
-            // 現在のレイアウトを無効にし、レイアウトの更新をトリガーします
-            collectionView.reloadData()
-            collectionView.collectionViewLayout.invalidateLayout()
-            collectionView.setCollectionViewLayout(getChartListCellFlowLayout(view: collectionView), animated: true)
-            break
-        case 1:
-            collectionView.reloadData()
-            collectionView.collectionViewLayout.invalidateLayout()
-            collectionView.setCollectionViewLayout(getChartGridCellFlowLayout(view: collectionView), animated: true)
-            break
-        default:
-            break
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        var flowLayout:UICollectionViewLayout? = nil
+        if(sender.selectedSegmentIndex == 0){
+            flowLayout = getChartListCellFlowLayout(view: containerView)
+        }else{
+            flowLayout = getChartGridCellFlowLayout(view: containerView)
         }
+        
+        collectionView.setCollectionViewLayout(flowLayout!, animated: true)
     }
 }
 
