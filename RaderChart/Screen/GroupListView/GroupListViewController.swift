@@ -32,6 +32,7 @@ class GroupListViewController: UIViewController {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
+        tableView.rowHeight = 110
     }
     
     override func viewWillAppear(_ animated: Bool) {
