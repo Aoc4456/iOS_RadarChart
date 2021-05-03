@@ -230,10 +230,11 @@
                                                 <color key="textColor" systemColor="systemBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO0-bZ-P2S">
-                                                <rect key="frame" x="72" y="192" width="11" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FO0-bZ-P2S">
+                                                <rect key="frame" x="72" y="192" width="15" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="ZbO-ld-x9l"/>
+                                                    <constraint firstAttribute="width" constant="15" id="nCM-kc-5YT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -339,7 +340,6 @@
                                             <constraint firstAttribute="trailing" secondItem="2ZT-Ri-E9k" secondAttribute="trailing" constant="10" id="Ayj-SU-TAv"/>
                                             <constraint firstItem="2ZT-Ri-E9k" firstAttribute="top" secondItem="gOi-hP-BCR" secondAttribute="bottom" constant="10" id="BZy-Ys-igR"/>
                                             <constraint firstAttribute="bottom" secondItem="KHr-R8-2ul" secondAttribute="bottom" constant="10" id="Bmc-ZX-T0x"/>
-                                            <constraint firstAttribute="trailing" secondItem="FO0-bZ-P2S" secondAttribute="trailing" constant="331" id="C9l-7d-QtO"/>
                                             <constraint firstAttribute="trailing" secondItem="gOi-hP-BCR" secondAttribute="trailing" constant="10" id="CHA-JN-TkY"/>
                                             <constraint firstItem="qml-fH-4Nk" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="CQ9-ad-V7G"/>
                                             <constraint firstItem="p9a-n8-2tg" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="LcW-Nm-fdj"/>

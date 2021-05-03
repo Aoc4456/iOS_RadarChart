@@ -17,7 +17,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     }
     
     func viewDidLoad() {
-        print("ChartCollectionPresenter_viewDidLoad()")
+
     }
     
 }
