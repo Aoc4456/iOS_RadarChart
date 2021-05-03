@@ -21,7 +21,7 @@ class TestChartInCell:RadarChartView{
         highlightPerTapEnabled = false
         
         let xAxis = self.xAxis
-        xAxis.labelFont = .systemFont(ofSize: 11,weight: .light)
+        xAxis.labelFont = .systemFont(ofSize: 9.5,weight: .light)
         xAxis.valueFormatter = RowXAxisFormatter()
         
         let yAxis = self.yAxis

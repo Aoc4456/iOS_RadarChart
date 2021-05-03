@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,30 +17,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="165" height="174"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Die-fY-pTP" userLabel="Title">
-                        <rect key="frame" x="5" y="10" width="155" height="26"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-x7-1SU" userLabel="ChartView" customClass="TestChartInCell" customModule="RaderChart" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="46" width="165" height="128"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-Ix-8sb" userLabel="Container">
+                        <rect key="frame" x="0.0" y="0.0" width="165" height="174"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Die-fY-pTP" userLabel="Title">
+                                <rect key="frame" x="5" y="5" width="155" height="21.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-x7-1SU" userLabel="ChartView" customClass="TestChartInCell" customModule="RaderChart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="26.5" width="165" height="147.5"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Die-fY-pTP" firstAttribute="leading" secondItem="0Md-Ix-8sb" secondAttribute="leading" constant="5" id="6NA-z7-2fp"/>
+                            <constraint firstItem="Die-fY-pTP" firstAttribute="height" secondItem="0Md-Ix-8sb" secondAttribute="height" multiplier="0.15" constant="-4.5999999999999979" id="GkG-9y-hnE" userLabel="Title.height = 0.15 × height"/>
+                            <constraint firstAttribute="bottom" secondItem="MWq-x7-1SU" secondAttribute="bottom" id="XkT-BE-vBi"/>
+                            <constraint firstItem="MWq-x7-1SU" firstAttribute="leading" secondItem="0Md-Ix-8sb" secondAttribute="leading" id="dp3-BP-Z5B"/>
+                            <constraint firstItem="Die-fY-pTP" firstAttribute="top" secondItem="0Md-Ix-8sb" secondAttribute="top" constant="5" id="p8g-Mi-Zop"/>
+                            <constraint firstAttribute="trailing" secondItem="Die-fY-pTP" secondAttribute="trailing" constant="5" id="rJ2-Fo-awQ"/>
+                            <constraint firstItem="MWq-x7-1SU" firstAttribute="top" secondItem="Die-fY-pTP" secondAttribute="bottom" id="tum-EW-yws"/>
+                            <constraint firstAttribute="trailing" secondItem="MWq-x7-1SU" secondAttribute="trailing" id="yP9-FL-L4v"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Die-fY-pTP" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.15" id="7fY-BB-qtd"/>
-                <constraint firstItem="Die-fY-pTP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="8NR-uv-QnT"/>
-                <constraint firstAttribute="trailing" secondItem="MWq-x7-1SU" secondAttribute="trailing" id="FOu-Hg-W3Y"/>
-                <constraint firstItem="MWq-x7-1SU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QxQ-Yd-mX6"/>
-                <constraint firstItem="MWq-x7-1SU" firstAttribute="top" secondItem="Die-fY-pTP" secondAttribute="bottom" constant="10" id="VdO-dP-mhY"/>
-                <constraint firstItem="Die-fY-pTP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="c1w-sh-oj0"/>
-                <constraint firstAttribute="bottom" secondItem="MWq-x7-1SU" secondAttribute="bottom" symbolic="YES" id="nL7-eR-rXb"/>
-                <constraint firstAttribute="trailing" secondItem="Die-fY-pTP" secondAttribute="trailing" constant="5" id="nlf-ic-rb7"/>
+                <constraint firstItem="0Md-Ix-8sb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Dda-Qb-rH2"/>
+                <constraint firstItem="0Md-Ix-8sb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hHa-0p-yxg"/>
+                <constraint firstAttribute="trailing" secondItem="0Md-Ix-8sb" secondAttribute="trailing" id="lNx-MP-wyt"/>
+                <constraint firstAttribute="bottom" secondItem="0Md-Ix-8sb" secondAttribute="bottom" id="uee-J7-SFo"/>
             </constraints>
             <size key="customSize" width="165" height="174"/>
+            <connections>
+                <outlet property="chartView" destination="MWq-x7-1SU" id="AsV-1O-NVY"/>
+                <outlet property="containerView" destination="0Md-Ix-8sb" id="CQM-de-fCx"/>
+                <outlet property="titleView" destination="Die-fY-pTP" id="fpV-ov-HPz"/>
+            </connections>
             <point key="canvasLocation" x="55.797101449275367" y="65.625"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
