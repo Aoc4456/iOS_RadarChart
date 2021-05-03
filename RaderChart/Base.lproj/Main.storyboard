@@ -142,6 +142,9 @@
                                     <constraint firstAttribute="height" constant="75" id="x6d-1R-YwB"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="dNu-DP-R7O" kind="presentation" id="iGp-WI-ueC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8WB-a7-cEz"/>
@@ -170,6 +173,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0V-Ay-zdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1994" y="136"/>
+        </scene>
+        <!--Chart Create View Controller-->
+        <scene sceneID="1MZ-hv-Fzs">
+            <objects>
+                <viewController id="mYu-tE-Cfk" customClass="ChartCreateViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ugw-5z-9OF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="BBo-f2-qFA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iUd-Nt-lLT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22p-ra-qWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="136"/>
         </scene>
         <!--Group Create View Controller-->
         <scene sceneID="GNx-VP-tYb">
@@ -488,6 +507,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAf-RS-jT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1922" y="834"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="igg-bV-4wn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="dNu-DP-R7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KPP-Hr-03P">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mYu-tE-Cfk" kind="relationship" relationship="rootViewController" id="TGx-Mt-wpU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1En-0h-IdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2990" y="136"/>
         </scene>
     </scenes>
     <resources>

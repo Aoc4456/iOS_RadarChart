@@ -22,6 +22,8 @@
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
+		5ED3BA0426402810004E0D26 /* ChartCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3BA0326402810004E0D26 /* ChartCreateViewController.swift */; };
+		5ED3BA0826402839004E0D26 /* ChartCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3BA0726402839004E0D26 /* ChartCreatePresenter.swift */; };
 		5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */; };
 		5EE33941263AD02B005D732B /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33940263AD02B005D732B /* RealmModel.swift */; };
 		5EE33947263ADC43005D732B /* DBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE33946263ADC43005D732B /* DBProvider.swift */; };
@@ -70,6 +72,8 @@
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
+		5ED3BA0326402810004E0D26 /* ChartCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreateViewController.swift; sourceTree = "<group>"; };
+		5ED3BA0726402839004E0D26 /* ChartCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreatePresenter.swift; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EE33940263AD02B005D732B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				5ED5FC4F263179130082D7B7 /* GroupListView */,
 				5ED5FC50263179210082D7B7 /* GroupCreateView */,
 				5E8AE3A8263EA65C0049BA71 /* ChartCollectionView */,
+				5ED3BA022640271C004E0D26 /* ChartCreateView */,
 				5E58352E263D2AD600302FEC /* TestPage */,
 				5ED38B5926382CB500393205 /* CommonExtension.swift */,
 			);
@@ -180,6 +185,15 @@
 				5E107307263F1C15007EA2C0 /* ChartGridCell */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		5ED3BA022640271C004E0D26 /* ChartCreateView */ = {
+			isa = PBXGroup;
+			children = (
+				5ED3BA0326402810004E0D26 /* ChartCreateViewController.swift */,
+				5ED3BA0726402839004E0D26 /* ChartCreatePresenter.swift */,
+			);
+			path = ChartCreateView;
 			sourceTree = "<group>";
 		};
 		5ED5FC4F263179130082D7B7 /* GroupListView */ = {
@@ -466,6 +480,7 @@
 				5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */,
 				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
 				5E8AE3AA263EA69F0049BA71 /* ChartCollectionViewController.swift in Sources */,
+				5ED3BA0426402810004E0D26 /* ChartCreateViewController.swift in Sources */,
 				5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */,
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
@@ -474,6 +489,7 @@
 				5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
 				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,
+				5ED3BA0826402839004E0D26 /* ChartCreatePresenter.swift in Sources */,
 				5E586FB0263198B50012DDA9 /* SampleChartInGroupCreate.swift in Sources */,
 				92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */,
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
