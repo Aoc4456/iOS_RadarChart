@@ -9,7 +9,7 @@
 import Foundation
 import Charts
 
-class SampleChartInGroupCreate:RadarChartView{
+class TestChartInCell:RadarChartView{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -21,7 +21,7 @@ class SampleChartInGroupCreate:RadarChartView{
         highlightPerTapEnabled = false
         
         let xAxis = self.xAxis
-        xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
+        xAxis.labelFont = .systemFont(ofSize: 9.5,weight: .light)
         xAxis.valueFormatter = RowXAxisFormatter()
         
         let yAxis = self.yAxis
@@ -33,17 +33,8 @@ class SampleChartInGroupCreate:RadarChartView{
         yAxis.axisRange = 100
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
-    }
-}
-
-class RowXAxisFormatter:IAxisValueFormatter{
-    private var labels:[String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
-    
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return labels[Int(value)]
-    }
-    
-    func setLabel(labels:[String]){
-        self.labels = labels
+        
+        let data = MyChartUtil.getSampleChartData(color: .blue, numberOfItems: 6)
+        self.data = data
     }
 }

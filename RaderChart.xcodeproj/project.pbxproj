@@ -18,6 +18,7 @@
 		5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */; };
 		5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */; };
 		5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */; };
+		5E98012E26400ABE0063BAE4 /* TestChartInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
@@ -65,6 +66,7 @@
 		5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionPresenter.swift; sourceTree = "<group>"; };
 		5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListCell.swift; sourceTree = "<group>"; };
 		5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartListCell.xib; sourceTree = "<group>"; };
+		5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChartInCell.swift; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */,
 				5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */,
+				5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */,
 				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
 				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 				5E8AE3A1263EA54C0049BA71 /* ChartListCell */,
@@ -458,6 +461,7 @@
 				5EE33947263ADC43005D732B /* DBProvider.swift in Sources */,
 				5EE33941263AD02B005D732B /* RealmModel.swift in Sources */,
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
+				5E98012E26400ABE0063BAE4 /* TestChartInCell.swift in Sources */,
 				5E75791C263D35BB00D4ED66 /* DateUtil.swift in Sources */,
 				5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */,
 				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
