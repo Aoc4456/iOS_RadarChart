@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputRowView" customModule="RaderChart" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="OaP-rt-QOb" id="9Qp-25-Hyy"/>
+                <outlet property="stepper" destination="czd-oe-Mcz" id="qs6-Vy-PtR"/>
+                <outlet property="textField" destination="dkO-i0-pxm" id="2Rt-JM-Zdh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="602" height="127"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-rt-QOb">
+                    <rect key="frame" x="5" y="49" width="150.5" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="czd-oe-Mcz">
+                    <rect key="frame" x="503" y="49" width="94" height="39"/>
+                </stepper>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkO-i0-pxm">
+                    <rect key="frame" x="160.5" y="49" width="332.5" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dkO-i0-pxm" firstAttribute="leading" secondItem="OaP-rt-QOb" secondAttribute="trailing" constant="5" id="5hf-hz-bwy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OaP-rt-QOb" secondAttribute="bottom" constant="5" id="F49-dK-QvP"/>
+                <constraint firstItem="OaP-rt-QOb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="FGH-da-gpl"/>
+                <constraint firstItem="dkO-i0-pxm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="I8k-Iv-VFh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dkO-i0-pxm" secondAttribute="bottom" constant="5" id="Toq-bG-qkP"/>
+                <constraint firstItem="OaP-rt-QOb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Wzn-a7-aKb"/>
+                <constraint firstItem="czd-oe-Mcz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ctr-tK-igs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czd-oe-Mcz" secondAttribute="trailing" constant="5" id="d9a-eW-bup"/>
+                <constraint firstItem="czd-oe-Mcz" firstAttribute="leading" secondItem="dkO-i0-pxm" secondAttribute="trailing" constant="10" id="dPn-Qz-jIa"/>
+                <constraint firstItem="OaP-rt-QOb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="qtP-kz-8Cl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czd-oe-Mcz" secondAttribute="bottom" constant="5" id="w1k-Bz-H7v"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="71.014492753623188" y="-182.47767857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
