@@ -9,7 +9,11 @@
 import UIKit
 
 class InputRowView: UIView {
-
+    
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var stepper: UIStepper!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -20,11 +24,10 @@ class InputRowView: UIView {
         loadNib()
     }
 
-    func loadNib() {
+    private func loadNib() {
         if let view = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? UIView {
             view.frame = self.bounds
             self.addSubview(view)
         }
     }
-
 }

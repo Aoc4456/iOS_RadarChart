@@ -8,7 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputRowView" customModule="RaderChart" customModuleProvider="target">
+            <connections>
+                <outlet property="label" destination="OaP-rt-QOb" id="9Qp-25-Hyy"/>
+                <outlet property="stepper" destination="czd-oe-Mcz" id="qs6-Vy-PtR"/>
+                <outlet property="textField" destination="dkO-i0-pxm" id="2Rt-JM-Zdh"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="602" height="127"/>
@@ -24,7 +30,7 @@
                     <rect key="frame" x="503" y="49" width="94" height="39"/>
                 </stepper>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkO-i0-pxm">
-                    <rect key="frame" x="160.5" y="49" width="337.5" height="39"/>
+                    <rect key="frame" x="160.5" y="49" width="332.5" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -40,7 +46,7 @@
                 <constraint firstItem="OaP-rt-QOb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Wzn-a7-aKb"/>
                 <constraint firstItem="czd-oe-Mcz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="ctr-tK-igs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="czd-oe-Mcz" secondAttribute="trailing" constant="5" id="d9a-eW-bup"/>
-                <constraint firstItem="czd-oe-Mcz" firstAttribute="leading" secondItem="dkO-i0-pxm" secondAttribute="trailing" constant="5" id="dPn-Qz-jIa"/>
+                <constraint firstItem="czd-oe-Mcz" firstAttribute="leading" secondItem="dkO-i0-pxm" secondAttribute="trailing" constant="10" id="dPn-Qz-jIa"/>
                 <constraint firstItem="OaP-rt-QOb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="qtP-kz-8Cl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="czd-oe-Mcz" secondAttribute="bottom" constant="5" id="w1k-Bz-H7v"/>
             </constraints>

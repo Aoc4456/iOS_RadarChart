@@ -16,10 +16,11 @@ class MultiInputField:UIStackView{
         self.axis = .vertical
         self.alignment = .fill
         self.distribution = .fillEqually
-        self.spacing = 10
+        self.spacing = 15
         
         for i in 0..<5{
             let row = InputRowView()
+            row.label.text = "項目\(i)"
             self.addArrangedSubview(row)
         }
     }
