@@ -155,6 +155,34 @@
 			path = GroupListCell;
 			sourceTree = "<group>";
 		};
+		5E5BE07126416253001E31EA /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */,
+				5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */,
+				5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		5E5BE0742641626A001E31EA /* MultiTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
+			);
+			path = MultiTextField;
+			sourceTree = "<group>";
+		};
+		5E5BE0772641629C001E31EA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5E586F8C263194AF0012DDA9 /* GroupListCell */,
+				5E8AE3A1263EA54C0049BA71 /* ChartListCell */,
+				5E107307263F1C15007EA2C0 /* ChartGridCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5E8AE3A1263EA54C0049BA71 /* ChartListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,13 +204,9 @@
 		5EB3B8C22621C222000D9415 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				5E586FAF263198B50012DDA9 /* SampleChartInGroupCreate.swift */,
-				5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */,
-				5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */,
-				5EEB5C162634479D002DA73C /* MultiEditText.swift */,
-				5E586F8C263194AF0012DDA9 /* GroupListCell */,
-				5E8AE3A1263EA54C0049BA71 /* ChartListCell */,
-				5E107307263F1C15007EA2C0 /* ChartGridCell */,
+				5E5BE0772641629C001E31EA /* Cell */,
+				5E5BE0742641626A001E31EA /* MultiTextField */,
+				5E5BE07126416253001E31EA /* Chart */,
 			);
 			path = Component;
 			sourceTree = "<group>";
