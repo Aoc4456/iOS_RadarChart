@@ -11,7 +11,7 @@ import UIKit
 class ChartCollectionViewController: UIViewController {
     
     private var presenter:ChartCollectionPresenterInput!
-    var passedData : ChartGroup!
+    var groupData : ChartGroup!
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,7 +19,7 @@ class ChartCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = passedData.title
+        self.navigationItem.title = groupData.title
         
         // setup Presenter
         self.presenter = ChartCollectionPresenter(view: self)
@@ -48,6 +48,15 @@ class ChartCollectionViewController: UIViewController {
         }
         
         collectionView.setCollectionViewLayout(flowLayout!, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // チャート作成・編集画面への遷移
+        if(segue.identifier == "toChartCreateViewController"){
+            let nextNaviVC = segue.destination as? UINavigationController
+            let nextVC = nextNaviVC?.topViewController as? ChartCreateViewController
+            nextVC?.groupData = groupData
+        }
     }
 }
 

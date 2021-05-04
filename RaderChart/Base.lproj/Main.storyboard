@@ -143,7 +143,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
                                 <connections>
-                                    <segue destination="dNu-DP-R7O" kind="presentation" id="iGp-WI-ueC"/>
+                                    <segue destination="dNu-DP-R7O" kind="presentation" identifier="toChartCreateViewController" id="iGp-WI-ueC"/>
                                 </connections>
                             </button>
                         </subviews>
