@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-rt-QOb">
-                    <rect key="frame" x="5" y="49" width="90.5" height="39"/>
+                    <rect key="frame" x="5" y="49" width="150.5" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -24,7 +24,7 @@
                     <rect key="frame" x="503" y="49" width="94" height="39"/>
                 </stepper>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkO-i0-pxm">
-                    <rect key="frame" x="100.5" y="49" width="397.5" height="39"/>
+                    <rect key="frame" x="160.5" y="49" width="337.5" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -34,7 +34,7 @@
             <constraints>
                 <constraint firstItem="dkO-i0-pxm" firstAttribute="leading" secondItem="OaP-rt-QOb" secondAttribute="trailing" constant="5" id="5hf-hz-bwy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OaP-rt-QOb" secondAttribute="bottom" constant="5" id="F49-dK-QvP"/>
-                <constraint firstItem="OaP-rt-QOb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.15" id="FGH-da-gpl"/>
+                <constraint firstItem="OaP-rt-QOb" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.25" id="FGH-da-gpl"/>
                 <constraint firstItem="dkO-i0-pxm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="I8k-Iv-VFh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dkO-i0-pxm" secondAttribute="bottom" constant="5" id="Toq-bG-qkP"/>
                 <constraint firstItem="OaP-rt-QOb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="Wzn-a7-aKb"/>

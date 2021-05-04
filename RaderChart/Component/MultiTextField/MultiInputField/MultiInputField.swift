@@ -18,6 +18,9 @@ class MultiInputField:UIStackView{
         self.distribution = .fillEqually
         self.spacing = 10
         
-        
+        for i in 0..<5{
+            let row = InputRowView()
+            self.addArrangedSubview(row)
+        }
     }
 }
