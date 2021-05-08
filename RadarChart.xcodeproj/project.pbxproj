@@ -87,7 +87,7 @@
 		5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPresenter.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* MyChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
-		922FCDE026201C5200569E94 /* RaderChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaderChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		922FCDE026201C5200569E94 /* RadarChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadarChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE326201C5200569E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922FCDE526201C5200569E94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		922FCDE726201C5200569E94 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		922FCDEC26201C5300569E94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		922FCDEF26201C5300569E94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		922FCDF126201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		922FCDF626201C5300569E94 /* RaderChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaderChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		922FCDF626201C5300569E94 /* RadarChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadarChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDFA26201C5300569E94 /* RaderChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaderChartTests.swift; sourceTree = "<group>"; };
 		922FCDFC26201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE68482626DE5200D255ED /* TestPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
@@ -288,8 +288,8 @@
 		922FCDE126201C5200569E94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				922FCDE026201C5200569E94 /* RaderChart.app */,
-				922FCDF626201C5300569E94 /* RaderChartTests.xctest */,
+				922FCDE026201C5200569E94 /* RadarChart.app */,
+				922FCDF626201C5300569E94 /* RadarChartTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,9 +343,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		922FCDDF26201C5200569E94 /* RaderChart */ = {
+		922FCDDF26201C5200569E94 /* RadarChart */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 922FCDFF26201C5300569E94 /* Build configuration list for PBXNativeTarget "RaderChart" */;
+			buildConfigurationList = 922FCDFF26201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChart" */;
 			buildPhases = (
 				44AC782A2C1A798FCD91BF95 /* [CP] Check Pods Manifest.lock */,
 				922FCDDC26201C5200569E94 /* Sources */,
@@ -357,14 +357,14 @@
 			);
 			dependencies = (
 			);
-			name = RaderChart;
+			name = RadarChart;
 			productName = RaderChart;
-			productReference = 922FCDE026201C5200569E94 /* RaderChart.app */;
+			productReference = 922FCDE026201C5200569E94 /* RadarChart.app */;
 			productType = "com.apple.product-type.application";
 		};
-		922FCDF526201C5300569E94 /* RaderChartTests */ = {
+		922FCDF526201C5300569E94 /* RadarChartTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 922FCE0226201C5300569E94 /* Build configuration list for PBXNativeTarget "RaderChartTests" */;
+			buildConfigurationList = 922FCE0226201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChartTests" */;
 			buildPhases = (
 				BA5D7E43A2D35953345D2460 /* [CP] Check Pods Manifest.lock */,
 				922FCDF226201C5300569E94 /* Sources */,
@@ -376,9 +376,9 @@
 			dependencies = (
 				922FCDF826201C5300569E94 /* PBXTargetDependency */,
 			);
-			name = RaderChartTests;
+			name = RadarChartTests;
 			productName = RaderChartTests;
-			productReference = 922FCDF626201C5300569E94 /* RaderChartTests.xctest */;
+			productReference = 922FCDF626201C5300569E94 /* RadarChartTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -400,7 +400,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 922FCDDB26201C5200569E94 /* Build configuration list for PBXProject "RaderChart" */;
+			buildConfigurationList = 922FCDDB26201C5200569E94 /* Build configuration list for PBXProject "RadarChart" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -413,8 +413,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				922FCDDF26201C5200569E94 /* RaderChart */,
-				922FCDF526201C5300569E94 /* RaderChartTests */,
+				922FCDDF26201C5200569E94 /* RadarChart */,
+				922FCDF526201C5300569E94 /* RadarChartTests */,
 			);
 		};
 /* End PBXProject section */
@@ -554,7 +554,7 @@
 /* Begin PBXTargetDependency section */
 		922FCDF826201C5300569E94 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 922FCDDF26201C5200569E94 /* RaderChart */;
+			target = 922FCDDF26201C5200569E94 /* RadarChart */;
 			targetProxy = 922FCDF726201C5300569E94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -700,7 +700,8 @@
 			baseConfigurationReference = A151A2E10EF1C1FB6C48BC81 /* Pods-RaderChart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DDN784AYL9;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = RaderChart/Info.plist;
@@ -708,8 +709,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RaderChart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aoshima.RadarChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = RadarChart_Provisioning_20210506;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -720,7 +722,8 @@
 			baseConfigurationReference = 0132CEA9AB2FFC9FC3D7950A /* Pods-RaderChart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DDN784AYL9;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = RaderChart/Info.plist;
@@ -728,8 +731,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RaderChart;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aoshima.RadarChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = RadarChart_Provisioning_20210506;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -754,7 +758,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaderChart.app/RaderChart";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RadarChart.app/RadarChart";
 			};
 			name = Debug;
 		};
@@ -777,14 +781,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaderChart.app/RaderChart";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RadarChart.app/RadarChart";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		922FCDDB26201C5200569E94 /* Build configuration list for PBXProject "RaderChart" */ = {
+		922FCDDB26201C5200569E94 /* Build configuration list for PBXProject "RadarChart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				922FCDFD26201C5300569E94 /* Debug */,
@@ -793,7 +797,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		922FCDFF26201C5300569E94 /* Build configuration list for PBXNativeTarget "RaderChart" */ = {
+		922FCDFF26201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChart" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				922FCE0026201C5300569E94 /* Debug */,
@@ -802,7 +806,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		922FCE0226201C5300569E94 /* Build configuration list for PBXNativeTarget "RaderChartTests" */ = {
+		922FCE0226201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChartTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				922FCE0326201C5300569E94 /* Debug */,

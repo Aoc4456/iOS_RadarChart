@@ -11,6 +11,7 @@ import UIKit
 class ChartCreateViewController: UIViewController {
     
     private var presenter:ChartCreatePresenterInput!
+    var groupData:ChartGroup!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class ChartCreateViewController: UIViewController {
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
         presenter.viewDidLoad()
+        
+        print(groupData.description)
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){

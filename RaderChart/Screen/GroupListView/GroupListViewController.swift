@@ -54,7 +54,7 @@ class GroupListViewController: UIViewController {
         if(segue.identifier == "toChartCollectionViewController"){
             if(dataPassedToChartList != nil){
                 let nextVC = segue.destination as! ChartCollectionViewController
-                nextVC.passedData = dataPassedToChartList
+                nextVC.groupData = dataPassedToChartList
             }
             dataPassedToChartList = nil
         }
