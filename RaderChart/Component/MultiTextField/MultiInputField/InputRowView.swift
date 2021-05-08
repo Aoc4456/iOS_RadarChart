@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class InputRowView: UIView {
     
@@ -44,12 +45,12 @@ class InputRowView: UIView {
         self.parentView = parentView
         textField.delegate = self
         self.label.text = label
-        currentValue = round(Double(maximum / 2))
+        currentValue = round(Double(maximum / 2)) // TODO チャートと合わせる
         self.textField.text = textValue
         
         self.stepper.maximumValue = Double(maximum * 2)
         self.stepper.value = currentValue
-        self.stepper.stepValue = Double(maximum / 10)
+        self.stepper.stepValue = getStep(maximum: maximum)
         viewController.addCloseButtonToTextFieldKeyboard(textField: self.textField)
     }
     
@@ -57,6 +58,15 @@ class InputRowView: UIView {
         currentValue = sender.value
         textField.text = textValue
         // 親に通知
+    }
+    
+    private func getStep(maximum:Int) -> Double{
+        let digits = String(maximum).count
+        if(digits < 3){
+            return 1
+        }else{
+            return pow(10, Double(digits - 2))
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
     var activeField: UIView?
     
@@ -28,6 +29,9 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
         presenter.viewDidLoad(groupData: self.groupData)
+        
+        // setup Text
+        self.maximumLabel.text = "グラフの最大値：\(groupData.maximum)"
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため

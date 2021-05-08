@@ -301,6 +301,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iUd-Nt-lLT"/>
                     <connections>
+                        <outlet property="maximumLabel" destination="iGt-T4-Dqe" id="mEO-WX-izl"/>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
                         <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
                     </connections>
