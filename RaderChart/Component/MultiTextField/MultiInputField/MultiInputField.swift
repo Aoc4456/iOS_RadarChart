@@ -25,19 +25,19 @@ class MultiInputField:UIStackView{
         self.spacing = 15
     }
     
-    func initialize(labels:[String],axisMaximum:Int){
+    func initialize(labels:[String],axisMaximum:Int,viewController:UIViewController){
         self.labels = labels
         self.axisMaximum = axisMaximum
         
         for i in 0..<labels.count{
-            let row = createRowView(index: i, label: labels[i])
+            let row = createRowView(index: i, label: labels[i],viewController: viewController)
             self.addArrangedSubview(row)
         }
     }
     
-    private func createRowView(index:Int,label:String) -> InputRowView{
+    private func createRowView(index:Int,label:String,viewController:UIViewController) -> InputRowView{
         let row = InputRowView()
-        row.setup(label: label, maximum: axisMaximum)
+        row.setup(label: label, maximum: axisMaximum,viewController: viewController)
         row.tag = tagConstant + index
         return row
     }

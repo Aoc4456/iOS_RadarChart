@@ -34,6 +34,6 @@ class ChartCreateViewController: UIViewController {
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
     func setupMultiInputView(labels: [String], axisMaximum: Int) {
-        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum)
+        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum, viewController: self)
     }
 }

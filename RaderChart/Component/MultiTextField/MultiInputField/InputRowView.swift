@@ -14,6 +14,16 @@ class InputRowView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     
+    private var currentValue:Double = 0
+    private var textValue:String{
+        get{
+            return String(Int(currentValue))
+        }
+        set{
+            currentValue = Double(newValue) ?? 0
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -31,11 +41,30 @@ class InputRowView: UIView {
         }
     }
     
-    func setup(label:String,maximum:Int){
+    func setup(label:String,maximum:Int,viewController:UIViewController){
+        textField.delegate = self
         self.label.text = label
-        let halfValue = round(Double(maximum / 2))
-        self.textField.text = halfValue.description
-        self.stepper.value = halfValue
+        currentValue = round(Double(maximum / 2))
+        self.textField.text = textValue
+        self.stepper.value = currentValue
         self.stepper.stepValue = Double(maximum / 10)
+        viewController.addCloseButtonToTextFieldKeyboard(textField: self.textField)
+    }
+    
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        currentValue = sender.value
+        textField.text = textValue
+    }
+}
+
+extension InputRowView:UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textValue = textField.text ?? ""
+        stepper.value = currentValue
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
