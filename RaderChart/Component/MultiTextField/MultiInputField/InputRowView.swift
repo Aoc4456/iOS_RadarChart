@@ -21,9 +21,6 @@ class InputRowView: UIView {
         get{
             return String(Int(currentValue))
         }
-        set{
-            currentValue = Double(newValue) ?? 0
-        }
     }
     
     override init(frame: CGRect) {
@@ -49,6 +46,8 @@ class InputRowView: UIView {
         self.label.text = label
         currentValue = round(Double(maximum / 2))
         self.textField.text = textValue
+        
+        self.stepper.maximumValue = Double(maximum * 2)
         self.stepper.value = currentValue
         self.stepper.stepValue = Double(maximum / 10)
         viewController.addCloseButtonToTextFieldKeyboard(textField: self.textField)
@@ -57,13 +56,25 @@ class InputRowView: UIView {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentValue = sender.value
         textField.text = textValue
+        // 親に通知
     }
 }
 
 extension InputRowView:UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textValue = textField.text ?? ""
+        var value = 0.0
+        if(textField.text != nil && Double(textField.text!) != nil){
+            value = Double(textField.text!)!
+        }
+        
+        if(value > stepper.maximumValue){
+            value = stepper.maximumValue
+            textField.text = String(Int(value))
+        }
+        
+        currentValue = value
         stepper.value = currentValue
+        parentView?.parentVC.activeField = textField
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -72,10 +83,6 @@ extension InputRowView:UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        parentView?.parentVC.activeField = textField
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         parentView?.parentVC.activeField = textField
     }
 }
