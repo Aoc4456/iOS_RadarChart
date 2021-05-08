@@ -8,11 +8,16 @@
 
 import UIKit
 
-class ChartCreateViewController: UIViewController {
+class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var maximumLabel: UILabel!
+    @IBOutlet weak var multiInputView: MultiInputField!
+    var activeField: UIView?
     
     private var presenter:ChartCreatePresenterInput!
     var groupData:ChartGroup!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,16 +28,58 @@ class ChartCreateViewController: UIViewController {
 
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad()
+        presenter.viewDidLoad(groupData: self.groupData)
         
-        print(groupData.description)
+        // setup Text
+        self.maximumLabel.text = "グラフの最大値：\(groupData.maximum)"
+        
+        // setup TextField keyboard observer
+        // キーボードでTextFieldが隠れないようにするため
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ChartCreateViewController.keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(ChartCreateViewController.keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    // キーボードでTextFieldが隠れないようにする
+    @objc func keyboardWillShow(notification:NSNotification){
+        // キーボードのサイズを取得
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        // 枠のサイズを取得
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect = self.view.frame
+        aRect.size.height -= keyboardFrame.height
+        if(activeField != nil){
+            if(!aRect.contains(activeField!.frame.origin)){
+                scrollView.scrollRectToVisible(activeField!.frame, animated: true)
+            }
+        }
+    }
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInstes = UIEdgeInsets.zero
+        scrollView.contentInset = contentInstes
+        scrollView.scrollIndicatorInsets = contentInstes
+    }
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
-    
+    func setupMultiInputView(labels: [String], axisMaximum: Int) {
+        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum, viewController: self)
+    }
 }

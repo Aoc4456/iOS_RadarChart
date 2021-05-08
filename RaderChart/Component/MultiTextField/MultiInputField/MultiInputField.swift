@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 class MultiInputField:UIStackView{
+
+    var parentVC:MultiInputFieldOutput!
+    
+    private var labels:[String]!
+    private var axisMaximum:Int!
+    
+    private let tagConstant = 53278
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -17,11 +25,27 @@ class MultiInputField:UIStackView{
         self.alignment = .fill
         self.distribution = .fillEqually
         self.spacing = 15
+    }
+    
+    func initialize(labels:[String],axisMaximum:Int,viewController:UIViewController){
+        self.parentVC = viewController as? MultiInputFieldOutput
+        self.labels = labels
+        self.axisMaximum = axisMaximum
         
-        for i in 0..<5{
-            let row = InputRowView()
-            row.label.text = "項目\(i)"
+        for i in 0..<labels.count{
+            let row = createRowView(index: i, label: labels[i],viewController: viewController)
             self.addArrangedSubview(row)
         }
     }
+    
+    private func createRowView(index:Int,label:String,viewController:UIViewController) -> InputRowView{
+        let row = InputRowView()
+        row.setup(label: label, maximum: axisMaximum,viewController: viewController, parentView: self)
+        row.tag = tagConstant + index
+        return row
+    }
+}
+
+protocol MultiInputFieldOutput {
+    var activeField:UIView?{get set}
 }

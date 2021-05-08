@@ -7,28 +7,35 @@
 //
 
 import Foundation
+import Charts
 
 class ChartCreatePresenter:ChartCreatePresenterInput{
     
     private weak var view:ChartCreatePresenterOutput!
+    private var groupData:ChartGroup!
+    
+    var chartData: RadarChartData? = nil
+    private var chartTitle = ""
     
     init(view:ChartCreatePresenterOutput) {
         self.view = view
     }
     
-    func viewDidLoad() {
-        print("チャート作成画面のPresenterです")
+    func viewDidLoad(groupData:ChartGroup) {
+        self.groupData = groupData
+        
+        view.setupMultiInputView(labels: Array(groupData.labels), axisMaximum: groupData.maximum)
     }
 }
 
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
-    func viewDidLoad()
+    func viewDidLoad(groupData:ChartGroup)
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterOutput:AnyObject {
-    
+    func setupMultiInputView(labels:[String],axisMaximum:Int)
 }
