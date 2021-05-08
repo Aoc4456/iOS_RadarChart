@@ -12,7 +12,8 @@ class ChartCreateViewController: UIViewController {
     
     private var presenter:ChartCreatePresenterInput!
     var groupData:ChartGroup!
-
+    @IBOutlet weak var multiInputView: MultiInputField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,9 +24,7 @@ class ChartCreateViewController: UIViewController {
 
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad()
-        
-        print(groupData.description)
+        presenter.viewDidLoad(groupData: self.groupData)
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -34,5 +33,7 @@ class ChartCreateViewController: UIViewController {
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
-    
+    func setupMultiInputView(labels: [String], axisMaximum: Int) {
+        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum)
+    }
 }

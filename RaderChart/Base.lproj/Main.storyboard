@@ -12,7 +12,7 @@
         <!--Group List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GroupListViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GroupListViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
         <!--Chart Collection View Controller-->
         <scene sceneID="ago-vY-UC7">
             <objects>
-                <viewController id="bCk-4b-zk0" customClass="ChartCollectionViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bCk-4b-zk0" customClass="ChartCollectionViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y9k-7R-KcF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,7 +177,7 @@
         <!--Chart Create View Controller-->
         <scene sceneID="1MZ-hv-Fzs">
             <objects>
-                <viewController id="mYu-tE-Cfk" customClass="ChartCreateViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mYu-tE-Cfk" customClass="ChartCreateViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ugw-5z-9OF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqE-AA-wSX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="553"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iQ-Tg-BCm">
                                                 <rect key="frame" x="10" y="10" width="394" height="21"/>
@@ -205,15 +205,15 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-N3-2QX" userLabel="ChartPreview">
-                                                <rect key="frame" x="0.0" y="101" width="414" height="100"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-N3-2QX" userLabel="ChartPreview" customClass="RadarChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="101" width="414" height="300"/>
                                                 <color key="backgroundColor" systemColor="linkColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="de3-SV-3ZD"/>
+                                                    <constraint firstAttribute="height" constant="300" id="de3-SV-3ZD"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グラフの最大値：100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGt-T4-Dqe" userLabel="グラフの最大値">
-                                                <rect key="frame" x="10" y="211" width="394" height="21"/>
+                                                <rect key="frame" x="10" y="411" width="394" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="jOU-x9-6mZ"/>
                                                 </constraints>
@@ -221,14 +221,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvi-gu-L6a" userLabel="MultiInputField" customClass="MultiInputField" customModule="RaderChart" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="242" width="394" height="100"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvi-gu-L6a" userLabel="MultiInputField" customClass="MultiInputField" customModule="RadarChart" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="442" width="394" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="500" constant="100" id="lVe-8F-Ql5"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzh-nr-wrF">
-                                                <rect key="frame" x="10" y="352" width="394" height="21"/>
+                                                <rect key="frame" x="10" y="552" width="394" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="BhH-hn-zha"/>
                                                 </constraints>
@@ -237,7 +237,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipg-UG-IZ3" userLabel="CommentTextField">
-                                                <rect key="frame" x="10" y="383" width="394" height="100"/>
+                                                <rect key="frame" x="10" y="583" width="394" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="Yck-bj-ydK"/>
                                                 </constraints>
@@ -245,7 +245,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-e4-vx2" userLabel="SaveButton">
-                                                <rect key="frame" x="184" y="493" width="46" height="50"/>
+                                                <rect key="frame" x="184" y="693" width="46" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="kJ9-jX-xeo"/>
                                                 </constraints>
@@ -300,6 +300,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iUd-Nt-lLT"/>
+                    <connections>
+                        <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22p-ra-qWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +311,7 @@
         <!--Group Create View Controller-->
         <scene sceneID="GNx-VP-tYb">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="P4f-Ic-G46" customClass="GroupCreateViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="P4f-Ic-G46" customClass="GroupCreateViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NHj-1W-ULf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +378,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="SampleChartInGroupCreate" customModule="RaderChart" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="SampleChartInGroupCreate" customModule="RadarChart" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="283" width="394" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
@@ -443,7 +446,7 @@
                                                 <color key="textColor" systemColor="systemBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0s-dp-apB" userLabel="MultiEditText" customClass="MultiEditText" customModule="RaderChart" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0s-dp-apB" userLabel="MultiEditText" customClass="MultiEditText" customModule="RadarChart" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="715" width="394" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="500" constant="100" id="npb-7j-J89"/>
@@ -575,7 +578,7 @@
         <!--Test Page View Controller-->
         <scene sceneID="uDe-fZ-77W">
             <objects>
-                <viewController id="Jze-g9-Ap5" customClass="TestPageViewController" customModule="RaderChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jze-g9-Ap5" customClass="TestPageViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cMW-CE-4Sh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

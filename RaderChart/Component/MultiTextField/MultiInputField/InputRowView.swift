@@ -30,4 +30,12 @@ class InputRowView: UIView {
             self.addSubview(view)
         }
     }
+    
+    func setup(label:String,maximum:Int){
+        self.label.text = label
+        let halfValue = round(Double(maximum / 2))
+        self.textField.text = halfValue.description
+        self.stepper.value = halfValue
+        self.stepper.stepValue = Double(maximum / 10)
+    }
 }
