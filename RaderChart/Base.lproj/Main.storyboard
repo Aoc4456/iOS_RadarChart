@@ -302,6 +302,7 @@
                     <navigationItem key="navigationItem" id="iUd-Nt-lLT"/>
                     <connections>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
+                        <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22p-ra-qWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

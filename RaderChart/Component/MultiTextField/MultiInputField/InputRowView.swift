@@ -14,6 +14,8 @@ class InputRowView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     
+    private var parentView:MultiInputField?
+    
     private var currentValue:Double = 0
     private var textValue:String{
         get{
@@ -41,7 +43,8 @@ class InputRowView: UIView {
         }
     }
     
-    func setup(label:String,maximum:Int,viewController:UIViewController){
+    func setup(label:String,maximum:Int,viewController:UIViewController,parentView:MultiInputField){
+        self.parentView = parentView
         textField.delegate = self
         self.label.text = label
         currentValue = round(Double(maximum / 2))
@@ -66,5 +69,13 @@ extension InputRowView:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        parentView?.parentVC.activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        parentView?.parentVC.activeField = textField
     }
 }
