@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Charts
 
 class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var myRadarChartView: SampleChartInCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
     var activeField: UIView?
@@ -25,13 +27,17 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         self.navigationItem.title = "チャート新規作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
-
-        // setup Presenter
-        self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad(groupData: self.groupData)
+        
+        // setup Chart
+        myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
+        myRadarChartView.yAxis.axisRange = Double(groupData.maximum)
         
         // setup Text
         self.maximumLabel.text = "グラフの最大値：\(groupData.maximum)"
+        
+        // setup Presenter
+        self.presenter = ChartCreatePresenter(view: self)
+        presenter.viewDidLoad(groupData: self.groupData)
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため

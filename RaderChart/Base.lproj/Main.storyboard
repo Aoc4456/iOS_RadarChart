@@ -205,7 +205,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-N3-2QX" userLabel="ChartPreview" customClass="RadarChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1E-N3-2QX" userLabel="ChartPreview" customClass="SampleChartInCreateScreen" customModule="RadarChart" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="101" width="414" height="300"/>
                                                 <color key="backgroundColor" systemColor="linkColor"/>
                                                 <constraints>
@@ -303,6 +303,7 @@
                     <connections>
                         <outlet property="maximumLabel" destination="iGt-T4-Dqe" id="mEO-WX-izl"/>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
+                        <outlet property="myRadarChartView" destination="G1E-N3-2QX" id="2OT-wH-3qf"/>
                         <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
                     </connections>
                 </viewController>
@@ -380,7 +381,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="SampleChartInGroupCreate" customModule="RadarChart" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qml-fH-4Nk" userLabel="GraphPreview" customClass="SampleChartInCreateScreen" customModule="RadarChart" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="283" width="394" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>

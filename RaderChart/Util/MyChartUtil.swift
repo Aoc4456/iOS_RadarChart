@@ -12,8 +12,8 @@ import Charts
 
 class MyChartUtil{
     static func getSampleChartData(color:UIColor,numberOfItems:Int) -> RadarChartData{
-        let raderChartDataSet = getSampleChartDataSet(color: color, numberOfItems: numberOfItems)
-        return RadarChartData(dataSets: [raderChartDataSet])
+        let radartChartDataSet = getSampleChartDataSet(color: color, numberOfItems: numberOfItems)
+        return RadarChartData(dataSets: [radartChartDataSet])
     }
     
     static func getSampleChartDataSet(color:UIColor,numberOfItems:Int) -> RadarChartDataSet{
@@ -23,18 +23,18 @@ class MyChartUtil{
             radarChartDataEntrySet.append(RadarChartDataEntry(value: 60))
         }
         
-        let raderChartDataSet = RadarChartDataSet(entries: radarChartDataEntrySet)
+        let radarChartDataSet = RadarChartDataSet(entries: radarChartDataEntrySet)
         
-        raderChartDataSet.lineWidth = 3
-        raderChartDataSet.colors = [color]
-        raderChartDataSet.fillColor = color
-        raderChartDataSet.drawFilledEnabled = true
-        raderChartDataSet.valueFormatter = SampleDataSetValueFormatter()
-        return raderChartDataSet
+        radarChartDataSet.lineWidth = 3
+        radarChartDataSet.colors = [color]
+        radarChartDataSet.fillColor = color
+        radarChartDataSet.drawFilledEnabled = true
+        radarChartDataSet.valueFormatter = SampleDataSetValueFormatter()
+        return radarChartDataSet
     }
 }
 
-// RaderChartDataSetにセットするFormatter
+// RadarChartDataSetにセットするFormatter
 // 各項目の最終的な値を表示しないようにするため、""を返す
 class SampleDataSetValueFormatter:IValueFormatter{
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {

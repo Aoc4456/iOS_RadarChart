@@ -9,7 +9,8 @@
 import Foundation
 import Charts
 
-class SampleChartInGroupCreate:RadarChartView{
+// グループ作成画面・チャート作成画面で使用する
+class SampleChartInCreateScreen:RadarChartView{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -25,8 +26,8 @@ class SampleChartInGroupCreate:RadarChartView{
         xAxis.valueFormatter = RowXAxisFormatter()
         
         let yAxis = self.yAxis
-        //分割数
-        yAxis.setLabelCount(6, force: true)
+        
+        yAxis.setLabelCount(6, force: true) // 分割数
         yAxis.drawLabelsEnabled = false
         yAxis.axisMinimum = 0
         yAxis.axisMaximum = 100
