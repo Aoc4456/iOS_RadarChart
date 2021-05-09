@@ -16,6 +16,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     var chartData: RadarChartData? = nil
     private var chartTitle = ""
+    private var inputValues:[Double] = []
     
     init(view:ChartCreatePresenterOutput) {
         self.view = view
@@ -23,13 +24,27 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     func viewDidLoad(groupData:ChartGroup) {
         self.groupData = groupData
+        createInputValues()
         
-        view.setupMultiInputView(labels: Array(groupData.labels), axisMaximum: groupData.maximum)
+        view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
-        // MARK: チャートの初期データをセットする (valueを、MultiInputViewと同期する)
-        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: round(Double(groupData.maximum) * 0.6))
+        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: inputValues.first!)
         
         view.InitializeChart()
+    }
+    
+    // 入力の初期値は、最大値の60%とする
+    private func createInputValues(){
+        let initialValue = Double(groupData.maximum) * 0.6
+        for _ in 0..<groupData.labels.count{
+            inputValues.append(initialValue)
+        }
+    }
+    
+    func onChangeInputValue(index: Int, value: Double) {
+        self.inputValues[index] = value
+        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
+        view.updateChart()
     }
 }
 
@@ -38,11 +53,13 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
     func viewDidLoad(groupData:ChartGroup)
+    func onChangeInputValue(index:Int,value:Double)
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterOutput:AnyObject {
-    func setupMultiInputView(labels:[String],axisMaximum:Int)
+    func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
     func InitializeChart()
+    func updateChart()
 }

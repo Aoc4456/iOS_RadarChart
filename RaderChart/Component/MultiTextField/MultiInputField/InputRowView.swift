@@ -15,7 +15,7 @@ class InputRowView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     
-    private var parentView:MultiInputField?
+    private var parentView:MultiInputField!
     
     private var currentValue:Double = 0
     private var textValue:String{
@@ -41,14 +41,14 @@ class InputRowView: UIView {
         }
     }
     
-    func setup(label:String,maximum:Int,viewController:UIViewController,parentView:MultiInputField){
+    func setup(label:String,value:Double,maximum:Double,viewController:UIViewController,parentView:MultiInputField){
         self.parentView = parentView
         textField.delegate = self
         self.label.text = label
-        currentValue = round(Double(maximum) * 0.6) // MARK: チャートと合わせる
+        currentValue = Double(value)
         self.textField.text = textValue
         
-        self.stepper.maximumValue = Double(maximum * 2)
+        self.stepper.maximumValue = maximum * 2
         self.stepper.value = currentValue
         self.stepper.stepValue = getStep(maximum: maximum)
         viewController.addCloseButtonToTextFieldKeyboard(textField: self.textField)
@@ -57,11 +57,12 @@ class InputRowView: UIView {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentValue = sender.value
         textField.text = textValue
-        // 親に通知
+        // 親に通知 1
+        parentView.onChangeValue(value: currentValue, view: self)
     }
     
-    private func getStep(maximum:Int) -> Double{
-        let digits = String(maximum).count
+    private func getStep(maximum:Double) -> Double{
+        let digits = String(Int(maximum)).count
         if(digits < 3){
             return 1
         }else{
@@ -75,6 +76,8 @@ extension InputRowView:UITextFieldDelegate{
         var value = 0.0
         if(textField.text != nil && Double(textField.text!) != nil){
             value = Double(textField.text!)!
+        }else{
+            textField.text = "0"
         }
         
         if(value > stepper.maximumValue){
@@ -85,6 +88,9 @@ extension InputRowView:UITextFieldDelegate{
         currentValue = value
         stepper.value = currentValue
         parentView?.parentVC.activeField = textField
+        
+        // 親に通知 2
+        parentView.onChangeValue(value: currentValue, view: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

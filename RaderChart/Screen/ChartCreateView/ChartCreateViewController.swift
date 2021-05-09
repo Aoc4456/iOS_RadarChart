@@ -82,6 +82,11 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         scrollView.contentInset = contentInstes
         scrollView.scrollIndicatorInsets = contentInstes
     }
+    
+    // Custom View Delegate
+    func onChangeInputValue(index: Int, value: Double) {
+        presenter.onChangeInputValue(index: index, value: value)
+    }
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
@@ -93,7 +98,13 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.notifyDataSetChanged()
     }
     
-    func setupMultiInputView(labels: [String], axisMaximum: Int) {
-        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum, viewController: self)
+    func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
+        multiInputView.initialize(labels: labels,values: values, axisMaximum: axisMaximum, viewController: self)
+    }
+    
+    func updateChart() {
+        myRadarChartView.data = presenter.chartData
+        myRadarChartView.data?.notifyDataChanged()
+        myRadarChartView.notifyDataSetChanged()
     }
 }
