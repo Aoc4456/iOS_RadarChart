@@ -76,6 +76,8 @@ extension InputRowView:UITextFieldDelegate{
         var value = 0.0
         if(textField.text != nil && Double(textField.text!) != nil){
             value = Double(textField.text!)!
+        }else{
+            textField.text = "0"
         }
         
         if(value > stepper.maximumValue){
