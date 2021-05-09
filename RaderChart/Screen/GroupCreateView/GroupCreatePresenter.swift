@@ -14,7 +14,7 @@ import RealmSwift
 class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
-    var chartData: RadarChartData = MyChartUtil.getGroupChartData(color: UIColor.systemTeal, numberOfItems: 8)
+    var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
     private var id : String? = nil
     private var createdAt : Date? = nil
     var title = ""
@@ -29,14 +29,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func viewDidLoad(passedData:ChartGroup?) {
-        chartData = MyChartUtil.getGroupChartData(color: selectedColor, numberOfItems: numberOfItems)
+        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: numberOfItems)
         view.setChartDataSource()
         
         if(passedData != nil){
             self.id = passedData!.id
             self.createdAt = passedData!.createdAt
             self.title = passedData!.title
-            self.selectedColor = ColorUtil.convertStringToColor(colorString: passedData!.color)
+            self.selectedColor = passedData!.color.toUIColor()
             self.numberOfItems = Int(passedData!.labels.count)
             self.axisMaximum = passedData!.maximum
             for i in 0..<passedData!.labels.count{
@@ -61,7 +61,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private func onChangeChartData(){
         chartData.removeDataSetByIndex(0)
-        chartData.addDataSet(MyChartUtil.getGroupChartDataSet(color: selectedColor, numberOfItems: numberOfItems))
+        chartData.addDataSet(MyChartUtil.getSampleChartDataSet(color: selectedColor, numberOfItems: numberOfItems))
         view.notifyChartDataChanged()
     }
     
@@ -121,9 +121,9 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     private func getChartGroupObject() -> ChartGroup{
         var group:ChartGroup? = nil
         if(id == nil){
-            group = ChartGroup(value: ["title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
         }else{
-            group = ChartGroup(value: ["id":id!,"title":title,"color":ColorUtil.convertColorToString(color: selectedColor),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!])
+            group = ChartGroup(value: ["id":id!,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!])
         }
         return group!
     }

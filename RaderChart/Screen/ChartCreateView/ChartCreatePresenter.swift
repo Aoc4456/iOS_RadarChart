@@ -26,14 +26,17 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         
         view.setupMultiInputView(labels: Array(groupData.labels), axisMaximum: groupData.maximum)
         
-        // チャートの初期データをセットする
-        // 
+        // MARK: チャートの初期データをセットする (valueを、MultiInputViewと同期する)
+        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: round(Double(groupData.maximum) * 0.6))
+        
+        view.InitializeChart()
     }
 }
 
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
+    var chartData:RadarChartData?{get}
     func viewDidLoad(groupData:ChartGroup)
 }
 
@@ -41,4 +44,5 @@ protocol ChartCreatePresenterInput {
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterOutput:AnyObject {
     func setupMultiInputView(labels:[String],axisMaximum:Int)
+    func InitializeChart()
 }
