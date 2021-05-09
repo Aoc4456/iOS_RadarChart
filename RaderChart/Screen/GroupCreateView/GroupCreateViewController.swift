@@ -56,7 +56,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         stepSlider.index = UInt(presenter.numberOfItems - 3)
         
         // setup axisMaximum
-        axisMaximumField.text = presenter.axisMaximum.description
+        axisMaximumField.text = Int(presenter.axisMaximum).description
         axisMaximumField.tag = axisMaximumTextFieldTag
         addCloseButtonToTextFieldKeyboard(textField: axisMaximumField)
         axisMaximumField.delegate = self
@@ -155,7 +155,7 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         updateNumberOfItems(num: presenter.numberOfItems, chartLabels: presenter.chartLabels)
         multiEditTextField.setInitialLabels(labels: presenter.chartLabels)
         updateColor(color: presenter.selectedColor)
-        axisMaximumField.text = presenter.axisMaximum.description
+        axisMaximumField.text = Int(presenter.axisMaximum).description
         (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
     }
     

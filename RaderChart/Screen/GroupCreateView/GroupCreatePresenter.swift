@@ -21,7 +21,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
-    var axisMaximum: Int = 100
+    var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
     
     init(view:GroupCreaterPresenterOutput) {
@@ -75,7 +75,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func axisMaximumTextFieldDidEndEditing(text: String) {
-        axisMaximum = Int(text) ?? 100
+        axisMaximum = Double(text) ?? 100
     }
     
     func onTapSaveButton() {
@@ -138,7 +138,7 @@ protocol GroupCreatePresenterInput {
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
-    var axisMaximum:Int{get set}
+    var axisMaximum:Double{get set}
     func viewDidLoad(passedData:ChartGroup?)
     func didSelectColor(color:UIColor)
     func didSliderValueChanged(index:Int)
