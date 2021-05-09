@@ -14,7 +14,7 @@ import RealmSwift
 class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
-    var chartData: RadarChartData = MyChartUtil.getGroupChartData(color: UIColor.systemTeal, numberOfItems: 8)
+    var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
     private var id : String? = nil
     private var createdAt : Date? = nil
     var title = ""
@@ -29,7 +29,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func viewDidLoad(passedData:ChartGroup?) {
-        chartData = MyChartUtil.getGroupChartData(color: selectedColor, numberOfItems: numberOfItems)
+        chartData = MyChartUtil.getSampleChartData(color: selectedColor, numberOfItems: numberOfItems)
         view.setChartDataSource()
         
         if(passedData != nil){
@@ -61,7 +61,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private func onChangeChartData(){
         chartData.removeDataSetByIndex(0)
-        chartData.addDataSet(MyChartUtil.getGroupChartDataSet(color: selectedColor, numberOfItems: numberOfItems))
+        chartData.addDataSet(MyChartUtil.getSampleChartDataSet(color: selectedColor, numberOfItems: numberOfItems))
         view.notifyChartDataChanged()
     }
     

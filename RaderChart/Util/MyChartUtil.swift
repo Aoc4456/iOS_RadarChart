@@ -11,16 +11,16 @@ import UIKit
 import Charts
 
 class MyChartUtil{
-    static func getGroupChartData(color:UIColor,numberOfItems:Int) -> RadarChartData{
-        let radartChartDataSet = getGroupChartDataSet(color: color, numberOfItems: numberOfItems)
+    static func getSampleChartData(color:UIColor,numberOfItems:Int,value:Double = 60) -> RadarChartData{
+        let radartChartDataSet = getSampleChartDataSet(color: color, numberOfItems: numberOfItems,value: value)
         return RadarChartData(dataSets: [radartChartDataSet])
     }
     
-    static func getGroupChartDataSet(color:UIColor,numberOfItems:Int) -> RadarChartDataSet{
+    static func getSampleChartDataSet(color:UIColor,numberOfItems:Int,value:Double = 60) -> RadarChartDataSet{
         var radarChartDataEntrySet:[RadarChartDataEntry] = []
         
         for _ in 0..<numberOfItems {
-            radarChartDataEntrySet.append(RadarChartDataEntry(value: 60))
+            radarChartDataEntrySet.append(RadarChartDataEntry(value: value))
         }
         
         let radarChartDataSet = RadarChartDataSet(entries: radarChartDataEntrySet)
@@ -32,8 +32,6 @@ class MyChartUtil{
         radarChartDataSet.valueFormatter = SampleDataSetValueFormatter()
         return radarChartDataSet
     }
-    
-    
 }
 
 // RadarChartDataSetにセットするFormatter
