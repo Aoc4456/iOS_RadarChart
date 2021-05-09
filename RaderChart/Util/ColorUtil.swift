@@ -6,15 +6,14 @@
 import Foundation
 import UIKit
 
-class ColorUtil{
-    
-    static func convertColorToString(color:UIColor) -> String{
-        let colorString = CIColor(cgColor: color.cgColor).stringRepresentation
-        return colorString
+extension UIColor{
+    func toString() -> String{
+        return CIColor(cgColor: self.cgColor).stringRepresentation
     }
-    
-    static func convertStringToColor(colorString:String) -> UIColor{
-        let color = UIColor(ciColor: CIColor(string: colorString))
-        return color
+}
+
+extension String{
+    func toUIColor() -> UIColor{
+        return UIColor(ciColor: CIColor(string: self))
     }
 }

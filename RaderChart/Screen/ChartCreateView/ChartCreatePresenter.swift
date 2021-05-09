@@ -27,7 +27,6 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.setupMultiInputView(labels: Array(groupData.labels), axisMaximum: groupData.maximum)
         
         // チャートの初期データをセットする
-        // 
     }
 }
 
