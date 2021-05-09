@@ -45,7 +45,7 @@ class InputRowView: UIView {
         self.parentView = parentView
         textField.delegate = self
         self.label.text = label
-        currentValue = round(Double(maximum / 2)) // TODO チャートと合わせる
+        currentValue = round(Double(maximum) * 0.6) // MARK: チャートと合わせる
         self.textField.text = textValue
         
         self.stepper.maximumValue = Double(maximum * 2)
