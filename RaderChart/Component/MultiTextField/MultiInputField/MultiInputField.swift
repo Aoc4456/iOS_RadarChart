@@ -14,7 +14,7 @@ class MultiInputField:UIStackView{
     var parentVC:MultiInputFieldOutput!
     
     private var labels:[String]!
-    private var axisMaximum:Int!
+    private var axisMaximum:Double!
     
     private let tagConstant = 53278
     
@@ -27,7 +27,7 @@ class MultiInputField:UIStackView{
         self.spacing = 15
     }
     
-    func initialize(labels:[String],values:[Int],axisMaximum:Int,viewController:UIViewController){
+    func initialize(labels:[String],values:[Double],axisMaximum:Double,viewController:UIViewController){
         self.parentVC = viewController as? MultiInputFieldOutput
         self.labels = labels
         self.axisMaximum = axisMaximum
@@ -38,7 +38,7 @@ class MultiInputField:UIStackView{
         }
     }
     
-    private func createRowView(index:Int,label:String,value:Int,viewController:UIViewController) -> InputRowView{
+    private func createRowView(index:Int,label:String,value:Double,viewController:UIViewController) -> InputRowView{
         let row = InputRowView()
         row.setup(label: label,value: value, maximum: axisMaximum,viewController: viewController, parentView: self)
         row.tag = tagConstant + index
@@ -54,4 +54,5 @@ class MultiInputField:UIStackView{
 
 protocol MultiInputFieldOutput {
     var activeField:UIView?{get set}
+    func onChangeInputValue(index:Int,value:Double)
 }

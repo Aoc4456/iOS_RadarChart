@@ -41,14 +41,14 @@ class InputRowView: UIView {
         }
     }
     
-    func setup(label:String,value:Int,maximum:Int,viewController:UIViewController,parentView:MultiInputField){
+    func setup(label:String,value:Double,maximum:Double,viewController:UIViewController,parentView:MultiInputField){
         self.parentView = parentView
         textField.delegate = self
         self.label.text = label
         currentValue = Double(value)
         self.textField.text = textValue
         
-        self.stepper.maximumValue = Double(maximum * 2)
+        self.stepper.maximumValue = maximum * 2
         self.stepper.value = currentValue
         self.stepper.stepValue = getStep(maximum: maximum)
         viewController.addCloseButtonToTextFieldKeyboard(textField: self.textField)
@@ -61,8 +61,8 @@ class InputRowView: UIView {
         parentView.onChangeValue(value: currentValue, view: self)
     }
     
-    private func getStep(maximum:Int) -> Double{
-        let digits = String(maximum).count
+    private func getStep(maximum:Double) -> Double{
+        let digits = String(Int(maximum)).count
         if(digits < 3){
             return 1
         }else{

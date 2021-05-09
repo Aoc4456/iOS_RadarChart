@@ -16,7 +16,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     var chartData: RadarChartData? = nil
     private var chartTitle = ""
-    private var inputValues:[Int] = []
+    private var inputValues:[Double] = []
     
     init(view:ChartCreatePresenterOutput) {
         self.view = view
@@ -26,7 +26,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         self.groupData = groupData
         createInputValues()
         
-        view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: groupData.maximum)
+        view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
         chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: Double(inputValues.first!))
         
@@ -35,10 +35,14 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     // 入力の初期値は、最大値の60%とする
     private func createInputValues(){
-        let initialValue = Int(Double(groupData.maximum) * 0.6)
+        let initialValue = Double(groupData.maximum) * 0.6
         for _ in 0..<groupData.labels.count{
             inputValues.append(initialValue)
         }
+    }
+    
+    func onChangeInputValue(index: Int, value: Double) {
+        self.inputValues[index] = value
     }
 }
 
@@ -47,11 +51,12 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
     func viewDidLoad(groupData:ChartGroup)
+    func onChangeInputValue(index:Int,value:Double)
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterOutput:AnyObject {
-    func setupMultiInputView(labels:[String],values:[Int],axisMaximum:Int)
+    func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
     func InitializeChart()
 }
