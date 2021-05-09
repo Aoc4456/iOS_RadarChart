@@ -15,7 +15,7 @@ class InputRowView: UIView {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     
-    private var parentView:MultiInputField?
+    private var parentView:MultiInputField!
     
     private var currentValue:Double = 0
     private var textValue:String{
@@ -57,7 +57,8 @@ class InputRowView: UIView {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         currentValue = sender.value
         textField.text = textValue
-        // 親に通知
+        // 親に通知 1
+        parentView.onChangeValue(value: currentValue, view: self)
     }
     
     private func getStep(maximum:Int) -> Double{
@@ -85,6 +86,9 @@ extension InputRowView:UITextFieldDelegate{
         currentValue = value
         stepper.value = currentValue
         parentView?.parentVC.activeField = textField
+        
+        // 親に通知 2
+        parentView.onChangeValue(value: currentValue, view: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

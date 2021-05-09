@@ -33,6 +33,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.InitializeChart()
     }
     
+    // 入力の初期値は、最大値の60%とする
     private func createInputValues(){
         let initialValue = Int(Double(groupData.maximum) * 0.6)
         for _ in 0..<groupData.labels.count{

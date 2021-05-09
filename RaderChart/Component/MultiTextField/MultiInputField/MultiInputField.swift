@@ -44,6 +44,12 @@ class MultiInputField:UIStackView{
         row.tag = tagConstant + index
         return row
     }
+    
+    func onChangeValue(value:Double,view:UIView){
+        let valueString = value.description
+        let index = view.tag - tagConstant
+        print("\(index)番目の値：\(valueString)")
+    }
 }
 
 protocol MultiInputFieldOutput {
