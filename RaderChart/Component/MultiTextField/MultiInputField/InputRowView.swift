@@ -41,11 +41,11 @@ class InputRowView: UIView {
         }
     }
     
-    func setup(label:String,maximum:Int,viewController:UIViewController,parentView:MultiInputField){
+    func setup(label:String,value:Int,maximum:Int,viewController:UIViewController,parentView:MultiInputField){
         self.parentView = parentView
         textField.delegate = self
         self.label.text = label
-        currentValue = round(Double(maximum) * 0.6) // MARK: チャートと合わせる
+        currentValue = Double(value)
         self.textField.text = textValue
         
         self.stepper.maximumValue = Double(maximum * 2)

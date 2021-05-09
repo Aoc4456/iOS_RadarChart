@@ -85,6 +85,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
+    
     // 最初に一回だけ呼び出す
     func InitializeChart() {
         (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: Array(groupData.labels))
@@ -93,7 +94,7 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.notifyDataSetChanged()
     }
     
-    func setupMultiInputView(labels: [String], axisMaximum: Int) {
-        multiInputView.initialize(labels: labels, axisMaximum: axisMaximum, viewController: self)
+    func setupMultiInputView(labels: [String],values:[Int], axisMaximum: Int) {
+        multiInputView.initialize(labels: labels,values: values, axisMaximum: axisMaximum, viewController: self)
     }
 }
