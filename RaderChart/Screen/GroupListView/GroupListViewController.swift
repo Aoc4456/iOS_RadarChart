@@ -83,7 +83,7 @@ extension GroupListViewController:UITableViewDataSource{
         cell.subTitleView.text = data.createdAt.toLocaleDateString()
         
         let chartColor = ColorUtil.convertStringToColor(colorString: data.color)
-        let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: data.labels.count)
+        let chartData = MyChartUtil.getGroupChartData(color: chartColor, numberOfItems: data.labels.count)
         cell.radarChart.data = chartData
         
         return cell

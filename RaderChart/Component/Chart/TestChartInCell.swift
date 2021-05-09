@@ -34,7 +34,7 @@ class TestChartInCell:RadarChartView{
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
         
-        let data = MyChartUtil.getSampleChartData(color: .blue, numberOfItems: 6)
+        let data = MyChartUtil.getGroupChartData(color: .blue, numberOfItems: 6)
         self.data = data
     }
 }
