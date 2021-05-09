@@ -46,9 +46,8 @@ class MultiInputField:UIStackView{
     }
     
     func onChangeValue(value:Double,view:UIView){
-        let valueString = value.description
         let index = view.tag - tagConstant
-        print("\(index)番目の値：\(valueString)")
+        parentVC.onChangeInputValue(index: index, value: value)
     }
 }
 

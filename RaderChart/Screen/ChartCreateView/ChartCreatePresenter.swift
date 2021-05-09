@@ -28,7 +28,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         
         view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
-        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: Double(inputValues.first!))
+        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: inputValues.first!)
         
         view.InitializeChart()
     }
@@ -43,6 +43,8 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     func onChangeInputValue(index: Int, value: Double) {
         self.inputValues[index] = value
+        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
+        view.updateChart()
     }
 }
 
@@ -59,4 +61,5 @@ protocol ChartCreatePresenterInput {
 protocol ChartCreatePresenterOutput:AnyObject {
     func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
     func InitializeChart()
+    func updateChart()
 }
