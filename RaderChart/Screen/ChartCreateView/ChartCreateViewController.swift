@@ -76,12 +76,9 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
-        print("アクティブ\(contentInsets.bottom)")
         
         var aRect = self.view.frame
         aRect.size.height -= keyboardFrame.height
-        print("アクティブ\(aRect.size.height)")
-        print("アクティブ\(keyboardFrame.height)")
         if(activeField != nil){
             if(!aRect.contains(activeField!.frame.origin)){
                 scrollView.scrollRectToVisible(activeField!.frame, animated: true)
@@ -127,11 +124,13 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
 }
 
 extension ChartCreateViewController:UITextViewDelegate{
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         activeField = textView
+        return true
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         activeField = nil
+        return true
     }
 }
