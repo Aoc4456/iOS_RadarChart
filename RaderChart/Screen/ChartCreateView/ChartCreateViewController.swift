@@ -40,7 +40,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         myRadarChartView.yAxis.axisRange = Double(groupData.maximum)
         
         // setup Text
-        self.maximumLabel.text = "グラフの最大値：\(groupData.maximum)"
+        self.maximumLabel.text = "グラフの最大値：\(Int(groupData.maximum))"
         
         // setup CommentView
         commentTextView.layer.borderColor = UIColor.gray.cgColor
