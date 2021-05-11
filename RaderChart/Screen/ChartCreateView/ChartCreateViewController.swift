@@ -103,6 +103,10 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         presenter.onChangeInputValue(index: index, value: value)
     }
     
+    @IBAction func onTapSaveButton(_ sender: Any) {
+        presenter.onTapSaveButton()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
     }
@@ -128,15 +132,33 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.data?.notifyDataChanged()
         myRadarChartView.notifyDataSetChanged()
     }
+    
+    func showValidateDialog(message: String) {
+        let dialog = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(dialog, animated: true, completion: nil)
+    }
+    
+    func dismissScreen(){
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
+// タイトルTextField
 extension ChartCreateViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if(textField.text != nil && textField.text != ""){
+            presenter.onChangeChartTitle(text: textField.text!)
+        }
+    }
 }
 
+// メモTextView
 extension ChartCreateViewController:UITextViewDelegate{
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         activeField = textView
@@ -146,5 +168,11 @@ extension ChartCreateViewController:UITextViewDelegate{
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         activeField = nil
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if(textView.text != nil && textView.text != ""){
+            presenter.onChangeNote(text: textView.text!)
+        }
     }
 }

@@ -29,6 +29,7 @@ class MyChartObject:Object{
     @objc dynamic var id : String = NSUUID().uuidString
     @objc dynamic var title : String = ""
     let values = List<Double>()
+    @objc dynamic var note : String = ""
     @objc dynamic var createdAt = Date()
     @objc dynamic var updatedAt = Date()
     // 逆方向の関連

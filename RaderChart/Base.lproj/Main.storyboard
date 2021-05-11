@@ -242,6 +242,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="kJ9-jX-xeo"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="onTapSaveButton:" destination="mYu-tE-Cfk" eventType="touchUpInside" id="J7i-bO-1A6"/>
+                                                </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oZM-Gg-sL4" userLabel="CommentTextView">
                                                 <rect key="frame" x="10" y="583" width="394" height="100"/>
