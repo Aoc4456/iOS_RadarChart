@@ -17,7 +17,22 @@ class ChartGroup:Object{
     let labels = List<String>()
     @objc dynamic var createdAt = Date()
     @objc dynamic var updatedAt = Date()
+    // １対多の関係
+    let charts = List<MyChartObject>()
 
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+class MyChartObject:Object{
+    @objc dynamic var id : String = NSUUID().uuidString
+    @objc dynamic var title : String = ""
+    let values = List<Double>()
+    @objc dynamic var createdAt = Date()
+    @objc dynamic var updatedAt = Date()
+    // 逆方向の関連
+    let group = LinkingObjects(fromType: ChartGroup.self, property: "charts")
     override static func primaryKey() -> String? {
         return "id"
     }
