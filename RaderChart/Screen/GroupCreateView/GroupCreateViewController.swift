@@ -119,6 +119,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
+        print("キーボード表示_グループ")
         guard let userInfo = notification.userInfo else {return}
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         let keyboardFrame = keyboardSize.cgRectValue

@@ -15,6 +15,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     @IBOutlet weak var myRadarChartView: SampleChartInCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
+    @IBOutlet weak var commentTextView: UITextView!
     var activeField: UIView?
     
     private var presenter:ChartCreatePresenterInput!
@@ -34,6 +35,13 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         
         // setup Text
         self.maximumLabel.text = "グラフの最大値：\(groupData.maximum)"
+        
+        // setup CommentView
+        commentTextView.layer.borderColor = UIColor.gray.cgColor
+        commentTextView.layer.borderWidth = 0.2
+        commentTextView.layer.cornerRadius = 10
+        commentTextView.layer.masksToBounds = true
+        commentTextView.delegate = self
         
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
@@ -68,9 +76,12 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
+        print("アクティブ\(contentInsets.bottom)")
         
         var aRect = self.view.frame
         aRect.size.height -= keyboardFrame.height
+        print("アクティブ\(aRect.size.height)")
+        print("アクティブ\(keyboardFrame.height)")
         if(activeField != nil){
             if(!aRect.contains(activeField!.frame.origin)){
                 scrollView.scrollRectToVisible(activeField!.frame, animated: true)
@@ -86,6 +97,10 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     // Custom View Delegate
     func onChangeInputValue(index: Int, value: Double) {
         presenter.onChangeInputValue(index: index, value: value)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -108,5 +123,15 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.data = presenter.chartData
         myRadarChartView.data?.notifyDataChanged()
         myRadarChartView.notifyDataSetChanged()
+    }
+}
+
+extension ChartCreateViewController:UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        activeField = textView
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        activeField = nil
     }
 }

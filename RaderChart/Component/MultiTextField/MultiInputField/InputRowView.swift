@@ -87,7 +87,7 @@ extension InputRowView:UITextFieldDelegate{
         
         currentValue = value
         stepper.value = currentValue
-        parentView?.parentVC.activeField = textField
+        parentView?.parentVC.activeField = nil
         
         // 親に通知 2
         parentView.onChangeValue(value: currentValue, view: self)

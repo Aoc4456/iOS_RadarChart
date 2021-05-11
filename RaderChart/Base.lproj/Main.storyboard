@@ -236,14 +236,6 @@
                                                 <color key="textColor" systemColor="systemBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipg-UG-IZ3" userLabel="CommentTextField">
-                                                <rect key="frame" x="10" y="583" width="394" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Yck-bj-ydK"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-e4-vx2" userLabel="SaveButton">
                                                 <rect key="frame" x="184" y="693" width="46" height="50"/>
                                                 <constraints>
@@ -251,10 +243,19 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                             </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oZM-Gg-sL4" userLabel="CommentTextView">
+                                                <rect key="frame" x="10" y="583" width="394" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="rMS-xR-RCK"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="ipg-UG-IZ3" firstAttribute="top" secondItem="Wzh-nr-wrF" secondAttribute="bottom" constant="10" id="1Db-AI-NKn"/>
                                             <constraint firstItem="9iQ-Tg-BCm" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="1yQ-cr-uMC"/>
                                             <constraint firstAttribute="trailing" secondItem="loy-3W-VXM" secondAttribute="trailing" constant="10" id="B3j-wu-CfL"/>
                                             <constraint firstItem="loy-3W-VXM" firstAttribute="top" secondItem="9iQ-Tg-BCm" secondAttribute="bottom" constant="10" id="Ces-0g-n7W"/>
@@ -264,19 +265,20 @@
                                             <constraint firstAttribute="trailing" secondItem="iGt-T4-Dqe" secondAttribute="trailing" constant="10" id="GD7-Ya-9PT"/>
                                             <constraint firstItem="iGt-T4-Dqe" firstAttribute="top" secondItem="G1E-N3-2QX" secondAttribute="bottom" constant="10" id="Hc4-Ix-aJh"/>
                                             <constraint firstItem="Wzh-nr-wrF" firstAttribute="top" secondItem="Jvi-gu-L6a" secondAttribute="bottom" constant="10" id="JKj-QX-aF7"/>
-                                            <constraint firstAttribute="trailing" secondItem="ipg-UG-IZ3" secondAttribute="trailing" constant="10" id="LIM-z8-xV6"/>
                                             <constraint firstItem="9iQ-Tg-BCm" firstAttribute="top" secondItem="qqE-AA-wSX" secondAttribute="top" constant="10" id="O1x-hb-rGO"/>
                                             <constraint firstItem="iGt-T4-Dqe" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="O4a-wL-Osa"/>
                                             <constraint firstAttribute="trailing" secondItem="9iQ-Tg-BCm" secondAttribute="trailing" constant="10" id="Oae-wk-KSp"/>
+                                            <constraint firstItem="oZM-Gg-sL4" firstAttribute="top" secondItem="Wzh-nr-wrF" secondAttribute="bottom" constant="10" id="Tbj-cM-GH7"/>
+                                            <constraint firstItem="OVw-e4-vx2" firstAttribute="top" secondItem="oZM-Gg-sL4" secondAttribute="bottom" constant="10" id="UC3-iK-SKo"/>
                                             <constraint firstItem="loy-3W-VXM" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="Uoc-J1-STy"/>
+                                            <constraint firstItem="oZM-Gg-sL4" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="Y2e-B7-bnA"/>
                                             <constraint firstAttribute="trailing" secondItem="Jvi-gu-L6a" secondAttribute="trailing" constant="10" id="gpx-L0-xzE"/>
                                             <constraint firstAttribute="bottom" secondItem="OVw-e4-vx2" secondAttribute="bottom" constant="10" id="kMS-ez-Z5v"/>
-                                            <constraint firstItem="ipg-UG-IZ3" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="lLV-sA-JE5"/>
                                             <constraint firstItem="G1E-N3-2QX" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" id="nrA-yQ-ws5"/>
                                             <constraint firstItem="OVw-e4-vx2" firstAttribute="centerX" secondItem="qqE-AA-wSX" secondAttribute="centerX" id="sWp-Ny-ZKU"/>
                                             <constraint firstItem="Jvi-gu-L6a" firstAttribute="top" secondItem="iGt-T4-Dqe" secondAttribute="bottom" constant="10" id="uLi-uu-edj"/>
-                                            <constraint firstItem="OVw-e4-vx2" firstAttribute="top" secondItem="ipg-UG-IZ3" secondAttribute="bottom" constant="10" id="xUA-Of-j9Z"/>
                                             <constraint firstItem="Jvi-gu-L6a" firstAttribute="leading" secondItem="qqE-AA-wSX" secondAttribute="leading" constant="10" id="ywX-8T-fLn"/>
+                                            <constraint firstAttribute="trailing" secondItem="oZM-Gg-sL4" secondAttribute="trailing" constant="10" id="zcc-c8-yyO"/>
                                             <constraint firstItem="G1E-N3-2QX" firstAttribute="top" secondItem="loy-3W-VXM" secondAttribute="bottom" constant="10" id="zh9-Rk-pod"/>
                                         </constraints>
                                     </view>
@@ -301,6 +303,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iUd-Nt-lLT"/>
                     <connections>
+                        <outlet property="commentTextView" destination="oZM-Gg-sL4" id="dz5-oE-dhH"/>
                         <outlet property="maximumLabel" destination="iGt-T4-Dqe" id="mEO-WX-izl"/>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
                         <outlet property="myRadarChartView" destination="G1E-N3-2QX" id="2OT-wH-3qf"/>
@@ -654,6 +657,9 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
