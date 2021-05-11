@@ -22,3 +22,17 @@ class ChartGroup:Object{
         return "id"
     }
 }
+
+class MyChartObject:Object{
+    @objc dynamic var id : String = NSUUID().uuidString
+    @objc dynamic var title : String = ""
+    let values = List<Double>()
+    @objc dynamic var createdAt = Date()
+    @objc dynamic var updatedAt = Date()
+    // MARK: 外部キーはいらないかも...
+    @objc dynamic var groupId : String = ""
+
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
