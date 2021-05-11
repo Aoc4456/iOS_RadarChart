@@ -308,6 +308,7 @@
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
                         <outlet property="myRadarChartView" destination="G1E-N3-2QX" id="2OT-wH-3qf"/>
                         <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
+                        <outlet property="titleTextField" destination="loy-3W-VXM" id="2i3-tw-35J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="22p-ra-qWK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

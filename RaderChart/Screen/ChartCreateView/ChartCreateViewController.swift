@@ -12,6 +12,7 @@ import Charts
 class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var myRadarChartView: SampleChartInCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
@@ -24,10 +25,15 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         // setup Navigation Item
         self.navigationItem.title = "チャート新規作成"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        // setup title
+        titleTextField.delegate = self
         
         // setup Chart
         myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
@@ -42,6 +48,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         commentTextView.layer.cornerRadius = 10
         commentTextView.layer.masksToBounds = true
         commentTextView.delegate = self
+        addCloseButtonToTextViewKeyboard(textView: commentTextView)
         
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
@@ -120,6 +127,13 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.data = presenter.chartData
         myRadarChartView.data?.notifyDataChanged()
         myRadarChartView.notifyDataSetChanged()
+    }
+}
+
+extension ChartCreateViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
