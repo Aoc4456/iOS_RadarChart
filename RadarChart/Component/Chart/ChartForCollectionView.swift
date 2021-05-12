@@ -34,8 +34,21 @@ class ChartForCollectionView:RadarChartView{
         yAxis.axisRange = 100
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
+    }
+    
+    func setData(group:ChartGroup,index:Int){
+        var temporalyLabels = Array(group.labels)
+        temporalyLabels.append("")
         
-//        let data = MyChartUtil.getSampleChartData(color: .blue, numberOfItems: 6)
-//        self.data = data
+        (self.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: temporalyLabels)
+        self.yAxis.axisMaximum = group.maximum
+        self.yAxis.axisRange = group.maximum
+        
+        let myChart = Array(group.charts)[index]
+        
+        let chartData = MyChartUtil.getChartDataBasedOnInputValues(color: group.color.toUIColor(), values: Array(myChart.values))
+        self.data = chartData
+        
+        self.notifyDataSetChanged()
     }
 }

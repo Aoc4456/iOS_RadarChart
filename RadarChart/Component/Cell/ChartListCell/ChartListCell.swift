@@ -31,7 +31,7 @@ class ChartListCell: UICollectionViewCell {
     }
     
     func setChartData(group:ChartGroup,index:Int){
-        
+        chartView.setData(group: group, index: index)
     }
 }
 

@@ -24,7 +24,7 @@ class ChartGridCell: UICollectionViewCell {
     }
     
     func setChartData(group:ChartGroup,index:Int){
-        
+        chartView.setData(group: group, index: index)
     }
 }
 

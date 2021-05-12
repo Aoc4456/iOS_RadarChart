@@ -73,17 +73,17 @@ extension ChartCollectionViewController:ChartCollectionPresenterOutput{
 
 extension ChartCollectionViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return presenter.groupData.charts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(segmentView.selectedSegmentIndex == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
-            // ここでセルに、Presenterの持っているデータを渡す
+            cell.setChartData(group: groupData, index: indexPath.row)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
-            // ここでセルに、Presenterの持っているデータを渡す
+            cell.setChartData(group: groupData, index: indexPath.row)
             return cell
         }
     }
