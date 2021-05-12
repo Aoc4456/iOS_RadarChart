@@ -11,7 +11,7 @@ import UIKit
 class ChartListCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var chartView: TestChartInCell!
+    @IBOutlet weak var chartView: ChartForCollectionView!
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var commentView: UILabel!
     @IBOutlet weak var totalView: UILabel!
@@ -29,7 +29,10 @@ class ChartListCell: UICollectionViewCell {
         chartView.layer.cornerRadius = 15
         chartView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
     }
-
+    
+    func setChartData(group:ChartGroup,index:Int){
+        chartView.setData(group: group, index: index)
+    }
 }
 
 func getChartListCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {

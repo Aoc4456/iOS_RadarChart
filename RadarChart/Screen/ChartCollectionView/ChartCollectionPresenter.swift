@@ -11,7 +11,7 @@ import Foundation
 class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     private weak var view:ChartCollectionPresenterOutput!
-    private var groupData:ChartGroup!
+    var groupData:ChartGroup!
     
     init(view:ChartCollectionPresenterOutput) {
         self.view = view
@@ -22,7 +22,8 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     }
     
     func fetchDataFromDatabase() {
-        // viewDidLoad で　得た idを使ってもう一度最新のグループデータを取得しに行く
+        self.groupData = DBProvider.sharedInstance.getGroup(id: groupData.id)
+        view.notifyDataSetChanged()
     }
     
 }
@@ -30,6 +31,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCollectionPresenterInput {
+    var groupData:ChartGroup!{get}
     func viewDidLoad(groupData:ChartGroup)
     func fetchDataFromDatabase()
 }

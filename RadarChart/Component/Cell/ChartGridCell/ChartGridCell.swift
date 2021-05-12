@@ -12,7 +12,7 @@ class ChartGridCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var chartView: TestChartInCell!
+    @IBOutlet weak var chartView: ChartForCollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +21,10 @@ class ChartGridCell: UICollectionViewCell {
         containerView.layer.borderWidth = 0.3
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = false
+    }
+    
+    func setChartData(group:ChartGroup,index:Int){
+        chartView.setData(group: group, index: index)
     }
 }
 
