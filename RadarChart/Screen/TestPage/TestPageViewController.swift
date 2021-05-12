@@ -1,6 +1,6 @@
 //
 //  TestPageViewController.swift
-//  RaderChart
+//  RadarChart
 //
 //  Created by aoshima on 2021/04/14.
 //  Copyright © 2021 aoshima. All rights reserved.
@@ -11,7 +11,7 @@ import Charts
 
 class TestPageViewController: UIViewController {
 
-    @IBOutlet weak var raderChart: RadarChartView!
+    @IBOutlet weak var radarChart: RadarChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,24 +52,24 @@ class TestPageViewController: UIViewController {
          * ウェブ同士を結ぶ内側の線 = y軸 (yAxis)
          */
         // 中心から外に向かう線の太さ (デフォルト = 1.5)
-        raderChart.webLineWidth = 3
+        radarChart.webLineWidth = 3
         // 中心から外に向かう線の色
-        raderChart.webColor = UIColor.green
+        radarChart.webColor = UIColor.green
         // 内側の線の太さ (デフォルト = 0.75)
-        raderChart.innerWebLineWidth = 2
+        radarChart.innerWebLineWidth = 2
         // 内側の線の色
-        raderChart.innerWebColor = UIColor.green
+        radarChart.innerWebColor = UIColor.green
         // 回転を許すか
-        raderChart.rotationEnabled = false
+        radarChart.rotationEnabled = false
         // 凡例表示
-        raderChart.legend.enabled = true
+        radarChart.legend.enabled = true
         // タップして強調表示する機能をOFF
-        raderChart.highlightPerTapEnabled = false
+        radarChart.highlightPerTapEnabled = false
         
         /*
          * x軸 (中心から外に向かう線) の設定
          */
-        let xAxis = raderChart.xAxis
+        let xAxis = radarChart.xAxis
         // xAxis.label = グラフの外側に表示される項目名
         xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
         xAxis.labelTextColor = .black
@@ -80,7 +80,7 @@ class TestPageViewController: UIViewController {
         /*
          * y軸 (ウェブ同士を繋ぐ線)の設定
          */
-        let yAxis = raderChart.yAxis
+        let yAxis = radarChart.yAxis
         yAxis.labelFont = .systemFont(ofSize: 10,weight: .light)
         // 分割数
         yAxis.labelCount = 6
@@ -91,7 +91,7 @@ class TestPageViewController: UIViewController {
         yAxis.axisMinimum = 0
         
         let data = RadarChartData(dataSets: [greenDataSet])
-        raderChart.data = data
+        radarChart.data = data
     }
 }
 
@@ -103,7 +103,7 @@ class TestXAxisFormatter:IAxisValueFormatter{
        }
 }
 
-// RaderChartDataSetにセットするFormatter
+// RadarChartDataSetにセットするFormatter
 // 各項目の最終的な値を表示しないようにするため、""を返す
 class TestDataSetValueFormatter:IValueFormatter{
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {

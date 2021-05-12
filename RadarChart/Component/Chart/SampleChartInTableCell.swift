@@ -1,6 +1,6 @@
 //
 //  SampleChartInList.swift
-//  RaderChart
+//  RadarChart
 //
 //  Created by M Aoshima on 2021/04/30.
 //  Copyright © 2021 aoshima. All rights reserved.

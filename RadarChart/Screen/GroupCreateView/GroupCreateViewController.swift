@@ -1,6 +1,6 @@
 //
 //  GroupCreateViewController.swift
-//  RaderChart
+//  RadarChart
 //
 //  Created by M Aoshima on 2021/04/11.
 //  Copyright © 2021 aoshima. All rights reserved.
@@ -20,7 +20,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
-    @IBOutlet weak var raderChart: SampleChartInCreateScreen!
+    @IBOutlet weak var radarChart: SampleChartInCreateScreen!
     @IBOutlet weak var multiEditTextField: MultiEditText!
     @IBOutlet weak var axisMaximumField: UITextField!
     var activeField: UIView?
@@ -156,7 +156,7 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         multiEditTextField.setInitialLabels(labels: presenter.chartLabels)
         updateColor(color: presenter.selectedColor)
         axisMaximumField.text = Int(presenter.axisMaximum).description
-        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+        (radarChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
     }
     
     func updateNumberOfItems(num: Int,chartLabels:[String]) {
@@ -172,20 +172,20 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
     // 最初に一度だけ呼び出す
     func setChartDataSource() {
-        raderChart.data = presenter.chartData
+        radarChart.data = presenter.chartData
         notifyChartDataChanged()
     }
     
     // チャートに関連するデータが変更されたときに呼ばれる
     func notifyChartDataChanged() {
-        raderChart.data?.notifyDataChanged()
-        raderChart.notifyDataSetChanged()
+        radarChart.data?.notifyDataChanged()
+        radarChart.notifyDataSetChanged()
     }
     
     // チャートのラベルが変更されるとき
     func onUpdateChartLabel() {
-        (raderChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
-        raderChart.notifyDataSetChanged()
+        (radarChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+        radarChart.notifyDataSetChanged()
     }
     
     // バリデーションで不正があったとき

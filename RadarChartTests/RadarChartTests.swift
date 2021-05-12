@@ -1,6 +1,6 @@
 //
-//  RaderChartTests.swift
-//  RaderChartTests
+//  RadarChartTests.swift
+//  RadarChartTests
 //
 //  Created by aoshima on 2021/04/09.
 //  Copyright © 2021 aoshima. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  RaderChart
+//  RadarChart
 //
 //  Created by aoshima on 2021/04/09.
 //  Copyright © 2021 aoshima. All rights reserved.
