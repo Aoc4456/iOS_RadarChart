@@ -26,7 +26,6 @@ class SampleChartInTableCell:RadarChartView{
         highlightPerTapEnabled = false
         
         let xAxis = self.xAxis
-        xAxis.labelFont = .systemFont(ofSize: 15,weight: .bold)
         xAxis.valueFormatter = RowXAxisFormatterReturningEmpty()
         
         let yAxis = self.yAxis
@@ -34,8 +33,8 @@ class SampleChartInTableCell:RadarChartView{
         yAxis.setLabelCount(4, force: true)
         yAxis.drawLabelsEnabled = false
         yAxis.axisMinimum = 0
-        yAxis.axisMaximum = 100
-        yAxis.axisRange = 100
+        yAxis.axisMaximum = 90
+        yAxis.axisRange = 90
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
     }
