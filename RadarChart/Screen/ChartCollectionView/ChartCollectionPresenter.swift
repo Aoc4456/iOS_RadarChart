@@ -11,13 +11,18 @@ import Foundation
 class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     private weak var view:ChartCollectionPresenterOutput!
+    private var groupData:ChartGroup!
     
     init(view:ChartCollectionPresenterOutput) {
         self.view = view
     }
     
-    func viewDidLoad() {
-
+    func viewDidLoad(groupData:ChartGroup) {
+        self.groupData = groupData
+    }
+    
+    func fetchDataFromDatabase() {
+        // viewDidLoad で　得た idを使ってもう一度最新のグループデータを取得しに行く
     }
     
 }
@@ -25,11 +30,12 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCollectionPresenterInput {
-    func viewDidLoad()
+    func viewDidLoad(groupData:ChartGroup)
+    func fetchDataFromDatabase()
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCollectionPresenterOutput:AnyObject {
-    
+    func notifyDataSetChanged()
 }

@@ -92,7 +92,6 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
     
     // delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let tag = textField.tag
         textField.resignFirstResponder()
         return true
     }

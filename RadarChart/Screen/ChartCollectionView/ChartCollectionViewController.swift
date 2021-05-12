@@ -33,7 +33,7 @@ class ChartCollectionViewController: UIViewController {
         // setup CollectionViewCell
         collectionView.collectionViewLayout = getChartListCellFlowLayout(view: containerView)
         
-        presenter.viewDidLoad()
+        presenter.viewDidLoad(groupData: self.groupData)
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
@@ -58,11 +58,17 @@ class ChartCollectionViewController: UIViewController {
             nextVC?.groupData = groupData
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.fetchDataFromDatabase()
+    }
 }
 
 // Presenterからの描画指示
 extension ChartCollectionViewController:ChartCollectionPresenterOutput{
-    
+    func notifyDataSetChanged() {
+        collectionView.reloadData()
+    }
 }
 
 extension ChartCollectionViewController:UICollectionViewDataSource{
@@ -73,9 +79,11 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(segmentView.selectedSegmentIndex == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
+            // ここでセルに、Presenterの持っているデータを渡す
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
+            // ここでセルに、Presenterの持っているデータを渡す
             return cell
         }
     }
