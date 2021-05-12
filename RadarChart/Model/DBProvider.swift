@@ -30,6 +30,12 @@ class DBProvider{
         return Array(results)
     }
     
+    // グループをidから1件取得
+    func getGroup(id:String) -> ChartGroup {
+        let object = db.objects(ChartGroup.self).filter("id = %@", id)
+        return object.first!
+    }
+    
     // グループにレコードを新規追加
     func addGroup(object:ChartGroup){
         try! db.write {
@@ -43,5 +49,17 @@ class DBProvider{
         try! db.write {
             db.delete(object)
         }
+    }
+    
+    
+    //
+    // チャートテーブル操作関数
+    //
+    
+    func addChart(groupId:String,chartObject:MyChartObject){
+        db.beginWrite()
+        let group = getGroup(id: groupId)
+        group.charts.append(chartObject)
+        try! db.commitWrite()
     }
 }

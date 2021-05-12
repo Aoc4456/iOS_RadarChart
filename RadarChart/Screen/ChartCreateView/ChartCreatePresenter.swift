@@ -67,11 +67,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         
         // データベースへの書き込み
         let saveChartObject = getChartObject()
-        // TODO このままだと、グループとの関連がないのでは..?
-        // 外部キーをどう扱うのか確認
-        print("保存データです\(saveChartObject.description)")
-//        DBProvider.sharedInstance.addGroup(object: group)
-        
+        DBProvider.sharedInstance.addChart(groupId: groupData.id, chartObject: saveChartObject)
         
         // 画面を閉じる
         view.dismissScreen()

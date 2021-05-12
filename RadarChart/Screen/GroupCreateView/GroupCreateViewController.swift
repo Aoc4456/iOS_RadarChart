@@ -203,7 +203,6 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
 // タイトルTextFieldDelegate
 extension GroupCreateViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(textField.tag)
         switch textField.tag {
         case titleTextFieldTag:
             presenter.titleTextFieldDidEndEditing(text: textField.text ?? "")
