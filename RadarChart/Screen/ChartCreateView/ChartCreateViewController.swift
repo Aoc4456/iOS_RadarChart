@@ -13,7 +13,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var myRadarChartView: SampleChartInCreateScreen!
+    @IBOutlet weak var myRadarChartView: ChartForCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
     @IBOutlet weak var commentTextView: UITextView!

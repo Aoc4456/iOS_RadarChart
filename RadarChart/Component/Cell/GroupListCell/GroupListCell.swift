@@ -10,7 +10,7 @@ import UIKit
 
 class GroupListCell: UITableViewCell {
     
-    @IBOutlet weak var radarChart: SampleChartInTableCell!
+    @IBOutlet weak var radarChart: ChartForGroupList!
     
     @IBOutlet weak var titleView: UILabel!
     

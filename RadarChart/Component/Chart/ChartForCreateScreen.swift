@@ -10,7 +10,7 @@ import Foundation
 import Charts
 
 // グループ作成画面・チャート作成画面で使用する
-class SampleChartInCreateScreen:RadarChartView{
+class ChartForCreateScreen:RadarChartView{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

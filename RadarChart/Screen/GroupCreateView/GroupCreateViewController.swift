@@ -20,7 +20,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
-    @IBOutlet weak var radarChart: SampleChartInCreateScreen!
+    @IBOutlet weak var radarChart: ChartForCreateScreen!
     @IBOutlet weak var multiEditTextField: MultiEditText!
     @IBOutlet weak var axisMaximumField: UITextField!
     var activeField: UIView?

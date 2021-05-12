@@ -29,7 +29,10 @@ class ChartListCell: UICollectionViewCell {
         chartView.layer.cornerRadius = 15
         chartView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
     }
-
+    
+    func setChartData(group:ChartGroup,index:Int){
+        
+    }
 }
 
 func getChartListCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {

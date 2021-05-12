@@ -22,6 +22,10 @@ class ChartGridCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = false
     }
+    
+    func setChartData(group:ChartGroup,index:Int){
+        
+    }
 }
 
 func getChartGridCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {

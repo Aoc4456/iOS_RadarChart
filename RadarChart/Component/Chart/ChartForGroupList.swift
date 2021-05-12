@@ -9,7 +9,7 @@
 import Foundation
 import Charts
 
-class SampleChartInTableCell:RadarChartView{
+class ChartForGroupList:RadarChartView{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

@@ -10,9 +10,9 @@
 		0DAB3EAA267E23DF8AE43759 /* Pods_RadarChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E54A3A73EC9192ED1E95A1 /* Pods_RadarChart.framework */; };
 		5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */; };
 		5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */; };
-		5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */; };
+		5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */; };
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
-		5E586FB0263198B50012DDA9 /* SampleChartInCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* SampleChartInCreateScreen.swift */; };
+		5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */; };
 		5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07A26416341001E31EA /* MultiInputField.swift */; };
 		5E5BE08026416517001E31EA /* InputRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07F26416517001E31EA /* InputRowView.swift */; };
 		5E5BE08426416585001E31EA /* InputRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BE08326416585001E31EA /* InputRowView.xib */; };
@@ -42,6 +42,7 @@
 		922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDEE26201C5300569E94 /* LaunchScreen.storyboard */; };
 		922FCDFB26201C5300569E94 /* RadarChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDFA26201C5300569E94 /* RadarChartTests.swift */; };
 		92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE68482626DE5200D255ED /* TestPageViewController.swift */; };
+		92FB2AF5264BB1C3003258D1 /* ChartForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */; };
 		DC31162B5902CD4AB2D72BF4 /* Pods_RadarChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669ECA2FB129E876FCC8F124 /* Pods_RadarChartTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,9 +61,9 @@
 		599E21320BB00A605C01752B /* Pods-RadarChartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChartTests.debug.xcconfig"; path = "Target Support Files/Pods-RadarChartTests/Pods-RadarChartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridCell.swift; sourceTree = "<group>"; };
 		5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartGridCell.xib; sourceTree = "<group>"; };
-		5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInTableCell.swift; sourceTree = "<group>"; };
+		5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForGroupList.swift; sourceTree = "<group>"; };
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
-		5E586FAF263198B50012DDA9 /* SampleChartInCreateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInCreateScreen.swift; sourceTree = "<group>"; };
+		5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCreateScreen.swift; sourceTree = "<group>"; };
 		5E5BE07A26416341001E31EA /* MultiInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiInputField.swift; sourceTree = "<group>"; };
 		5E5BE07F26416517001E31EA /* InputRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRowView.swift; sourceTree = "<group>"; };
 		5E5BE08326416585001E31EA /* InputRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRowView.xib; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		922FCDFA26201C5300569E94 /* RadarChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartTests.swift; sourceTree = "<group>"; };
 		922FCDFC26201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE68482626DE5200D255ED /* TestPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
+		92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCollectionView.swift; sourceTree = "<group>"; };
 		AB76758A83718BD6ABF4D4F2 /* Pods-RadarChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChart.debug.xcconfig"; path = "Target Support Files/Pods-RadarChart/Pods-RadarChart.debug.xcconfig"; sourceTree = "<group>"; };
 		D8E54A3A73EC9192ED1E95A1 /* Pods_RadarChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadarChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A148EB3365F17B59A62E88 /* Pods-RadarChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChartTests.release.xcconfig"; path = "Target Support Files/Pods-RadarChartTests/Pods-RadarChartTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,8 +166,9 @@
 		5E5BE07126416253001E31EA /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				5E586FAF263198B50012DDA9 /* SampleChartInCreateScreen.swift */,
-				5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */,
+				5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */,
+				5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */,
+				92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */,
 				5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */,
 			);
 			path = Chart;
@@ -529,12 +532,13 @@
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
 				5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */,
-				5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */,
+				92FB2AF5264BB1C3003258D1 /* ChartForCollectionView.swift in Sources */,
+				5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */,
 				5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
 				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,
 				5ED3BA0826402839004E0D26 /* ChartCreatePresenter.swift in Sources */,
-				5E586FB0263198B50012DDA9 /* SampleChartInCreateScreen.swift in Sources */,
+				5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */,
 				92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */,
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
 				5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */,
