@@ -1,0 +1,6 @@
+framework module Pods_RadarChart {
+  umbrella header "Pods-RadarChart-umbrella.h"
+
+  export *
+  module * { export * }
+}

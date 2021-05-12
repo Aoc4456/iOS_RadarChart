@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03C7111A745E853A544AECBC /* Pods_RaderChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0923232D2D503F2B255105DF /* Pods_RaderChartTests.framework */; };
+		0DAB3EAA267E23DF8AE43759 /* Pods_RadarChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E54A3A73EC9192ED1E95A1 /* Pods_RadarChart.framework */; };
 		5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */; };
 		5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */; };
 		5E1C7AF5263C3A93000F7BBB /* SampleChartInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */; };
@@ -40,9 +40,9 @@
 		922FCDEB26201C5200569E94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDE926201C5200569E94 /* Main.storyboard */; };
 		922FCDED26201C5300569E94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDEC26201C5300569E94 /* Assets.xcassets */; };
 		922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 922FCDEE26201C5300569E94 /* LaunchScreen.storyboard */; };
-		922FCDFB26201C5300569E94 /* RaderChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDFA26201C5300569E94 /* RaderChartTests.swift */; };
+		922FCDFB26201C5300569E94 /* RadarChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDFA26201C5300569E94 /* RadarChartTests.swift */; };
 		92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE68482626DE5200D255ED /* TestPageViewController.swift */; };
-		EBA3EE471B05B9AC2235839A /* Pods_RaderChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */; };
+		DC31162B5902CD4AB2D72BF4 /* Pods_RadarChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669ECA2FB129E876FCC8F124 /* Pods_RadarChartTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0132CEA9AB2FFC9FC3D7950A /* Pods-RaderChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChart.release.xcconfig"; path = "Target Support Files/Pods-RaderChart/Pods-RaderChart.release.xcconfig"; sourceTree = "<group>"; };
-		0923232D2D503F2B255105DF /* Pods_RaderChartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RaderChartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A2A2AE83942EA0610D97E3A /* Pods-RaderChartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.debug.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RaderChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D28D2DA07D3873C0026A210 /* Pods-RaderChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChartTests.release.xcconfig"; path = "Target Support Files/Pods-RaderChartTests/Pods-RaderChartTests.release.xcconfig"; sourceTree = "<group>"; };
+		0171655EA38EB09499780E40 /* Pods-RadarChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChart.release.xcconfig"; path = "Target Support Files/Pods-RadarChart/Pods-RadarChart.release.xcconfig"; sourceTree = "<group>"; };
+		599E21320BB00A605C01752B /* Pods-RadarChartTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChartTests.debug.xcconfig"; path = "Target Support Files/Pods-RadarChartTests/Pods-RadarChartTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridCell.swift; sourceTree = "<group>"; };
 		5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartGridCell.xib; sourceTree = "<group>"; };
 		5E1C7AF4263C3A93000F7BBB /* SampleChartInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleChartInTableCell.swift; sourceTree = "<group>"; };
@@ -87,6 +84,7 @@
 		5EE6929B263C26C600F714B9 /* GroupListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListPresenter.swift; sourceTree = "<group>"; };
 		5EEB5C052634056D002DA73C /* MyChartUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChartUtil.swift; sourceTree = "<group>"; };
 		5EEB5C162634479D002DA73C /* MultiEditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiEditText.swift; sourceTree = "<group>"; };
+		669ECA2FB129E876FCC8F124 /* Pods_RadarChartTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadarChartTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE026201C5200569E94 /* RadarChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadarChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		922FCDE326201C5200569E94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		922FCDE526201C5200569E94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,10 +94,12 @@
 		922FCDEF26201C5300569E94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		922FCDF126201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		922FCDF626201C5300569E94 /* RadarChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadarChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		922FCDFA26201C5300569E94 /* RaderChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaderChartTests.swift; sourceTree = "<group>"; };
+		922FCDFA26201C5300569E94 /* RadarChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartTests.swift; sourceTree = "<group>"; };
 		922FCDFC26201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DE68482626DE5200D255ED /* TestPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
-		A151A2E10EF1C1FB6C48BC81 /* Pods-RaderChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RaderChart.debug.xcconfig"; path = "Target Support Files/Pods-RaderChart/Pods-RaderChart.debug.xcconfig"; sourceTree = "<group>"; };
+		AB76758A83718BD6ABF4D4F2 /* Pods-RadarChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChart.debug.xcconfig"; path = "Target Support Files/Pods-RadarChart/Pods-RadarChart.debug.xcconfig"; sourceTree = "<group>"; };
+		D8E54A3A73EC9192ED1E95A1 /* Pods_RadarChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadarChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4A148EB3365F17B59A62E88 /* Pods-RadarChartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChartTests.release.xcconfig"; path = "Target Support Files/Pods-RadarChartTests/Pods-RadarChartTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBA3EE471B05B9AC2235839A /* Pods_RaderChart.framework in Frameworks */,
+				0DAB3EAA267E23DF8AE43759 /* Pods_RadarChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C7111A745E853A544AECBC /* Pods_RaderChartTests.framework in Frameworks */,
+				DC31162B5902CD4AB2D72BF4 /* Pods_RadarChartTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,14 +274,23 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		661964B45C92A469C4D91E71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8E54A3A73EC9192ED1E95A1 /* Pods_RadarChart.framework */,
+				669ECA2FB129E876FCC8F124 /* Pods_RadarChartTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		922FCDD726201C5200569E94 = {
 			isa = PBXGroup;
 			children = (
-				922FCDE226201C5200569E94 /* RaderChart */,
-				922FCDF926201C5300569E94 /* RaderChartTests */,
+				922FCDE226201C5200569E94 /* RadarChart */,
+				922FCDF926201C5300569E94 /* RadarChartTests */,
 				922FCDE126201C5200569E94 /* Products */,
 				96F5B0DD106AFAF8F7F45567 /* Pods */,
-				F6B05593ECC0AE41E828E327 /* Frameworks */,
+				661964B45C92A469C4D91E71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,7 +303,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		922FCDE226201C5200569E94 /* RaderChart */ = {
+		922FCDE226201C5200569E94 /* RadarChart */ = {
 			isa = PBXGroup;
 			children = (
 				5EE33938263ACF42005D732B /* Model */,
@@ -308,36 +317,27 @@
 				922FCDEE26201C5300569E94 /* LaunchScreen.storyboard */,
 				922FCDF126201C5300569E94 /* Info.plist */,
 			);
-			path = RaderChart;
+			path = RadarChart;
 			sourceTree = "<group>";
 		};
-		922FCDF926201C5300569E94 /* RaderChartTests */ = {
+		922FCDF926201C5300569E94 /* RadarChartTests */ = {
 			isa = PBXGroup;
 			children = (
-				922FCDFA26201C5300569E94 /* RaderChartTests.swift */,
+				922FCDFA26201C5300569E94 /* RadarChartTests.swift */,
 				922FCDFC26201C5300569E94 /* Info.plist */,
 			);
-			path = RaderChartTests;
+			path = RadarChartTests;
 			sourceTree = "<group>";
 		};
 		96F5B0DD106AFAF8F7F45567 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A151A2E10EF1C1FB6C48BC81 /* Pods-RaderChart.debug.xcconfig */,
-				0132CEA9AB2FFC9FC3D7950A /* Pods-RaderChart.release.xcconfig */,
-				0A2A2AE83942EA0610D97E3A /* Pods-RaderChartTests.debug.xcconfig */,
-				4D28D2DA07D3873C0026A210 /* Pods-RaderChartTests.release.xcconfig */,
+				AB76758A83718BD6ABF4D4F2 /* Pods-RadarChart.debug.xcconfig */,
+				0171655EA38EB09499780E40 /* Pods-RadarChart.release.xcconfig */,
+				599E21320BB00A605C01752B /* Pods-RadarChartTests.debug.xcconfig */,
+				E4A148EB3365F17B59A62E88 /* Pods-RadarChartTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		F6B05593ECC0AE41E828E327 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1AB0378059CAF747C3834B04 /* Pods_RaderChart.framework */,
-				0923232D2D503F2B255105DF /* Pods_RaderChartTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,11 +347,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 922FCDFF26201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChart" */;
 			buildPhases = (
-				44AC782A2C1A798FCD91BF95 /* [CP] Check Pods Manifest.lock */,
+				DEF058F6FBA23FB1A1AE767C /* [CP] Check Pods Manifest.lock */,
 				922FCDDC26201C5200569E94 /* Sources */,
 				922FCDDD26201C5200569E94 /* Frameworks */,
 				922FCDDE26201C5200569E94 /* Resources */,
-				0BE47AA235B45A78182872DE /* [CP] Embed Pods Frameworks */,
+				51FD5289A042C1007CD07546 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,7 +366,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 922FCE0226201C5300569E94 /* Build configuration list for PBXNativeTarget "RadarChartTests" */;
 			buildPhases = (
-				BA5D7E43A2D35953345D2460 /* [CP] Check Pods Manifest.lock */,
+				18F770CBE4ABDB323CF5909B /* [CP] Check Pods Manifest.lock */,
 				922FCDF226201C5300569E94 /* Sources */,
 				922FCDF326201C5300569E94 /* Frameworks */,
 				922FCDF426201C5300569E94 /* Resources */,
@@ -444,24 +444,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0BE47AA235B45A78182872DE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RaderChart/Pods-RaderChart-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RaderChart/Pods-RaderChart-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RaderChart/Pods-RaderChart-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		44AC782A2C1A798FCD91BF95 /* [CP] Check Pods Manifest.lock */ = {
+		18F770CBE4ABDB323CF5909B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -476,14 +459,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RaderChart-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RadarChartTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA5D7E43A2D35953345D2460 /* [CP] Check Pods Manifest.lock */ = {
+		51FD5289A042C1007CD07546 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RadarChart/Pods-RadarChart-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RadarChart/Pods-RadarChart-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RadarChart/Pods-RadarChart-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEF058F6FBA23FB1A1AE767C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -498,7 +498,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RaderChartTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RadarChart-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,7 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				922FCDFB26201C5300569E94 /* RaderChartTests.swift in Sources */,
+				922FCDFB26201C5300569E94 /* RadarChartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,14 +697,14 @@
 		};
 		922FCE0026201C5300569E94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A151A2E10EF1C1FB6C48BC81 /* Pods-RaderChart.debug.xcconfig */;
+			baseConfigurationReference = AB76758A83718BD6ABF4D4F2 /* Pods-RadarChart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DDN784AYL9;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
-				INFOPLIST_FILE = RaderChart/Info.plist;
+				INFOPLIST_FILE = RadarChart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,14 +719,14 @@
 		};
 		922FCE0126201C5300569E94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0132CEA9AB2FFC9FC3D7950A /* Pods-RaderChart.release.xcconfig */;
+			baseConfigurationReference = 0171655EA38EB09499780E40 /* Pods-RadarChart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = DDN784AYL9;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
-				INFOPLIST_FILE = RaderChart/Info.plist;
+				INFOPLIST_FILE = RadarChart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,20 +741,20 @@
 		};
 		922FCE0326201C5300569E94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A2A2AE83942EA0610D97E3A /* Pods-RaderChartTests.debug.xcconfig */;
+			baseConfigurationReference = 599E21320BB00A605C01752B /* Pods-RadarChartTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDN784AYL9;
-				INFOPLIST_FILE = RaderChartTests/Info.plist;
+				INFOPLIST_FILE = RadarChartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RaderChartTests;
+				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RadarChartTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -764,20 +764,20 @@
 		};
 		922FCE0426201C5300569E94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D28D2DA07D3873C0026A210 /* Pods-RaderChartTests.release.xcconfig */;
+			baseConfigurationReference = E4A148EB3365F17B59A62E88 /* Pods-RadarChartTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DDN784AYL9;
-				INFOPLIST_FILE = RaderChartTests/Info.plist;
+				INFOPLIST_FILE = RadarChartTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RaderChartTests;
+				PRODUCT_BUNDLE_IDENTIFIER = aoshima.RadarChartTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

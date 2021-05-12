@@ -1,12 +1,12 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.4'
 
-target 'RaderChart' do
+target 'RadarChart' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   inhibit_all_warnings!
 
-  # Pods for RaderChart
+  # Pods for RadarChart
   pod 'Charts'
   pod 'RealmSwift', '~> 3.18.0'
   pod 'StepSlider', '~> 1.3.0'
@@ -22,7 +22,7 @@ target 'RaderChart' do
     end
   end
 
-  target 'RaderChartTests' do
+  target 'RadarChartTests' do
     inherit! :search_paths
     # Pods for testing
   end

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_RaderChartTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_RaderChartTestsVersionString[];
+FOUNDATION_EXPORT double Pods_RadarChartTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_RadarChartTestsVersionString[];
 
