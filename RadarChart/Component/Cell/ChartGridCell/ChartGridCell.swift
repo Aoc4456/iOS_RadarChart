@@ -12,7 +12,7 @@ class ChartGridCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var chartView: TestChartInCell!
+    @IBOutlet weak var chartView: ChartForCollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

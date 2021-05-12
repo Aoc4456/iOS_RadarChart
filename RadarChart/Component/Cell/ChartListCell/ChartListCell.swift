@@ -11,7 +11,7 @@ import UIKit
 class ChartListCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var chartView: TestChartInCell!
+    @IBOutlet weak var chartView: ChartForCollectionView!
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var commentView: UILabel!
     @IBOutlet weak var totalView: UILabel!
