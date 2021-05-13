@@ -18,7 +18,7 @@ class ChartForCreateScreen:RadarChartView{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        fixedLabelSize = LabelSizeType.Large.rawValue
+        fixedLabelSize = LabelSizeType.Medium.rawValue
         
         rotationEnabled = false
         legend.enabled = false

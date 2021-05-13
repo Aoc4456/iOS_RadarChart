@@ -39,7 +39,7 @@ class ChartListCell: UICollectionViewCell {
         let sum = valueArray.reduce(0) { $0 + $1 }
         totalView.text = "合計：\(Int(sum).description)"
         
-        chartView.setData(group: group, index: index)
+        chartView.setData(group: group, index: index,labelSize: .Medium)
     }
 }
 

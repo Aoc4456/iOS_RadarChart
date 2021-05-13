@@ -31,6 +31,6 @@ class RowXAxisFormatterReturningEmpty:IAxisValueFormatter{
 public enum LabelSizeType:Int{
     case None = 0   // グループ一覧
     case Small = 1  // チャート一覧_グリッド
-    case Middle = 2 // チャート一覧_リスト
+    case Medium = 2 // チャート一覧_リスト
     case Large = 3  // グループ作成・チャート作成画面
 }

@@ -21,6 +21,7 @@ class ChartForGroupList:RadarChartView{
      **/
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         rotationEnabled = false
         legend.enabled = false
         highlightPerTapEnabled = false

@@ -100,13 +100,11 @@ open class XAxisRendererRadarChart: XAxisRenderer
             case 0:
                 longest = ""
             case 1:
-                longest = "aa"
+                longest = "1234"
             case 2:
-                longest = "aaaa"
+                longest = "12345"
             case 3:
-                longest = "aaaaaa"
-            case 4:
-                longest = "aaaaaaaa"
+                longest = "1234567"
             default:
                 break
         }

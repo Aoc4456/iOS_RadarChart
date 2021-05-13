@@ -18,8 +18,6 @@ class ChartForCollectionView:RadarChartView{
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        fixedLabelSize = LabelSizeType.Small.rawValue
-        
         rotationEnabled = false
         legend.enabled = false
         highlightPerTapEnabled = false
@@ -39,7 +37,10 @@ class ChartForCollectionView:RadarChartView{
         yAxis.spaceMin = 0
     }
     
-    func setData(group:ChartGroup,index:Int){
+    func setData(group:ChartGroup,index:Int,labelSize:LabelSizeType){
+        fixedLabelSize = labelSize.rawValue
+        print("ラベルのサイズは：\(fixedLabelSize)")
+        
         var temporalyLabels = Array(group.labels)
         temporalyLabels.append("")
         
