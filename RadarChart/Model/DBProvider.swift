@@ -38,9 +38,20 @@ class DBProvider{
     
     // グループを追加 または 更新
     func addGroup(object:ChartGroup,diffNumOfItems:Int){
-        try! db.write {
-            db.add(object,update: .modified)
+        db.beginWrite()
+        
+        // 関連するチャートから、無くなった項目の値を削除
+        if(diffNumOfItems < 0){
+            object.charts.forEach{
+                $0.values.removeLast(abs(diffNumOfItems))
+            }
+        }else if(diffNumOfItems > 0){
+            
         }
+        
+        db.add(object,update: .modified)
+        
+        try! db.commitWrite()
     }
     
     // グループと、グループに属するチャートを削除

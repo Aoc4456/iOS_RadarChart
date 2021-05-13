@@ -89,7 +89,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         let group = getChartGroupObject()
         var diffNumberOfItems = 0
         if(passedData != nil){
-            diffNumberOfItems = numberOfItems - passedData!.charts.count
+            diffNumberOfItems = numberOfItems - passedData!.labels.count
         }
         
         DBProvider.sharedInstance.addGroup(object: group,diffNumOfItems:diffNumberOfItems)
