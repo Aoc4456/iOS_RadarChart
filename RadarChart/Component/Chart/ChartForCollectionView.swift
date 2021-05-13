@@ -39,7 +39,6 @@ class ChartForCollectionView:RadarChartView{
     
     func setData(group:ChartGroup,index:Int,labelSize:LabelSizeType){
         fixedLabelSize = labelSize.rawValue
-        print("ラベルのサイズは：\(fixedLabelSize)")
         
         var temporalyLabels = Array(group.labels)
         temporalyLabels.append("")

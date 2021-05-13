@@ -39,7 +39,7 @@ class DBProvider{
     // グループにレコードを新規追加
     func addGroup(object:ChartGroup){
         try! db.write {
-            db.add(object,update: .all)
+            db.add(object,update: .modified)
         }
     }
     

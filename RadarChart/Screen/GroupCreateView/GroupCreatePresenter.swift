@@ -16,6 +16,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     private weak var view:GroupCreaterPresenterOutput!
     var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
     private var id : String? = nil
+    private var charts:List<MyChartObject> = List<MyChartObject>()
     private var createdAt : Date? = nil
     var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
@@ -34,6 +35,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         
         if(passedData != nil){
             self.id = passedData!.id
+            self.charts = passedData!.charts
             self.createdAt = passedData!.createdAt
             self.title = passedData!.title
             self.selectedColor = passedData!.color.toUIColor()
@@ -123,7 +125,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         if(id == nil){
             group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
         }else{
-            group = ChartGroup(value: ["id":id!,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!])
+            group = ChartGroup(value: ["id":id!,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!,"charts":charts])
         }
         return group!
     }
