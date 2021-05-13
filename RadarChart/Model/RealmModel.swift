@@ -33,7 +33,7 @@ class MyChartObject:Object{
     @objc dynamic var createdAt = Date()
     @objc dynamic var updatedAt = Date()
     // 逆方向の関連
-    let group = LinkingObjects(fromType: ChartGroup.self, property: "charts")
+    let group = LinkingObjects(fromType: ChartGroup.self, property: "charts").first
     override static func primaryKey() -> String? {
         return "id"
     }

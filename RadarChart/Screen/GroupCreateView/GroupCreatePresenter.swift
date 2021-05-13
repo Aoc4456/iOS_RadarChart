@@ -15,15 +15,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private weak var view:GroupCreaterPresenterOutput!
     var chartData: RadarChartData = MyChartUtil.getSampleChartData(color: UIColor.systemTeal, numberOfItems: 8)
-    private var id : String? = nil
-    private var charts:List<MyChartObject> = List<MyChartObject>()
-    private var createdAt : Date? = nil
     var title = ""
     var sliderLabel = ["3","4","5","6","7","8"]
     var selectedColor: UIColor = UIColor.systemTeal
     var numberOfItems: Int = 5
     var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
+    
+    private var passedData:ChartGroup?
     
     init(view:GroupCreaterPresenterOutput) {
         self.view = view
@@ -34,9 +33,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         view.setChartDataSource()
         
         if(passedData != nil){
-            self.id = passedData!.id
-            self.charts = passedData!.charts
-            self.createdAt = passedData!.createdAt
+            self.passedData = passedData!
             self.title = passedData!.title
             self.selectedColor = passedData!.color.toUIColor()
             self.numberOfItems = Int(passedData!.labels.count)
@@ -87,6 +84,12 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             view.showValidateDialog(text: errorMessage)
             return
         }
+        if(passedData != nil){
+            if(passedData!.labels.count != numberOfItems){
+                // TODO グループに関連したチャートの values も更新する
+                print("項目数が変わりました！: \(passedData!.labels.count) -> \(numberOfItems)")
+            }
+        }
         
         // データベースへの書き込み
         let group = getChartGroupObject()
@@ -100,7 +103,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         // TODO 確認ダイアログを表示する
         
         
-        DBProvider.sharedInstance.deleteGroup(id: self.id!)
+        DBProvider.sharedInstance.deleteGroup(id: self.passedData!.id)
         view.completeWritingToDatabase()
     }
     
@@ -122,10 +125,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     private func getChartGroupObject() -> ChartGroup{
         var group:ChartGroup? = nil
-        if(id == nil){
+        if(passedData == nil){
             group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
         }else{
-            group = ChartGroup(value: ["id":id!,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":createdAt!,"charts":charts])
+            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts])
         }
         return group!
     }

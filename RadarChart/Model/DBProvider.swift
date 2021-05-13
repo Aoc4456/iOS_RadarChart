@@ -43,10 +43,11 @@ class DBProvider{
         }
     }
     
-    // グループを削除 TODO: グループに所属するチャートも全て削除する
+    // グループと、グループに属するチャートを削除
     func deleteGroup(id:String){
-        let object = db.objects(ChartGroup.self).filter("id = %@", id)
+        let object = db.objects(ChartGroup.self).filter("id = %@", id)[0]
         try! db.write {
+            db.delete(object.charts)
             db.delete(object)
         }
     }
