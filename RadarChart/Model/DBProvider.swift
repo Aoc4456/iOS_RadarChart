@@ -36,8 +36,8 @@ class DBProvider{
         return object.first!
     }
     
-    // グループにレコードを新規追加
-    func addGroup(object:ChartGroup){
+    // グループを追加 または 更新
+    func addGroup(object:ChartGroup,diffNumOfItems:Int){
         try! db.write {
             db.add(object,update: .modified)
         }

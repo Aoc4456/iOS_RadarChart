@@ -84,16 +84,15 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             view.showValidateDialog(text: errorMessage)
             return
         }
-        if(passedData != nil){
-            if(passedData!.labels.count != numberOfItems){
-                // TODO グループに関連したチャートの values も更新する
-                print("項目数が変わりました！: \(passedData!.labels.count) -> \(numberOfItems)")
-            }
-        }
         
         // データベースへの書き込み
         let group = getChartGroupObject()
-        DBProvider.sharedInstance.addGroup(object: group)
+        var diffNumberOfItems = 0
+        if(passedData != nil){
+            diffNumberOfItems = numberOfItems - passedData!.charts.count
+        }
+        
+        DBProvider.sharedInstance.addGroup(object: group,diffNumOfItems:diffNumberOfItems)
         
         // 画面を閉じる
         view.completeWritingToDatabase()
@@ -101,7 +100,6 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     func onTapTrashButton() {
         // TODO 確認ダイアログを表示する
-        
         
         DBProvider.sharedInstance.deleteGroup(id: self.passedData!.id)
         view.completeWritingToDatabase()
