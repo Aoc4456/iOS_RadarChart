@@ -40,13 +40,18 @@ class DBProvider{
     func addGroup(object:ChartGroup,diffNumOfItems:Int){
         db.beginWrite()
         
-        // 関連するチャートから、無くなった項目の値を削除
+        // 関連するチャートから、減った項目の値を削除
         if(diffNumOfItems < 0){
             object.charts.forEach{
                 $0.values.removeLast(abs(diffNumOfItems))
             }
-        }else if(diffNumOfItems > 0){
-            
+        }else if(diffNumOfItems > 0){ // 項目数が増えたらデフォルト値で埋める
+            object.charts.forEach{
+                let addValue = object.maximum * 0.6
+                for _ in 0..<diffNumOfItems{
+                    $0.values.append(addValue)
+                }
+            }
         }
         
         db.add(object,update: .modified)
