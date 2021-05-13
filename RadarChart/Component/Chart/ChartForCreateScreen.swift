@@ -17,6 +17,9 @@ class ChartForCreateScreen:RadarChartView{
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        fixedLabelSize = LabelSizeType.Large.rawValue
+        
         rotationEnabled = false
         legend.enabled = false
         highlightPerTapEnabled = false
@@ -34,17 +37,5 @@ class ChartForCreateScreen:RadarChartView{
         yAxis.axisRange = 100
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
-    }
-}
-
-class RowXAxisFormatter:IAxisValueFormatter{
-    private var labels:[String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
-    
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return labels[Int(value)]
-    }
-    
-    func setLabel(labels:[String]){
-        self.labels = labels
     }
 }

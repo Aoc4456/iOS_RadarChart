@@ -17,6 +17,9 @@ class ChartForCollectionView:RadarChartView{
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        fixedLabelSize = LabelSizeType.Small.rawValue
+        
         rotationEnabled = false
         legend.enabled = false
         highlightPerTapEnabled = false

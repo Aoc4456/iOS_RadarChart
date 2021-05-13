@@ -88,4 +88,39 @@ open class XAxisRendererRadarChart: XAxisRenderer
     {
         /// XAxis LimitLines on RadarChart not yet supported.
     }
+    
+    open override func computeSize() {
+        guard let
+            xAxis = self.axis as? XAxis
+            else { return }
+        
+        var longest = xAxis.getLongestLabel()
+        
+        switch chart?.fixedLabelSize{
+            case 0:
+                longest = ""
+            case 1:
+                longest = "aa"
+            case 2:
+                longest = "aaaa"
+            case 3:
+                longest = "aaaaaa"
+            case 4:
+                longest = "aaaaaaaa"
+            default:
+                break
+        }
+
+        let labelSize = longest.size(withAttributes: [NSAttributedString.Key.font: xAxis.labelFont])
+        
+        let labelWidth = labelSize.width
+        let labelHeight = labelSize.height
+        
+        let labelRotatedSize = labelSize.rotatedBy(degrees: xAxis.labelRotationAngle)
+        
+        xAxis.labelWidth = labelWidth
+        xAxis.labelHeight = labelHeight
+        xAxis.labelRotatedWidth = labelRotatedSize.width
+        xAxis.labelRotatedHeight = labelRotatedSize.height
+    }
 }

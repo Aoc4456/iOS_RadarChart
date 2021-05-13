@@ -38,10 +38,4 @@ class ChartForGroupList:RadarChartView{
         yAxis.spaceMax = 0
         yAxis.spaceMin = 0
     }
-    
-    class RowXAxisFormatterReturningEmpty:IAxisValueFormatter{
-        func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-            return ""
-        }
-    }
 }

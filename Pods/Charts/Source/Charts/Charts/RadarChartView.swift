@@ -41,6 +41,8 @@ open class RadarChartView: PieRadarChartViewBase
     /// the object reprsenting the y-axis labels
     private var _yAxis: YAxis!
     
+    open var fixedLabelSize = 0
+    
     internal var _yAxisRenderer: YAxisRendererRadarChart!
     internal var _xAxisRenderer: XAxisRendererRadarChart!
     
