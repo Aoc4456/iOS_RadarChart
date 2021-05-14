@@ -26,6 +26,9 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
         view.notifyDataSetChanged()
     }
     
+    func getTappedChartObject(index: Int) -> MyChartObject {
+        return groupData.charts[index] // TODO ソート機能を実装するときはここも修正する
+    }
 }
 
 // Presenterが実装するプロトコル
@@ -34,6 +37,7 @@ protocol ChartCollectionPresenterInput {
     var groupData:ChartGroup!{get}
     func viewDidLoad(groupData:ChartGroup)
     func fetchDataFromDatabase()
+    func getTappedChartObject(index:Int) -> MyChartObject
 }
 
 // ViewControllerが実装するプロトコル

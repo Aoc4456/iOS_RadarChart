@@ -25,11 +25,11 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         self.view = view
     }
     
-    func viewDidLoad(groupData:ChartGroup,chartIndex:Int?) {
+    func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?) {
         self.groupData = groupData
         
-        if(chartIndex != nil){
-            editChartObject = groupData.charts[chartIndex!]
+        if(editChartObject != nil){
+            self.editChartObject = editChartObject
             view.reflectEditData(myChartObject: editChartObject!)
         }
         
@@ -105,7 +105,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
-    func viewDidLoad(groupData:ChartGroup,chartIndex:Int?)
+    func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
     func onChangeNote(text:String)

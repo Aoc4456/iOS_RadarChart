@@ -59,14 +59,14 @@ class ChartCollectionViewController: UIViewController {
             let nextNaviVC = segue.destination as? UINavigationController
             let nextVC = nextNaviVC?.topViewController as? ChartCreateViewController
             nextVC?.groupData = groupData
-            nextVC?.chartIndex = nil
+            nextVC?.editChartObject = nil
         }
         
         // 編集
         if(segue.identifier == "toChartCreateViewControllerPush"){
             let nextVC = (segue.destination as? ChartCreateViewController)
             nextVC?.groupData = groupData
-            nextVC?.chartIndex = tappedIndex
+            nextVC?.editChartObject = presenter.getTappedChartObject(index: tappedIndex!)
         }
     }
     

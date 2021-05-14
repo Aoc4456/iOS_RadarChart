@@ -21,7 +21,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     private var presenter:ChartCreatePresenterInput!
     var groupData:ChartGroup!
-    var chartIndex:Int?
+    var editChartObject:MyChartObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,8 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         self.hideKeyboardWhenTappedAround()
         
         // setup Navigation Item
-        self.navigationItem.title = (chartIndex == nil) ? "チャート新規作成" : "チャート編集"
-        if(chartIndex == nil){
+        self.navigationItem.title = (editChartObject == nil) ? "チャート新規作成" : "チャート編集"
+        if(editChartObject == nil){
             let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
             self.navigationItem.leftBarButtonItem = leftButton
         }
@@ -55,7 +55,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad(groupData: self.groupData,chartIndex:chartIndex)
+        presenter.viewDidLoad(groupData: self.groupData,editChartObject: self.editChartObject)
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため
@@ -148,7 +148,7 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     }
     
     func dismissScreen(){
-        if(chartIndex == nil){
+        if(editChartObject == nil){
             self.dismiss(animated: true, completion: nil)
         }else{
             self.navigationController?.popViewController(animated: true)
