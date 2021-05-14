@@ -54,10 +54,17 @@ class ChartCollectionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // チャート作成・編集画面への遷移
+        // チャート新規作成
         if(segue.identifier == "toChartCreateViewController"){
             let nextNaviVC = segue.destination as? UINavigationController
             let nextVC = nextNaviVC?.topViewController as? ChartCreateViewController
+            nextVC?.groupData = groupData
+            nextVC?.chartIndex = nil
+        }
+        
+        // 編集
+        if(segue.identifier == "toChartCreateViewControllerPush"){
+            let nextVC = (segue.destination as? ChartCreateViewController)
             nextVC?.groupData = groupData
             nextVC?.chartIndex = tappedIndex
         }
@@ -110,7 +117,7 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
         }
         tappedIndex = indexPath!.row
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
-        performSegue(withIdentifier: "toChartCreateViewController", sender: nil)
+        performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }
 
@@ -118,6 +125,6 @@ extension ChartCollectionViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         tappedIndex = indexPath.row
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
-        performSegue(withIdentifier: "toChartCreateViewController", sender: nil)
+        performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }
