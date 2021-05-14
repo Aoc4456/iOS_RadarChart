@@ -12,6 +12,7 @@ class ChartCollectionViewController: UIViewController {
     
     private var presenter:ChartCollectionPresenterInput!
     var groupData : ChartGroup!
+    var tappedIndex : Int?
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -30,6 +31,7 @@ class ChartCollectionViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ChartListCell", bundle: nil), forCellWithReuseIdentifier: "ListCell")
         collectionView.register(UINib(nibName: "ChartGridCell", bundle: nil), forCellWithReuseIdentifier: "GridCell")
+        collectionView.delaysContentTouches = false
         
         // setup CollectionViewCell
         collectionView.collectionViewLayout = getChartListCellFlowLayout(view: containerView)
@@ -57,6 +59,7 @@ class ChartCollectionViewController: UIViewController {
             let nextNaviVC = segue.destination as? UINavigationController
             let nextVC = nextNaviVC?.topViewController as? ChartCreateViewController
             nextVC?.groupData = groupData
+            nextVC?.chartIndex = tappedIndex
         }
     }
     
@@ -105,15 +108,16 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
         if indexPath == nil{
             return
         }
-        print(indexPath)
-//        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-//        dataPassedToChartList = presenter.dataList[indexPath!.row]
-//        performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
+        tappedIndex = indexPath!.row
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+        performSegue(withIdentifier: "toChartCreateViewController", sender: nil)
     }
 }
 
 extension ChartCollectionViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        tappedIndex = indexPath.row
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+        performSegue(withIdentifier: "toChartCreateViewController", sender: nil)
     }
 }

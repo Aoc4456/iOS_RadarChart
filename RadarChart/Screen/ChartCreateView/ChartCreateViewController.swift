@@ -21,6 +21,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     private var presenter:ChartCreatePresenterInput!
     var groupData:ChartGroup!
+    var chartIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
