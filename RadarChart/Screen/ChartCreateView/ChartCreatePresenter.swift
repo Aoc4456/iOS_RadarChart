@@ -30,6 +30,8 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         
         if(editChartObject != nil){
             self.editChartObject = editChartObject
+            self.chartTitle = editChartObject!.title
+            self.note = editChartObject!.note
             view.reflectEditData(myChartObject: editChartObject!)
         }
         
@@ -80,7 +82,11 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         
         // データベースへの書き込み
         let saveChartObject = getChartObject()
-        DBProvider.sharedInstance.addChart(groupId: groupData.id, chartObject: saveChartObject)
+        if(editChartObject == nil){
+            DBProvider.sharedInstance.addChart(groupId: groupData.id, chartObject: saveChartObject)
+        }else{
+            DBProvider.sharedInstance.updateChart(oldChartObject: editChartObject!, newChartObject: saveChartObject)
+        }
         
         // 画面を閉じる
         view.dismissScreen()

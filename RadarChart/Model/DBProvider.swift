@@ -73,10 +73,26 @@ class DBProvider{
     // チャートテーブル操作関数
     //
     
+    // チャート新規追加
     func addChart(groupId:String,chartObject:MyChartObject){
         db.beginWrite()
         let group = getGroup(id: groupId)
         group.charts.append(chartObject)
+        try! db.commitWrite()
+    }
+    
+    // チャート更新
+    func updateChart(oldChartObject:MyChartObject,newChartObject:MyChartObject){
+        db.beginWrite()
+        
+        oldChartObject.title = newChartObject.title
+        oldChartObject.values.removeAll()
+        newChartObject.values.forEach{
+            oldChartObject.values.append($0)
+        }
+        oldChartObject.note = newChartObject.note
+        oldChartObject.updatedAt = newChartObject.createdAt
+        
         try! db.commitWrite()
     }
 }
