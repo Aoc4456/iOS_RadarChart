@@ -84,15 +84,10 @@ class DBProvider{
     // チャート更新
     func updateChart(oldChartObject:MyChartObject,newChartObject:MyChartObject){
         db.beginWrite()
+        newChartObject.id = oldChartObject.id
+        newChartObject.createdAt = oldChartObject.createdAt
         
-        oldChartObject.title = newChartObject.title
-        oldChartObject.values.removeAll()
-        newChartObject.values.forEach{
-            oldChartObject.values.append($0)
-        }
-        oldChartObject.note = newChartObject.note
-        oldChartObject.updatedAt = newChartObject.createdAt
-        
+        db.add(newChartObject, update: .modified)
         try! db.commitWrite()
     }
 }
