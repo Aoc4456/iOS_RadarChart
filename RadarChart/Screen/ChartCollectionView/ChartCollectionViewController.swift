@@ -27,6 +27,7 @@ class ChartCollectionViewController: UIViewController {
         
         // setup CollectionView
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UINib(nibName: "ChartListCell", bundle: nil), forCellWithReuseIdentifier: "ListCell")
         collectionView.register(UINib(nibName: "ChartGridCell", bundle: nil), forCellWithReuseIdentifier: "GridCell")
         
@@ -80,11 +81,39 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
         if(segmentView.selectedSegmentIndex == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
             cell.setChartData(group: groupData, index: indexPath.row)
+            setTapRecognizer(radarChart: cell.chartView)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
             cell.setChartData(group: groupData, index: indexPath.row)
+            setTapRecognizer(radarChart: cell.chartView)
             return cell
         }
+    }
+    
+    private func setTapRecognizer(radarChart:UIView){
+        if radarChart.gestureRecognizers?.count == 2{
+            let tapAction = UITapGestureRecognizer(target: self, action: #selector(onChartTapped))
+            radarChart.addGestureRecognizer(tapAction)
+        }
+    }
+    
+    
+    @objc func onChartTapped(recognizer:UITapGestureRecognizer){
+        let tappedLocation = recognizer.location(in: collectionView)
+        let indexPath = collectionView.indexPathForItem(at: tappedLocation)
+        if indexPath == nil{
+            return
+        }
+        print(indexPath)
+//        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+//        dataPassedToChartList = presenter.dataList[indexPath!.row]
+//        performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
+    }
+}
+
+extension ChartCollectionViewController:UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
     }
 }
