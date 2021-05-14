@@ -14,6 +14,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     private weak var view:ChartCreatePresenterOutput!
     private var groupData:ChartGroup!
+    private var editChartObject:MyChartObject?
     
     var chartData: RadarChartData? = nil
     private var chartTitle = ""
@@ -24,22 +25,34 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         self.view = view
     }
     
-    func viewDidLoad(groupData:ChartGroup) {
+    func viewDidLoad(groupData:ChartGroup,chartIndex:Int?) {
         self.groupData = groupData
+        
+        if(chartIndex != nil){
+            editChartObject = groupData.charts[chartIndex!]
+            view.reflectEditData(myChartObject: editChartObject!)
+        }
+        
         createInputValues()
         
         view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
-        chartData = MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count, value: inputValues.first!)
+        chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
         
         view.InitializeChart()
     }
     
     // 入力の初期値は、最大値の60%とする
     private func createInputValues(){
-        let initialValue = Double(groupData.maximum) * 0.6
-        for _ in 0..<groupData.labels.count{
-            inputValues.append(initialValue)
+        if(editChartObject == nil){
+            let initialValue = Double(groupData.maximum) * 0.6
+            for _ in 0..<groupData.labels.count{
+                inputValues.append(initialValue)
+            }
+        }else{
+            for i in 0..<groupData.labels.count{
+                inputValues.append(editChartObject!.values[i])
+            }
         }
     }
     
@@ -92,7 +105,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
-    func viewDidLoad(groupData:ChartGroup)
+    func viewDidLoad(groupData:ChartGroup,chartIndex:Int?)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
     func onChangeNote(text:String)
@@ -102,6 +115,7 @@ protocol ChartCreatePresenterInput {
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterOutput:AnyObject {
+    func reflectEditData(myChartObject:MyChartObject)
     func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
     func InitializeChart()
     func updateChart()

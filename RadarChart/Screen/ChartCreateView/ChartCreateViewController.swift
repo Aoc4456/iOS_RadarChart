@@ -29,7 +29,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         self.hideKeyboardWhenTappedAround()
         
         // setup Navigation Item
-        self.navigationItem.title = "チャート新規作成"
+        self.navigationItem.title = (chartIndex == nil) ? "チャート新規作成" : "チャート編集"
         if(chartIndex == nil){
             let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
             self.navigationItem.leftBarButtonItem = leftButton
@@ -55,7 +55,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad(groupData: self.groupData)
+        presenter.viewDidLoad(groupData: self.groupData,chartIndex:chartIndex)
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため
@@ -124,6 +124,11 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
         myRadarChartView.data = presenter.chartData
         myRadarChartView.notifyDataSetChanged()
+    }
+    
+    func reflectEditData(myChartObject: MyChartObject) {
+        titleTextField.text = myChartObject.title
+        commentTextView.text = myChartObject.note
     }
     
     func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
