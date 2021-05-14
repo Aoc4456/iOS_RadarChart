@@ -82,6 +82,11 @@ extension GroupListViewController:UITableViewDataSource{
         cell.titleView.text = data.title
         cell.subTitleView.text = data.createdAt.toLocaleDateString()
         
+        if cell.radarChart.gestureRecognizers?.count == 2{ // もともと２つのgestureRecognizerが登録されている
+            let tapAction = UITapGestureRecognizer(target: self, action: #selector(onChartTapped))
+            cell.radarChart.addGestureRecognizer(tapAction)
+        }
+        
         let chartColor = data.color.toUIColor()
         let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: data.labels.count)
         cell.radarChart.data = chartData
@@ -92,6 +97,18 @@ extension GroupListViewController:UITableViewDataSource{
     // セルの数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.dataList.count
+    }
+    
+    // チャート部分は、テーブルビューのdelegateでタップイベントを検知できないので、別途 Gesture Recognizer を設定する
+    @objc func onChartTapped(recognizer:UITapGestureRecognizer){
+        let tappedLocation = recognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: tappedLocation)
+        if indexPath == nil{
+            return
+        }
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        dataPassedToChartList = presenter.dataList[indexPath!.row]
+        performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
     }
 }
 
