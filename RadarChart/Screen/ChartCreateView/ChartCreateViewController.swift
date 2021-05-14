@@ -21,6 +21,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     private var presenter:ChartCreatePresenterInput!
     var groupData:ChartGroup!
+    var chartIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,11 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         self.hideKeyboardWhenTappedAround()
         
         // setup Navigation Item
-        self.navigationItem.title = "チャート新規作成"
-        let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
-        self.navigationItem.leftBarButtonItem = leftButton
+        self.navigationItem.title = (chartIndex == nil) ? "チャート新規作成" : "チャート編集"
+        if(chartIndex == nil){
+            let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
+            self.navigationItem.leftBarButtonItem = leftButton
+        }
         
         // setup title
         titleTextField.delegate = self
@@ -52,7 +55,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
-        presenter.viewDidLoad(groupData: self.groupData)
+        presenter.viewDidLoad(groupData: self.groupData,chartIndex:chartIndex)
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため
@@ -69,7 +72,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
-        self.dismiss(animated: true, completion: nil)
+        dismissScreen()
     }
     
     // キーボードでTextFieldが隠れないようにする
@@ -123,6 +126,11 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
         myRadarChartView.notifyDataSetChanged()
     }
     
+    func reflectEditData(myChartObject: MyChartObject) {
+        titleTextField.text = myChartObject.title
+        commentTextView.text = myChartObject.note
+    }
+    
     func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
         multiInputView.initialize(labels: labels,values: values, axisMaximum: axisMaximum, viewController: self)
     }
@@ -140,7 +148,11 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     }
     
     func dismissScreen(){
-        self.dismiss(animated: true, completion: nil)
+        if(chartIndex == nil){
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
