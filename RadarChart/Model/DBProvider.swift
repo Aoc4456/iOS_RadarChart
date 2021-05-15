@@ -153,7 +153,7 @@ class DBProvider{
         // 合計値
         if(group.sortedIndex == -3){
             sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
-                if(chart.updatedAt > chart2.updatedAt){
+                if(chart.values.sum() > chart2.values.sum()){
                     return group.orderBy == "DESC"
                 }
                 return group.orderBy == "ASC"
