@@ -101,11 +101,49 @@ class DBProvider{
     
     // ソートされたチャートを取得
     func getSortedCharts(group:ChartGroup) -> Array<MyChartObject>{
-        let array = Array(group.charts)
-        let sortedList = array.sorted(by: { chart, chart2 -> Bool in
-            chart.values[1] > chart2.values[1] // 項目２のデカい順に返す
-        })
+        let chartArray = Array(group.charts)
+        var sortedChartArray = [MyChartObject]()
         
-        return Array(sortedList)
+        // 作成日
+        if(group.sortedIndex == -1){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.createdAt > chart2.createdAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 更新日
+        if(group.sortedIndex == -2){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.updatedAt > chart2.updatedAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 合計値
+        if(group.sortedIndex == -3){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.updatedAt > chart2.updatedAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 各項目の値
+        if(group.sortedIndex >= 0){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.values[group.sortedIndex] > chart2.values[group.sortedIndex]){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        return sortedChartArray
     }
 }

@@ -24,7 +24,7 @@ class ChartGroup:Object{
      -1 = 作成日,   -2 = 更新日,  -3 = 合計値 : 0以上の場合 = labelsのインデックス
      */
     @objc dynamic var sortedIndex : Int = -1
-    @objc dynamic var orderBy : String = "DESC"
+    @objc dynamic var orderBy : String = "ASC"
     
     // １対多の関係
     let charts = List<MyChartObject>()
@@ -46,10 +46,4 @@ class MyChartObject:Object{
     override static func primaryKey() -> String? {
         return "id"
     }
-}
-
-enum SortedIndex:Int{
-    case createdAt = -1
-    case updatedAt = -2
-    case total = -3
 }
