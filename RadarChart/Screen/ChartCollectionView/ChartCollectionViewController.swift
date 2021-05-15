@@ -90,12 +90,12 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(segmentView.selectedSegmentIndex == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
-            cell.setChartData(group: groupData, index: indexPath.row)
+            cell.setChartData(group: groupData, chartObject: presenter.chartList[indexPath.row] )
             setTapRecognizer(radarChart: cell.chartView)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
-            cell.setChartData(group: groupData, index: indexPath.row)
+            cell.setChartData(group: groupData, chartObject: presenter.chartList[indexPath.row])
             setTapRecognizer(radarChart: cell.chartView)
             return cell
         }

@@ -12,6 +12,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     private weak var view:ChartCollectionPresenterOutput!
     var groupData:ChartGroup!
+    var chartList:[MyChartObject] = [MyChartObject]()
     
     init(view:ChartCollectionPresenterOutput) {
         self.view = view
@@ -27,7 +28,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     }
     
     func getTappedChartObject(index: Int) -> MyChartObject {
-        return groupData.charts[index] // TODO ソート機能を実装するときはここも修正する
+        return chartList[index]
     }
 }
 
@@ -35,6 +36,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCollectionPresenterInput {
     var groupData:ChartGroup!{get}
+    var chartList:[MyChartObject]{get}
     func viewDidLoad(groupData:ChartGroup)
     func fetchDataFromDatabase()
     func getTappedChartObject(index:Int) -> MyChartObject

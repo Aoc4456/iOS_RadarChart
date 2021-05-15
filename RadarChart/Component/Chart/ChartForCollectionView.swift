@@ -37,7 +37,7 @@ class ChartForCollectionView:RadarChartView{
         yAxis.spaceMin = 0
     }
     
-    func setData(group:ChartGroup,index:Int,labelSize:LabelSizeType){
+    func setData(group:ChartGroup,chartObject:MyChartObject,labelSize:LabelSizeType){
         fixedLabelSize = labelSize.rawValue
         
         var temporalyLabels = Array(group.labels)
@@ -47,9 +47,7 @@ class ChartForCollectionView:RadarChartView{
         self.yAxis.axisMaximum = group.maximum
         self.yAxis.axisRange = group.maximum
         
-        let myChart = Array(group.charts)[index]
-        
-        let chartData = MyChartUtil.getChartDataBasedOnInputValues(color: group.color.toUIColor(), values: Array(myChart.values))
+        let chartData = MyChartUtil.getChartDataBasedOnInputValues(color: group.color.toUIColor(), values: Array(chartObject.values))
         self.data = chartData
         
         self.notifyDataSetChanged()
