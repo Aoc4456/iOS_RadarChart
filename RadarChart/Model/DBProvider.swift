@@ -79,6 +79,13 @@ class DBProvider{
         try! db.commitWrite()
     }
     
+    // ソート項目を変更
+    func changeSortIndex(group:ChartGroup,index:Int){
+        db.beginWrite()
+        group.sortedIndex = index
+        try! db.commitWrite()
+    }
+    
     
     //
     // チャートテーブル操作関数

@@ -68,7 +68,11 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     }
     
     func onTapActionSheetItem(index:Int){
-        print(index.description)
+        if(groupData.sortedIndex == index){
+            return
+        }
+        DBProvider.sharedInstance.changeSortIndex(group: groupData, index: index)
+        fetchDataFromDatabase()
     }
     
     func onTapAscDescButton() {
