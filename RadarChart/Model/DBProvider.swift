@@ -90,4 +90,12 @@ class DBProvider{
         db.add(newChartObject, update: .modified)
         try! db.commitWrite()
     }
+    
+    // チャート削除
+    func deleteChart(id:String){
+        let object = db.objects(MyChartObject.self).filter("id = %@", id)[0]
+        try! db.write {
+            db.delete(object)
+        }
+    }
 }

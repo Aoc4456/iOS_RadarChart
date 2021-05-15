@@ -92,6 +92,11 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.dismissScreen()
     }
     
+    func deleteChart() {
+        DBProvider.sharedInstance.deleteChart(id: editChartObject!.id)
+        view.dismissScreen()
+    }
+    
     // 問題なければ空文字を、データに不正があればエラーメッセージを返す
     private func validateData() -> String{
         if(chartTitle == ""){
@@ -115,6 +120,7 @@ protocol ChartCreatePresenterInput {
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
     func onChangeNote(text:String)
+    func deleteChart()
     func onTapSaveButton()
 }
 

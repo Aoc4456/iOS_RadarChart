@@ -17,6 +17,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
     @IBOutlet weak var commentTextView: UITextView!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     var activeField: UIView?
     
     private var presenter:ChartCreatePresenterInput!
@@ -33,6 +34,9 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         if(editChartObject == nil){
             let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
             self.navigationItem.leftBarButtonItem = leftButton
+            
+            trashButton.isEnabled = false
+            trashButton.tintColor = UIColor.clear
         }
         
         // setup title
@@ -108,6 +112,17 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBAction func onTapSaveButton(_ sender: Any) {
         presenter.onTapSaveButton()
+    }
+    
+    @IBAction func onTapTrashButton(_ sender: Any) {
+        let dialog = UIAlertController(title: "このチャートを削除しますか？", message: "この操作は取り消せません。", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "削除", style: .destructive) { (action:UIAlertAction) in
+            self.presenter.deleteChart()
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        dialog.addAction(deleteAction)
+        dialog.addAction(cancelAction)
+        self.present(dialog, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
