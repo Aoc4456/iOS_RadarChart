@@ -107,17 +107,52 @@
                                             <action selector="segmentValueChanged:" destination="bCk-4b-zk0" eventType="valueChanged" id="tnd-mK-IMQ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwH-xg-fz4">
-                                        <rect key="frame" x="108" y="0.0" width="286" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ees-8d-I56" userLabel="Space">
+                                        <rect key="frame" x="108" y="0.0" width="120" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKG-we-Cz8" userLabel="OrderItemButton">
+                                        <rect key="frame" x="236" y="0.0" width="100" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="p0O-KV-WAB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="合計値">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naT-zz-Ucg" userLabel="OrderButton">
+                                        <rect key="frame" x="344" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="3HX-5A-ybu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="昇順">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="RoY-7j-DQd" firstAttribute="top" secondItem="BpH-cE-qXy" secondAttribute="top" id="3a0-ZS-aQL"/>
+                                    <constraint firstItem="CKG-we-Cz8" firstAttribute="top" secondItem="BpH-cE-qXy" secondAttribute="top" id="6WG-Fv-zig"/>
                                     <constraint firstAttribute="height" constant="40" id="6d7-YB-lq1"/>
                                     <constraint firstItem="RoY-7j-DQd" firstAttribute="leading" secondItem="BpH-cE-qXy" secondAttribute="leading" id="Kq8-Xd-PjP"/>
+                                    <constraint firstAttribute="bottom" secondItem="CKG-we-Cz8" secondAttribute="bottom" id="RJc-2c-ojE"/>
+                                    <constraint firstItem="naT-zz-Ucg" firstAttribute="top" secondItem="BpH-cE-qXy" secondAttribute="top" id="YNH-0A-Eop"/>
+                                    <constraint firstAttribute="bottom" secondItem="naT-zz-Ucg" secondAttribute="bottom" id="cRc-Lp-6MK"/>
+                                    <constraint firstAttribute="trailing" secondItem="naT-zz-Ucg" secondAttribute="trailing" id="elU-Iw-wc9"/>
                                     <constraint firstAttribute="bottom" secondItem="RoY-7j-DQd" secondAttribute="bottom" id="xMA-fH-LRa"/>
                                 </constraints>
                             </stackView>
@@ -161,9 +196,7 @@
                             <constraint firstItem="8WB-a7-cEz" firstAttribute="trailing" secondItem="ptn-si-GQx" secondAttribute="trailing" constant="20" id="yx0-nu-pSt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eO6-FY-MI5">
-                        <barButtonItem key="rightBarButtonItem" image="arrow.up.arrow.down.square" catalog="system" id="D86-Q5-eZe" userLabel="Sort Button"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eO6-FY-MI5"/>
                     <connections>
                         <outlet property="collectionView" destination="hbd-2a-Vbe" id="2Ny-0D-i6e"/>
                         <outlet property="containerView" destination="Y9k-7R-KcF" id="ysV-Jm-mSf"/>
@@ -664,10 +697,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TGx-Mt-wpU"/>
+        <segue reference="vHT-QF-xWG"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.up.arrow.down.square" catalog="system" width="128" height="114"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
