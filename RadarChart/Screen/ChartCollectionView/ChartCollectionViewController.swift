@@ -59,6 +59,7 @@ class ChartCollectionViewController: UIViewController {
     }
     
     @IBAction func onTapAscDescButton(_ sender: Any) {
+        presenter.onTapAscDescButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

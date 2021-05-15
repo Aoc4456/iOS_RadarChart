@@ -39,8 +39,8 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     func onTapAscDescButton() {
         // データベースを書き換える
-        
-        view.notifyDataSetChanged()
+        DBProvider.sharedInstance.changeAscDesc(chartGroup: groupData)
+        fetchDataFromDatabase()
         view.setButtonLabel(orderItemLabel: getSortItemLabel(), ascDescLabel: getAscDescLabel())
     }
     

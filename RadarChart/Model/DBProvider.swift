@@ -68,6 +68,17 @@ class DBProvider{
         }
     }
     
+    // ASC,DESCを変更
+    func changeAscDesc(chartGroup:ChartGroup){
+        db.beginWrite()
+        if(chartGroup.orderBy == "ASC"){
+            chartGroup.orderBy = "DESC"
+        }else{
+            chartGroup.orderBy = "ASC"
+        }
+        try! db.commitWrite()
+    }
+    
     
     //
     // チャートテーブル操作関数
