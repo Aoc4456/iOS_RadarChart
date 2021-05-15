@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
@@ -34,11 +35,43 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     }
     
     func onTapSortItemButton() {
-        // TODO
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        let createdDateAction = UIAlertAction(title: "作成日", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -1)
+        })
+        let updatedDateAction = UIAlertAction(title: "更新日", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -2)
+        })
+        let totalAction = UIAlertAction(title: "合計値", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -3)
+        })
+        alert.addAction(createdDateAction)
+        alert.addAction(updatedDateAction)
+        alert.addAction(totalAction)
+        
+        for i in 0..<groupData.labels.count{
+            let action = UIAlertAction(title: groupData.labels[i], style: .default, handler:{
+                (action: UIAlertAction!) -> Void in
+                self.onTapActionSheetItem(index: i)
+            })
+            alert.addAction(action)
+        }
+        view.showActionSheet(alert: alert)
+    }
+    
+    func onTapActionSheetItem(index:Int){
+        print(index.description)
     }
     
     func onTapAscDescButton() {
-        // データベースを書き換える
         DBProvider.sharedInstance.changeAscDesc(chartGroup: groupData)
         fetchDataFromDatabase()
         view.setButtonLabel(orderItemLabel: getSortItemLabel(), ascDescLabel: getAscDescLabel())
@@ -86,4 +119,5 @@ protocol ChartCollectionPresenterInput {
 protocol ChartCollectionPresenterOutput:AnyObject {
     func setButtonLabel(orderItemLabel:String,ascDescLabel:String)
     func notifyDataSetChanged()
+    func showActionSheet(alert:UIAlertController)
 }

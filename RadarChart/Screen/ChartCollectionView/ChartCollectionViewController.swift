@@ -56,6 +56,7 @@ class ChartCollectionViewController: UIViewController {
     }
     
     @IBAction func onTapOrderItemButton(_ sender: Any) {
+        presenter.onTapSortItemButton()
     }
     
     @IBAction func onTapAscDescButton(_ sender: Any) {
@@ -93,6 +94,10 @@ extension ChartCollectionViewController:ChartCollectionPresenterOutput{
     
     func notifyDataSetChanged() {
         collectionView.reloadData()
+    }
+    
+    func showActionSheet(alert: UIAlertController) {
+        present(alert, animated: true)
     }
 }
 
