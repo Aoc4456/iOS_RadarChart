@@ -98,4 +98,14 @@ class DBProvider{
             db.delete(object)
         }
     }
+    
+    // ソートされたチャートを取得
+    func getSortedCharts(group:ChartGroup) -> Array<MyChartObject>{
+        let array = Array(group.charts)
+        let sortedList = array.sorted(by: { chart, chart2 -> Bool in
+            chart.values[1] > chart2.values[1] // 項目２のデカい順に返す
+        })
+        
+        return Array(sortedList)
+    }
 }

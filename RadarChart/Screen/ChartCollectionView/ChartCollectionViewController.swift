@@ -116,7 +116,6 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
             return
         }
         tappedIndex = indexPath!.row
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }
@@ -124,7 +123,6 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
 extension ChartCollectionViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         tappedIndex = indexPath.row
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }

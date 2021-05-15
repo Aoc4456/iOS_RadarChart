@@ -24,6 +24,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     func fetchDataFromDatabase() {
         self.groupData = DBProvider.sharedInstance.getGroup(id: groupData.id)
+        self.chartList = DBProvider.sharedInstance.getSortedCharts(group: groupData)
         view.notifyDataSetChanged()
     }
     
