@@ -17,6 +17,8 @@ class ChartCollectionViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentView: UISegmentedControl!
+    @IBOutlet weak var orderItemButton: UIButton!
+    @IBOutlet weak var ascDescButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,12 @@ class ChartCollectionViewController: UIViewController {
         collectionView.setCollectionViewLayout(flowLayout!, animated: true)
     }
     
+    @IBAction func onTapOrderItemButton(_ sender: Any) {
+    }
+    
+    @IBAction func onTapAscDescButton(_ sender: Any) {
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // チャート新規作成
         if(segue.identifier == "toChartCreateViewController"){
@@ -77,6 +85,11 @@ class ChartCollectionViewController: UIViewController {
 
 // Presenterからの描画指示
 extension ChartCollectionViewController:ChartCollectionPresenterOutput{
+    func setButtonLabel(orderItemLabel: String, ascDescLabel: String) {
+        orderItemButton.setTitle(orderItemLabel, for: .normal)
+        ascDescButton.setTitle(ascDescLabel, for: .normal)
+    }
+    
     func notifyDataSetChanged() {
         collectionView.reloadData()
     }

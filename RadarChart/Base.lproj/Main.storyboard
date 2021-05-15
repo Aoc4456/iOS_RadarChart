@@ -126,6 +126,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapOrderItemButton:" destination="bCk-4b-zk0" eventType="touchUpInside" id="e2B-NJ-fww"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="naT-zz-Ucg" userLabel="OrderButton">
                                         <rect key="frame" x="344" y="0.0" width="50" height="40"/>
@@ -142,6 +145,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTapAscDescButton:" destination="bCk-4b-zk0" eventType="touchUpInside" id="2nN-y0-gII"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -198,8 +204,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="eO6-FY-MI5"/>
                     <connections>
+                        <outlet property="ascDescButton" destination="naT-zz-Ucg" id="IuN-e5-DPI"/>
                         <outlet property="collectionView" destination="hbd-2a-Vbe" id="2Ny-0D-i6e"/>
                         <outlet property="containerView" destination="Y9k-7R-KcF" id="ysV-Jm-mSf"/>
+                        <outlet property="orderItemButton" destination="CKG-we-Cz8" id="dME-OK-kmi"/>
                         <outlet property="segmentView" destination="RoY-7j-DQd" id="DSM-j5-nh6"/>
                         <segue destination="mYu-tE-Cfk" kind="show" identifier="toChartCreateViewControllerPush" id="vHT-QF-xWG"/>
                     </connections>

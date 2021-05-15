@@ -20,6 +20,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     func viewDidLoad(groupData:ChartGroup) {
         self.groupData = groupData
+        view.setButtonLabel(orderItemLabel: getSortItemLabel(), ascDescLabel: getAscDescLabel())
     }
     
     func fetchDataFromDatabase() {
@@ -31,6 +32,41 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     func getTappedChartObject(index: Int) -> MyChartObject {
         return chartList[index]
     }
+    
+    func onTapSortItemButton() {
+        // TODO
+    }
+    
+    func onTapAscDescButton() {
+        // データベースを書き換える
+        
+        view.notifyDataSetChanged()
+        view.setButtonLabel(orderItemLabel: getSortItemLabel(), ascDescLabel: getAscDescLabel())
+    }
+    
+    private func getSortItemLabel() -> String{
+        switch groupData.sortedIndex {
+        case -3:
+            return "合計値"
+        case -2:
+            return "更新日"
+        case -1:
+            return "作成日"
+        default:
+            return groupData.labels[groupData.sortedIndex]
+        }
+    }
+    
+    private func getAscDescLabel() -> String{
+        switch groupData.orderBy {
+        case "ASC":
+            return "昇順"
+        case "DESC":
+            return "降順"
+        default:
+            return ""
+        }
+    }
 }
 
 // Presenterが実装するプロトコル
@@ -38,6 +74,8 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
 protocol ChartCollectionPresenterInput {
     var groupData:ChartGroup!{get}
     var chartList:[MyChartObject]{get}
+    func onTapSortItemButton()
+    func onTapAscDescButton()
     func viewDidLoad(groupData:ChartGroup)
     func fetchDataFromDatabase()
     func getTappedChartObject(index:Int) -> MyChartObject
@@ -46,5 +84,6 @@ protocol ChartCollectionPresenterInput {
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol ChartCollectionPresenterOutput:AnyObject {
+    func setButtonLabel(orderItemLabel:String,ascDescLabel:String)
     func notifyDataSetChanged()
 }
