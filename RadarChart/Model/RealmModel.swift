@@ -17,6 +17,15 @@ class ChartGroup:Object{
     let labels = List<String>()
     @objc dynamic var createdAt = Date()
     @objc dynamic var updatedAt = Date()
+    
+    /**
+     ソートする条件
+     
+     -1 = 作成日,   -2 = 更新日,  -3 = 合計値 : 0以上の場合 = labelsのインデックス
+     */
+    @objc dynamic var sortedIndex : Int = -1
+    @objc dynamic var orderBy : String = "ASC"
+    
     // １対多の関係
     let charts = List<MyChartObject>()
 

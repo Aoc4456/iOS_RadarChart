@@ -17,6 +17,8 @@ class ChartCollectionViewController: UIViewController {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentView: UISegmentedControl!
+    @IBOutlet weak var orderItemButton: UIButton!
+    @IBOutlet weak var ascDescButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,14 @@ class ChartCollectionViewController: UIViewController {
         collectionView.setCollectionViewLayout(flowLayout!, animated: true)
     }
     
+    @IBAction func onTapOrderItemButton(_ sender: Any) {
+        presenter.onTapSortItemButton()
+    }
+    
+    @IBAction func onTapAscDescButton(_ sender: Any) {
+        presenter.onTapAscDescButton()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // チャート新規作成
         if(segue.identifier == "toChartCreateViewController"){
@@ -77,8 +87,17 @@ class ChartCollectionViewController: UIViewController {
 
 // Presenterからの描画指示
 extension ChartCollectionViewController:ChartCollectionPresenterOutput{
+    func setButtonLabel(orderItemLabel: String, ascDescLabel: String) {
+        orderItemButton.setTitle(orderItemLabel, for: .normal)
+        ascDescButton.setTitle(ascDescLabel, for: .normal)
+    }
+    
     func notifyDataSetChanged() {
         collectionView.reloadData()
+    }
+    
+    func showActionSheet(alert: UIAlertController) {
+        present(alert, animated: true)
     }
 }
 
@@ -90,12 +109,12 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(segmentView.selectedSegmentIndex == 0){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ListCell", for: indexPath) as! ChartListCell
-            cell.setChartData(group: groupData, index: indexPath.row)
+            cell.setChartData(group: groupData, chartObject: presenter.chartList[indexPath.row] )
             setTapRecognizer(radarChart: cell.chartView)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as! ChartGridCell
-            cell.setChartData(group: groupData, index: indexPath.row)
+            cell.setChartData(group: groupData, chartObject: presenter.chartList[indexPath.row])
             setTapRecognizer(radarChart: cell.chartView)
             return cell
         }
@@ -116,7 +135,6 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
             return
         }
         tappedIndex = indexPath!.row
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }
@@ -124,7 +142,6 @@ extension ChartCollectionViewController:UICollectionViewDataSource{
 extension ChartCollectionViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         tappedIndex = indexPath.row
-        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         performSegue(withIdentifier: "toChartCreateViewControllerPush", sender: nil)
     }
 }

@@ -30,16 +30,15 @@ class ChartListCell: UICollectionViewCell {
         chartView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
     }
     
-    func setChartData(group:ChartGroup,index:Int){
-        let chartData = Array(group.charts)[index]
-        titleView.text = chartData.title
-        commentView.text = chartData.note
+    func setChartData(group:ChartGroup,chartObject:MyChartObject){
+        titleView.text = chartObject.title
+        commentView.text = chartObject.note
         
-        let valueArray = Array(chartData.values)
+        let valueArray = Array(chartObject.values)
         let sum = valueArray.reduce(0) { $0 + $1 }
         totalView.text = "合計：\(Int(sum).description)"
         
-        chartView.setData(group: group, index: index,labelSize: .Medium)
+        chartView.setData(group: group, chartObject: chartObject,labelSize: .Medium)
     }
 }
 

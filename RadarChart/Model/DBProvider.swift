@@ -68,6 +68,24 @@ class DBProvider{
         }
     }
     
+    // ASC,DESCを変更
+    func changeAscDesc(chartGroup:ChartGroup){
+        db.beginWrite()
+        if(chartGroup.orderBy == "ASC"){
+            chartGroup.orderBy = "DESC"
+        }else{
+            chartGroup.orderBy = "ASC"
+        }
+        try! db.commitWrite()
+    }
+    
+    // ソート項目を変更
+    func changeSortIndex(group:ChartGroup,index:Int){
+        db.beginWrite()
+        group.sortedIndex = index
+        try! db.commitWrite()
+    }
+    
     
     //
     // チャートテーブル操作関数
@@ -97,5 +115,53 @@ class DBProvider{
         try! db.write {
             db.delete(object)
         }
+    }
+    
+    // ソートされたチャートを取得
+    func getSortedCharts(group:ChartGroup) -> Array<MyChartObject>{
+        let chartArray = Array(group.charts)
+        var sortedChartArray = [MyChartObject]()
+        
+        // 作成日
+        if(group.sortedIndex == -1){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.createdAt > chart2.createdAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 更新日
+        if(group.sortedIndex == -2){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.updatedAt > chart2.updatedAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 合計値
+        if(group.sortedIndex == -3){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.updatedAt > chart2.updatedAt){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // 各項目の値
+        if(group.sortedIndex >= 0){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.values[group.sortedIndex] > chart2.values[group.sortedIndex]){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        return sortedChartArray
     }
 }

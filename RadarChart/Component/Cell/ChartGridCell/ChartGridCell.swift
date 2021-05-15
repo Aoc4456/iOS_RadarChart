@@ -23,10 +23,9 @@ class ChartGridCell: UICollectionViewCell {
         containerView.layer.masksToBounds = false
     }
     
-    func setChartData(group:ChartGroup,index:Int){
-        let chartData = Array(group.charts)[index]
-        titleView.text = chartData.title
-        chartView.setData(group: group, index: index,labelSize: .Small)
+    func setChartData(group:ChartGroup,chartObject:MyChartObject){
+        titleView.text = chartObject.title
+        chartView.setData(group: group, chartObject: chartObject,labelSize: .Small)
     }
 }
 
