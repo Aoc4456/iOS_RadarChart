@@ -73,6 +73,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
         }
         DBProvider.sharedInstance.changeSortIndex(group: groupData, index: index)
         fetchDataFromDatabase()
+        view.setButtonLabel(orderItemLabel: getSortItemLabel(), ascDescLabel: getAscDescLabel())
     }
     
     func onTapAscDescButton() {

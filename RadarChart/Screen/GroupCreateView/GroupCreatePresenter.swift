@@ -92,7 +92,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             diffNumberOfItems = numberOfItems - passedData!.labels.count
         }
         
-        DBProvider.sharedInstance.addGroup(object: group,diffNumOfItems:diffNumberOfItems)
+        DBProvider.sharedInstance.addGroup(group: group,diffNumOfItems:diffNumberOfItems)
         
         // 画面を閉じる
         view.completeWritingToDatabase()
@@ -126,7 +126,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         if(passedData == nil){
             group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
         }else{
-            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts])
+            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy])
         }
         return group!
     }
