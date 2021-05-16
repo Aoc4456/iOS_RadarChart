@@ -44,6 +44,6 @@ class ChartListCell: UICollectionViewCell {
 
 func getChartListCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {
     let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(width: view.frame.width - 20, height: 150)
+    layout.itemSize = CGSize(width: view.frame.width - 20, height: 140)
     return layout
 }
