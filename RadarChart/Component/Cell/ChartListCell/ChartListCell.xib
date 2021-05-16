@@ -83,6 +83,7 @@
                 <outlet property="chartView" destination="jtn-gq-3BI" id="1Qg-vA-KnJ"/>
                 <outlet property="commentView" destination="itX-Ga-a2A" id="I5u-kx-sde"/>
                 <outlet property="containerView" destination="O8H-Zw-nF9" id="Mlg-qO-nRi"/>
+                <outlet property="sortValueLabel" destination="QMd-GK-2S3" id="UMj-6k-H6n"/>
                 <outlet property="titleView" destination="aVk-2V-M6i" id="lVU-yu-lZJ"/>
                 <outlet property="totalView" destination="7JI-yl-RO2" id="xq3-Tt-G22"/>
             </connections>

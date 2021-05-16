@@ -29,6 +29,21 @@ class ChartGridCell: UICollectionViewCell {
         sortValueLabel.text = getSortedValue(group: group, chartObject: chartObject)
         chartView.setData(group: group, chartObject: chartObject,labelSize: .Small)
     }
+    
+    private func getSortedValue(group:ChartGroup,chartObject:MyChartObject) -> String{
+        var labelText = ""
+        switch group.sortedIndex {
+        case -3: // 合計
+            labelText = Int(chartObject.values.sum()).description
+        case -2: // 更新日
+            labelText = chartObject.updatedAt.toLocaleDateStringShort()
+        case -1: // 作成日
+            labelText = chartObject.createdAt.toLocaleDateStringShort()
+        default:
+            labelText = Int(chartObject.values[group.sortedIndex]).description
+        }
+        return labelText
+    }
 }
 
 func getChartGridCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {
@@ -44,19 +59,4 @@ func getChartGridCellFlowLayout(view:UIView) -> UICollectionViewFlowLayout {
     }
     
     return layout
-}
-
-func getSortedValue(group:ChartGroup,chartObject:MyChartObject) -> String{
-    var labelText = ""
-    switch group.sortedIndex {
-    case -3: // 合計
-        labelText = Int(chartObject.values.sum()).description
-    case -2: // 更新日
-        labelText = chartObject.updatedAt.toLocaleDateStringShort()
-    case -1: // 作成日
-        labelText = chartObject.createdAt.toLocaleDateStringShort()
-    default:
-        labelText = Int(chartObject.values[group.sortedIndex]).description
-    }
-    return labelText
 }
