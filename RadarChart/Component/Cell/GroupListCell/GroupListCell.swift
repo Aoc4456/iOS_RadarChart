@@ -14,8 +14,6 @@ class GroupListCell: UITableViewCell {
     
     @IBOutlet weak var titleView: UILabel!
     
-    @IBOutlet weak var subTitleView: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
