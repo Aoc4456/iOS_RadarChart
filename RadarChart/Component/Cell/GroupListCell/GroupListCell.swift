@@ -14,6 +14,8 @@ class GroupListCell: UITableViewCell {
     
     @IBOutlet weak var titleView: UILabel!
     
+    @IBOutlet weak var labelChartsCount: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

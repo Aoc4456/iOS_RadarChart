@@ -80,6 +80,7 @@ extension GroupListViewController:UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
         let data = presenter.dataList[indexPath.row]
         cell.titleView.text = data.title
+        cell.labelChartsCount.text = data.charts.count.description
         
         if cell.radarChart.gestureRecognizers?.count == 2{ // もともと２つのgestureRecognizerが登録されている
             let tapAction = UITapGestureRecognizer(target: self, action: #selector(onChartTapped))
