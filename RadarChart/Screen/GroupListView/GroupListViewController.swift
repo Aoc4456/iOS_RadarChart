@@ -96,6 +96,11 @@ extension GroupListViewController:UITableViewDataSource{
     
     // セルの数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(presenter.dataList.count == 0){
+            tableView.setEmptyMessage("+ ボタンをタップしてグループを作成しましょう！")
+        }else{
+            tableView.restore()
+        }
         return presenter.dataList.count
     }
     

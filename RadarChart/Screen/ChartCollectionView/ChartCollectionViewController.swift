@@ -103,6 +103,11 @@ extension ChartCollectionViewController:ChartCollectionPresenterOutput{
 
 extension ChartCollectionViewController:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(presenter.groupData.charts.count == 0){
+            collectionView.setEmptyMessage("+ ボタンをタップしてチャートを作成しましょう！")
+        }else{
+            collectionView.restore()
+        }
         return presenter.groupData.charts.count
     }
     
