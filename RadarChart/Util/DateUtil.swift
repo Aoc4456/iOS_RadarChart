@@ -17,4 +17,13 @@ extension Date{
         
         return formatter.string(from: self)
     }
+    
+    func toLocaleDateStringShort() -> String{
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.locale = Locale.current
+        formatter.dateFormat = "MM/dd HH:mm"
+        
+        return formatter.string(from: self)
+    }
 }

@@ -28,6 +28,19 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-x7-1SU" userLabel="ChartView" customClass="ChartForCollectionView" customModule="RadarChart" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="31.5" width="165" height="142.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計：300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-hs-M4d" userLabel="SortValueLabel">
+                                        <rect key="frame" x="0.0" y="123.5" width="165" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pKH-hs-M4d" firstAttribute="leading" secondItem="MWq-x7-1SU" secondAttribute="leading" id="0wm-An-ZDV"/>
+                                    <constraint firstAttribute="trailing" secondItem="pKH-hs-M4d" secondAttribute="trailing" id="lZS-sp-Rd9"/>
+                                    <constraint firstAttribute="bottom" secondItem="pKH-hs-M4d" secondAttribute="bottom" constant="-2" id="p7P-YO-jfK"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,6 +50,7 @@
                             <constraint firstAttribute="bottom" secondItem="MWq-x7-1SU" secondAttribute="bottom" id="XkT-BE-vBi"/>
                             <constraint firstItem="MWq-x7-1SU" firstAttribute="leading" secondItem="0Md-Ix-8sb" secondAttribute="leading" id="dp3-BP-Z5B"/>
                             <constraint firstItem="Die-fY-pTP" firstAttribute="top" secondItem="0Md-Ix-8sb" secondAttribute="top" constant="5" id="p8g-Mi-Zop"/>
+                            <constraint firstItem="pKH-hs-M4d" firstAttribute="height" secondItem="0Md-Ix-8sb" secondAttribute="height" multiplier="0.12" id="rA2-AB-agT"/>
                             <constraint firstAttribute="trailing" secondItem="Die-fY-pTP" secondAttribute="trailing" constant="5" id="rJ2-Fo-awQ"/>
                             <constraint firstItem="MWq-x7-1SU" firstAttribute="top" secondItem="Die-fY-pTP" secondAttribute="bottom" constant="5" id="tum-EW-yws"/>
                             <constraint firstAttribute="trailing" secondItem="MWq-x7-1SU" secondAttribute="trailing" id="yP9-FL-L4v"/>
@@ -55,6 +69,7 @@
             <connections>
                 <outlet property="chartView" destination="MWq-x7-1SU" id="AsV-1O-NVY"/>
                 <outlet property="containerView" destination="0Md-Ix-8sb" id="CQM-de-fCx"/>
+                <outlet property="sortValueLabel" destination="pKH-hs-M4d" id="Kxh-tz-ZU2"/>
                 <outlet property="titleView" destination="Die-fY-pTP" id="fpV-ov-HPz"/>
             </connections>
             <point key="canvasLocation" x="55.797101449275367" y="65.625"/>
