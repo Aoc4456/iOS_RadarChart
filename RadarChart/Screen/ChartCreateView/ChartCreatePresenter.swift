@@ -21,6 +21,15 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     private var inputValues:[Double] = []
     private var note = ""
     
+    private var totalAverageText:String{
+        get{
+            let sum = inputValues.reduce(0, +)
+            var average = sum / Double(inputValues.count)
+            average = round(average*10)/10 // 小数第2位で四捨五入
+            return "合計：\(Int(sum))　平均：\(average)"
+        }
+    }
+    
     init(view:ChartCreatePresenterOutput) {
         self.view = view
     }
@@ -36,6 +45,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         }
         
         createInputValues()
+        view.updateTotalAverageLabel(text: self.totalAverageText)
         
         view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
@@ -66,6 +76,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         self.inputValues[index] = value
         self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
         view.updateChart()
+        view.updateTotalAverageLabel(text: self.totalAverageText)
     }
     
     func onChangeNote(text: String) {
@@ -131,6 +142,7 @@ protocol ChartCreatePresenterOutput:AnyObject {
     func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
     func InitializeChart()
     func updateChart()
+    func updateTotalAverageLabel(text:String)
     func showValidateDialog(message:String)
     func dismissScreen()
 }
