@@ -45,6 +45,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         if(passedData == nil){
             trashButton.isEnabled = false
             trashButton.tintColor = UIColor.clear
+        }else{
+            let leftSaveButton = UIBarButtonItem(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapSaveButton(_:)))
+            self.navigationItem.leftBarButtonItems = [leftButton,leftSaveButton]
         }
         
         // setup Title Field

@@ -612,7 +612,7 @@
                             <constraint firstItem="D1o-I6-a2i" firstAttribute="trailing" secondItem="5jp-Na-0Ev" secondAttribute="trailing" id="rbZ-1m-28O"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="E6T-4d-5uC">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="E6T-4d-5uC">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="eb7-qw-sup">
                             <connections>
                                 <action selector="onTapTrashButton:" destination="P4f-Ic-G46" id="98n-hd-Ajz"/>
