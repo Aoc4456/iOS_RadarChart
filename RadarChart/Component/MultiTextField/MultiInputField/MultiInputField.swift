@@ -24,7 +24,7 @@ class MultiInputField:UIStackView{
         self.axis = .vertical
         self.alignment = .fill
         self.distribution = .fillEqually
-        self.spacing = 15
+        self.spacing = 10
     }
     
     func initialize(labels:[String],values:[Double],axisMaximum:Double,viewController:UIViewController){
