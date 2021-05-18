@@ -42,7 +42,7 @@ class ChartGridCell: UICollectionViewCell {
         default:
             labelText = Int(chartObject.values[group.sortedIndex]).description
         }
-        return labelText
+        return "(\(labelText))"
     }
 }
 

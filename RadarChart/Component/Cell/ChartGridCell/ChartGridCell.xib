@@ -29,8 +29,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-x7-1SU" userLabel="ChartView" customClass="ChartForCollectionView" customModule="RadarChart" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="26.5" width="165" height="143.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計：300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-hs-M4d" userLabel="SortValueLabel">
-                                        <rect key="frame" x="0.0" y="127.5" width="165" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計：300" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-hs-M4d" userLabel="SortValueLabel">
+                                        <rect key="frame" x="0.0" y="127.5" width="148.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,7 +38,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pKH-hs-M4d" firstAttribute="leading" secondItem="MWq-x7-1SU" secondAttribute="leading" id="0wm-An-ZDV"/>
-                                    <constraint firstAttribute="trailing" secondItem="pKH-hs-M4d" secondAttribute="trailing" id="lZS-sp-Rd9"/>
                                     <constraint firstAttribute="bottom" secondItem="pKH-hs-M4d" secondAttribute="bottom" constant="-5" id="p7P-YO-jfK"/>
                                 </constraints>
                             </view>
@@ -47,6 +46,7 @@
                         <constraints>
                             <constraint firstItem="Die-fY-pTP" firstAttribute="leading" secondItem="0Md-Ix-8sb" secondAttribute="leading" constant="5" id="6NA-z7-2fp"/>
                             <constraint firstItem="Die-fY-pTP" firstAttribute="height" secondItem="0Md-Ix-8sb" secondAttribute="height" multiplier="0.15" constant="-4.5999999999999979" id="GkG-9y-hnE" userLabel="Title.height = 0.15 × height"/>
+                            <constraint firstItem="pKH-hs-M4d" firstAttribute="width" secondItem="0Md-Ix-8sb" secondAttribute="width" multiplier="0.9" id="PDa-2K-RvG"/>
                             <constraint firstAttribute="bottom" secondItem="MWq-x7-1SU" secondAttribute="bottom" constant="4" id="XkT-BE-vBi"/>
                             <constraint firstItem="MWq-x7-1SU" firstAttribute="leading" secondItem="0Md-Ix-8sb" secondAttribute="leading" id="dp3-BP-Z5B"/>
                             <constraint firstItem="Die-fY-pTP" firstAttribute="top" secondItem="0Md-Ix-8sb" secondAttribute="top" constant="3" id="p8g-Mi-Zop"/>
