@@ -383,6 +383,7 @@
                         <outlet property="myRadarChartView" destination="G1E-N3-2QX" id="2OT-wH-3qf"/>
                         <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
                         <outlet property="titleTextField" destination="loy-3W-VXM" id="2i3-tw-35J"/>
+                        <outlet property="totalAverageLabel" destination="1fc-hc-AVQ" id="qWk-yr-Vsm"/>
                         <outlet property="trashButton" destination="wUi-Ir-RYI" id="gz2-pq-KL3"/>
                     </connections>
                 </viewController>

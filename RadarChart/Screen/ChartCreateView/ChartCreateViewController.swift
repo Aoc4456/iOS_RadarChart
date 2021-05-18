@@ -15,6 +15,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var myRadarChartView: ChartForCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
+    @IBOutlet weak var totalAverageLabel: UILabel!
     @IBOutlet weak var multiInputView: MultiInputField!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var trashButton: UIBarButtonItem!
@@ -148,6 +149,10 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     
     func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
         multiInputView.initialize(labels: labels,values: values, axisMaximum: axisMaximum, viewController: self)
+    }
+    
+    func updateTotalAverageLabel(text: String) {
+        totalAverageLabel.text = text
     }
     
     func updateChart() {
