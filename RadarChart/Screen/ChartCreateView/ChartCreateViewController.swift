@@ -38,6 +38,9 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
             
             trashButton.isEnabled = false
             trashButton.tintColor = UIColor.clear
+        }else{
+            let leftButton = UIBarButtonItem(title: "保存", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapSaveButton(_:)))
+            self.navigationItem.leftBarButtonItem = leftButton
         }
         
         // setup title

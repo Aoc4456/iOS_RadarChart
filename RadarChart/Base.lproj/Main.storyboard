@@ -369,7 +369,7 @@
                             <constraint firstItem="BBo-f2-qFA" firstAttribute="bottom" secondItem="Apk-Nc-Ekg" secondAttribute="bottom" id="j1k-nY-b5F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iUd-Nt-lLT">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="iUd-Nt-lLT">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="wUi-Ir-RYI" userLabel="TrashButton">
                             <connections>
                                 <action selector="onTapTrashButton:" destination="mYu-tE-Cfk" id="3aH-6q-YKg"/>
