@@ -41,20 +41,10 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
             alert.dismiss(animated: true, completion: nil)
         }))
         
-        let createdDateAction = UIAlertAction(title: "作成日", style: .default, handler:{
-            (action: UIAlertAction!) -> Void in
-            self.onTapActionSheetItem(index: -1)
-        })
-        let updatedDateAction = UIAlertAction(title: "更新日", style: .default, handler:{
-            (action: UIAlertAction!) -> Void in
-            self.onTapActionSheetItem(index: -2)
-        })
         let totalAction = UIAlertAction(title: "合計値", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
             self.onTapActionSheetItem(index: -3)
         })
-        alert.addAction(createdDateAction)
-        alert.addAction(updatedDateAction)
         alert.addAction(totalAction)
         
         for i in 0..<groupData.labels.count{
@@ -64,6 +54,17 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
             })
             alert.addAction(action)
         }
+        
+        let createdDateAction = UIAlertAction(title: "作成日", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -1)
+        })
+        let updatedDateAction = UIAlertAction(title: "更新日", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -2)
+        })
+        alert.addAction(createdDateAction)
+        alert.addAction(updatedDateAction)
         view.showActionSheet(alert: alert)
     }
     
