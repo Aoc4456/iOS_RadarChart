@@ -18,6 +18,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var titleTextField: UITextField!
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
+    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
     @IBOutlet weak var radarChart: ChartForCreateScreen!
@@ -96,6 +97,13 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         colorPicker.selectedColor = presenter.selectedColor
         colorPicker.delegate = self
         present(colorPicker, animated: true)
+    }
+    
+    @IBAction func onTapIconButton(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
@@ -231,5 +239,11 @@ extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         presenter.didSelectColor(color: viewController.selectedColor)
+    }
+}
+
+// イメージピッカーdelegate
+extension GroupCreateViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     }
 }
