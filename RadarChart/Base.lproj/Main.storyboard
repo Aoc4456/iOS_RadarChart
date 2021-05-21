@@ -458,6 +458,12 @@
                                                 </constraints>
                                                 <color key="tintColor" systemColor="secondaryLabelColor"/>
                                                 <state key="normal" backgroundImage="minus.circle" catalog="system"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="40"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onTapIconButton:" destination="P4f-Ic-G46" eventType="touchUpInside" id="LQJ-vQ-0Po"/>
                                                 </connections>

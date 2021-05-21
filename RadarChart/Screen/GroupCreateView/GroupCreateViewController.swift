@@ -9,6 +9,7 @@
 import UIKit
 import StepSlider
 import Charts
+import CropViewController
 
 class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     private var presenter:GroupCreatePresenterInput!
@@ -55,6 +56,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         // setup Title Field
         titleTextField.delegate = self
         titleTextField.tag = titleTextFieldTag
+        
+        // setup icon button
+        iconButton?.imageView?.contentMode = .scaleAspectFit
         
         // setup Slider
         stepSlider.labels = presenter.sliderLabel;
@@ -245,5 +249,30 @@ extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
 // イメージピッカーdelegate
 extension GroupCreateViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let pickerImage = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) else { return }
+
+        let cropVC = CropViewController(croppingStyle: .circular, image: pickerImage)
+
+        cropVC.delegate = self
+        
+//        cropVC.customAspectRatio = iconButton.frame.size
+//        cropVC.aspectRatioPickerButtonHidden = true
+//        cropVC.resetAspectRatioEnabled = false
+//        cropVC.rotateButtonsHidden = true
+//        cropVC.cropView.cropBoxResizeEnabled = false
+
+        picker.dismiss(animated: true) {
+            self.present(cropVC, animated: true, completion: nil)
+        }
+    }
+}
+
+// CropViewControllerDelegate
+extension GroupCreateViewController:CropViewControllerDelegate{
+    // トリミング編集が終わったら呼ばれる
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        self.iconButton.setBackgroundImage(image, for: .normal)
+        cropViewController.dismiss(animated: true, completion: nil)
     }
 }
