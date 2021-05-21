@@ -19,6 +19,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     @IBOutlet weak var multiInputView: MultiInputField!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIButton!
     var activeField: UIView?
     
     private var presenter:ChartCreatePresenterInput!
@@ -64,6 +65,8 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         // setup Presenter
         self.presenter = ChartCreatePresenter(view: self)
         presenter.viewDidLoad(groupData: self.groupData,editChartObject: self.editChartObject)
+        
+        saveButton.layer.borderColor = UIColor.systemBlue.cgColor
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため

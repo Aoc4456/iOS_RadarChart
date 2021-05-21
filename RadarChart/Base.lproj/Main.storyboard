@@ -228,7 +228,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqE-AA-wSX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="742"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iQ-Tg-BCm">
                                                 <rect key="frame" x="10" y="10" width="394" height="21"/>
@@ -302,11 +302,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-e4-vx2" userLabel="SaveButton">
-                                                <rect key="frame" x="184" y="692" width="46" height="50"/>
+                                                <rect key="frame" x="157" y="692" width="100" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="kJ9-jX-xeo"/>
+                                                    <constraint firstAttribute="width" constant="100" id="9EG-pA-ROs"/>
+                                                    <constraint firstAttribute="height" constant="40" id="kJ9-jX-xeo"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="保存"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onTapSaveButton:" destination="mYu-tE-Cfk" eventType="touchUpInside" id="J7i-bO-1A6"/>
                                                 </connections>
@@ -381,6 +390,7 @@
                         <outlet property="maximumLabel" destination="iGt-T4-Dqe" id="mEO-WX-izl"/>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
                         <outlet property="myRadarChartView" destination="G1E-N3-2QX" id="2OT-wH-3qf"/>
+                        <outlet property="saveButton" destination="OVw-e4-vx2" id="TFR-mc-oTE"/>
                         <outlet property="scrollView" destination="Apk-Nc-Ekg" id="2Oo-vH-PZl"/>
                         <outlet property="titleTextField" destination="loy-3W-VXM" id="2i3-tw-35J"/>
                         <outlet property="totalAverageLabel" destination="1fc-hc-AVQ" id="qWk-yr-Vsm"/>
@@ -403,7 +413,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0g5-VX-SeD" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="885"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="875"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zR4-eV-zEJ" userLabel="TitleTextField">
                                                 <rect key="frame" x="10" y="41" width="394" height="50"/>
@@ -536,11 +546,20 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-R8-2ul" userLabel="SaveButton">
-                                                <rect key="frame" x="184" y="825" width="46" height="50"/>
+                                                <rect key="frame" x="157" y="825" width="100" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="UAr-Pm-tJO"/>
+                                                    <constraint firstAttribute="width" constant="100" id="Hr5-rz-Gly"/>
+                                                    <constraint firstAttribute="height" constant="40" id="UAr-Pm-tJO"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="保存"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onTapSaveButton:" destination="P4f-Ic-G46" eventType="touchUpInside" id="f5b-bO-nfw"/>
                                                 </connections>
@@ -624,6 +643,7 @@
                         <outlet property="colorPickerView" destination="p9a-n8-2tg" id="0Hg-bv-e7a"/>
                         <outlet property="multiEditTextField" destination="M0s-dp-apB" id="b2f-EC-SzU"/>
                         <outlet property="radarChart" destination="qml-fH-4Nk" id="e8I-zW-r3y"/>
+                        <outlet property="saveButton" destination="KHr-R8-2ul" id="s4r-Wk-Lu7"/>
                         <outlet property="scrollView" destination="5jp-Na-0Ev" id="7K3-uC-jD7"/>
                         <outlet property="sliderLabel" destination="FO0-bZ-P2S" id="c5v-Tu-AKz"/>
                         <outlet property="stepSlider" destination="Sp1-EX-TZ1" id="KGk-3G-Kx0"/>

@@ -23,6 +23,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var radarChart: ChartForCreateScreen!
     @IBOutlet weak var multiEditTextField: MultiEditText!
     @IBOutlet weak var axisMaximumField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     var activeField: UIView?
     
     let titleTextFieldTag = 222
@@ -66,6 +67,8 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         
         // setup MultiEditText
         multiEditTextField.setViewController(viewController: self)
+        
+        saveButton.layer.borderColor = UIColor.systemBlue.cgColor
         
         // setup TextField keyboard observer
         // キーボードでTextFieldが隠れないようにするため
