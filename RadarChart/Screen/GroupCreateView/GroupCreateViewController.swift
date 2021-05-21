@@ -100,6 +100,10 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapIconButton(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
@@ -235,5 +239,11 @@ extension GroupCreateViewController: UIColorPickerViewControllerDelegate{
     
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         presenter.didSelectColor(color: viewController.selectedColor)
+    }
+}
+
+// イメージピッカーdelegate
+extension GroupCreateViewController:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     }
 }
