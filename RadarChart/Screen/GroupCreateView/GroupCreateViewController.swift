@@ -18,6 +18,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var titleTextField: UITextField!
     private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var colorPickerView: UIView!
+    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var stepSlider: StepSlider!
     @IBOutlet weak var sliderLabel: UILabel!
     @IBOutlet weak var radarChart: ChartForCreateScreen!
@@ -96,6 +97,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         colorPicker.selectedColor = presenter.selectedColor
         colorPicker.delegate = self
         present(colorPicker, animated: true)
+    }
+    
+    @IBAction func onTapIconButton(_ sender: Any) {
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
