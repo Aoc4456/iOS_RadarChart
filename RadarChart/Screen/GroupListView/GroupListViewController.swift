@@ -78,16 +78,25 @@ extension GroupListViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupListCell
         let data = presenter.dataList[indexPath.row]
+        
+        // dataがあればいい
         cell.titleView.text = data.title
+        // dataがあればいい
         cell.labelChartsCount.text = data.charts.count.description
         
+        // これはこっちでやる？ viewController を 渡せばできるのかな？
+        // これもセルに任せられるのであればセル側でやる
         if cell.radarChart.gestureRecognizers?.count == 2{ // もともと２つのgestureRecognizerが登録されている
             let tapAction = UITapGestureRecognizer(target: self, action: #selector(onChartTapped))
             cell.radarChart.addGestureRecognizer(tapAction)
         }
         
+        // dataがあればいい
         let chartColor = data.color.toUIColor()
+        
+        // dataがあればいい
         let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: data.labels.count)
+        // dataがあればいい
         cell.radarChart.data = chartData
         
         return cell

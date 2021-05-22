@@ -35,7 +35,7 @@ class GroupListPresenter:GroupListPresenterInput{
                 iconImageMap[i] = image
             }
         }
-        print(iconImageMap.count)
+        print("\(iconImageMap.count)個の画像を取得しました")
     }
 }
 
