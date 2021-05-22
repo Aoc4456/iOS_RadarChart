@@ -104,10 +104,11 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapIconButton(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+        presenter.onTapIconButton()
+//        let picker = UIImagePickerController()
+//        picker.sourceType = .photoLibrary
+//        picker.delegate = self
+//        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
@@ -175,6 +176,9 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         updateColor(color: presenter.selectedColor)
         axisMaximumField.text = Int(presenter.axisMaximum).description
         (radarChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
+        if(presenter.iconImage != nil){
+            iconButton.setBackgroundImage(presenter.iconImage,for: .normal)
+        }
     }
     
     func updateNumberOfItems(num: Int,chartLabels:[String]) {
@@ -192,6 +196,19 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     func setChartDataSource() {
         radarChart.data = presenter.chartData
         notifyChartDataChanged()
+    }
+    
+    func showIconActionSheet(alert: UIAlertController) {
+        present(alert,animated: true)
+    }
+    
+    func showImagePicker(picker: UIImagePickerController) {
+        picker.delegate = self
+        present(picker,animated: true)
+    }
+    
+    func deleteImage() {
+        iconButton.setBackgroundImage(UIImage(systemName: "minus.circle"), for: .normal)
     }
     
     // チャートに関連するデータが変更されたときに呼ばれる
@@ -273,6 +290,7 @@ extension GroupCreateViewController:CropViewControllerDelegate{
     // トリミング編集が終わったら呼ばれる
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         self.iconButton.setBackgroundImage(image, for: .normal)
+        presenter.didCropToImage(image: image)
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }

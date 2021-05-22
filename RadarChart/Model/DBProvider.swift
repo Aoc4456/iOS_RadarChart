@@ -70,6 +70,10 @@ class DBProvider{
     // グループと、グループに属するチャートを削除
     func deleteGroup(id:String){
         let object = db.objects(ChartGroup.self).filter("id = %@", id)[0]
+        
+        if(object.iconFileName != ""){
+            deleteImageInDocumentDirectory(fileName: object.iconFileName)
+        }
         try! db.write {
             db.delete(object.charts)
             db.delete(object)
@@ -120,6 +124,7 @@ class DBProvider{
     // チャート削除
     func deleteChart(id:String){
         let object = db.objects(MyChartObject.self).filter("id = %@", id)[0]
+        
         try! db.write {
             db.delete(object)
         }
@@ -171,5 +176,43 @@ class DBProvider{
         }
         
         return sortedChartArray
+    }
+    
+    //
+    // 画像保存に関する関数
+    //
+    private func getDocumentsDirectoryURL() -> NSURL{
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+    }
+    
+    func createImagePath(filename:String) -> String{
+        let imegeFileUrl = getDocumentsDirectoryURL().appendingPathComponent(filename)
+        return imegeFileUrl!.path
+    }
+    
+    func saveImageInDocumentDirectory(image:UIImage,fileName:String) -> Bool{
+        let jpegImage = image.jpegData(compressionQuality: 0.5)
+        let fullPath = createImagePath(filename: fileName)
+        do{
+            try jpegImage!.write(to: URL(fileURLWithPath: fullPath),options: .atomic)
+        }catch{
+            print(error)
+            return false
+        }
+        return true
+    }
+    
+    func deleteImageInDocumentDirectory(fileName:String){
+        let fullPath = createImagePath(filename: fileName)
+        do{
+            try FileManager.default.removeItem(at: URL(fileURLWithPath: fullPath))
+        }catch{
+            print(error)
+        }
+    }
+    
+    func loadImage(filename:String) -> UIImage?{
+        let fullPath = createImagePath(filename: filename)
+        return UIImage(contentsOfFile: fullPath)
     }
 }
