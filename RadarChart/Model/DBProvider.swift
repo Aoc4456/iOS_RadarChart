@@ -69,6 +69,7 @@ class DBProvider{
     
     // グループと、グループに属するチャートを削除
     func deleteGroup(id:String){
+        // TODO グループに属する画像を削除
         let object = db.objects(ChartGroup.self).filter("id = %@", id)[0]
         try! db.write {
             db.delete(object.charts)
@@ -197,8 +198,13 @@ class DBProvider{
         return true
     }
     
-    func deleteImageInDocumentDirectory(path:String){
-        
+    func deleteImageInDocumentDirectory(fileName:String){
+        let fullPath = createImagePath(filename: fileName)
+        do{
+            try FileManager.default.removeItem(at: URL(fileURLWithPath: fullPath))
+        }catch{
+            print(error)
+        }
     }
     
     func loadImage(filename:String) -> UIImage?{

@@ -130,12 +130,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             self.iconFileName = NSUUID().uuidString
             imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, fileName: iconFileName)
         case .Delete:
-            // imagePathを使ってディレクトリの画像を削除する
+            DBProvider.sharedInstance.deleteImageInDocumentDirectory(fileName: iconFileName)
             self.iconFileName = ""
-            print("アイコン_削除します")
         case .Update:
             // imagePathを使ってディレクトリの画像を削除する
+            DBProvider.sharedInstance.deleteImageInDocumentDirectory(fileName: iconFileName)
             // 新しいイメージパスを作成して、プロパティに設定 & ディレクトリに画像を書き込み
+            self.iconFileName = NSUUID().uuidString
+            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, fileName: iconFileName)
             print("アイコン_更新します")
         default:
             print("アイコン_なにもしません")
@@ -189,7 +191,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         if(passedData == nil){
             group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"iconFileName":iconFileName])
         }else{
-            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy])
+            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy,"iconFileName":iconFileName])
         }
         return group!
     }
