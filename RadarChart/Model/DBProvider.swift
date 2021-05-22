@@ -176,11 +176,23 @@ class DBProvider{
     //
     // 画像保存に関する関数
     //
-    private func getDocumentsDirectoryURL() -> NSURL{
+    private static func getDocumentsDirectoryURL() -> NSURL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
     }
     
-    func saveImageInDocumentsDirectory(image:UIImage){
-        
+    static func createImagePath(filename:String) -> String{
+        let imegeFileUrl = getDocumentsDirectoryURL().appendingPathComponent(filename)
+        return imegeFileUrl!.path
+    }
+    
+    func saveImageInDocumentDirectory(image:UIImage,path:String) -> Bool{
+        let jpegImage = image.jpegData(compressionQuality: 0.5)
+        do{
+            try jpegImage!.write(to: URL(fileURLWithPath: path),options: .atomic)
+        }catch{
+            print(error)
+            return false
+        }
+        return true
     }
 }

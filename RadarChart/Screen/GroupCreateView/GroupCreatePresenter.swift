@@ -24,7 +24,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     var iconImage:UIImage?
     var isIconChange = false
-    var imagePath:String?
+    var imagePath:String = ""
     
     private var passedData:ChartGroup?
     
@@ -122,8 +122,29 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         
         // データベースへの書き込み
         // TODO ここで先に画像関係の処理をする
+        var imageWriteResult = true
+        switch checkIconState() {
+        case .Create:
+            self.imagePath = DBProvider.createImagePath(filename: NSUUID().uuidString)
+            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, path: imagePath)
+        case .Delete:
+            // imagePathを使ってディレクトリの画像を削除する
+            self.imagePath = ""
+            print("アイコン_なにもしません")
+        case .Update:
+            // imagePathを使ってディレクトリの画像を削除する
+            // 新しいイメージパスを作成して、プロパティに設定 & ディレクトリに画像を書き込み
+            print("アイコン_更新します")
+        default:
+            print("アイコン_なにもしません")
+            break
+        }
         
-        
+        if(imageWriteResult == false){
+            print("ファイルの書き込みに失敗しました!")
+        }else{
+            print("ファイルの書き込みに成功しました!")
+        }
         
         let group = getChartGroupObject()
         var diffNumberOfItems = 0
@@ -132,7 +153,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         }
         
         DBProvider.sharedInstance.addGroup(group: group,diffNumOfItems:diffNumberOfItems)
-        
+
         // 画面を閉じる
         view.completeWritingToDatabase()
     }
@@ -163,11 +184,33 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     private func getChartGroupObject() -> ChartGroup{
         var group:ChartGroup? = nil
         if(passedData == nil){
-            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems))])
+            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"imagePath":imagePath])
         }else{
             group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy])
         }
         return group!
+    }
+    
+    private func checkIconState() -> GroupIconState{
+        if(imagePath == "" && iconImage != nil){
+            return .Create
+        }
+        if(imagePath != ""){
+            if(iconImage == nil){
+                return .Delete
+            }
+            if(iconImage != nil && isIconChange){
+                return .Update
+            }
+        }
+        return .None
+    }
+    
+    private enum GroupIconState{
+        case Create
+        case Delete
+        case Update
+        case None
     }
 }
 
