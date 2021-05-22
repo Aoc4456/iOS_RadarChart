@@ -176,20 +176,20 @@ class DBProvider{
     //
     // 画像保存に関する関数
     //
-    private static func getDocumentsDirectoryURL() -> NSURL{
+    private func getDocumentsDirectoryURL() -> NSURL{
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
     }
     
-    static func createImagePath(filename:String) -> String{
+    func createImagePath(filename:String) -> String{
         let imegeFileUrl = getDocumentsDirectoryURL().appendingPathComponent(filename)
         return imegeFileUrl!.path
     }
     
-    func saveImageInDocumentDirectory(image:UIImage,path:String) -> Bool{
-        print("保存パス\(path)")
+    func saveImageInDocumentDirectory(image:UIImage,fileName:String) -> Bool{
         let jpegImage = image.jpegData(compressionQuality: 0.5)
+        let fullPath = createImagePath(filename: fileName)
         do{
-            try jpegImage!.write(to: URL(fileURLWithPath: path),options: .atomic)
+            try jpegImage!.write(to: URL(fileURLWithPath: fullPath),options: .atomic)
         }catch{
             print(error)
             return false
@@ -197,7 +197,11 @@ class DBProvider{
         return true
     }
     
-    static func loadImage(filename:String) -> UIImage?{
+    func deleteImageInDocumentDirectory(path:String){
+        
+    }
+    
+    func loadImage(filename:String) -> UIImage?{
         let fullPath = createImagePath(filename: filename)
         return UIImage(contentsOfFile: fullPath)
     }

@@ -47,7 +47,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
                 self.chartLabels[i] = Array(passedData!.labels)[i]
             }
             if(iconFileName != ""){
-                self.iconImage = DBProvider.loadImage(filename: iconFileName)
+                self.iconImage = DBProvider.sharedInstance.loadImage(filename: iconFileName)
             }
             self.view.reflectThePassedData()
         }
@@ -128,12 +128,11 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         switch checkIconState() {
         case .Create:
             self.iconFileName = NSUUID().uuidString
-            let fullPath = DBProvider.createImagePath(filename: self.iconFileName)
-            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, path: fullPath)
+            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, fileName: iconFileName)
         case .Delete:
             // imagePathを使ってディレクトリの画像を削除する
             self.iconFileName = ""
-            print("アイコン_なにもしません")
+            print("アイコン_削除します")
         case .Update:
             // imagePathを使ってディレクトリの画像を削除する
             // 新しいイメージパスを作成して、プロパティに設定 & ディレクトリに画像を書き込み
