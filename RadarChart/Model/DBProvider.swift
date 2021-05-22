@@ -186,6 +186,7 @@ class DBProvider{
     }
     
     func saveImageInDocumentDirectory(image:UIImage,path:String) -> Bool{
+        print("保存パス\(path)")
         let jpegImage = image.jpegData(compressionQuality: 0.5)
         do{
             try jpegImage!.write(to: URL(fileURLWithPath: path),options: .atomic)

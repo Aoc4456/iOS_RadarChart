@@ -22,8 +22,8 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
     
-    var iconImage:UIImage?
-    var isIconChange = false
+    private var iconImage:UIImage?
+    private var isIconChange = false
     var imagePath:String = ""
     
     private var passedData:ChartGroup?
@@ -46,7 +46,11 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             for i in 0..<passedData!.labels.count{
                 self.chartLabels[i] = Array(passedData!.labels)[i]
             }
-            self.view.reflectThePassedData()
+            if(imagePath != ""){
+                iconImage = UIImage(contentsOfFile: imagePath)
+                print(iconImage?.description)
+            }
+            self.view.reflectThePassedData(iconImage: iconImage)
         }
         self.onChangeChartData()
     }
@@ -220,6 +224,7 @@ protocol GroupCreatePresenterInput {
     var title:String{get}
     var chartData:RadarChartData{get}
     var chartLabels:[String]{get}
+    var imagePath:String{get}
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
@@ -239,7 +244,7 @@ protocol GroupCreatePresenterInput {
 // GroupCreateViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupCreaterPresenterOutput:AnyObject {
-    func reflectThePassedData()
+    func reflectThePassedData(iconImage:UIImage?)
     func updateNumberOfItems(num:Int,chartLabels:[String])
     func updateColor(color:UIColor)
     func setChartDataSource()
