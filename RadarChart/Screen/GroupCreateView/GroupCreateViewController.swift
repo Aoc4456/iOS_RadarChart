@@ -204,6 +204,10 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         present(picker,animated: true)
     }
     
+    func deleteImage() {
+        iconButton.setBackgroundImage(UIImage(systemName: "minus.circle"), for: .normal)
+    }
+    
     // チャートに関連するデータが変更されたときに呼ばれる
     func notifyChartDataChanged() {
         radarChart.data?.notifyDataChanged()
@@ -283,6 +287,7 @@ extension GroupCreateViewController:CropViewControllerDelegate{
     // トリミング編集が終わったら呼ばれる
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         self.iconButton.setBackgroundImage(image, for: .normal)
+        presenter.didCropToImage(image: image)
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }

@@ -21,6 +21,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var numberOfItems: Int = 5
     var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
+    var iconImage:UIImage?
     
     private var passedData:ChartGroup?
     
@@ -66,13 +67,19 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         })
         alert.addAction(selectImageAction)
         
-        // TODO 画像が設定されているときのみactionを追加するように修正
-        let deleteImageAction = UIAlertAction(title: "削除", style: .destructive, handler:{
-            (action: UIAlertAction!) -> Void in
-            print("画像を削除します")
-        })
-        alert.addAction(deleteImageAction)
+        if(self.iconImage != nil){
+            let deleteImageAction = UIAlertAction(title: "削除", style: .destructive, handler:{
+                (action: UIAlertAction!) -> Void in
+                self.iconImage = nil
+                self.view.deleteImage()
+            })
+            alert.addAction(deleteImageAction)
+        }
         self.view.showIconActionSheet(alert: alert)
+    }
+    
+    func didCropToImage(image: UIImage) {
+        iconImage = image
     }
     
     func didSliderValueChanged(index: Int) {
@@ -178,6 +185,7 @@ protocol GroupCreatePresenterInput {
     func onTapIconButton()
     func onTapSaveButton()
     func onTapTrashButton()
+    func didCropToImage(image:UIImage)
 }
 
 // GroupCreateViewControllerが実装するプロトコル
@@ -193,4 +201,5 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func completeWritingToDatabase()
     func showIconActionSheet(alert:UIAlertController)
     func showImagePicker(picker:UIImagePickerController)
+    func deleteImage()
 }
