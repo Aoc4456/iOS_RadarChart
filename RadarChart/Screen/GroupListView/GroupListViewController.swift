@@ -22,7 +22,6 @@ class GroupListViewController: UIViewController {
         super.viewDidLoad()
         // setup Presenter
         self.presenter = GroupListPresenter(view: self)
-        presenter.fetchDataFromDatabase()
         
         // setup Navigation Item
         self.navigationItem.title = "グループ"
