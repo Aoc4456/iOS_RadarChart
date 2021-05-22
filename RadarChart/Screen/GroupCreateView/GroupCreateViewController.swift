@@ -167,7 +167,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
 extension GroupCreateViewController:GroupCreaterPresenterOutput{
     
     // 前の画面から渡されたデータがある場合 (編集モード) の場合、初期値をViewにセットする
-    func reflectThePassedData(iconImage:UIImage?) {
+    func reflectThePassedData() {
         self.navigationItem.title = "グループ編集"
         titleTextField.text = presenter.title
         stepSlider.index = UInt(presenter.numberOfItems - 3)
@@ -176,8 +176,8 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
         updateColor(color: presenter.selectedColor)
         axisMaximumField.text = Int(presenter.axisMaximum).description
         (radarChart.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
-        if(iconImage != nil){
-            iconButton.setBackgroundImage(iconImage,for: .normal)
+        if(presenter.iconImage != nil){
+            iconButton.setBackgroundImage(presenter.iconImage,for: .normal)
         }
     }
     

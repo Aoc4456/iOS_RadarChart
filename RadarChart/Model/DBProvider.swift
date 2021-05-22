@@ -196,4 +196,9 @@ class DBProvider{
         }
         return true
     }
+    
+    static func loadImage(filename:String) -> UIImage?{
+        let fullPath = createImagePath(filename: filename)
+        return UIImage(contentsOfFile: fullPath)
+    }
 }

@@ -22,9 +22,9 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
     
-    private var iconImage:UIImage?
+    var iconImage:UIImage?
     private var isIconChange = false
-    var imagePath:String = ""
+    var iconFileName:String = ""
     
     private var passedData:ChartGroup?
     
@@ -42,15 +42,14 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             self.selectedColor = passedData!.color.toUIColor()
             self.numberOfItems = Int(passedData!.labels.count)
             self.axisMaximum = passedData!.maximum
-            self.imagePath = passedData!.imagePath
+            self.iconFileName = passedData!.iconFileName
             for i in 0..<passedData!.labels.count{
                 self.chartLabels[i] = Array(passedData!.labels)[i]
             }
-            if(imagePath != ""){
-                iconImage = UIImage(contentsOfFile: imagePath)
-                print(iconImage?.description)
+            if(iconFileName != ""){
+                self.iconImage = DBProvider.loadImage(filename: iconFileName)
             }
-            self.view.reflectThePassedData(iconImage: iconImage)
+            self.view.reflectThePassedData()
         }
         self.onChangeChartData()
     }
@@ -117,23 +116,23 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     func onTapSaveButton() {
-        // 項目のバリデーション
+        // 1.項目のバリデーション
         let errorMessage = validateData()
         if(errorMessage != ""){
             view.showValidateDialog(text: errorMessage)
             return
         }
         
-        // データベースへの書き込み
-        // TODO ここで先に画像関係の処理をする
+        // 2.画像 (アイコン) の処理
         var imageWriteResult = true
         switch checkIconState() {
         case .Create:
-            self.imagePath = DBProvider.createImagePath(filename: NSUUID().uuidString)
-            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, path: imagePath)
+            self.iconFileName = NSUUID().uuidString
+            let fullPath = DBProvider.createImagePath(filename: self.iconFileName)
+            imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, path: fullPath)
         case .Delete:
             // imagePathを使ってディレクトリの画像を削除する
-            self.imagePath = ""
+            self.iconFileName = ""
             print("アイコン_なにもしません")
         case .Update:
             // imagePathを使ってディレクトリの画像を削除する
@@ -150,6 +149,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             print("ファイルの書き込みに成功しました!")
         }
         
+        // 3. Realmに書き込み
         let group = getChartGroupObject()
         var diffNumberOfItems = 0
         if(passedData != nil){
@@ -188,7 +188,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     private func getChartGroupObject() -> ChartGroup{
         var group:ChartGroup? = nil
         if(passedData == nil){
-            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"imagePath":imagePath])
+            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"iconFileName":iconFileName])
         }else{
             group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy])
         }
@@ -196,10 +196,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     }
     
     private func checkIconState() -> GroupIconState{
-        if(imagePath == "" && iconImage != nil){
+        if(iconFileName == "" && iconImage != nil){
             return .Create
         }
-        if(imagePath != ""){
+        if(iconFileName != ""){
             if(iconImage == nil){
                 return .Delete
             }
@@ -224,7 +224,8 @@ protocol GroupCreatePresenterInput {
     var title:String{get}
     var chartData:RadarChartData{get}
     var chartLabels:[String]{get}
-    var imagePath:String{get}
+    var iconImage:UIImage?{get}
+    var iconFileName:String{get}
     var sliderLabel:[String]{get}
     var selectedColor:UIColor{get set}
     var numberOfItems:Int{get set}
@@ -244,7 +245,7 @@ protocol GroupCreatePresenterInput {
 // GroupCreateViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupCreaterPresenterOutput:AnyObject {
-    func reflectThePassedData(iconImage:UIImage?)
+    func reflectThePassedData()
     func updateNumberOfItems(num:Int,chartLabels:[String])
     func updateColor(color:UIColor)
     func setChartDataSource()
