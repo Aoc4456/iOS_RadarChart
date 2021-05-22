@@ -69,8 +69,11 @@ class DBProvider{
     
     // グループと、グループに属するチャートを削除
     func deleteGroup(id:String){
-        // TODO グループに属する画像を削除
         let object = db.objects(ChartGroup.self).filter("id = %@", id)[0]
+        
+        if(object.iconFileName != ""){
+            deleteImageInDocumentDirectory(fileName: object.iconFileName)
+        }
         try! db.write {
             db.delete(object.charts)
             db.delete(object)
@@ -121,6 +124,7 @@ class DBProvider{
     // チャート削除
     func deleteChart(id:String){
         let object = db.objects(MyChartObject.self).filter("id = %@", id)[0]
+        
         try! db.write {
             db.delete(object)
         }
