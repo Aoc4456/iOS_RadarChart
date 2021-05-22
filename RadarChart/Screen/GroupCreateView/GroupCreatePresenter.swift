@@ -21,7 +21,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     var numberOfItems: Int = 5
     var axisMaximum: Double = 100
     var chartLabels: [String] = ["項目1","項目2","項目3","項目4","項目5","項目6","項目7","項目8","項目9"]
+    
     var iconImage:UIImage?
+    var isIconChange = false
+    var imagePath:String?
     
     private var passedData:ChartGroup?
     
@@ -39,6 +42,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             self.selectedColor = passedData!.color.toUIColor()
             self.numberOfItems = Int(passedData!.labels.count)
             self.axisMaximum = passedData!.maximum
+            self.imagePath = passedData!.imagePath
             for i in 0..<passedData!.labels.count{
                 self.chartLabels[i] = Array(passedData!.labels)[i]
             }
@@ -80,6 +84,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     
     func didCropToImage(image: UIImage) {
         iconImage = image
+        isIconChange = true
     }
     
     func didSliderValueChanged(index: Int) {
@@ -117,9 +122,9 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         
         // データベースへの書き込み
         // TODO ここで先に画像関係の処理をする
-        // 新規作成かつ画像設定あり または 編集かつ 画像の変更あり
-        // どうやってフラグ管理するか..
-        // CropViewControllerの終わりにフラグを書き換える
+        
+        
+        
         let group = getChartGroupObject()
         var diffNumberOfItems = 0
         if(passedData != nil){
