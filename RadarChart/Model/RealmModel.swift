@@ -13,6 +13,7 @@ class ChartGroup:Object{
     @objc dynamic var id : String = NSUUID().uuidString
     @objc dynamic var title : String = ""
     @objc dynamic var color : String = ""
+    @objc dynamic var imagePath : String?
     @objc dynamic var maximum : Double = 0
     let labels = List<String>()
     @objc dynamic var createdAt = Date()
