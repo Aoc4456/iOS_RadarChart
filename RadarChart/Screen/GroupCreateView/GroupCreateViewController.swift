@@ -104,10 +104,11 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapIconButton(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+        presenter.onTapIconButton()
+//        let picker = UIImagePickerController()
+//        picker.sourceType = .photoLibrary
+//        picker.delegate = self
+//        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
@@ -192,6 +193,15 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     func setChartDataSource() {
         radarChart.data = presenter.chartData
         notifyChartDataChanged()
+    }
+    
+    func showIconActionSheet(alert: UIAlertController) {
+        present(alert,animated: true)
+    }
+    
+    func showImagePicker(picker: UIImagePickerController) {
+        picker.delegate = self
+        present(picker,animated: true)
     }
     
     // チャートに関連するデータが変更されたときに呼ばれる

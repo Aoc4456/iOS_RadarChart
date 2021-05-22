@@ -172,4 +172,15 @@ class DBProvider{
         
         return sortedChartArray
     }
+    
+    //
+    // 画像保存に関する関数
+    //
+    private func getDocumentsDirectoryURL() -> NSURL{
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
+    }
+    
+    func saveImageInDocumentsDirectory(image:UIImage){
+        
+    }
 }

@@ -52,6 +52,29 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         onChangeChartData()
     }
     
+    func onTapIconButton() {
+        let alert = UIAlertController(title: "グループのアイコンを設定", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: {
+            action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        let selectImageAction = UIAlertAction(title: "画像を選択", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            self.view.showImagePicker(picker: picker)
+        })
+        alert.addAction(selectImageAction)
+        
+        // TODO 画像が設定されているときのみactionを追加するように修正
+        let deleteImageAction = UIAlertAction(title: "削除", style: .destructive, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("画像を削除します")
+        })
+        alert.addAction(deleteImageAction)
+        self.view.showIconActionSheet(alert: alert)
+    }
+    
     func didSliderValueChanged(index: Int) {
         numberOfItems = index + 3
         view.updateNumberOfItems(num: numberOfItems,chartLabels: chartLabels)
@@ -86,6 +109,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         }
         
         // データベースへの書き込み
+        // TODO ここで先に画像関係の処理をする
+        // 新規作成かつ画像設定あり または 編集かつ 画像の変更あり
+        // どうやってフラグ管理するか..
+        // CropViewControllerの終わりにフラグを書き換える
         let group = getChartGroupObject()
         var diffNumberOfItems = 0
         if(passedData != nil){
@@ -148,6 +175,7 @@ protocol GroupCreatePresenterInput {
     func titleTextFieldDidEndEditing(text:String)
     func labelTextFieldDidEndEditing(index:Int,text:String)
     func axisMaximumTextFieldDidEndEditing(text:String)
+    func onTapIconButton()
     func onTapSaveButton()
     func onTapTrashButton()
 }
@@ -163,4 +191,6 @@ protocol GroupCreaterPresenterOutput:AnyObject {
     func onUpdateChartLabel()
     func showValidateDialog(text:String)
     func completeWritingToDatabase()
+    func showIconActionSheet(alert:UIAlertController)
+    func showImagePicker(picker:UIImagePickerController)
 }
