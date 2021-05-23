@@ -289,8 +289,10 @@ extension GroupCreateViewController:UIImagePickerControllerDelegate,UINavigation
 extension GroupCreateViewController:CropViewControllerDelegate{
     // トリミング編集が終わったら呼ばれる
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-        self.iconButton.setBackgroundImage(image, for: .normal)
-        presenter.didCropToImage(image: image)
+        let jpegImage = image.jpegData(compressionQuality: 0.1)
+        let restoreImage = UIImage(data: jpegImage!)
+        self.iconButton.setBackgroundImage(restoreImage, for: .normal)
+        presenter.didCropToImage(image: restoreImage!)
         cropViewController.dismiss(animated: true, completion: nil)
     }
 }

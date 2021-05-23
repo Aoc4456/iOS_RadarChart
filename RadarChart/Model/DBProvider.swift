@@ -191,7 +191,7 @@ class DBProvider{
     }
     
     func saveImageInDocumentDirectory(image:UIImage,fileName:String) -> Bool{
-        let jpegImage = image.jpegData(compressionQuality: 0.5)
+        let jpegImage = image.jpegData(compressionQuality: 1)
         let fullPath = createImagePath(filename: fileName)
         do{
             try jpegImage!.write(to: URL(fileURLWithPath: fullPath),options: .atomic)
