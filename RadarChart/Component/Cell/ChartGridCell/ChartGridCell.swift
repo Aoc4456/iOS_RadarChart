@@ -33,6 +33,8 @@ class ChartGridCell: UICollectionViewCell {
     private func getSortedValue(group:ChartGroup,chartObject:MyChartObject) -> String{
         var labelText = ""
         switch group.sortedIndex {
+        case -4: // タイトル
+            return ""
         case -3: // 合計
             labelText = Int(chartObject.values.sum()).description
         case -2: // 更新日

@@ -22,7 +22,7 @@ class ChartGroup:Object{
     /**
      ソートする条件
      
-     -1 = 作成日,   -2 = 更新日,  -3 = 合計値 : 0以上の場合 = labelsのインデックス
+     -1 = 作成日,   -2 = 更新日,  -3 = 合計値 , -4 = タイトル: 0以上の場合 = labelsのインデックス
      */
     @objc dynamic var sortedIndex : Int = -1
     @objc dynamic var orderBy : String = "ASC"

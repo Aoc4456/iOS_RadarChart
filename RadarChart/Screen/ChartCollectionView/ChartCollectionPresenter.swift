@@ -55,6 +55,11 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
             alert.addAction(action)
         }
         
+        let titleAction = UIAlertAction(title: "タイトル", style: .default, handler:{
+            (action: UIAlertAction!) -> Void in
+            self.onTapActionSheetItem(index: -4)
+        })
+        
         let createdDateAction = UIAlertAction(title: "作成日", style: .default, handler:{
             (action: UIAlertAction!) -> Void in
             self.onTapActionSheetItem(index: -1)
@@ -63,6 +68,7 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
             (action: UIAlertAction!) -> Void in
             self.onTapActionSheetItem(index: -2)
         })
+        alert.addAction(titleAction)
         alert.addAction(createdDateAction)
         alert.addAction(updatedDateAction)
         view.showActionSheet(alert: alert)
@@ -85,6 +91,8 @@ class ChartCollectionPresenter:ChartCollectionPresenterInput{
     
     private func getSortItemLabel() -> String{
         switch groupData.sortedIndex {
+        case -4:
+            return "タイトル"
         case -3:
             return "合計値"
         case -2:

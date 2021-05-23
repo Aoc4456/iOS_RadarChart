@@ -130,7 +130,7 @@ class DBProvider{
         }
     }
     
-    // ソートされたチャートを取得
+    // ソートされたチャートを取得 TODO enum に置き換える
     func getSortedCharts(group:ChartGroup) -> Array<MyChartObject>{
         let chartArray = Array(group.charts)
         var sortedChartArray = [MyChartObject]()
@@ -159,6 +159,16 @@ class DBProvider{
         if(group.sortedIndex == -3){
             sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
                 if(chart.values.sum() > chart2.values.sum()){
+                    return group.orderBy == "DESC"
+                }
+                return group.orderBy == "ASC"
+            })
+        }
+        
+        // タイトル
+        if(group.sortedIndex == -4){
+            sortedChartArray = chartArray.sorted(by: { chart, chart2 -> Bool in
+                if(chart.title > chart2.title){
                     return group.orderBy == "DESC"
                 }
                 return group.orderBy == "ASC"

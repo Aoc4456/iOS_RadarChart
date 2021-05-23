@@ -46,6 +46,8 @@ class ChartListCell: UICollectionViewCell {
     private func getSortedValue(group:ChartGroup,chartObject:MyChartObject) -> String{
         var labelText = ""
         switch group.sortedIndex {
+        case -4: // タイトル
+            labelText = ""
         case -3: // 合計
             labelText = ""
         case -2: // 更新日
