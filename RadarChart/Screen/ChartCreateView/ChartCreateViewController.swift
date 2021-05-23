@@ -48,6 +48,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         titleTextField.delegate = self
         
         // setup Chart
+        myRadarChartView.xAxis.labelFont = .systemFont(ofSize: 15,weight: .regular)
         myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
         myRadarChartView.yAxis.axisRange = Double(groupData.maximum)
         
