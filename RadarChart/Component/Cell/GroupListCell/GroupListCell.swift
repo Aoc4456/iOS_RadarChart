@@ -21,6 +21,7 @@ class GroupListCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        iconImageView.contentMode = .scaleAspectFit
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,5 +30,32 @@ class GroupListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
+    func setData(group:ChartGroup,vc:UIViewController,icon:UIImage?){
+        titleView.text = group.title
+        labelChartsCount.text = group.charts.count.description
+        
+        if(icon == nil){
+            // チャートを表示する
+            iconImageView.isHidden = true
+            radarChart.isHidden = false
+            if radarChart.gestureRecognizers?.count == 2{ // もともと２つのgestureRecognizerが登録されている
+                let tapAction = UITapGestureRecognizer(target: vc, action: #selector(GroupListViewController.onChartTapped))
+                radarChart.addGestureRecognizer(tapAction)
+            }
+            
+            let chartColor = group.color.toUIColor()
+            let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: group.labels.count)
+            radarChart.data = chartData
+            
+        }else{
+            // アイコンを表示する
+            iconImageView.isHidden = false
+            radarChart.isHidden = true
+            if iconImageView.gestureRecognizers?.count == 0{ 
+                let tapAction = UITapGestureRecognizer(target: vc, action: #selector(GroupListViewController.onChartTapped))
+                iconImageView.addGestureRecognizer(tapAction)
+            }
+            iconImageView.image = icon!
+        }
+    }
 }

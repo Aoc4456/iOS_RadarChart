@@ -784,11 +784,6 @@
             <point key="canvasLocation" x="2920" y="572"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Sp1-EX-TZ1">
-            <size key="intrinsicContentSize" width="394" height="44"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="vHT-QF-xWG"/>
     </inferredMetricsTieBreakers>
