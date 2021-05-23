@@ -56,6 +56,7 @@ class GroupListViewController: UIViewController {
                 nextVC.groupData = dataPassedToChartList
             }
             dataPassedToChartList = nil
+            navigationItem.backButtonTitle = "戻る"
         }
     }
 }

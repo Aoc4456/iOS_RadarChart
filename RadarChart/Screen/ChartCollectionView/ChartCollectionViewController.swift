@@ -77,6 +77,7 @@ class ChartCollectionViewController: UIViewController {
             let nextVC = (segue.destination as? ChartCreateViewController)
             nextVC?.groupData = groupData
             nextVC?.editChartObject = presenter.getTappedChartObject(index: tappedIndex!)
+            navigationItem.backButtonTitle = "戻る"
         }
     }
     
