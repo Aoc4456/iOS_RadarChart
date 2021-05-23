@@ -28,6 +28,7 @@ class GroupListPresenter:GroupListPresenterInput{
     }
     
     private func loadIconImages(){
+        iconImageMap.removeAll()
         for i in 0..<dataList.count{
             let fileName = dataList[i].iconFileName
             if(fileName != ""){
@@ -44,6 +45,7 @@ class GroupListPresenter:GroupListPresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupListPresenterInput {
     var dataList:Array<ChartGroup>{get}
+    var iconImageMap:[Int:UIImage]{get}
     func fetchDataFromDatabase()
 }
 
