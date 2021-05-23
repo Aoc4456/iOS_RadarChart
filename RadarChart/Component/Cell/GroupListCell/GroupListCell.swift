@@ -16,6 +16,8 @@ class GroupListCell: UITableViewCell {
     
     @IBOutlet weak var labelChartsCount: UILabel!
     
+    @IBOutlet weak var iconImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +28,6 @@ class GroupListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }
