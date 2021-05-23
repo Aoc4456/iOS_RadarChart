@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class GroupListPresenter:GroupListPresenterInput{
     
     private weak var view:GroupListPresenterOutput!
     
     var dataList: Array<ChartGroup> = []
+    var iconImageMap: [Int:UIImage] = [:]
     
     init(view:GroupListPresenterOutput) {
         self.view = view
@@ -21,7 +23,19 @@ class GroupListPresenter:GroupListPresenterInput{
     func fetchDataFromDatabase() {
         // データベースからデータを取得
         dataList = DBProvider.sharedInstance.getGroupList()
+        loadIconImages()
         view.reloadTableView()
+    }
+    
+    private func loadIconImages(){
+        for i in 0..<dataList.count{
+            let fileName = dataList[i].iconFileName
+            if(fileName != ""){
+                let image = DBProvider.sharedInstance.loadImage(filename: fileName)
+                iconImageMap[i] = image
+            }
+        }
+        print("\(iconImageMap.count)個の画像を取得しました")
     }
 }
 
