@@ -47,7 +47,7 @@ class ChartForCollectionView:RadarChartView{
         self.yAxis.axisMaximum = group.maximum
         self.yAxis.axisRange = group.maximum
         
-        let chartData = MyChartUtil.getChartDataBasedOnInputValues(color: group.color.toUIColor(), values: Array(chartObject.values))
+        let chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartObject.color.toUIColor(), values: Array(chartObject.values))
         self.data = chartData
         
         self.notifyDataSetChanged()

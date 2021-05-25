@@ -452,8 +452,8 @@
                                                 <color key="textColor" systemColor="systemBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グラフの色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIH-6a-QVg" userLabel="ColorLabel">
-                                                <rect key="frame" x="10" y="101" width="87" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グループの色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIH-6a-QVg" userLabel="ColorLabel">
+                                                <rect key="frame" x="10" y="101" width="104" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="aVV-iR-eTX"/>
                                                 </constraints>
