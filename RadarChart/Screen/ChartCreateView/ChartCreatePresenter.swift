@@ -94,6 +94,13 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         chartTitle = text
     }
     
+    func didSelectColor(color: UIColor) {
+        self.chartColor = color
+        view.setButtonColor()
+        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartColor, values: inputValues)
+        view.updateChart()
+    }
+    
     func onChangeInputValue(index: Int, value: Double) {
         self.inputValues[index] = value
         self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartColor, values: inputValues)
@@ -175,6 +182,7 @@ protocol ChartCreatePresenterInput {
     var chartLabel:[String]{get}
     var chartColor:UIColor!{get}
     func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?)
+    func didSelectColor(color:UIColor)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
     func onChangeNote(text:String)

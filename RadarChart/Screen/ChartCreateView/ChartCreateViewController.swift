@@ -14,6 +14,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var colorButton: UIButton!
+    private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var myRadarChartView: ChartForCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var totalAverageLabel: UILabel!
@@ -89,6 +90,10 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     }
     
     @IBAction func onTapColorButton(_ sender: Any) {
+        colorPicker.supportsAlpha = true // あとでfalseにして何が違うか確認する
+        colorPicker.selectedColor = presenter.chartColor
+        colorPicker.delegate = self
+        present(colorPicker, animated: true)
     }
     
     // キーボードでTextFieldが隠れないようにする
@@ -221,5 +226,15 @@ extension ChartCreateViewController:UITextViewDelegate{
         if(textView.text != nil && textView.text != ""){
             presenter.onChangeNote(text: textView.text!)
         }
+    }
+}
+
+// カラーピッカーdelegate
+extension ChartCreateViewController: UIColorPickerViewControllerDelegate{
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        presenter.didSelectColor(color: viewController.selectedColor)
     }
 }
