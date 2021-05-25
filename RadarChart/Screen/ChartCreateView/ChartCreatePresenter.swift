@@ -138,7 +138,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.dismissScreen()
     }
     
-    // 無理矢理２行目を中央よせっぽく見せるために、上段と下段のテキストの幅の差の分のスペースを返す
+    // 上段と下段のテキストの幅の差の分のスペースを返す (無理矢理２行目を中央よせに見せる)
     private func getSpace(text:String,value:String) -> String{
         let font = UIFont.systemFont(ofSize: 15.0)
         

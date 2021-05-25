@@ -13,6 +13,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var myRadarChartView: ChartForCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var totalAverageLabel: UILabel!
@@ -85,6 +86,9 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
         dismissScreen()
+    }
+    
+    @IBAction func onTapColorButton(_ sender: Any) {
     }
     
     // キーボードでTextFieldが隠れないようにする

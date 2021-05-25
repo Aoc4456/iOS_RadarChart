@@ -38,6 +38,7 @@ class ChartGroup:Object{
 class MyChartObject:Object{
     @objc dynamic var id : String = NSUUID().uuidString
     @objc dynamic var title : String = ""
+    @objc dynamic var color : String = ""
     let values = List<Double>()
     @objc dynamic var note : String = ""
     @objc dynamic var createdAt = Date()

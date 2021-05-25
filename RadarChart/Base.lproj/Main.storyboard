@@ -260,11 +260,30 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-zE-0yF" userLabel="ColorButton">
+                                                        <rect key="frame" x="350.66666666666669" y="15" width="44" height="44"/>
+                                                        <color key="backgroundColor" red="0.3921568627" green="0.58431372550000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="44" id="VtP-fJ-3Fz"/>
+                                                            <constraint firstAttribute="height" constant="44" id="gJC-I2-7Yx"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="22"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onTapColorButton:" destination="mYu-tE-Cfk" eventType="touchUpInside" id="vJ4-DA-NGA"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="linkColor"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="iGt-T4-Dqe" secondAttribute="trailing" constant="10" id="XTs-HB-cKp"/>
                                                     <constraint firstAttribute="height" constant="300" id="de3-SV-3ZD"/>
+                                                    <constraint firstItem="Jhw-zE-0yF" firstAttribute="top" secondItem="G1E-N3-2QX" secondAttribute="top" constant="15" id="grP-Ro-KiD"/>
+                                                    <constraint firstItem="Jhw-zE-0yF" firstAttribute="centerX" secondItem="G1E-N3-2QX" secondAttribute="centerX" multiplier="1.8" id="tFE-QQ-GCN"/>
                                                     <constraint firstAttribute="bottom" secondItem="iGt-T4-Dqe" secondAttribute="bottom" id="xHr-Va-y1h"/>
                                                 </constraints>
                                             </view>
@@ -386,6 +405,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="colorButton" destination="Jhw-zE-0yF" id="cNr-60-Fbo"/>
                         <outlet property="commentTextView" destination="oZM-Gg-sL4" id="dz5-oE-dhH"/>
                         <outlet property="maximumLabel" destination="iGt-T4-Dqe" id="mEO-WX-izl"/>
                         <outlet property="multiInputView" destination="Jvi-gu-L6a" id="dEG-jA-t4A"/>
@@ -799,6 +819,9 @@
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
