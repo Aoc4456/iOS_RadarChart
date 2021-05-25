@@ -21,6 +21,15 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     private var inputValues:[Double] = []
     private var note = ""
     
+    var chartLabel: [String]{
+        get{
+            var temporalyLabels = Array(groupData.labels)
+            temporalyLabels.append("")
+            
+            return temporalyLabels
+        }
+    }
+    
     private var totalAverageText:String{
         get{
             let sum = inputValues.reduce(0, +)
@@ -127,6 +136,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
+    var chartLabel:[String]{get}
     func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
