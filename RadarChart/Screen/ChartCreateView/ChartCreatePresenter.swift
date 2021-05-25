@@ -17,6 +17,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     private var editChartObject:MyChartObject?
     
     var chartData: RadarChartData? = nil
+    var chartColor:UIColor!
     private var chartTitle = ""
     private var inputValues:[Double] = []
     private var note = ""
@@ -53,19 +54,24 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?) {
         self.groupData = groupData
         
-        if(editChartObject != nil){
+        if(editChartObject == nil){
+            self.chartColor = groupData.color.toUIColor()
+        }else{
             self.editChartObject = editChartObject
             self.chartTitle = editChartObject!.title
             self.note = editChartObject!.note
+            self.chartColor = editChartObject!.color.toUIColor()
             view.reflectEditData(myChartObject: editChartObject!)
         }
         
         createInputValues()
         view.updateTotalAverageLabel(text: self.totalAverageText)
         
+        view.setButtonColor()
+        
         view.setupMultiInputView(labels: Array(groupData.labels), values:inputValues, axisMaximum: Double(groupData.maximum))
         
-        chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
+        chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartColor, values: inputValues)
         
         view.InitializeChart()
     }
@@ -88,9 +94,16 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         chartTitle = text
     }
     
+    func didSelectColor(color: UIColor) {
+        self.chartColor = color
+        view.setButtonColor()
+        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartColor, values: inputValues)
+        view.updateChart()
+    }
+    
     func onChangeInputValue(index: Int, value: Double) {
         self.inputValues[index] = value
-        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: groupData.color.toUIColor(), values: inputValues)
+        self.chartData = MyChartUtil.getChartDataBasedOnInputValues(color: chartColor, values: inputValues)
         view.updateChart()
         view.updateTotalAverageLabel(text: self.totalAverageText)
     }
@@ -129,7 +142,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     
     private func getChartObject() -> MyChartObject{
         var chartObject:MyChartObject? = nil
-        chartObject = MyChartObject(value: ["title":chartTitle,"values":Array(inputValues),"note":note])
+        chartObject = MyChartObject(value: ["title":chartTitle,"values":Array(inputValues),"note":note,"color":chartColor.toString()])
         return chartObject!
     }
     
@@ -138,7 +151,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.dismissScreen()
     }
     
-    // 無理矢理２行目を中央よせっぽく見せるために、上段と下段のテキストの幅の差の分のスペースを返す
+    // 上段と下段のテキストの幅の差の分のスペースを返す (無理矢理２行目を中央よせに見せる)
     private func getSpace(text:String,value:String) -> String{
         let font = UIFont.systemFont(ofSize: 15.0)
         
@@ -167,7 +180,9 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
     var chartLabel:[String]{get}
+    var chartColor:UIColor!{get}
     func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?)
+    func didSelectColor(color:UIColor)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)
     func onChangeNote(text:String)
@@ -180,6 +195,7 @@ protocol ChartCreatePresenterInput {
 protocol ChartCreatePresenterOutput:AnyObject {
     func reflectEditData(myChartObject:MyChartObject)
     func setupMultiInputView(labels:[String],values:[Double],axisMaximum:Double)
+    func setButtonColor()
     func InitializeChart()
     func updateChart()
     func updateTotalAverageLabel(text:String)

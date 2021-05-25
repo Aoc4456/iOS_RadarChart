@@ -13,6 +13,8 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var colorButton: UIButton!
+    private var colorPicker = UIColorPickerViewController()
     @IBOutlet weak var myRadarChartView: ChartForCreateScreen!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var totalAverageLabel: UILabel!
@@ -87,6 +89,13 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         dismissScreen()
     }
     
+    @IBAction func onTapColorButton(_ sender: Any) {
+        colorPicker.supportsAlpha = true // あとでfalseにして何が違うか確認する
+        colorPicker.selectedColor = presenter.chartColor
+        colorPicker.delegate = self
+        present(colorPicker, animated: true)
+    }
+    
     // キーボードでTextFieldが隠れないようにする
     @objc func keyboardWillShow(notification:NSNotification){
         // キーボードのサイズを取得
@@ -139,6 +148,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
+    
     // 最初に一回だけ呼び出す
     func InitializeChart() {
         (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabel)
@@ -150,6 +160,10 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     func reflectEditData(myChartObject: MyChartObject) {
         titleTextField.text = myChartObject.title
         commentTextView.text = myChartObject.note
+    }
+    
+    func setButtonColor() {
+        colorButton.backgroundColor = presenter.chartColor
     }
     
     func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
@@ -212,5 +226,15 @@ extension ChartCreateViewController:UITextViewDelegate{
         if(textView.text != nil && textView.text != ""){
             presenter.onChangeNote(text: textView.text!)
         }
+    }
+}
+
+// カラーピッカーdelegate
+extension ChartCreateViewController: UIColorPickerViewControllerDelegate{
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        presenter.didSelectColor(color: viewController.selectedColor)
     }
 }
