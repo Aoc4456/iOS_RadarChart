@@ -24,8 +24,15 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     var chartLabel: [String]{
         get{
             var temporalyLabels = Array(groupData.labels)
-            temporalyLabels.append("")
             
+            for i in 0..<temporalyLabels.count{
+                let label = temporalyLabels[i]
+                let inputValue = Int(inputValues[i])
+                let withValueLabel = "\(label)\n\(getSpace(text: label,value: inputValue.description))\(inputValue)"
+                temporalyLabels[i] = withValueLabel
+            }
+            
+            temporalyLabels.append("")
             return temporalyLabels
         }
     }
@@ -129,6 +136,29 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     func deleteChart() {
         DBProvider.sharedInstance.deleteChart(id: editChartObject!.id)
         view.dismissScreen()
+    }
+    
+    // 無理矢理２行目を中央よせっぽく見せる
+    private func getSpace(text:String,value:String) -> String{
+        let font = UIFont.systemFont(ofSize: 15.0)
+        
+        let labelWidth = text.size(withAttributes: [NSAttributedString.Key.font : font]).width
+        let valueWidth = value.size(withAttributes: [NSAttributedString.Key.font : font]).width
+        let spaceWidth = " ".size(withAttributes: [NSAttributedString.Key.font : font]).width
+        
+        if(valueWidth < labelWidth){
+            let requireSpace = labelWidth - valueWidth
+            let requireStartSpace = requireSpace / 2
+            let spaceCount = requireStartSpace / spaceWidth
+            
+            var text = ""
+            for _ in 0..<Int(spaceCount){
+                text.append(" ")
+            }
+            return text
+        }
+        
+        return ""
     }
 }
 
