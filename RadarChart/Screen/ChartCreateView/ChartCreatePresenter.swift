@@ -32,7 +32,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
                 temporalyLabels[i] = withValueLabel
             }
             
-            temporalyLabels.append("")
+            temporalyLabels.append("") // これがないとクラッシュする (ライブラリのバグ)
             return temporalyLabels
         }
     }
@@ -138,7 +138,7 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         view.dismissScreen()
     }
     
-    // 無理矢理２行目を中央よせっぽく見せる
+    // 無理矢理２行目を中央よせっぽく見せるために、上段と下段のテキストの幅の差の分のスペースを返す
     private func getSpace(text:String,value:String) -> String{
         let font = UIFont.systemFont(ofSize: 15.0)
         
