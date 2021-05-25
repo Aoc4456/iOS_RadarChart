@@ -143,6 +143,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
 }
 
 extension ChartCreateViewController:ChartCreatePresenterOutput{
+    
     // 最初に一回だけ呼び出す
     func InitializeChart() {
         (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabel)
@@ -154,6 +155,10 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     func reflectEditData(myChartObject: MyChartObject) {
         titleTextField.text = myChartObject.title
         commentTextView.text = myChartObject.note
+    }
+    
+    func setButtonColor() {
+        colorButton.backgroundColor = presenter.chartColor
     }
     
     func setupMultiInputView(labels: [String],values:[Double], axisMaximum: Double) {
