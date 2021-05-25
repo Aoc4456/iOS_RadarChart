@@ -21,6 +21,22 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
     private var inputValues:[Double] = []
     private var note = ""
     
+    var chartLabel: [String]{
+        get{
+            var temporalyLabels = Array(groupData.labels)
+            
+            for i in 0..<temporalyLabels.count{
+                let label = temporalyLabels[i]
+                let inputValue = Int(inputValues[i])
+                let withValueLabel = "\(label)\n\(getSpace(text: label,value: inputValue.description))\(inputValue)"
+                temporalyLabels[i] = withValueLabel
+            }
+            
+            temporalyLabels.append("")
+            return temporalyLabels
+        }
+    }
+    
     private var totalAverageText:String{
         get{
             let sum = inputValues.reduce(0, +)
@@ -121,12 +137,36 @@ class ChartCreatePresenter:ChartCreatePresenterInput{
         DBProvider.sharedInstance.deleteChart(id: editChartObject!.id)
         view.dismissScreen()
     }
+    
+    // 無理矢理２行目を中央よせっぽく見せる
+    private func getSpace(text:String,value:String) -> String{
+        let font = UIFont.systemFont(ofSize: 15.0)
+        
+        let labelWidth = text.size(withAttributes: [NSAttributedString.Key.font : font]).width
+        let valueWidth = value.size(withAttributes: [NSAttributedString.Key.font : font]).width
+        let spaceWidth = " ".size(withAttributes: [NSAttributedString.Key.font : font]).width
+        
+        if(valueWidth < labelWidth){
+            let requireSpace = labelWidth - valueWidth
+            let requireStartSpace = requireSpace / 2
+            let spaceCount = requireStartSpace / spaceWidth
+            
+            var text = ""
+            for _ in 0..<Int(spaceCount){
+                text.append(" ")
+            }
+            return text
+        }
+        
+        return ""
+    }
 }
 
 // Presenterが実装するプロトコル
 // Viewから呼び出されるインターフェースを定義する
 protocol ChartCreatePresenterInput {
     var chartData:RadarChartData?{get}
+    var chartLabel:[String]{get}
     func viewDidLoad(groupData:ChartGroup,editChartObject:MyChartObject?)
     func onChangeInputValue(index:Int,value:Double)
     func onChangeChartTitle(text:String)

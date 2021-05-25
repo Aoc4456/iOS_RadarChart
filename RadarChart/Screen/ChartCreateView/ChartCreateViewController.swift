@@ -48,6 +48,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
         titleTextField.delegate = self
         
         // setup Chart
+        myRadarChartView.xAxis.labelFont = .systemFont(ofSize: 15,weight: .regular)
         myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
         myRadarChartView.yAxis.axisRange = Double(groupData.maximum)
         
@@ -140,9 +141,7 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
 extension ChartCreateViewController:ChartCreatePresenterOutput{
     // 最初に一回だけ呼び出す
     func InitializeChart() {
-        var temporalyLabels = Array(groupData.labels)
-        temporalyLabels.append("")
-        (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: temporalyLabels)
+        (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabel)
         myRadarChartView.yAxis.axisMaximum = Double(groupData.maximum)
         myRadarChartView.data = presenter.chartData
         myRadarChartView.notifyDataSetChanged()
@@ -163,6 +162,7 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     
     func updateChart() {
         myRadarChartView.data = presenter.chartData
+        (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabel)
         myRadarChartView.data?.notifyDataChanged()
         myRadarChartView.notifyDataSetChanged()
     }
