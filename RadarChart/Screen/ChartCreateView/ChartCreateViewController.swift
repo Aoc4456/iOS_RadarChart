@@ -162,6 +162,7 @@ extension ChartCreateViewController:ChartCreatePresenterOutput{
     
     func updateChart() {
         myRadarChartView.data = presenter.chartData
+        (myRadarChartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabel)
         myRadarChartView.data?.notifyDataChanged()
         myRadarChartView.notifyDataSetChanged()
     }
