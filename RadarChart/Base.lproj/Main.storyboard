@@ -228,7 +228,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqE-AA-wSX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="742"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="752"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iQ-Tg-BCm">
                                                 <rect key="frame" x="10" y="10" width="394" height="21"/>
@@ -251,12 +251,12 @@
                                                 <rect key="frame" x="0.0" y="101" width="414" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グラフの最大値：100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGt-T4-Dqe" userLabel="グラフの最大値">
-                                                        <rect key="frame" x="256.66666666666669" y="279" width="147.33333333333331" height="21"/>
+                                                        <rect key="frame" x="256.66666666666669" y="289" width="147.33333333333331" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="J8X-dg-5W2"/>
                                                             <constraint firstAttribute="height" constant="21" id="jOU-x9-6mZ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -284,11 +284,11 @@
                                                     <constraint firstAttribute="height" constant="300" id="de3-SV-3ZD"/>
                                                     <constraint firstItem="Jhw-zE-0yF" firstAttribute="top" secondItem="G1E-N3-2QX" secondAttribute="top" constant="15" id="grP-Ro-KiD"/>
                                                     <constraint firstItem="Jhw-zE-0yF" firstAttribute="centerX" secondItem="G1E-N3-2QX" secondAttribute="centerX" multiplier="1.8" id="tFE-QQ-GCN"/>
-                                                    <constraint firstAttribute="bottom" secondItem="iGt-T4-Dqe" secondAttribute="bottom" id="xHr-Va-y1h"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iGt-T4-Dqe" secondAttribute="bottom" constant="-10" id="xHr-Va-y1h"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合計 : 100   平均 : 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fc-hc-AVQ" userLabel="TotalAverageLabel">
-                                                <rect key="frame" x="10" y="406" width="394" height="30"/>
+                                                <rect key="frame" x="10" y="416" width="394" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="XgB-AN-3cd"/>
                                                 </constraints>
@@ -306,13 +306,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvi-gu-L6a" userLabel="MultiInputField" customClass="MultiInputField" customModule="RadarChart" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="441" width="394" height="100"/>
+                                                <rect key="frame" x="10" y="451" width="394" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="500" constant="100" id="lVe-8F-Ql5"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzh-nr-wrF">
-                                                <rect key="frame" x="10" y="551" width="394" height="21"/>
+                                                <rect key="frame" x="10" y="561" width="394" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="BhH-hn-zha"/>
                                                 </constraints>
@@ -321,7 +321,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-e4-vx2" userLabel="SaveButton">
-                                                <rect key="frame" x="157" y="692" width="100" height="40"/>
+                                                <rect key="frame" x="157" y="702" width="100" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="9EG-pA-ROs"/>
                                                     <constraint firstAttribute="height" constant="40" id="kJ9-jX-xeo"/>
@@ -340,7 +340,7 @@
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oZM-Gg-sL4" userLabel="CommentTextView">
-                                                <rect key="frame" x="10" y="582" width="394" height="100"/>
+                                                <rect key="frame" x="10" y="592" width="394" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="rMS-xR-RCK"/>
@@ -361,7 +361,7 @@
                                             <constraint firstItem="Jvi-gu-L6a" firstAttribute="top" secondItem="1fc-hc-AVQ" secondAttribute="bottom" constant="5" id="INj-1L-Nbo"/>
                                             <constraint firstItem="Wzh-nr-wrF" firstAttribute="top" secondItem="Jvi-gu-L6a" secondAttribute="bottom" constant="10" id="JKj-QX-aF7"/>
                                             <constraint firstItem="9iQ-Tg-BCm" firstAttribute="top" secondItem="qqE-AA-wSX" secondAttribute="top" constant="10" id="O1x-hb-rGO"/>
-                                            <constraint firstItem="1fc-hc-AVQ" firstAttribute="top" secondItem="G1E-N3-2QX" secondAttribute="bottom" constant="5" id="OVO-yY-rDI"/>
+                                            <constraint firstItem="1fc-hc-AVQ" firstAttribute="top" secondItem="G1E-N3-2QX" secondAttribute="bottom" constant="15" id="OVO-yY-rDI"/>
                                             <constraint firstAttribute="trailing" secondItem="9iQ-Tg-BCm" secondAttribute="trailing" constant="10" id="Oae-wk-KSp"/>
                                             <constraint firstAttribute="trailing" secondItem="1fc-hc-AVQ" secondAttribute="trailing" constant="10" id="PsM-r3-iUD"/>
                                             <constraint firstItem="oZM-Gg-sL4" firstAttribute="top" secondItem="Wzh-nr-wrF" secondAttribute="bottom" constant="10" id="Tbj-cM-GH7"/>
