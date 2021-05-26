@@ -27,7 +27,6 @@ class ChartCollectionViewController: UIViewController {
         // setup Presenter
         self.presenter = ChartCollectionPresenter(view: self)
         
-        
         // setup CollectionView
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -36,7 +35,12 @@ class ChartCollectionViewController: UIViewController {
         collectionView.delaysContentTouches = false
         
         // setup CollectionViewCell
-        collectionView.collectionViewLayout = getChartListCellFlowLayout(view: containerView)
+        segmentView.selectedSegmentIndex = loadSegmentIndex()
+        if(segmentView.selectedSegmentIndex == 0){
+            collectionView.collectionViewLayout = getChartListCellFlowLayout(view: containerView)
+        }else{
+            collectionView.collectionViewLayout = getChartGridCellFlowLayout(view: containerView)
+        }
         
         presenter.viewDidLoad(groupData: self.groupData)
     }
@@ -53,6 +57,7 @@ class ChartCollectionViewController: UIViewController {
         }
         
         collectionView.setCollectionViewLayout(flowLayout!, animated: true)
+        saveSegmentIndex(index: sender.selectedSegmentIndex)
     }
     
     @IBAction func onTapOrderItemButton(_ sender: Any) {
