@@ -44,20 +44,30 @@ class ChartCollectionViewController: UIViewController {
         
         presenter.viewDidLoad(groupData: self.groupData)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.updateCollecitionViewLayout(segmentIndex: self.segmentView.selectedSegmentIndex)
+        }
+    }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+        updateCollecitionViewLayout(segmentIndex: selectedIndex)
+        saveSegmentIndex(index: selectedIndex)
+    }
+    
+    private func updateCollecitionViewLayout(segmentIndex:Int){
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
         
         var flowLayout:UICollectionViewLayout? = nil
-        if(sender.selectedSegmentIndex == 0){
+        if(segmentIndex == 0){
             flowLayout = getChartListCellFlowLayout(view: containerView)
         }else{
             flowLayout = getChartGridCellFlowLayout(view: containerView)
         }
-        
         collectionView.setCollectionViewLayout(flowLayout!, animated: true)
-        saveSegmentIndex(index: sender.selectedSegmentIndex)
     }
     
     @IBAction func onTapOrderItemButton(_ sender: Any) {
