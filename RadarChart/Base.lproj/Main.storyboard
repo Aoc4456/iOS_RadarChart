@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Setting View Controller-->
+        <scene sceneID="AaN-fn-E6S">
+            <objects>
+                <viewController id="OI6-f1-yFC" customClass="SettingViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UbU-VY-icU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5GI-5h-2Sv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5ET-GH-Ugb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PNX-TI-Hqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="-673.36956521739137"/>
+        </scene>
         <!--Group List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -80,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="gearshape.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="onTapSettingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGL-5s-qe7"/>
+                                    <segue destination="jsn-p4-CwF" kind="presentation" modalPresentationStyle="fullScreen" id="N46-wX-5Ht"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -813,6 +829,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1En-0h-IdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2920" y="572"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JJs-wT-OHT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jsn-p4-CwF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="iP0-1g-lfJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3tn-fz-ozs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OI6-f1-yFC" kind="relationship" relationship="rootViewController" id="Za5-19-bN2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98B-d4-qhr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="-673.36956521739137"/>
         </scene>
     </scenes>
     <designables>

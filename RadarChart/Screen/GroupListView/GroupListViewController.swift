@@ -59,10 +59,6 @@ class GroupListViewController: UIViewController {
             navigationItem.backButtonTitle = "戻る"
         }
     }
-    
-    @IBAction func onTapSettingButton(_ sender: Any) {
-        print("設定ボタンが押されました")
-    }
 }
 
 extension GroupListViewController:GroupListPresenterOutput{
