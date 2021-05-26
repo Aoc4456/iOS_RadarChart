@@ -23,6 +23,7 @@
 		5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */; };
 		5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */; };
 		5E98012E26400ABE0063BAE4 /* TestChartInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */; };
+		5EA5C9C9265E22ED00A81BEC /* MyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED38B5926382CB500393205 /* CommonExtension.swift */; };
@@ -75,6 +76,7 @@
 		5E8AE3B9263EC45A0049BA71 /* ChartListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartListCell.swift; sourceTree = "<group>"; };
 		5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartListCell.xib; sourceTree = "<group>"; };
 		5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChartInCell.swift; sourceTree = "<group>"; };
+		5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefaults.swift; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				5EE33946263ADC43005D732B /* DBProvider.swift */,
 				5EE33940263AD02B005D732B /* RealmModel.swift */,
+				5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				5EEB5C062634056D002DA73C /* MyChartUtil.swift in Sources */,
 				5E8AE3AA263EA69F0049BA71 /* ChartCollectionViewController.swift in Sources */,
 				5E5BE08026416517001E31EA /* InputRowView.swift in Sources */,
+				5EA5C9C9265E22ED00A81BEC /* MyUserDefaults.swift in Sources */,
 				5ED3BA0426402810004E0D26 /* ChartCreateViewController.swift in Sources */,
 				5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */,
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
