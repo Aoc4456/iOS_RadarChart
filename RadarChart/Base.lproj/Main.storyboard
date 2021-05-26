@@ -73,7 +73,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sfN-aa-sg8" secondAttribute="bottom" id="iuL-wg-Quy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Bp8-ti-VqG"/>
+                    <navigationItem key="navigationItem" id="Bp8-ti-VqG">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="1SJ-QO-wkE">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CRP-jc-Tjb" userLabel="SettingButton">
+                                <rect key="frame" x="20" y="0.0" width="30" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onTapSettingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGL-5s-qe7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sfN-aa-sg8" id="Z2e-na-p4U"/>
                         <segue destination="bCk-4b-zk0" kind="show" identifier="toChartCollectionViewController" id="ZDj-kP-bbJ"/>
@@ -804,10 +815,16 @@
             <point key="canvasLocation" x="2920" y="572"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Sp1-EX-TZ1">
+            <size key="intrinsicContentSize" width="394" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="vHT-QF-xWG"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
