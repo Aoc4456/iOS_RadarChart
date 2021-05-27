@@ -10,6 +10,11 @@ import UIKit
 
 class ListTile: UIView {
 
+    @IBOutlet weak var leadImageView: UIImageView!
+    @IBOutlet weak var titleTextView: UILabel!
+    
+    var callBack:(() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -31,4 +36,15 @@ class ListTile: UIView {
         return CGSize(width: frame.width, height: 60)
     }
 
+    func setData(image:UIImage,title:String,callBack:(() -> Void)?){
+        self.leadImageView.image = image
+        self.titleTextView.text = title
+        self.callBack = callBack
+    }
+    
+    @IBAction func onTapCell(_ sender: Any) {
+        if(callBack != nil){
+            callBack!()
+        }
+    }
 }

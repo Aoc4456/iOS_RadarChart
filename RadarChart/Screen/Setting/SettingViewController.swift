@@ -21,7 +21,7 @@ class SettingViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftButton
         
         for i in 0..<3{
-            otherStackView.addArrangedSubview(ListTile())
+            otherStackView.addArrangedSubview(createPrivacyPolicyListTile())
         }
     }
     
@@ -29,4 +29,10 @@ class SettingViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    private func createPrivacyPolicyListTile() -> ListTile{
+        let listTile = ListTile()
+        let image = UIImage(systemName: "minus.circle")
+        listTile.setData(image: image!, title: "プライバシーポリシー", callBack: {print("コールバック")})
+        return listTile
+    }
 }
