@@ -70,6 +70,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5ET-GH-Ugb"/>
+                    <connections>
+                        <outlet property="otherStackView" destination="I04-S0-8vF" id="uqH-B8-8yC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNX-TI-Hqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,8 @@
 		5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */; };
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
 		5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */; };
+		5E593A6E265FB4EE00CBF230 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E593A6D265FB4EE00CBF230 /* ListTile.swift */; };
+		5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E593A71265FB4FD00CBF230 /* ListTile.xib */; };
 		5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07A26416341001E31EA /* MultiInputField.swift */; };
 		5E5BE08026416517001E31EA /* InputRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07F26416517001E31EA /* InputRowView.swift */; };
 		5E5BE08426416585001E31EA /* InputRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BE08326416585001E31EA /* InputRowView.xib */; };
@@ -69,6 +71,8 @@
 		5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForGroupList.swift; sourceTree = "<group>"; };
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
 		5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCreateScreen.swift; sourceTree = "<group>"; };
+		5E593A6D265FB4EE00CBF230 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
+		5E593A71265FB4FD00CBF230 /* ListTile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTile.xib; sourceTree = "<group>"; };
 		5E5BE07A26416341001E31EA /* MultiInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiInputField.swift; sourceTree = "<group>"; };
 		5E5BE07F26416517001E31EA /* InputRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRowView.swift; sourceTree = "<group>"; };
 		5E5BE08326416585001E31EA /* InputRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRowView.xib; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 			path = GroupListCell;
 			sourceTree = "<group>";
 		};
+		5E593A6C265FB4D700CBF230 /* ListTile */ = {
+			isa = PBXGroup;
+			children = (
+				5E593A6D265FB4EE00CBF230 /* ListTile.swift */,
+				5E593A71265FB4FD00CBF230 /* ListTile.xib */,
+			);
+			path = ListTile;
+			sourceTree = "<group>";
+		};
 		5E5BE07126416253001E31EA /* Chart */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +247,7 @@
 		5EB3B8C22621C222000D9415 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5E593A6C265FB4D700CBF230 /* ListTile */,
 				5E5BE0772641629C001E31EA /* Cell */,
 				5E5BE0742641626A001E31EA /* MultiTextField */,
 				5E5BE07126416253001E31EA /* Chart */,
@@ -454,6 +468,7 @@
 				922FCDED26201C5300569E94 /* Assets.xcassets in Resources */,
 				922FCDEB26201C5200569E94 /* Main.storyboard in Resources */,
 				5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */,
+				5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +569,7 @@
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
+				5E593A6E265FB4EE00CBF230 /* ListTile.swift in Sources */,
 				5E8AE3BB263EC45A0049BA71 /* ChartListCell.swift in Sources */,
 				92FB2AF5264BB1C3003258D1 /* ChartForCollectionView.swift in Sources */,
 				5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */,

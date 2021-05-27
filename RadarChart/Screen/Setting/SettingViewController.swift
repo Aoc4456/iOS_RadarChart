@@ -10,6 +10,8 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    @IBOutlet weak var otherStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
