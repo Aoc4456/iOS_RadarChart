@@ -16,8 +16,58 @@
                     <view key="view" contentMode="scaleToFill" id="UbU-VY-icU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8O9-i7-Bmz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCC-jb-zKO" userLabel="ContainerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-Xy-EQx" userLabel="OtherLabel">
+                                                <rect key="frame" x="10" y="10" width="394" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="hYo-JW-Xm8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I04-S0-8vF" userLabel="OtherStackView">
+                                                <rect key="frame" x="10" y="41" width="394" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="500" constant="100" id="dBn-XX-3gq"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="I04-S0-8vF" firstAttribute="top" secondItem="LQZ-Xy-EQx" secondAttribute="bottom" constant="10" id="2Tc-Aa-PUI"/>
+                                            <constraint firstAttribute="bottom" secondItem="I04-S0-8vF" secondAttribute="bottom" constant="10" id="CMF-3s-I3q"/>
+                                            <constraint firstAttribute="trailing" secondItem="LQZ-Xy-EQx" secondAttribute="trailing" constant="10" id="CcW-Og-aud"/>
+                                            <constraint firstAttribute="trailing" secondItem="I04-S0-8vF" secondAttribute="trailing" constant="10" id="ZuR-Vd-uxi"/>
+                                            <constraint firstItem="I04-S0-8vF" firstAttribute="leading" secondItem="fCC-jb-zKO" secondAttribute="leading" constant="10" id="h6Q-B3-8mW"/>
+                                            <constraint firstItem="LQZ-Xy-EQx" firstAttribute="top" secondItem="fCC-jb-zKO" secondAttribute="top" constant="10" id="kvz-dk-OWA"/>
+                                            <constraint firstItem="LQZ-Xy-EQx" firstAttribute="leading" secondItem="fCC-jb-zKO" secondAttribute="leading" constant="10" id="lqE-xc-CpF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fCC-jb-zKO" firstAttribute="width" secondItem="8O9-i7-Bmz" secondAttribute="width" id="Qj8-gO-yX8"/>
+                                    <constraint firstAttribute="bottom" secondItem="fCC-jb-zKO" secondAttribute="bottom" id="Rw9-aZ-HUi"/>
+                                    <constraint firstItem="fCC-jb-zKO" firstAttribute="leading" secondItem="8O9-i7-Bmz" secondAttribute="leading" id="T9V-Wx-kJE"/>
+                                    <constraint firstAttribute="trailing" secondItem="fCC-jb-zKO" secondAttribute="trailing" id="t4d-bg-gjf"/>
+                                    <constraint firstItem="fCC-jb-zKO" firstAttribute="top" secondItem="8O9-i7-Bmz" secondAttribute="top" id="u5n-DW-RAp"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5GI-5h-2Sv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8O9-i7-Bmz" firstAttribute="leading" secondItem="5GI-5h-2Sv" secondAttribute="leading" id="Bdx-Z7-91S"/>
+                            <constraint firstItem="5GI-5h-2Sv" firstAttribute="trailing" secondItem="8O9-i7-Bmz" secondAttribute="trailing" id="Lyt-te-vnY"/>
+                            <constraint firstItem="5GI-5h-2Sv" firstAttribute="bottom" secondItem="8O9-i7-Bmz" secondAttribute="bottom" id="OP2-AP-K9w"/>
+                            <constraint firstItem="8O9-i7-Bmz" firstAttribute="top" secondItem="5GI-5h-2Sv" secondAttribute="top" id="gL0-PD-o2b"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5ET-GH-Ugb"/>
                 </viewController>
