@@ -138,9 +138,7 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
             // 新しいイメージパスを作成して、プロパティに設定 & ディレクトリに画像を書き込み
             self.iconFileName = NSUUID().uuidString
             imageWriteResult = DBProvider.sharedInstance.saveImageInDocumentDirectory(image: iconImage!, fileName: iconFileName)
-            print("アイコン_更新します")
         default:
-            print("アイコン_なにもしません")
             break
         }
         

@@ -105,10 +105,6 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     
     @IBAction func onTapIconButton(_ sender: Any) {
         presenter.onTapIconButton()
-//        let picker = UIImagePickerController()
-//        picker.sourceType = .photoLibrary
-//        picker.delegate = self
-//        present(picker, animated: true, completion: nil)
     }
     
     @IBAction func sliderValueChanged(_ sender: StepSlider) {
