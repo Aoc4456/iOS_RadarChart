@@ -23,6 +23,10 @@ class SettingViewController: UIViewController {
         for i in 0..<3{
             otherStackView.addArrangedSubview(createPrivacyPolicyListTile())
         }
+        
+        for i in 0..<2{
+            otherStackView.addArrangedSubview(createSubtitleListTile())
+        }
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -33,6 +37,13 @@ class SettingViewController: UIViewController {
         let listTile = ListTile()
         let image = UIImage(systemName: "minus.circle")
         listTile.setData(image: image!, title: "プライバシーポリシー", callBack: {print("コールバック")})
+        return listTile
+    }
+    
+    private func createSubtitleListTile() -> SubTitleListTile{
+        let listTile = SubTitleListTile()
+        
+        
         return listTile
     }
 }
