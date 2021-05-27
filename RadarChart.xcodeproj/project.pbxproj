@@ -16,6 +16,8 @@
 		5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */; };
 		5E593A6E265FB4EE00CBF230 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E593A6D265FB4EE00CBF230 /* ListTile.swift */; };
 		5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E593A71265FB4FD00CBF230 /* ListTile.xib */; };
+		5E593A7F265FC5AD00CBF230 /* SubTitleListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E593A7E265FC5AD00CBF230 /* SubTitleListTile.swift */; };
+		5E593A83265FC5BD00CBF230 /* SubTitleListTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E593A82265FC5BD00CBF230 /* SubTitleListTile.xib */; };
 		5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07A26416341001E31EA /* MultiInputField.swift */; };
 		5E5BE08026416517001E31EA /* InputRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07F26416517001E31EA /* InputRowView.swift */; };
 		5E5BE08426416585001E31EA /* InputRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BE08326416585001E31EA /* InputRowView.xib */; };
@@ -73,6 +75,8 @@
 		5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCreateScreen.swift; sourceTree = "<group>"; };
 		5E593A6D265FB4EE00CBF230 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
 		5E593A71265FB4FD00CBF230 /* ListTile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTile.xib; sourceTree = "<group>"; };
+		5E593A7E265FC5AD00CBF230 /* SubTitleListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitleListTile.swift; sourceTree = "<group>"; };
+		5E593A82265FC5BD00CBF230 /* SubTitleListTile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubTitleListTile.xib; sourceTree = "<group>"; };
 		5E5BE07A26416341001E31EA /* MultiInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiInputField.swift; sourceTree = "<group>"; };
 		5E5BE07F26416517001E31EA /* InputRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRowView.swift; sourceTree = "<group>"; };
 		5E5BE08326416585001E31EA /* InputRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRowView.xib; sourceTree = "<group>"; };
@@ -179,10 +183,20 @@
 		5E593A6C265FB4D700CBF230 /* ListTile */ = {
 			isa = PBXGroup;
 			children = (
+				5E593A7D265FC52000CBF230 /* SubTitleListTile */,
 				5E593A6D265FB4EE00CBF230 /* ListTile.swift */,
 				5E593A71265FB4FD00CBF230 /* ListTile.xib */,
 			);
 			path = ListTile;
+			sourceTree = "<group>";
+		};
+		5E593A7D265FC52000CBF230 /* SubTitleListTile */ = {
+			isa = PBXGroup;
+			children = (
+				5E593A7E265FC5AD00CBF230 /* SubTitleListTile.swift */,
+				5E593A82265FC5BD00CBF230 /* SubTitleListTile.xib */,
+			);
+			path = SubTitleListTile;
 			sourceTree = "<group>";
 		};
 		5E5BE07126416253001E31EA /* Chart */ = {
@@ -467,6 +481,7 @@
 				922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */,
 				922FCDED26201C5300569E94 /* Assets.xcassets in Resources */,
 				922FCDEB26201C5200569E94 /* Main.storyboard in Resources */,
+				5E593A83265FC5BD00CBF230 /* SubTitleListTile.xib in Resources */,
 				5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */,
 				5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */,
 			);
@@ -557,6 +572,7 @@
 				922FCDE826201C5200569E94 /* GroupListViewController.swift in Sources */,
 				924A582D265E37530026B057 /* SettingViewController.swift in Sources */,
 				5E98012E26400ABE0063BAE4 /* TestChartInCell.swift in Sources */,
+				5E593A7F265FC5AD00CBF230 /* SubTitleListTile.swift in Sources */,
 				5E75791C263D35BB00D4ED66 /* DateUtil.swift in Sources */,
 				5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */,
 				924A5831265E376C0026B057 /* SettingPresenter.swift in Sources */,
