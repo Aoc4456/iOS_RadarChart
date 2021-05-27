@@ -26,5 +26,9 @@ class ListTile: UIView {
             self.addSubview(view)
         }
     }
+    
+    override var intrinsicContentSize: CGSize{
+        return CGSize(width: frame.width, height: 60)
+    }
 
 }

@@ -19,6 +19,10 @@ class SettingViewController: UIViewController {
         self.navigationItem.title = "設定"
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        for i in 0..<3{
+            otherStackView.addArrangedSubview(ListTile())
+        }
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
