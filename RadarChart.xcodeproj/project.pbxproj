@@ -94,6 +94,7 @@
 		5ED3BA0326402810004E0D26 /* ChartCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreateViewController.swift; sourceTree = "<group>"; };
 		5ED3BA0726402839004E0D26 /* ChartCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreatePresenter.swift; sourceTree = "<group>"; };
 		5ED48DDA26623B8D0093BE94 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
+		5ED48E0E266247D10093BE94 /* GoogleService-Info-Release.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Release.plist"; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EE33940263AD02B005D732B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
@@ -284,6 +285,7 @@
 		5ED48DD926623B720093BE94 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				5ED48E0E266247D10093BE94 /* GoogleService-Info-Release.plist */,
 				5ED48DDA26623B8D0093BE94 /* GoogleService-Info-Debug.plist */,
 			);
 			path = Configs;
