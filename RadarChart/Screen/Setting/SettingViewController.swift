@@ -36,7 +36,9 @@ class SettingViewController: UIViewController {
     private func createPrivacyPolicyListTile() -> ListTile{
         let listTile = ListTile()
         let image = UIImage(systemName: "minus.circle")
-        listTile.setData(image: image!, title: "プライバシーポリシー", callBack: {print("コールバック")})
+        listTile.setData(image: image!, title: "プライバシーポリシー", callBack: {
+            self.performSegue(withIdentifier: "toPrivacyPolicyViewController", sender: nil)
+        })
         return listTile
     }
     

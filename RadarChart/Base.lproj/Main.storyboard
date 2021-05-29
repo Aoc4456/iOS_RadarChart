@@ -72,11 +72,28 @@
                     <navigationItem key="navigationItem" id="5ET-GH-Ugb"/>
                     <connections>
                         <outlet property="otherStackView" destination="I04-S0-8vF" id="uqH-B8-8yC"/>
+                        <segue destination="0xU-QR-QoG" kind="show" identifier="toPrivacyPolicyViewController" id="en8-ef-XGq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNX-TI-Hqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="-673.36956521739137"/>
+        </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="Jha-Ph-JAJ">
+            <objects>
+                <viewController id="0xU-QR-QoG" customClass="PrivacyPolicyViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7rC-tU-zVQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gc0-DJ-OA3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oba-GV-qME"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7H-zX-07d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1969.5652173913045" y="-673.36956521739137"/>
         </scene>
         <!--Group List View Controller-->
         <scene sceneID="tne-QT-ifu">
