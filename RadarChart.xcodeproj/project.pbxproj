@@ -93,6 +93,7 @@
 		5ED38B5926382CB500393205 /* CommonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		5ED3BA0326402810004E0D26 /* ChartCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreateViewController.swift; sourceTree = "<group>"; };
 		5ED3BA0726402839004E0D26 /* ChartCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCreatePresenter.swift; sourceTree = "<group>"; };
+		5ED48DDA26623B8D0093BE94 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
 		5ED5FC5C26317B5A0082D7B7 /* GroupCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreatePresenter.swift; sourceTree = "<group>"; };
 		5EE33940263AD02B005D732B /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		5EE33946263ADC43005D732B /* DBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProvider.swift; sourceTree = "<group>"; };
@@ -280,6 +281,14 @@
 			path = ChartCreateView;
 			sourceTree = "<group>";
 		};
+		5ED48DD926623B720093BE94 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				5ED48DDA26623B8D0093BE94 /* GoogleService-Info-Debug.plist */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		5ED5FC4F263179130082D7B7 /* GroupListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +360,7 @@
 		922FCDE226201C5200569E94 /* RadarChart */ = {
 			isa = PBXGroup;
 			children = (
+				5ED48DD926623B720093BE94 /* Configs */,
 				5EE33938263ACF42005D732B /* Model */,
 				5EEB5C042634053F002DA73C /* Util */,
 				5E4A0B152622C8710058A46B /* Screen */,
@@ -406,6 +416,7 @@
 				922FCDDD26201C5200569E94 /* Frameworks */,
 				922FCDDE26201C5200569E94 /* Resources */,
 				51FD5289A042C1007CD07546 /* [CP] Embed Pods Frameworks */,
+				5ED48DDB26623BCF0093BE94 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -539,6 +550,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RadarChart/Pods-RadarChart-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5ED48DDB26623BCF0093BE94 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Release\" ]; then\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Configs/GoogleService-Info-Release.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nelse\n  cp \"${PROJECT_DIR}/${PROJECT_NAME}/Configs/GoogleService-Info-Debug.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\nfi\n";
 		};
 		DEF058F6FBA23FB1A1AE767C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
