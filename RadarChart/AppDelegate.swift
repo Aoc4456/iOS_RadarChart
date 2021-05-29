@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // データベースの中身をRealmStudioで確認するためのファイルパスを取得する
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "FileURLが取得できません")
+        copyRealm()
         return true
     }
 
@@ -32,6 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    private func copyRealm(){
+        let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
+        // 存在する場合は何もしない
+        if FileManager.default.fileExists(atPath: defaultRealmPath.path) {
+            return
+        }
+        let bundleRealmPath = Bundle.main.url(forResource: "RadarChartSeed", withExtension: "realm")
+        do {
+            try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)
+        } catch let error {
+            print("error copying realm file: \(error)")
+        }
+    }
 }
 
