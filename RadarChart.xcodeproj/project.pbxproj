@@ -773,9 +773,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aoshima.RadarChart;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aoshima.RadarChart-debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = RadarChart_Provisioning_20210506;
+				SE_BUNDLE_DISPLAY_NAME = Debug;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -798,6 +799,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aoshima.RadarChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = RadarChart_Provisioning_20210506;
+				SE_BUNDLE_DISPLAY_NAME = "レーダーチャート";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
