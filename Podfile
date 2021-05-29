@@ -11,6 +11,7 @@ target 'RadarChart' do
   pod 'RealmSwift', '~> 3.18.0'
   pod 'StepSlider', '~> 1.3.0'
   pod 'CropViewController'
+  pod 'Firebase/Analytics'
 
   post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
