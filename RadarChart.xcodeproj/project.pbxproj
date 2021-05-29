@@ -13,6 +13,7 @@
 		5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */; };
 		5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */; };
 		5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */; };
+		5E3DF5EC266268E50003212E /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E3DF5EB266268E50003212E /* Settings.bundle */; };
 		5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */; };
 		5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */; };
 		5E593A6E265FB4EE00CBF230 /* ListTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E593A6D265FB4EE00CBF230 /* ListTile.swift */; };
@@ -74,6 +75,7 @@
 		5E107301263F1C0A007EA2C0 /* ChartGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartGridCell.swift; sourceTree = "<group>"; };
 		5E107302263F1C0A007EA2C0 /* ChartGridCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartGridCell.xib; sourceTree = "<group>"; };
 		5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForGroupList.swift; sourceTree = "<group>"; };
+		5E3DF5EB266268E50003212E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5E4A0B182622C8BE0058A46B /* GroupCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreateViewController.swift; sourceTree = "<group>"; };
 		5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCreateScreen.swift; sourceTree = "<group>"; };
 		5E593A6D265FB4EE00CBF230 /* ListTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTile.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				922FCDE126201C5200569E94 /* Products */,
 				96F5B0DD106AFAF8F7F45567 /* Pods */,
 				661964B45C92A469C4D91E71 /* Frameworks */,
+				5E3DF5EB266268E50003212E /* Settings.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -512,6 +515,7 @@
 				922FCDEB26201C5200569E94 /* Main.storyboard in Resources */,
 				5E593A83265FC5BD00CBF230 /* SubTitleListTile.xib in Resources */,
 				5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */,
+				5E3DF5EC266268E50003212E /* Settings.bundle in Resources */,
 				5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
