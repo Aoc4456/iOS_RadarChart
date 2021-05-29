@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BB4EEF23ECB2BAF774CE8EFA5AF90C40"
-               BuildableName = "CropViewController-TOCropViewControllerBundle.bundle"
-               BlueprintName = "CropViewController-TOCropViewControllerBundle"
+               BlueprintIdentifier = "B08332B0C91F6CDC405644DADDB96E3C"
+               BuildableName = "LicensePlist"
+               BlueprintName = "LicensePlist"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

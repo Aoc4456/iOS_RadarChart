@@ -13,6 +13,7 @@ target 'RadarChart' do
   pod 'CropViewController'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  pod 'LicensePlist'
 
   post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
