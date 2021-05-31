@@ -128,6 +128,8 @@ class ChartCreateViewController: UIViewController,MultiInputFieldOutput {
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
+        titleTextField.endEditing(true)
+        activeField?.endEditing(true)
         presenter.onTapSaveButton()
     }
     

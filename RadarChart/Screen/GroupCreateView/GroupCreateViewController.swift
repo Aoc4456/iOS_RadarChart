@@ -117,6 +117,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
+        titleTextField.endEditing(true)
+        axisMaximumField.endEditing(true)
+        activeField?.endEditing(true)
         presenter.onTapSaveButton()
     }
     
