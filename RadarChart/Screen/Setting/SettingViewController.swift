@@ -20,13 +20,10 @@ class SettingViewController: UIViewController {
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
         
-        for i in 0..<3{
-            otherStackView.addArrangedSubview(createPrivacyPolicyListTile())
-        }
         
-        for i in 0..<2{
-            otherStackView.addArrangedSubview(createSubtitleListTile())
-        }
+        otherStackView.addArrangedSubview(createPrivacyPolicyListTile())
+        otherStackView.addArrangedSubview(createVersionNameListTile())
+        
     }
     
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
@@ -35,17 +32,18 @@ class SettingViewController: UIViewController {
 
     private func createPrivacyPolicyListTile() -> ListTile{
         let listTile = ListTile()
-        let image = UIImage(systemName: "minus.circle")
+        let image = UIImage(systemName: "person")
         listTile.setData(image: image!, title: "プライバシーポリシー", callBack: {
             self.performSegue(withIdentifier: "toPrivacyPolicyViewController", sender: nil)
         })
         return listTile
     }
     
-    private func createSubtitleListTile() -> SubTitleListTile{
+    private func createVersionNameListTile() -> SubTitleListTile{
         let listTile = SubTitleListTile()
-        
-        
+        let image = UIImage(systemName: "info.circle")
+        let version: String! = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        listTile.setData(image: image!, title: "アプリのバージョン", subTitle: version, callBack: nil)
         return listTile
     }
 }
