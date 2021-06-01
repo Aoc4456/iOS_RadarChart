@@ -21,6 +21,12 @@ class GroupSortViewController: UIViewController {
 
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
+        
+        // setup tableView
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "GroupSortCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        tableView.rowHeight = 80
+        presenter.fetchDataFromDatabase()
     }
     
 
@@ -31,5 +37,21 @@ class GroupSortViewController: UIViewController {
 }
 
 extension GroupSortViewController:GroupSortPresenterOutput{
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+}
+
+extension GroupSortViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.dataList.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! GroupSortCell
+        let data = presenter.dataList[indexPath.row]
+        let icon = presenter.iconImageMap[indexPath.row]
+        cell.setData(group: data,icon: icon)
+        return cell
+    }
 }

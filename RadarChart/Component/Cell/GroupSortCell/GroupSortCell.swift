@@ -10,6 +10,12 @@ import UIKit
 
 class GroupSortCell: UITableViewCell {
 
+    @IBOutlet weak var myChart: ChartForGroupList!
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,7 +27,21 @@ class GroupSortCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    override var intrinsicContentSize: CGSize{
-        return CGSize(width: frame.width, height: 90)
+    func setData(group:ChartGroup,icon:UIImage?){
+        titleLabel.text = group.title
+        
+        if(icon == nil){
+            // チャートを表示する
+            iconImageView.isHidden = true
+            myChart.isHidden = false
+            let chartColor = group.color.toUIColor()
+            let chartData = MyChartUtil.getSampleChartData(color: chartColor, numberOfItems: group.labels.count)
+            myChart.data = chartData
+        }else{
+            // アイコンを表示する
+            iconImageView.isHidden = false
+            myChart.isHidden = true
+            iconImageView.image = icon!
+        }
     }
 }
