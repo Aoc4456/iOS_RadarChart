@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNX-TI-Hqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="-673.36956521739137"/>
+            <point key="canvasLocation" x="138" y="-1408"/>
         </scene>
         <!--Privacy Policy View Controller-->
         <scene sceneID="Jha-Ph-JAJ">
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7H-zX-07d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969.5652173913045" y="-673.36956521739137"/>
+            <point key="canvasLocation" x="925" y="-1409"/>
         </scene>
         <!--Group List View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -188,6 +188,11 @@
                                     <segue destination="jsn-p4-CwF" kind="presentation" modalPresentationStyle="fullScreen" id="N46-wX-5Ht"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="並び替え" id="QmW-I6-9gw">
+                            <connections>
+                                <segue destination="6Hz-cD-bLd" kind="presentation" modalPresentationStyle="fullScreen" id="Bv1-zX-AcE"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -937,6 +942,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98B-d4-qhr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-673.36956521739137"/>
+        </scene>
+        <!--並び替え-->
+        <scene sceneID="7Y0-7w-nkj">
+            <objects>
+                <viewController id="mMf-bh-wZ2" customClass="GroupSortViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Sr-wm-2zv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nA9-vF-cOY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="並び替え" id="2v9-Oh-Np1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxf-hS-KkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936.2318840579712" y="-673.36956521739137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rVq-Q4-MM5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Hz-cD-bLd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Xx-uG-whA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mMf-bh-wZ2" kind="relationship" relationship="rootViewController" id="vlH-0U-EjE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZV-yf-01j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028.985507246377" y="-673.36956521739137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
