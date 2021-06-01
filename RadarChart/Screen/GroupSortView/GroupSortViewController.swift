@@ -9,9 +9,15 @@
 import UIKit
 
 class GroupSortViewController: UIViewController {
+    
+    private var presenter:GroupSortPresenterInput!
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.presenter = GroupSortPresenter(view: self)
 
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
@@ -22,4 +28,8 @@ class GroupSortViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension GroupSortViewController:GroupSortPresenterOutput{
+    
 }

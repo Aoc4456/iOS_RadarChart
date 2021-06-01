@@ -8,6 +8,26 @@
 
 import Foundation
 
-class GroupSortPresenter{
+class GroupSortPresenter:GroupSortPresenterInput{
+    
+    private weak var view:GroupSortPresenterOutput!
+    
+    init(view:GroupSortPresenterOutput) {
+        self.view = view
+    }
+    
+}
+
+
+// Presenterが実装するプロトコル
+// Viewから呼び出されるインターフェースを定義する
+protocol GroupSortPresenterInput{
+    
+}
+
+
+// ViewControllerが実装するプロトコル
+// Presenterから呼び出されるインターフェースを定義する
+protocol GroupSortPresenterOutput:AnyObject {
     
 }
