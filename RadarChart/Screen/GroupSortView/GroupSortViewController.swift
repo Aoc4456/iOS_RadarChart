@@ -24,8 +24,13 @@ class GroupSortViewController: UIViewController {
         
         // setup tableView
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: "GroupSortCell", bundle: nil), forCellReuseIdentifier: "customCell")
         tableView.rowHeight = 80
+        
+        // 並び替え
+        tableView.setEditing(true, animated: true)
+        
         presenter.fetchDataFromDatabase()
     }
     
@@ -52,6 +57,29 @@ extension GroupSortViewController:UITableViewDataSource{
         let data = presenter.dataList[indexPath.row]
         let icon = presenter.iconImageMap[indexPath.row]
         cell.setData(group: data,icon: icon)
+        cell.showsReorderControl = true
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // TODO
+    }
+}
+
+extension GroupSortViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
