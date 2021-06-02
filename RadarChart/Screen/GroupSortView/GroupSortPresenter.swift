@@ -14,7 +14,7 @@ class GroupSortPresenter:GroupSortPresenterInput{
     private weak var view:GroupSortPresenterOutput!
     
     var dataList: Array<ChartGroup> = []
-    var iconImageMap: [Int:UIImage] = [:]
+    var iconImageMap: [String:UIImage] = [:]
     
     init(view:GroupSortPresenterOutput) {
         self.view = view
@@ -33,7 +33,8 @@ class GroupSortPresenter:GroupSortPresenterInput{
             let fileName = dataList[i].iconFileName
             if(fileName != ""){
                 let image = DBProvider.sharedInstance.loadImage(filename: fileName)
-                iconImageMap[i] = image
+                let key = dataList[i].id
+                iconImageMap[key] = image
             }
         }
     }
@@ -45,7 +46,7 @@ class GroupSortPresenter:GroupSortPresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol GroupSortPresenterInput{
     var dataList:Array<ChartGroup>{get}
-    var iconImageMap:[Int:UIImage]{get}
+    var iconImageMap:[String:UIImage]{get}
     func fetchDataFromDatabase()
 }
 
