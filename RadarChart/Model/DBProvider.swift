@@ -74,10 +74,15 @@ class DBProvider{
         if(object.iconFileName != ""){
             deleteImageInDocumentDirectory(fileName: object.iconFileName)
         }
-        try! db.write {
-            db.delete(object.charts)
-            db.delete(object)
-        }
+        db.beginWrite()
+        
+        let decrementGroups = db.objects(ChartGroup.self).filter("rate > \(object.rate)")
+        decrementGroups.forEach{$0.rate -= 1}
+        
+        db.delete(object.charts)
+        db.delete(object)
+        
+        try! db.commitWrite()
     }
     
     // ASC,DESCを変更
@@ -96,6 +101,16 @@ class DBProvider{
         db.beginWrite()
         group.sortedIndex = index
         try! db.commitWrite()
+    }
+    
+    // グループの中で、一番大きいrate + 1 を返す
+    func getNewRate() -> Int{
+        let results = db.objects(ChartGroup.self).sorted(byKeyPath: "rate", ascending: false)
+        if(results.first == nil){
+            return 0
+        }else{
+            return results.first!.rate + 1
+        }
     }
     
     
