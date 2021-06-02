@@ -113,6 +113,15 @@ class DBProvider{
         }
     }
     
+    func reorderRate(groups:Array<ChartGroup>){
+        db.beginWrite()
+        for i in 0..<groups.count{
+            let object = getGroup(id: groups[i].id)
+            object.rate = i
+        }
+        try! db.commitWrite()
+    }
+    
     
     //
     // チャートテーブル操作関数

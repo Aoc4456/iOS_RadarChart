@@ -42,7 +42,7 @@ class GroupSortPresenter:GroupSortPresenterInput{
     
     func onTapCloseButton() {
         if(isChanged){
-            // DBProviderにdataListを渡す
+            DBProvider.sharedInstance.reorderRate(groups: dataList)
         }
         
         view.dismissScreen()
