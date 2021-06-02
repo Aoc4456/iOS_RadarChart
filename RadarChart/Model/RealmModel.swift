@@ -18,6 +18,7 @@ class ChartGroup:Object{
     let labels = List<String>()
     @objc dynamic var createdAt = Date()
     @objc dynamic var updatedAt = Date()
+    @objc dynamic var rate : Int = 0
     
     /**
      ソートする条件

@@ -187,9 +187,10 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
     private func getChartGroupObject() -> ChartGroup{
         var group:ChartGroup? = nil
         if(passedData == nil){
-            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"iconFileName":iconFileName])
+            let newRate = DBProvider.sharedInstance.getNewRate()
+            group = ChartGroup(value: ["title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"iconFileName":iconFileName,"rate":newRate])
         }else{
-            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy,"iconFileName":iconFileName])
+            group = ChartGroup(value: ["id":passedData!.id,"title":title,"color":selectedColor.toString(),"maximum":axisMaximum,"labels":Array(chartLabels.prefix(numberOfItems)),"createdAt":passedData!.createdAt,"charts":passedData!.charts,"sortedIndex":passedData!.sortedIndex,"orderBy":passedData!.orderBy,"iconFileName":iconFileName,"rate":passedData!.rate])
         }
         return group!
     }

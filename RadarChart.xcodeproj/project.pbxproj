@@ -23,6 +23,10 @@
 		5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07A26416341001E31EA /* MultiInputField.swift */; };
 		5E5BE08026416517001E31EA /* InputRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BE07F26416517001E31EA /* InputRowView.swift */; };
 		5E5BE08426416585001E31EA /* InputRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BE08326416585001E31EA /* InputRowView.xib */; };
+		5E636DC426663AF7002F972D /* GroupSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E636DC326663AF7002F972D /* GroupSortViewController.swift */; };
+		5E636DC826663B13002F972D /* GroupSortPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E636DC726663B13002F972D /* GroupSortPresenter.swift */; };
+		5E636DCD26664288002F972D /* GroupSortCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E636DCB26664288002F972D /* GroupSortCell.swift */; };
+		5E636DCE26664288002F972D /* GroupSortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E636DCC26664288002F972D /* GroupSortCell.xib */; };
 		5E75791C263D35BB00D4ED66 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E75791B263D35BB00D4ED66 /* DateUtil.swift */; };
 		5E8AE3AA263EA69F0049BA71 /* ChartCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3A9263EA69F0049BA71 /* ChartCollectionViewController.swift */; };
 		5E8AE3AE263EA6D00049BA71 /* ChartCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */; };
@@ -51,7 +55,6 @@
 		922FCDFB26201C5300569E94 /* RadarChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922FCDFA26201C5300569E94 /* RadarChartTests.swift */; };
 		924A582D265E37530026B057 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924A582C265E37530026B057 /* SettingViewController.swift */; };
 		924A5831265E376C0026B057 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924A5830265E376C0026B057 /* SettingPresenter.swift */; };
-		9299A64D2664B9EA00C51F20 /* RadarChartSeed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 9299A64C2664B9EA00C51F20 /* RadarChartSeed.realm */; };
 		92DE68492626DE5200D255ED /* TestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DE68482626DE5200D255ED /* TestPageViewController.swift */; };
 		92FB2AF5264BB1C3003258D1 /* ChartForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */; };
 		DC31162B5902CD4AB2D72BF4 /* Pods_RadarChartTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669ECA2FB129E876FCC8F124 /* Pods_RadarChartTests.framework */; };
@@ -85,6 +88,10 @@
 		5E5BE07A26416341001E31EA /* MultiInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiInputField.swift; sourceTree = "<group>"; };
 		5E5BE07F26416517001E31EA /* InputRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRowView.swift; sourceTree = "<group>"; };
 		5E5BE08326416585001E31EA /* InputRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputRowView.xib; sourceTree = "<group>"; };
+		5E636DC326663AF7002F972D /* GroupSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortViewController.swift; sourceTree = "<group>"; };
+		5E636DC726663B13002F972D /* GroupSortPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortPresenter.swift; sourceTree = "<group>"; };
+		5E636DCB26664288002F972D /* GroupSortCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSortCell.swift; sourceTree = "<group>"; };
+		5E636DCC26664288002F972D /* GroupSortCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSortCell.xib; sourceTree = "<group>"; };
 		5E75791B263D35BB00D4ED66 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		5E8AE3A9263EA69F0049BA71 /* ChartCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewController.swift; sourceTree = "<group>"; };
 		5E8AE3AD263EA6D00049BA71 /* ChartCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionPresenter.swift; sourceTree = "<group>"; };
@@ -120,7 +127,6 @@
 		922FCDFC26201C5300569E94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924A582C265E37530026B057 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		924A5830265E376C0026B057 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
-		9299A64C2664B9EA00C51F20 /* RadarChartSeed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = RadarChartSeed.realm; sourceTree = "<group>"; };
 		92DE68482626DE5200D255ED /* TestPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageViewController.swift; sourceTree = "<group>"; };
 		92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForCollectionView.swift; sourceTree = "<group>"; };
 		AB76758A83718BD6ABF4D4F2 /* Pods-RadarChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadarChart.debug.xcconfig"; path = "Target Support Files/Pods-RadarChart/Pods-RadarChart.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 			children = (
 				924A582B265E372A0026B057 /* Setting */,
 				5ED5FC4F263179130082D7B7 /* GroupListView */,
+				5E636DC226663AC6002F972D /* GroupSortView */,
 				5ED5FC50263179210082D7B7 /* GroupCreateView */,
 				5E8AE3A8263EA65C0049BA71 /* ChartCollectionView */,
 				5ED3BA022640271C004E0D26 /* ChartCreateView */,
@@ -239,6 +246,7 @@
 		5E5BE0772641629C001E31EA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5E636DD12666428D002F972D /* GroupSortCell */,
 				5E586F8C263194AF0012DDA9 /* GroupListCell */,
 				5E8AE3A1263EA54C0049BA71 /* ChartListCell */,
 				5E107307263F1C15007EA2C0 /* ChartGridCell */,
@@ -254,6 +262,24 @@
 				5E5BE08326416585001E31EA /* InputRowView.xib */,
 			);
 			path = MultiInputField;
+			sourceTree = "<group>";
+		};
+		5E636DC226663AC6002F972D /* GroupSortView */ = {
+			isa = PBXGroup;
+			children = (
+				5E636DC326663AF7002F972D /* GroupSortViewController.swift */,
+				5E636DC726663B13002F972D /* GroupSortPresenter.swift */,
+			);
+			path = GroupSortView;
+			sourceTree = "<group>";
+		};
+		5E636DD12666428D002F972D /* GroupSortCell */ = {
+			isa = PBXGroup;
+			children = (
+				5E636DCB26664288002F972D /* GroupSortCell.swift */,
+				5E636DCC26664288002F972D /* GroupSortCell.xib */,
+			);
+			path = GroupSortCell;
 			sourceTree = "<group>";
 		};
 		5E8AE3A1263EA54C0049BA71 /* ChartListCell */ = {
@@ -327,7 +353,6 @@
 				5EE33946263ADC43005D732B /* DBProvider.swift */,
 				5EE33940263AD02B005D732B /* RealmModel.swift */,
 				5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */,
-				9299A64C2664B9EA00C51F20 /* RadarChartSeed.realm */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -508,7 +533,6 @@
 			files = (
 				5E107304263F1C0A007EA2C0 /* ChartGridCell.xib in Resources */,
 				5E5BE08426416585001E31EA /* InputRowView.xib in Resources */,
-				9299A64D2664B9EA00C51F20 /* RadarChartSeed.realm in Resources */,
 				5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */,
 				922FCDF026201C5300569E94 /* LaunchScreen.storyboard in Resources */,
 				922FCDED26201C5300569E94 /* Assets.xcassets in Resources */,
@@ -517,6 +541,7 @@
 				5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */,
 				5E3DF5EC266268E50003212E /* Settings.bundle in Resources */,
 				5E593A72265FB4FD00CBF230 /* ListTile.xib in Resources */,
+				5E636DCE26664288002F972D /* GroupSortCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +677,7 @@
 				5ED3BA0426402810004E0D26 /* ChartCreateViewController.swift in Sources */,
 				5E107303263F1C0A007EA2C0 /* ChartGridCell.swift in Sources */,
 				5EE3395F263AEE6E005D732B /* ColorUtil.swift in Sources */,
+				5E636DC426663AF7002F972D /* GroupSortViewController.swift in Sources */,
 				5ED5FC5D26317B5A0082D7B7 /* GroupCreatePresenter.swift in Sources */,
 				5E4A0B192622C8BE0058A46B /* GroupCreateViewController.swift in Sources */,
 				5E593A6E265FB4EE00CBF230 /* ListTile.swift in Sources */,
@@ -659,8 +685,10 @@
 				92FB2AF5264BB1C3003258D1 /* ChartForCollectionView.swift in Sources */,
 				5E01069F26625AC400A45A6A /* PrivacyPolicyViewController.swift in Sources */,
 				5E1C7AF5263C3A93000F7BBB /* ChartForGroupList.swift in Sources */,
+				5E636DCD26664288002F972D /* GroupSortCell.swift in Sources */,
 				5E5BE07B26416341001E31EA /* MultiInputField.swift in Sources */,
 				922FCDE426201C5200569E94 /* AppDelegate.swift in Sources */,
+				5E636DC826663B13002F972D /* GroupSortPresenter.swift in Sources */,
 				5ED38B5A26382CB500393205 /* CommonExtension.swift in Sources */,
 				5ED3BA0826402839004E0D26 /* ChartCreatePresenter.swift in Sources */,
 				5E586FB0263198B50012DDA9 /* ChartForCreateScreen.swift in Sources */,
