@@ -15,6 +15,7 @@ class GroupSortPresenter:GroupSortPresenterInput{
     
     var dataList: Array<ChartGroup> = []
     var iconImageMap: [String:UIImage] = [:]
+    var isChanged = false
     
     init(view:GroupSortPresenterOutput) {
         self.view = view
@@ -39,6 +40,20 @@ class GroupSortPresenter:GroupSortPresenterInput{
         }
     }
     
+    func onTapCloseButton() {
+        if(isChanged){
+            // DBProviderにdataListを渡す
+        }
+        
+        view.dismissScreen()
+    }
+    
+    func reorderData(from: Int, to: Int) {
+        isChanged = true
+        let moveItem = dataList[from]
+        dataList.remove(at: from)
+        dataList.insert(moveItem, at: to)
+    }
 }
 
 
@@ -47,6 +62,8 @@ class GroupSortPresenter:GroupSortPresenterInput{
 protocol GroupSortPresenterInput{
     var dataList:Array<ChartGroup>{get}
     var iconImageMap:[String:UIImage]{get}
+    func onTapCloseButton()
+    func reorderData(from:Int,to:Int)
     func fetchDataFromDatabase()
 }
 
@@ -55,4 +72,5 @@ protocol GroupSortPresenterInput{
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupSortPresenterOutput:AnyObject {
     func reloadTableView()
+    func dismissScreen()
 }

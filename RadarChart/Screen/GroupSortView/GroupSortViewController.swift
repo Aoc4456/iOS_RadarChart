@@ -36,13 +36,7 @@ class GroupSortViewController: UIViewController {
     
 
     @objc func onTapCloseButton(_ sender: UIBarButtonItem){
-        // TODO ここでデータベースを並び替える
-        // 並び替えた時、データベースを書き換える必要はないが、Presenterのプロパティを書き換えるのはいい案です。
-        // iconImageMapは、グループのキーと結びつけた方がいいね
-        
-        
-        // dismissのprepareってあるのかな...
-        self.dismiss(animated: true, completion: nil)
+        presenter.onTapCloseButton()
     }
 
 }
@@ -50,6 +44,10 @@ class GroupSortViewController: UIViewController {
 extension GroupSortViewController:GroupSortPresenterOutput{
     func reloadTableView() {
         tableView.reloadData()
+    }
+    
+    func dismissScreen() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -68,7 +66,7 @@ extension GroupSortViewController:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        // TODO
+        presenter.reorderData(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }
 
