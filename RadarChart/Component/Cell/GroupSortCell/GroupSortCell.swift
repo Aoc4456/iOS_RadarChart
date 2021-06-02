@@ -16,6 +16,8 @@ class GroupSortCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var sortLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +31,7 @@ class GroupSortCell: UITableViewCell {
     
     func setData(group:ChartGroup,icon:UIImage?){
         titleLabel.text = group.title
+        sortLabel.text = group.rate.description
         
         if(icon == nil){
             // チャートを表示する
