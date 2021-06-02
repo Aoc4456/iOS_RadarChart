@@ -24,9 +24,9 @@ class DBProvider{
     // グループテーブル操作関数
     //
     
-    // グループを全件取得 (作成日の古い順)
+    // グループを全件取得 (ユーザーの決めた並び順)
     func getGroupList() -> Array<ChartGroup>{
-        let results = db.objects(ChartGroup.self).sorted(byKeyPath: "createdAt", ascending: true)
+        let results = db.objects(ChartGroup.self).sorted(byKeyPath: "rate", ascending: true)
         return Array(results)
     }
     
