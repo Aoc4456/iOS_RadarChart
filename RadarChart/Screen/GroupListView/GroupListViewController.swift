@@ -14,6 +14,7 @@ class GroupListViewController: UIViewController {
     private var presenter:GroupListPresenterInput!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var toSortButton: UIBarButtonItem!
     
     private var dataPassedToGroupEdit : ChartGroup? = nil
     private var dataPassedToChartList : ChartGroup? = nil
@@ -36,6 +37,7 @@ class GroupListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.fetchDataFromDatabase()
+        toSortButton.isEnabled = presenter.isEnableSortButton
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="並び替え" id="QmW-I6-9gw">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.up.arrow.down.square" catalog="system" id="QmW-I6-9gw">
                             <connections>
                                 <segue destination="6Hz-cD-bLd" kind="presentation" modalPresentationStyle="fullScreen" id="Bv1-zX-AcE"/>
                             </connections>
@@ -197,6 +197,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="sfN-aa-sg8" id="Z2e-na-p4U"/>
+                        <outlet property="toSortButton" destination="QmW-I6-9gw" id="i3K-vk-WR5"/>
                         <segue destination="bCk-4b-zk0" kind="show" identifier="toChartCollectionViewController" id="ZDj-kP-bbJ"/>
                     </connections>
                 </viewController>
@@ -993,10 +994,16 @@
             <point key="canvasLocation" x="1028.985507246377" y="-673.36956521739137"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Sp1-EX-TZ1">
+            <size key="intrinsicContentSize" width="394" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="vHT-QF-xWG"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.up.arrow.down.square" catalog="system" width="128" height="114"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>

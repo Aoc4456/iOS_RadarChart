@@ -15,6 +15,11 @@ class GroupListPresenter:GroupListPresenterInput{
     
     var dataList: Array<ChartGroup> = []
     var iconImageMap: [Int:UIImage] = [:]
+    var isEnableSortButton:Bool{
+        get{
+            return dataList.count >= 2
+        }
+    }
     
     init(view:GroupListPresenterOutput) {
         self.view = view
@@ -45,6 +50,7 @@ class GroupListPresenter:GroupListPresenterInput{
 protocol GroupListPresenterInput {
     var dataList:Array<ChartGroup>{get}
     var iconImageMap:[Int:UIImage]{get}
+    var isEnableSortButton:Bool{get}
     func fetchDataFromDatabase()
 }
 
