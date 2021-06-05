@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         // データベースの中身をRealmStudioで確認するためのファイルパスを取得する
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "FileURLが取得できません")
-//        copyRealm()
+        copyRealm()
         return true
     }
 
