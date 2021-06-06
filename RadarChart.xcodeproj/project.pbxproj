@@ -512,10 +512,10 @@
 			};
 			buildConfigurationList = 922FCDDB26201C5200569E94 /* Build configuration list for PBXProject "RadarChart" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ja,
 				Base,
 			);
 			mainGroup = 922FCDD726201C5200569E94;
