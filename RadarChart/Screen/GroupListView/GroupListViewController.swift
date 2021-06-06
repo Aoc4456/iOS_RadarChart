@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import StoreKit
 
 class GroupListViewController: UIViewController {
     
@@ -33,6 +34,9 @@ class GroupListViewController: UIViewController {
         longPressRecognizer.delegate = self
         tableView.addGestureRecognizer(longPressRecognizer)
         tableView.rowHeight = 80
+        
+        // レビュー訴求
+        checkRequestReview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +63,18 @@ class GroupListViewController: UIViewController {
             }
             dataPassedToChartList = nil
             navigationItem.backButtonTitle = "戻る"
+        }
+    }
+    
+    // 10回起動毎に、レビュー訴求する
+    private func checkRequestReview(){
+        if(loadAppLaunchCount() < 10){
+            incrementAppLaunchCount()
+        }else{
+            resetAppLaunchCount()
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
         }
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 import Firebase
-import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,16 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 初回起動の場合、シードデータをコピーする
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "FileURLが取得できません")
         copyRealm()
-        
-        // 10回起動毎に、レビュー訴求する
-        if(loadAppLaunchCount() < 10){
-            incrementAppLaunchCount()
-        }else{
-            resetAppLaunchCount()
-            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                SKStoreReviewController.requestReview(in: scene)
-            }
-        }
         
         return true
     }
