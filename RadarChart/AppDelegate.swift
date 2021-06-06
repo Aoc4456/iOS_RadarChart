@@ -9,15 +9,28 @@
 import UIKit
 import RealmSwift
 import Firebase
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        // データベースの中身をRealmStudioで確認するためのファイルパスを取得する
+        
+        // 初回起動の場合、シードデータをコピーする
         print(Realm.Configuration.defaultConfiguration.fileURL ?? "FileURLが取得できません")
         copyRealm()
+        
+        // 10回起動毎に、レビュー訴求する
+        if(loadAppLaunchCount() < 10){
+            incrementAppLaunchCount()
+        }else{
+            resetAppLaunchCount()
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+            }
+        }
+        
         return true
     }
 
