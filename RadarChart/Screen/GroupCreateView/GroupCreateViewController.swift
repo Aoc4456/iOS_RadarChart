@@ -198,6 +198,7 @@ extension GroupCreateViewController:GroupCreaterPresenterOutput{
     }
     
     func showIconActionSheet(alert: UIAlertController) {
+        alert.popoverPresentationController?.sourceView = self.iconButton
         present(alert,animated: true)
     }
     

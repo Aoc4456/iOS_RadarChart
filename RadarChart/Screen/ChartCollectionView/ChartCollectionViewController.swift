@@ -113,6 +113,7 @@ extension ChartCollectionViewController:ChartCollectionPresenterOutput{
     }
     
     func showActionSheet(alert: UIAlertController) {
+        alert.popoverPresentationController?.sourceView = self.orderItemButton
         present(alert, animated: true)
     }
 }
