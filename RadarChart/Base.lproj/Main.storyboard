@@ -152,7 +152,7 @@
                                     <segue destination="KuQ-aq-uqm" kind="presentation" identifier="toGroupCreateViewController" id="6Yv-LM-MZS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-us-nEI" userLabel="TestButton">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-us-nEI" userLabel="TestButton">
                                 <rect key="frame" x="20" y="657" width="60" height="58.666666666666629"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
@@ -994,11 +994,6 @@
             <point key="canvasLocation" x="1028.985507246377" y="-673.36956521739137"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Sp1-EX-TZ1">
-            <size key="intrinsicContentSize" width="394" height="44"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="vHT-QF-xWG"/>
     </inferredMetricsTieBreakers>
