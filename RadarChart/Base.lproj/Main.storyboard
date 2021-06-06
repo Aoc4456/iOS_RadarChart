@@ -141,11 +141,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VE-xy-xbn">
-                                <rect key="frame" x="334" y="657" width="60" height="58.666666666666629"/>
+                                <rect key="frame" x="344" y="667" width="50" height="48.666666666666629"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="aqz-kT-bqa"/>
-                                    <constraint firstAttribute="width" constant="60" id="reu-hT-D96"/>
+                                    <constraint firstAttribute="height" constant="50" id="aqz-kT-bqa"/>
+                                    <constraint firstAttribute="width" constant="50" id="reu-hT-D96"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
                                 <connections>
@@ -296,13 +296,11 @@
                                 <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptn-si-GQx">
-                                <rect key="frame" x="334" y="657" width="60" height="58.666666666666629"/>
+                                <rect key="frame" x="344" y="667" width="50" height="48.666666666666629"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="D9v-ON-eaN"/>
-                                    <constraint firstAttribute="width" constant="60" id="O1H-gs-AQJ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="O9c-Ql-yTp"/>
-                                    <constraint firstAttribute="height" constant="60" id="x6d-1R-YwB"/>
+                                    <constraint firstAttribute="width" constant="50" id="O1H-gs-AQJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="x6d-1R-YwB"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="plus.circle.fill" catalog="system"/>
                                 <connections>
