@@ -68,6 +68,7 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
         textField.tag = createTag(index: index)
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textField.borderStyle = .roundedRect
+        textField.returnKeyType = .done
         textField.text = "項目\(index+1)"
         return textField
     }

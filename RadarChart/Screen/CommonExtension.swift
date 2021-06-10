@@ -24,7 +24,7 @@ extension UIViewController{
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                         target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done,
+        let doneButton = UIBarButtonItem(title: "完了", style: .done,
                                          target: self, action: #selector(doneButtonTapped))
         
         toolbar.setItems([flexSpace, doneButton], animated: true)
@@ -37,7 +37,7 @@ extension UIViewController{
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                         target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done,
+        let doneButton = UIBarButtonItem(title: "完了", style: .done,
                                          target: self, action: #selector(doneButtonTapped))
         
         toolbar.setItems([flexSpace, doneButton], animated: true)
