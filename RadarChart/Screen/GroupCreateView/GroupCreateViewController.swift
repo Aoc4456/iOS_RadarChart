@@ -119,6 +119,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     }
     
     @IBAction func onTapSortButton(_ sender: Any) {
+        performSegue(withIdentifier: "toLabelSortViewController", sender: nil)
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {

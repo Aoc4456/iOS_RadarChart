@@ -846,6 +846,7 @@
                         <outlet property="stepSlider" destination="Sp1-EX-TZ1" id="KGk-3G-Kx0"/>
                         <outlet property="titleTextField" destination="zR4-eV-zEJ" id="rKB-YP-mcK"/>
                         <outlet property="trashButton" destination="eb7-qw-sup" id="vLE-gs-lro"/>
+                        <segue destination="tCn-Cm-WDq" kind="presentation" identifier="toLabelSortViewController" id="e37-f1-6O3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDa-A9-hgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -856,6 +857,22 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1992.753623188406" y="1125"/>
+        </scene>
+        <!--項目の並び替え-->
+        <scene sceneID="Q0y-DK-nG9">
+            <objects>
+                <viewController id="A8j-NP-LAE" customClass="LabelSortViewController" customModule="RadarChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pj6-sA-iJx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="FIE-TB-ukn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="項目の並び替え" id="nDh-RV-urT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tvn-Fj-DrV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2900" y="1889.6739130434785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9X1-0f-ppQ">
@@ -1011,6 +1028,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZV-yf-01j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="-673.36956521739137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lGY-D4-gY6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="tCn-Cm-WDq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pjx-TO-zHn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A8j-NP-LAE" kind="relationship" relationship="rootViewController" id="dTB-aY-QxD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xjh-l7-7bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.753623188406" y="1889.6739130434785"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
