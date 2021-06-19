@@ -25,6 +25,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     @IBOutlet weak var radarChart: ChartForCreateScreen!
     @IBOutlet weak var multiEditTextField: MultiEditText!
     @IBOutlet weak var axisMaximumField: UITextField!
+    @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     var activeField: UIView?
     
@@ -73,6 +74,7 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
         // setup MultiEditText
         multiEditTextField.setViewController(viewController: self)
         
+        sortButton.layer.borderColor = UIColor.systemBlue.cgColor
         saveButton.layer.borderColor = UIColor.systemBlue.cgColor
         
         // setup TextField keyboard observer
@@ -114,6 +116,9 @@ class GroupCreateViewController: UIViewController,MultiEditTextOutput{
     // delegate multi text field
     func textFieldDidEndEditing(index:Int,text:String){
         presenter.labelTextFieldDidEndEditing(index: index, text: text)
+    }
+    
+    @IBAction func onTapSortButton(_ sender: Any) {
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
