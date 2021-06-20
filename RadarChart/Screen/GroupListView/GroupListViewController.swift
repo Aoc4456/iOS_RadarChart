@@ -18,6 +18,7 @@ class GroupListViewController: UIViewController {
     @IBOutlet weak var toSortButton: UIBarButtonItem!
     
     private var dataPassedToGroupEdit : ChartGroup? = nil
+    private var dataPassedToLabelSort : ChartGroup? = nil
     private var dataPassedToChartList : ChartGroup? = nil
     
     override func viewDidLoad() {
@@ -30,9 +31,6 @@ class GroupListViewController: UIViewController {
         
         // setup tableView
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
-        longPressRecognizer.delegate = self
-        tableView.addGestureRecognizer(longPressRecognizer)
         tableView.rowHeight = 80
         
         // レビュー訴求
@@ -53,6 +51,16 @@ class GroupListViewController: UIViewController {
                 nextVC?.passedData = dataPassedToGroupEdit
             }
             dataPassedToGroupEdit = nil
+        }
+        
+        // 項目名並び替え画面への遷移
+        if(segue.identifier == "toLabelSortViewController"){
+            if(dataPassedToLabelSort != nil){
+                let nextNaviVC = segue.destination as? UINavigationController
+                let nextVC = nextNaviVC?.topViewController as? LabelSortViewController
+                nextVC?.passedData = dataPassedToLabelSort
+            }
+            dataPassedToLabelSort = nil
         }
 
         // チャート一覧画面への遷移
@@ -83,12 +91,28 @@ extension GroupListViewController:GroupListPresenterOutput{
     func reloadTableView() {
         tableView.reloadData()
     }
+    
+    func goToGroupEditViewController(chartGroup: ChartGroup) {
+        dataPassedToGroupEdit = chartGroup
+        performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
+    }
+    
+    func goToLabelSortViewController(chartGroup: ChartGroup) {
+        dataPassedToLabelSort = chartGroup
+        performSegue(withIdentifier: "toLabelSortViewController", sender: nil)
+    }
 }
 
 extension GroupListViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataPassedToChartList = presenter.dataList[indexPath.row]
         performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            return self.presenter.makeContextMenu(index: indexPath.row)
+        })
     }
 }
 
@@ -122,20 +146,5 @@ extension GroupListViewController:UITableViewDataSource{
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         dataPassedToChartList = presenter.dataList[indexPath!.row]
         performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
-    }
-}
-
-extension GroupListViewController:UIGestureRecognizerDelegate{
-    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer){
-        if(recognizer.state == .began){
-            let point = recognizer.location(in: tableView)
-            let indexPath = tableView.indexPathForRow(at: point)
-            if(indexPath != nil){
-                let index = indexPath!.row
-                dataPassedToGroupEdit = presenter.dataList[index]
-                // 遷移先のCreateViewController に データを渡す
-                performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
-            }
-        }
     }
 }

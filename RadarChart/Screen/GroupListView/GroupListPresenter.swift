@@ -42,6 +42,17 @@ class GroupListPresenter:GroupListPresenterInput{
             }
         }
     }
+    
+    func makeContextMenu(index: Int) -> UIMenu {
+        let data = dataList[index]
+        let groupEdit = UIAction(title: "グループ編集", image: UIImage(systemName: "pencil")) { action in
+            self.view.goToGroupEditViewController(chartGroup: data)
+        }
+        let sort = UIAction(title: "項目名の並び替え", image: UIImage(systemName: "arrow.up.arrow.down.square")) { action in
+            self.view.goToLabelSortViewController(chartGroup: data)
+        }
+        return UIMenu(title: "編集", children: [groupEdit, sort])
+    }
 }
 
 
@@ -52,10 +63,13 @@ protocol GroupListPresenterInput {
     var iconImageMap:[Int:UIImage]{get}
     var isEnableSortButton:Bool{get}
     func fetchDataFromDatabase()
+    func makeContextMenu(index:Int) -> UIMenu
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupListPresenterOutput:AnyObject {
     func reloadTableView()
+    func goToGroupEditViewController(chartGroup:ChartGroup)
+    func goToLabelSortViewController(chartGroup:ChartGroup)
 }
