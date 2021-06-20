@@ -83,6 +83,20 @@ extension GroupListViewController:GroupListPresenterOutput{
     func reloadTableView() {
         tableView.reloadData()
     }
+    
+    func showCellLongPressedActionSheet(alert: UIAlertController, rect: CGRect) {
+        alert.popoverPresentationController?.sourceView = tableView
+        alert.popoverPresentationController?.sourceRect = rect
+        present(alert, animated: true)
+    }
+    
+    func goToGroupEditViewController(chartGroup: ChartGroup) {
+        print("編集画面へ遷移します")
+    }
+    
+    func goToLabelSortViewController(chartGroup: ChartGroup) {
+        print("項目ソート画面へ遷移します")
+    }
 }
 
 extension GroupListViewController:UITableViewDelegate{
@@ -131,10 +145,8 @@ extension GroupListViewController:UIGestureRecognizerDelegate{
             let point = recognizer.location(in: tableView)
             let indexPath = tableView.indexPathForRow(at: point)
             if(indexPath != nil){
-                let index = indexPath!.row
-                dataPassedToGroupEdit = presenter.dataList[index]
-                // 遷移先のCreateViewController に データを渡す
-                performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
+                let cellRect = tableView.cellForRow(at: indexPath!)!.frame
+                presenter.onCellLongPressed(index: indexPath!.row,rect: cellRect)
             }
         }
     }
