@@ -199,6 +199,7 @@
                         <outlet property="tableView" destination="sfN-aa-sg8" id="Z2e-na-p4U"/>
                         <outlet property="toSortButton" destination="QmW-I6-9gw" id="i3K-vk-WR5"/>
                         <segue destination="bCk-4b-zk0" kind="show" identifier="toChartCollectionViewController" id="ZDj-kP-bbJ"/>
+                        <segue destination="tCn-Cm-WDq" kind="presentation" identifier="toLabelSortViewController" id="XLw-yK-aO4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -736,24 +737,6 @@
                                                     <action selector="onTapSaveButton:" destination="P4f-Ic-G46" eventType="touchUpInside" id="f5b-bO-nfw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUZ-MA-Zwg">
-                                                <rect key="frame" x="324" y="679" width="80" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="HDz-5k-Bpp"/>
-                                                </constraints>
-                                                <state key="normal" title="並び替え"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTapSortButton:" destination="P4f-Ic-G46" eventType="touchUpInside" id="RhY-8l-98a"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -767,7 +750,6 @@
                                             <constraint firstItem="zR4-eV-zEJ" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="7Lk-26-ZV1"/>
                                             <constraint firstItem="PIH-6a-QVg" firstAttribute="top" secondItem="zR4-eV-zEJ" secondAttribute="bottom" constant="10" id="7aI-Sy-A11"/>
                                             <constraint firstItem="gOi-hP-BCR" firstAttribute="top" secondItem="qml-fH-4Nk" secondAttribute="bottom" constant="10" id="8Zz-rh-KZk"/>
-                                            <constraint firstItem="M0s-dp-apB" firstAttribute="top" secondItem="xUZ-MA-Zwg" secondAttribute="bottom" constant="5" id="AeC-tK-X8b"/>
                                             <constraint firstAttribute="trailing" secondItem="2ZT-Ri-E9k" secondAttribute="trailing" constant="10" id="Ayj-SU-TAv"/>
                                             <constraint firstItem="2ZT-Ri-E9k" firstAttribute="top" secondItem="gOi-hP-BCR" secondAttribute="bottom" constant="10" id="BZy-Ys-igR"/>
                                             <constraint firstAttribute="bottom" secondItem="KHr-R8-2ul" secondAttribute="bottom" constant="10" id="Bmc-ZX-T0x"/>
@@ -786,7 +768,6 @@
                                             <constraint firstItem="KHr-R8-2ul" firstAttribute="top" secondItem="M0s-dp-apB" secondAttribute="bottom" constant="10" id="Zay-BP-ebe"/>
                                             <constraint firstItem="C1o-tc-bzJ" firstAttribute="top" secondItem="p9a-n8-2tg" secondAttribute="bottom" constant="10" id="bAx-H8-C3H"/>
                                             <constraint firstItem="zR4-eV-zEJ" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="bcF-CD-jXa"/>
-                                            <constraint firstAttribute="trailing" secondItem="xUZ-MA-Zwg" secondAttribute="trailing" constant="10" id="cJg-3D-Vj4"/>
                                             <constraint firstItem="Rk7-Lz-U7H" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="eSm-Qd-OCh"/>
                                             <constraint firstItem="zR4-eV-zEJ" firstAttribute="top" secondItem="ig8-U9-PdY" secondAttribute="bottom" constant="10" id="hFO-c2-JC5"/>
                                             <constraint firstItem="p9a-n8-2tg" firstAttribute="top" secondItem="PIH-6a-QVg" secondAttribute="bottom" constant="10" id="i01-2b-SP0"/>
@@ -797,7 +778,6 @@
                                             <constraint firstItem="p9a-n8-2tg" firstAttribute="width" secondItem="0g5-VX-SeD" secondAttribute="width" multiplier="0.35" id="ktM-ZP-Q3R"/>
                                             <constraint firstItem="PIH-6a-QVg" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="nDO-wi-F9P"/>
                                             <constraint firstItem="2ZT-Ri-E9k" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="njc-hi-fd0"/>
-                                            <constraint firstItem="xUZ-MA-Zwg" firstAttribute="top" secondItem="2ZT-Ri-E9k" secondAttribute="bottom" constant="5" id="p0N-JC-3Ue"/>
                                             <constraint firstItem="ig8-U9-PdY" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="qPj-Fg-xHT"/>
                                             <constraint firstAttribute="trailing" secondItem="gOi-hP-BCR" secondAttribute="trailing" constant="10" id="rRc-MG-bOa"/>
                                             <constraint firstItem="gOi-hP-BCR" firstAttribute="leading" secondItem="0g5-VX-SeD" secondAttribute="leading" constant="10" id="sOr-vP-B05"/>
@@ -842,11 +822,9 @@
                         <outlet property="saveButton" destination="KHr-R8-2ul" id="s4r-Wk-Lu7"/>
                         <outlet property="scrollView" destination="5jp-Na-0Ev" id="7K3-uC-jD7"/>
                         <outlet property="sliderLabel" destination="FO0-bZ-P2S" id="c5v-Tu-AKz"/>
-                        <outlet property="sortButton" destination="xUZ-MA-Zwg" id="9eN-gn-m4r"/>
                         <outlet property="stepSlider" destination="Sp1-EX-TZ1" id="KGk-3G-Kx0"/>
                         <outlet property="titleTextField" destination="zR4-eV-zEJ" id="rKB-YP-mcK"/>
                         <outlet property="trashButton" destination="eb7-qw-sup" id="vLE-gs-lro"/>
-                        <segue destination="tCn-Cm-WDq" kind="presentation" identifier="toLabelSortViewController" id="e37-f1-6O3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDa-A9-hgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -897,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tvn-Fj-DrV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2900" y="1889.6739130434785"/>
+            <point key="canvasLocation" x="1391" y="1919"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9X1-0f-ppQ">
@@ -1070,7 +1048,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xjh-l7-7bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1992.753623188406" y="1889.6739130434785"/>
+            <point key="canvasLocation" x="413" y="1919"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
