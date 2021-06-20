@@ -23,6 +23,7 @@ class LabelSortViewController: UIViewController {
         
         // setup presenter
         self.presenter = LabelSortPresenter(view: self)
+        presenter.viewDidLoad(passedData: passedData)
 
         let leftButton = UIBarButtonItem(title: "閉じる", style: UIBarButtonItem.Style.plain, target: self, action: #selector(onTapCloseButton(_:)))
         self.navigationItem.leftBarButtonItem = leftButton
@@ -30,12 +31,10 @@ class LabelSortViewController: UIViewController {
         // setup tableView
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 80
+        tableView.rowHeight = 60
         
         // 並び替え
         tableView.setEditing(true, animated: true)
-        
-        presenter.viewDidLoad(passedData: passedData)
     }
     
 
@@ -59,18 +58,19 @@ extension LabelSortViewController:LabelSortPresenterOutput{
 
 extension LabelSortViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter.chartLabels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "labelSortCell", for: indexPath)
-        cell.textLabel!.text = "TODO[indexPath.row]"
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.text = presenter.chartLabels[indexPath.row]
         cell.showsReorderControl = true
         return cell
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        print("aaa")
+        presenter.reorderData(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
 }
 

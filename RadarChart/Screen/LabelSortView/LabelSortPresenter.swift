@@ -32,6 +32,10 @@ class LabelSortPresenter : LabelSortPresenterInput{
         groupData = passedData
         view.setChartDataSource()
     }
+    
+    func reorderData(from: Int, to: Int) {
+        print("\(from) から \(to) に移動")
+    }
 }
 
 // Presenterが実装するプロトコル
@@ -41,6 +45,7 @@ protocol LabelSortPresenterInput{
     var chartLabels:[String]{get}
     var radarChartData:RadarChartData{get}
     func viewDidLoad(passedData:ChartGroup)
+    func reorderData(from:Int, to:Int)
 }
 
 // ViewControllerが実装するプロトコル
