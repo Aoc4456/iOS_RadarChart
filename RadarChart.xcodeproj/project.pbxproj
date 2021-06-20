@@ -34,6 +34,7 @@
 		5E8AE3BC263EC45A0049BA71 /* ChartListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */; };
 		5E98012E26400ABE0063BAE4 /* TestChartInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */; };
 		5EA5C9C9265E22ED00A81BEC /* MyUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */; };
+		5EB1ED33267F0547001BCAE9 /* ChartForItemSortScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB1ED32267F0547001BCAE9 /* ChartForItemSortScreen.swift */; };
 		5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C32621C241000D9415 /* GroupListCell.swift */; };
 		5EB3B8C62621C241000D9415 /* GroupListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3B8C42621C241000D9415 /* GroupListCell.xib */; };
 		5ECF4FD0267E00880063BFDF /* LabelSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF4FCF267E00880063BFDF /* LabelSortViewController.swift */; };
@@ -102,6 +103,7 @@
 		5E8AE3BA263EC45A0049BA71 /* ChartListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartListCell.xib; sourceTree = "<group>"; };
 		5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestChartInCell.swift; sourceTree = "<group>"; };
 		5EA5C9C8265E22ED00A81BEC /* MyUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUserDefaults.swift; sourceTree = "<group>"; };
+		5EB1ED32267F0547001BCAE9 /* ChartForItemSortScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartForItemSortScreen.swift; sourceTree = "<group>"; };
 		5EB3B8C32621C241000D9415 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		5EB3B8C42621C241000D9415 /* GroupListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupListCell.xib; sourceTree = "<group>"; };
 		5ECF4FCF267E00880063BFDF /* LabelSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSortViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				5E586FAF263198B50012DDA9 /* ChartForCreateScreen.swift */,
 				5E1C7AF4263C3A93000F7BBB /* ChartForGroupList.swift */,
 				92FB2AF4264BB1C3003258D1 /* ChartForCollectionView.swift */,
+				5EB1ED32267F0547001BCAE9 /* ChartForItemSortScreen.swift */,
 				5E98012D26400ABE0063BAE4 /* TestChartInCell.swift */,
 			);
 			path = Chart;
@@ -716,6 +719,7 @@
 				922FCDE626201C5200569E94 /* SceneDelegate.swift in Sources */,
 				5EB3B8C52621C241000D9415 /* GroupListCell.swift in Sources */,
 				18D783B3264CF1C600CBDDCA /* ChartCommon.swift in Sources */,
+				5EB1ED33267F0547001BCAE9 /* ChartForItemSortScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

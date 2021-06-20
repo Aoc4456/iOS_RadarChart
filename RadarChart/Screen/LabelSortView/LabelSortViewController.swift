@@ -11,6 +11,7 @@ import UIKit
 class LabelSortViewController: UIViewController {
     
     private var presenter:LabelSortPresenterInput!
+    @IBOutlet weak var chartView: ChartForItemSortScreen!
     @IBOutlet weak var tableView: UITableView!
     
     var passedData:ChartGroup!
@@ -33,6 +34,8 @@ class LabelSortViewController: UIViewController {
         
         // 並び替え
         tableView.setEditing(true, animated: true)
+        
+        presenter.viewDidLoad(passedData: passedData)
     }
     
 
@@ -42,7 +45,15 @@ class LabelSortViewController: UIViewController {
 }
 
 extension LabelSortViewController:LabelSortPresenterOutput{
+    func setChartDataSource() {
+        chartView.data = presenter.radarChartData
+        notifyChartDataChanged()
+    }
     
+    func notifyChartDataChanged() {
+        chartView.data?.notifyDataChanged()
+        chartView.notifyDataSetChanged()
+    }
 }
 
 extension LabelSortViewController:UITableViewDataSource{
