@@ -18,6 +18,7 @@ class GroupListViewController: UIViewController {
     @IBOutlet weak var toSortButton: UIBarButtonItem!
     
     private var dataPassedToGroupEdit : ChartGroup? = nil
+    private var dataPassedToLabelSort : ChartGroup? = nil
     private var dataPassedToChartList : ChartGroup? = nil
     
     override func viewDidLoad() {
@@ -53,6 +54,16 @@ class GroupListViewController: UIViewController {
                 nextVC?.passedData = dataPassedToGroupEdit
             }
             dataPassedToGroupEdit = nil
+        }
+        
+        // 項目名並び替え画面への遷移
+        if(segue.identifier == "toLabelSortViewController"){
+            if(dataPassedToLabelSort != nil){
+                let nextNaviVC = segue.destination as? UINavigationController
+                let nextVC = nextNaviVC?.topViewController as? LabelSortViewController
+                nextVC?.passedData = dataPassedToLabelSort
+            }
+            dataPassedToLabelSort = nil
         }
 
         // チャート一覧画面への遷移
@@ -91,11 +102,13 @@ extension GroupListViewController:GroupListPresenterOutput{
     }
     
     func goToGroupEditViewController(chartGroup: ChartGroup) {
-        print("編集画面へ遷移します")
+        dataPassedToGroupEdit = chartGroup
+        performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
     }
     
     func goToLabelSortViewController(chartGroup: ChartGroup) {
-        print("項目ソート画面へ遷移します")
+        dataPassedToLabelSort = chartGroup
+        performSegue(withIdentifier: "toLabelSortViewController", sender: nil)
     }
 }
 

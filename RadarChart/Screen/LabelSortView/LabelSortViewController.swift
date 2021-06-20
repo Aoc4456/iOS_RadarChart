@@ -13,8 +13,12 @@ class LabelSortViewController: UIViewController {
     private var presenter:LabelSortPresenterInput!
     @IBOutlet weak var tableView: UITableView!
     
+    var passedData:ChartGroup!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("もらいました\(passedData.description)")
         
         // setup presenter
         self.presenter = LabelSortPresenter(view: self)
