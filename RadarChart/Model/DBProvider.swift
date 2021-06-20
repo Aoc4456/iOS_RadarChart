@@ -113,6 +113,7 @@ class DBProvider{
         }
     }
     
+    // グループの並び替え
     func reorderRate(groups:Array<ChartGroup>){
         db.beginWrite()
         for i in 0..<groups.count{
@@ -122,6 +123,23 @@ class DBProvider{
         try! db.commitWrite()
     }
     
+    // 項目名の並び替え
+    func reorderLabels(group:ChartGroup,from:Int,to:Int){
+        // 1.グループの labels:[String] を入れ替え
+        db.beginWrite()
+        let moveLabel = group.labels[from]
+        group.labels.remove(at: from)
+        group.labels.insert(moveLabel, at: to)
+        
+        // 2.各チャートの values:[Double] を入れ替え
+        group.charts.forEach{
+            let chart = $0
+            let moveValue = chart.values[from]
+            chart.values.remove(at: from)
+            chart.values.insert(moveValue, at: to)
+        }
+        try! db.commitWrite()
+    }
     
     //
     // チャートテーブル操作関数

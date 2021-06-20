@@ -34,7 +34,12 @@ class LabelSortPresenter : LabelSortPresenterInput{
     }
     
     func reorderData(from: Int, to: Int) {
-        print("\(from) から \(to) に移動")
+        // 1.データベースを書き換える
+        DBProvider.sharedInstance.reorderLabels(group: groupData, from: from, to: to)
+        // 2.groupDataをデータベースから再取得する
+        groupData = DBProvider.sharedInstance.getGroup(id: groupData.id)
+        // 3.チャートとリストを更新する
+        view.notifyChartDataChanged()
     }
 }
 
