@@ -31,9 +31,6 @@ class GroupListViewController: UIViewController {
         
         // setup tableView
         tableView.register(UINib(nibName: "GroupListCell", bundle: nil), forCellReuseIdentifier: "customCell")
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(cellLongPressed))
-        longPressRecognizer.delegate = self
-        tableView.addGestureRecognizer(longPressRecognizer)
         tableView.rowHeight = 80
         
         // レビュー訴求
@@ -95,12 +92,6 @@ extension GroupListViewController:GroupListPresenterOutput{
         tableView.reloadData()
     }
     
-    func showCellLongPressedActionSheet(alert: UIAlertController, rect: CGRect) {
-        alert.popoverPresentationController?.sourceView = tableView
-        alert.popoverPresentationController?.sourceRect = rect
-        present(alert, animated: true)
-    }
-    
     func goToGroupEditViewController(chartGroup: ChartGroup) {
         dataPassedToGroupEdit = chartGroup
         performSegue(withIdentifier: "toGroupCreateViewController", sender: nil)
@@ -116,6 +107,12 @@ extension GroupListViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataPassedToChartList = presenter.dataList[indexPath.row]
         performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            return self.presenter.makeContextMenu(index: indexPath.row)
+        })
     }
 }
 
@@ -149,18 +146,5 @@ extension GroupListViewController:UITableViewDataSource{
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         dataPassedToChartList = presenter.dataList[indexPath!.row]
         performSegue(withIdentifier: "toChartCollectionViewController", sender: nil)
-    }
-}
-
-extension GroupListViewController:UIGestureRecognizerDelegate{
-    @objc func cellLongPressed(recognizer: UILongPressGestureRecognizer){
-        if(recognizer.state == .began){
-            let point = recognizer.location(in: tableView)
-            let indexPath = tableView.indexPathForRow(at: point)
-            if(indexPath != nil){
-                let cellRect = tableView.cellForRow(at: indexPath!)!.frame
-                presenter.onCellLongPressed(index: indexPath!.row,rect: cellRect)
-            }
-        }
     }
 }

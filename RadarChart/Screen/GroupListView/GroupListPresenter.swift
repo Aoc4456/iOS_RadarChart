@@ -43,24 +43,15 @@ class GroupListPresenter:GroupListPresenterInput{
         }
     }
     
-    func onCellLongPressed(index: Int, rect: CGRect) {
+    func makeContextMenu(index: Int) -> UIMenu {
         let data = dataList[index]
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "グループ編集", style: .default, handler: {
-            action in
+        let groupEdit = UIAction(title: "グループ編集", image: UIImage(systemName: "pencil")) { action in
             self.view.goToGroupEditViewController(chartGroup: data)
-        }))
-        alert.addAction(UIAlertAction(title: "項目名の並び替え", style: .default, handler: {
-            action in
+        }
+        let sort = UIAction(title: "項目名の並び替え", image: UIImage(systemName: "arrow.up.arrow.down.square")) { action in
             self.view.goToLabelSortViewController(chartGroup: data)
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: {
-            action in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        view.showCellLongPressedActionSheet(alert: alert,rect:rect)
+        }
+        return UIMenu(title: "編集", children: [groupEdit, sort])
     }
 }
 
@@ -72,14 +63,13 @@ protocol GroupListPresenterInput {
     var iconImageMap:[Int:UIImage]{get}
     var isEnableSortButton:Bool{get}
     func fetchDataFromDatabase()
-    func onCellLongPressed(index : Int, rect : CGRect)
+    func makeContextMenu(index:Int) -> UIMenu
 }
 
 // ViewControllerが実装するプロトコル
 // Presenterから呼び出されるインターフェースを定義する
 protocol GroupListPresenterOutput:AnyObject {
     func reloadTableView()
-    func showCellLongPressedActionSheet(alert:UIAlertController,rect:CGRect)
     func goToGroupEditViewController(chartGroup:ChartGroup)
     func goToLabelSortViewController(chartGroup:ChartGroup)
 }
