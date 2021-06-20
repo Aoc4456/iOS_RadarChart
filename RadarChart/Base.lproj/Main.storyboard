@@ -859,20 +859,20 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J68-Lt-uE1" customClass="ChartForItemSortScreen" customModule="RadarChart" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="43.999999999999986" width="414" height="207.66666666666663"/>
+                                <rect key="frame" x="0.0" y="53.999999999999986" width="414" height="207.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FIE-TB-ukn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="J68-Lt-uE1" firstAttribute="top" secondItem="FIE-TB-ukn" secondAttribute="top" id="7Yg-CQ-pgZ"/>
+                            <constraint firstItem="J68-Lt-uE1" firstAttribute="top" secondItem="FIE-TB-ukn" secondAttribute="top" constant="10" id="7Yg-CQ-pgZ"/>
                             <constraint firstItem="FIE-TB-ukn" firstAttribute="trailing" secondItem="wkH-dY-gcN" secondAttribute="trailing" constant="10" id="90s-oA-8nn"/>
                             <constraint firstItem="J68-Lt-uE1" firstAttribute="height" secondItem="FIE-TB-ukn" secondAttribute="height" multiplier="0.3" id="IR1-YS-3aN"/>
                             <constraint firstItem="J68-Lt-uE1" firstAttribute="leading" secondItem="FIE-TB-ukn" secondAttribute="leading" id="NaM-xY-278"/>
                             <constraint firstItem="FIE-TB-ukn" firstAttribute="bottom" secondItem="wkH-dY-gcN" secondAttribute="bottom" id="Tvb-rU-BGb"/>
                             <constraint firstItem="wkH-dY-gcN" firstAttribute="leading" secondItem="FIE-TB-ukn" secondAttribute="leading" constant="10" id="VvB-xj-Ytq"/>
-                            <constraint firstItem="wkH-dY-gcN" firstAttribute="top" secondItem="J68-Lt-uE1" secondAttribute="bottom" constant="10" id="bGv-5r-ped"/>
+                            <constraint firstItem="wkH-dY-gcN" firstAttribute="top" secondItem="J68-Lt-uE1" secondAttribute="bottom" id="bGv-5r-ped"/>
                             <constraint firstItem="FIE-TB-ukn" firstAttribute="trailing" secondItem="J68-Lt-uE1" secondAttribute="trailing" id="dQP-yC-I2B"/>
                         </constraints>
                     </view>

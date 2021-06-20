@@ -47,6 +47,7 @@ class LabelSortViewController: UIViewController {
 extension LabelSortViewController:LabelSortPresenterOutput{
     func setChartDataSource() {
         chartView.data = presenter.radarChartData
+        (chartView.xAxis.valueFormatter as! RowXAxisFormatter).setLabel(labels: presenter.chartLabels)
         notifyChartDataChanged()
     }
     

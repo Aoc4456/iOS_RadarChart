@@ -18,6 +18,11 @@ class LabelSortPresenter : LabelSortPresenterInput{
             return MyChartUtil.getSampleChartData(color: groupData.color.toUIColor(), numberOfItems: groupData.labels.count)
         }
     }
+    var chartLabels : [String]{
+        get{
+            return Array(groupData.labels)
+        }
+    }
     
     init(view:LabelSortPresenterOutput) {
         self.view = view
@@ -33,6 +38,7 @@ class LabelSortPresenter : LabelSortPresenterInput{
 // Viewから呼び出されるインターフェースを定義する
 protocol LabelSortPresenterInput{
     var groupData:ChartGroup!{get}
+    var chartLabels:[String]{get}
     var radarChartData:RadarChartData{get}
     func viewDidLoad(passedData:ChartGroup)
 }
