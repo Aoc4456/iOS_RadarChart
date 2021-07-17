@@ -20,7 +20,9 @@ class LabelSortPresenter : LabelSortPresenterInput{
     }
     var chartLabels : [String]{
         get{
-            return Array(groupData.labels)
+            var temporalyLabels = Array(groupData.labels)
+            temporalyLabels.append("") // これがないとクラッシュする (ライブラリのバグ)
+            return temporalyLabels
         }
     }
     
