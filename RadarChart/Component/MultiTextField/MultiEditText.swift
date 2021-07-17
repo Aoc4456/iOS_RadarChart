@@ -13,7 +13,6 @@ class MultiEditText: UIStackView,UITextFieldDelegate {
     private var viewController:MultiEditTextOutput?
     private var numberOfItems = 5
     private var textFieldArray:[UITextField] = []
-    private var textValueArray:[String] = []
     private let tagConstant = 32793
     
     required init(coder: NSCoder) {
