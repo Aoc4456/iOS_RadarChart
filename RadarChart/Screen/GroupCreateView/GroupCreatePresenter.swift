@@ -176,6 +176,9 @@ class GroupCreatePresenter:GroupCreatePresenterInput{
         if(axisMaximum == 0){
             return "グラフの最大値が不正です"
         }
+        if(axisMaximum > 2147483640){
+            return "グラフの最大値が大きすぎます"
+        }
         for i in 0..<chartLabels.count{
             if(chartLabels[i] == ""){
                 return "項目名が空です"
